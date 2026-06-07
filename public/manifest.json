@@ -1,0 +1,16 @@
+{
+  "name": "LEVEL UP — The PLL System",
+  "short_name": "LEVEL UP",
+  "description": "Your Prime Level Living AI Training Engine",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060608",
+  "theme_color": "#00C2FF",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}
