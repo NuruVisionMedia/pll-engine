@@ -738,7 +738,7 @@ saveProfile({answers:newAnswers});
 try{
 const name=profile?.firstName||profile?.username||"Athlete";
 const prompt=PILLARS[pillar].prompt(answers,name,week);
-const res=await fetch("https://api.anthropic.com/v1/messages",{
+const res=await fetch("/api/generate",{
 method:"POST",
 headers:{"Content-Type":"application/json","anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},
 body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:1000,messages:[{role:"user",content:prompt}]})
