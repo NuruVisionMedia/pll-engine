@@ -1,39 +1,3 @@
-import { useState, useEffect, useRef } from "react";
-
-const B="#00C2FF",O="#FF6B2B",P="#A855F7",G="#00FF88",BG="#060608",CD="#0C0C14",BR="#16162A";
-
-// ── STORAGE ──────────────────────────────────────────────────────────────────
-const Store = {
-save: (key, val) => { try { localStorage.setItem("pll_"+key, JSON.stringify(val)); } catch(e){} },
-load: (key) => { try { const v=localStorage.getItem("pll_"+key); return v?JSON.parse(v):null; } catch(e){ return null; } },
-del: (key) => { try { localStorage.removeItem("pll_"+key); } catch(e){} }
-};
-
-// ── WEEK CONFIG ───────────────────────────────────────────────────────────────
-const WEEKS = {
-1: {
-label: "WEEK 1 — THE NEW SYSTEM",
-theme: "Foundation. New habits. New identity begins.",
-mantra: "Every champion was once a beginner who refused to quit. This is Day 1 of the rest of your life.",
-coachOpen: (name) => `${name}, welcome to Phase 1. This week is about one thing — building the system. Don't focus on perfection. Focus on showing up. Let's go.`,
-coachClose: (name) => `${name}, Week 1 is DONE. You showed up every single day. That's what separates the ones who make it. Rest up — Week 2 is where we turn the heat up.`,
-intensity: "Foundation",
-repRange: "12-15 reps",
-sets: "3 sets",
-load: "Light to moderate — focus on form"
-},
-2: {
-label: "WEEK 2 — THE PROGRESSION",
-theme: "Intensity increases. Habits solidify. Halfway there.",
-mantra: "You've already done what most people won't. Now let's do what most people can't.",
-coachOpen: (name) => `${name}, you made it to Week 2. That already puts you ahead of 80% of people who start. This week we push harder — more weight, more intensity, no excuses.`,
-coachClose: (name) => `${name}, TWO WEEKS DOWN. Halfway through Phase 1 and you're already not the same person who started. One more week. The final push. This is where legends are made.`,
-intensity: "Progressive",
-repRange: "8-12 reps",
-sets: "4 sets",
-load: "Increase weight 10-15% from Week 1"
-},
-3: {
 label: "WEEK 3 — THE SEPARATION",
 theme: "Final push. New self is locking in. No turning back.",
 mantra: "The old you is gone. The new system is locked. Finish what you started.",
