@@ -1,39 +1,3 @@
-label: "WEEK 3 — THE SEPARATION",
-theme: "Final push. New self is locking in. No turning back.",
-mantra: "The old you is gone. The new system is locked. Finish what you started.",
-coachOpen: (name) => `${name}, this is it. Week 3. The final separation from who you were. Most people quit before they get here. You didn't. Now finish it.`,
-coachClose: (name) => `${name}... 21 DAYS. DONE. You are not the same person who opened this app 3 weeks ago. Phase 1 is complete. You've earned what comes next. Welcome to Phase 2.`,
-intensity: "Peak",
-repRange: "6-10 reps",
-sets: "4-5 sets",
-load: "Increase weight 15-20% from Week 2. Maximum effort."
-}
-};
-
-// ── CSS ───────────────────────────────────────────────────────────────────────
-const CSS = `
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-*{box-sizing:border-box;margin:0;padding:0;}
-html,body{background:${BG};font-family:'Space Grotesk',sans-serif;-webkit-font-smoothing:antialiased;}
-::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-thumb{background:${B}33;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
-@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-@keyframes breatheB{0%,100%{filter:drop-shadow(0 0 16px ${B}44);}50%{filter:drop-shadow(0 0 32px ${B}88);}}
-@keyframes breatheO{0%,100%{filter:drop-shadow(0 0 16px ${O}44);}50%{filter:drop-shadow(0 0 32px ${O}88);}}
-@keyframes breatheP{0%,100%{filter:drop-shadow(0 0 16px ${P}44);}50%{filter:drop-shadow(0 0 32px ${P}88);}}
-@keyframes spin{to{transform:rotate(360deg);}}
-@keyframes scan{0%{transform:translateY(-100%);}100%{transform:translateY(600%);}}
-@keyframes rim{0%,100%{opacity:.4;}50%{opacity:.9;}}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 ${B}44;}50%{box-shadow:0 0 0 8px ${B}00;}}
-@keyframes celebrate{0%{transform:scale(1);}50%{transform:scale(1.05);}100%{transform:scale(1);}}
-.chip{background:#0A0A14;border:1px solid #1E1E30;color:#777;padding:10px 18px;border-radius:40px;cursor:pointer;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:500;transition:all .18s;}
-.chip:hover,.chip.on{border-color:var(--c,${B});color:var(--c,${B});background:var(--cb,${B}11);}
-.inp{background:#0A0A12;border:1px solid #1E1E30;color:#E8E8F0;padding:13px 16px;border-radius:8px;width:100%;font-family:'Space Grotesk',sans-serif;font-size:14px;outline:none;transition:border-color .2s;}
-.inp:focus{border-color:${B}88;}
-.inp[type="password"]{letter-spacing:3px;}
-.pbtn{border:none;padding:14px 32px;border-radius:8px;cursor:pointer;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;transition:all .2s;width:100%;}
-.pbtn:hover:not(:disabled){filter:brightness(1.12);transform:translateY(-2px);}
-.pbtn:disabled{opacity:.4;cursor:not-allowed;}
 .gbtn{background:transparent;color:#444;border:1px solid #1E1E30;padding:8px 16px;border-radius:6px;cursor:pointer;font-family:'Space Grotesk',sans-serif;font-size:12px;transition:all .18s;}
 .gbtn:hover{color:#888;border-color:#333;}
 .dtab{background:#0C0C14;border:1px solid #1E1E30;color:#555;padding:8px 14px;border-radius:6px;cursor:pointer;font-family:'Bebas Neue',cursive;font-size:14px;letter-spacing:2px;transition:all .18s;}
