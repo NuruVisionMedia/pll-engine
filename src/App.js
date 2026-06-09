@@ -1,39 +1,3 @@
-.gbtn{background:transparent;color:#444;border:1px solid #1E1E30;padding:8px 16px;border-radius:6px;cursor:pointer;font-family:'Space Grotesk',sans-serif;font-size:12px;transition:all .18s;}
-.gbtn:hover{color:#888;border-color:#333;}
-.dtab{background:#0C0C14;border:1px solid #1E1E30;color:#555;padding:8px 14px;border-radius:6px;cursor:pointer;font-family:'Bebas Neue',cursive;font-size:14px;letter-spacing:2px;transition:all .18s;}
-.dtab.on{color:#000;}
-.btab{background:#0C0C14;border:1px solid #1E1E30;color:#555;padding:7px 12px;border-radius:6px;cursor:pointer;font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;transition:all .18s;}
-.btab.on{color:#fff;}
-.week-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:2px;}
-`;
-
-// ── AVATAR ────────────────────────────────────────────────────────────────────
-function Avatar({size=200,pillar="TRAIN"}){
-const ac=pillar==="TRAIN"?B:pillar==="FUEL"?O:P;
-const an=pillar==="TRAIN"?"breatheB":pillar==="FUEL"?"breatheO":"breatheP";
-return(
-<svg width={size} height={size*1.45} viewBox="0 0 220 320" fill="none" style={{animation:`${an} 4s ease-in-out infinite`,flexShrink:0}}>
-<defs>
-<linearGradient id={`sk${pillar}`} x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#8B5A3C"/><stop offset="60%" stopColor="#7A4F35"/><stop offset="100%" stopColor="#5C3820"/></linearGradient>
-<linearGradient id={`sh${pillar}`} x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#5C3820"/><stop offset="100%" stopColor="#3D2414"/></linearGradient>
-<linearGradient id={`st${pillar}`} x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stopColor="#0F0F1A"/><stop offset="100%" stopColor="#080810"/></linearGradient>
-<radialGradient id={`glow${pillar}`} cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor={ac} stopOpacity="0.15"/><stop offset="100%" stopColor={ac} stopOpacity="0"/></radialGradient>
-</defs>
-<ellipse cx="110" cy="316" rx="62" ry="7" fill={`url(#glow${pillar})`}/>
-{/* Legs */}
-<path d="M85 205 C82 228 80 254 81 280 C82 292 87 297 91 297 C95 297 97 292 97 282 C97 260 96 234 95 213Z" fill={`url(#sk${pillar})`}/>
-<path d="M125 205 C128 228 130 254 129 280 C128 292 123 297 119 297 C115 297 113 292 114 282 C114 260 115 234 115 213Z" fill={`url(#sk${pillar})`}/>
-<ellipse cx="89" cy="246" rx="7" ry="5" fill="#6A3D25" opacity=".6"/>
-<ellipse cx="121" cy="246" rx="7" ry="5" fill="#6A3D25" opacity=".6"/>
-{/* Shorts */}
-<path d="M73 174 C71 188 73 202 77 209 C82 216 87 218 91 218 C95 218 97 213 98 208 L110 208 L122 208 C123 213 125 218 129 218 C133 218 138 216 143 209 C147 202 149 188 147 174Z" fill={`url(#st${pillar})`}/>
-<rect x="72" y="171" width="76" height="7" rx="2" fill="#0A0A14"/>
-<rect x="72" y="174" width="3" height="36" rx="1" fill={ac} opacity=".2"/>
-<rect x="145" y="174" width="3" height="36" rx="1" fill={ac} opacity=".2"/>
-{/* Torso */}
-<path d="M74 116 C67 132 67 152 69 172 L151 172 C153 152 153 132 146 116 C139 106 126 101 110 101 C94 101 81 106 74 116Z" fill={`url(#sk${pillar})`}/>
-<path d="M74 116 C69 132 69 152 71 172" stroke="#3D2414" strokeWidth="6" strokeOpacity=".5" fill="none" strokeLinecap="round"/>
-<path d="M146 116 C151 132 151 152 149 172" stroke="#3D2414" strokeWidth="6" strokeOpacity=".5" fill="none" strokeLinecap="round"/>
 {/* Pecs */}
 <path d="M79 116 C79 125 84 135 94 137 C101 138 108 135 110 130 C108 123 102 115 92 113 C86 112 79 113 79 116Z" fill="#A06840" opacity=".55"/>
 <path d="M141 116 C141 125 136 135 126 137 C119 138 112 135 110 130 C112 123 118 115 128 113 C134 112 141 113 141 116Z" fill="#A06840" opacity=".48"/>
