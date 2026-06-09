@@ -307,7 +307,7 @@ function ExerciseVideo({ exerciseName }) {
        }}
        onMouseEnter={e => e.currentTarget.style.borderColor = B}
        onMouseLeave={e => e.currentTarget.style.borderColor = BR}
-
+>
        <iframe
          src={videoUrl}
          width="100%" height="100%"
