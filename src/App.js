@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from "react";
+
 // --- COLORS ---
 const B = "#00C2FF", O = "#FF6B2B", P = "#A855F7", G = "#00FF88", BG = "#F8F9FA", CD = "#1A1A2E", BR = "#E2E8F0";
 const TEXT_PRIMARY = "#0F172A", TEXT_SECONDARY = "#475569", TEXT_LIGHT = "#94A3B8";
@@ -1089,7 +1091,7 @@ if (screen === "login") {
        ) : (
          <>
            {[
-               { label: "First Name", key: "firstName", type: "text" },
+             { label: "First Name", key: "firstName", type: "text" },
              { label: "Username", key: "username", type: "text" },
              { label: "Email Address", key: "email", type: "email" },
              { label: "Password", key: "password", type: "password" }
