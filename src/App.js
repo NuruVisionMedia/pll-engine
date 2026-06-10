@@ -330,7 +330,7 @@ onMouseLeave={e => e.currentTarget.style.borderColor = BR}
        </div>
      </div>
 
-     {expanded && (
+     {expanded && <>
        <div
          onClick={() => setExpanded(false)}
          style={{
@@ -364,9 +364,9 @@ onMouseLeave={e => e.currentTarget.style.borderColor = BR}
            </p>
          </div>
        </div>
-     )}
+     }} → }
    </>
- );
+ ;
 }
 
 // --- COACH MESSAGE COMPONENT ---
