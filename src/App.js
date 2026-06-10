@@ -347,7 +347,7 @@ onMouseLeave={e => e.currentTarget.style.borderColor = BR}
                background: "white", border: "none", borderRadius: "50%",
                width: "32px", height: "32px", cursor: "pointer",
                fontSize: "16px", fontWeight: "bold"
-             }}
+             }}>
 X</button>
            <div style={{ borderRadius: "12px", overflow: "hidden", aspectRatio: "16/9" }}>
              <iframe
