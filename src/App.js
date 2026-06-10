@@ -314,7 +314,7 @@ return (
      }}
      onMouseEnter={e => e.currentTarget.style.borderColor = B}
      onMouseLeave={e => e.currentTarget.style.borderColor = BR}
-
+   >
      <iframe
        src={videoUrl}
        width="100%" height="100%"
@@ -345,7 +345,7 @@ return (
          display: "flex", alignItems: "center", justifyContent: "center",
          zIndex: 9999, padding: "20px"
        }}
-
+     >
        <div style={{ width: "100%", maxWidth: "800px", position: "relative" }}>
          <button
            onClick={(e) => { e.stopPropagation(); setExpanded(false); }}
@@ -355,7 +355,7 @@ return (
              width: "32px", height: "32px", cursor: "pointer",
              fontSize: "16px", fontWeight: "bold"
            }}
-
+         >
            X
          </button>
          <div style={{ borderRadius: "12px", overflow: "hidden", aspectRatio: "16/9" }}>
