@@ -306,9 +306,9 @@ function ExerciseVideo({ exerciseName }) {
          border: `2px solid ${BR}`, transition: "border-color 0.2s"
        }}
        onMouseEnter={e => e.currentTarget.style.borderColor = B}
-       onMouseLeave={e => e.currentTarget.style.borderColor = BR}
+onMouseLeave={e => e.currentTarget.style.borderColor = BR}
 >
-       <iframe
+<iframe
          src={videoUrl}
          width="100%" height="100%"
          style={{ border: "none", pointerEvents: "none" }}
@@ -325,7 +325,7 @@ function ExerciseVideo({ exerciseName }) {
            background: "rgba(255,255,255,0.9)", display: "flex",
            alignItems: "center", justifyContent: "center"
          }}>
-           <span style={{ fontSize: "16px", marginLeft: "3px" }}>▶</span>
+           <span style={{ fontSize: "16px", marginLeft: "3px" }}>&#9654;</span>
          </div>
        </div>
      </div>
