@@ -348,7 +348,7 @@ onMouseLeave={e => e.currentTarget.style.borderColor = BR}
                width: "32px", height: "32px", cursor: "pointer",
                fontSize: "16px", fontWeight: "bold"
              }}
-✕</button>
+X</button>
            <div style={{ borderRadius: "12px", overflow: "hidden", aspectRatio: "16/9" }}>
              <iframe
                src={videoUrl + "?autoplay=1"}
