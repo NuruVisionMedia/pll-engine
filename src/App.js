@@ -1,4 +1,4 @@
-mport React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 // --- COLORS ---
 const B = "#00C2FF", O = "#FF6B2B", P = "#A855F7", G = "#00FF88", BG = "#F8F9FA", CD = "#1A1A2E", BR = "#E2E8F0";
