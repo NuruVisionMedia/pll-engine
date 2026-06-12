@@ -708,7 +708,7 @@ return (
        <div style={{ marginBottom: "28px" }}>
          {data.affirmations.map((aff, i) => (
            <div key={i} style={{ background: CARD_BG, borderRadius: "10px", padding: "14px 18px", marginBottom: "10px", border: `1px solid ${BR}`, display: "flex", alignItems: "center", gap: "12px" }}>
-             <span style={{ fontSize: "18px" }}></span>
+             <span style={{ fontSize: "18px" }}>*</span>
              <p style={{ margin: 0, fontSize: "14px", color: TEXT_PRIMARY, fontStyle: "italic", fontWeight: "600" }}>"{aff}"</p>
            </div>
          ))}
@@ -729,7 +729,7 @@ return (
          </div>
          {data.sleepProtocol.practices?.map((practice, i) => (
            <div key={i} style={{ display: "flex", gap: "10px", alignItems: "center", padding: "8px 0", borderBottom: `1px solid ${BR}` }}>
-             <span style={{ color: P, fontSize: "16px" }}></span>
+             <span style={{ color: P, fontSize: "16px" }}>~</span>
              <span style={{ fontSize: "14px", color: TEXT_SECONDARY }}>{practice}</span>
            </div>
          ))}
@@ -1057,7 +1057,7 @@ return (
     display: "flex", alignItems: "center", justifyContent: "center", padding: "20px"
   }}>
     <div style={{ textAlign: "center", maxWidth: "500px" }}>
-      <div style={{ fontSize: "60px", marginBottom: "16px" }}></div>
+      <div style={{ fontSize: "60px", marginBottom: "16px" }}>**</div>
       <h1 style={{ fontSize: "36px", fontWeight: "900", color: "white", margin: "0 0 16px", letterSpacing: "-1px" }}>WEEK {week} DONE, {name.toUpperCase()}!</h1>
       <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.7)", lineHeight: "1.6", marginBottom: "32px" }}>
         {WEEKS[week]?.coachClose(name) || `${name}, you completed all 3 pillars this week. That's elite.`}
@@ -1141,7 +1141,7 @@ return (
         <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
           {["TRAIN", "FUEL", "FOCUS"].map(p => (
             <span key={p} style={{ fontSize: "11px", fontWeight: "700", color: completedPillars.includes(p) ? PILLARS[p].color : TEXT_LIGHT }}>
-              W{week} {completedPillars.includes(p) ? "" : ""}
+              W{week} {completedPillars.includes(p) ? "[x]" : "[ ]"}
             </span>
           ))}
           <span style={{ fontSize: "12px", fontWeight: "800", color: progressPct === 100 ? G : TEXT_PRIMARY }}>{progressPct}%</span>
@@ -1192,7 +1192,7 @@ return (
 
     {st.phase === "error" && (
       <div style={{ textAlign: "center", padding: "60px 20px" }}>
-        <div style={{ fontSize: "40px", marginBottom: "16px" }}></div>
+        <div style={{ fontSize: "40px", marginBottom: "16px" }}>(!)</div>
         <div style={{ fontWeight: "800", fontSize: "20px", color: "#FF4444", marginBottom: "8px" }}>SYSTEM ERROR</div>
         <div style={{ fontSize: "14px", color: TEXT_SECONDARY, marginBottom: "24px" }}>Something went wrong. Let's try again.</div>
         <button onClick={() => upd(activePillar, { phase: "intake" })} style={{
