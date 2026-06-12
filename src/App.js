@@ -15,27 +15,27 @@ del: (key) => { try { localStorage.removeItem("pll_"+key); } catch(e){} }
 // --- WEEK CONFIG ---
 const WEEKS = {
 1: {
- label: "WEEK 1 — THE NEW SYSTEM",
+ label: "WEEK 1 -- THE NEW SYSTEM",
  theme: "Foundation. New habits. New identity begins.",
  mantra: "Every champion was once a beginner who refused to quit. This is Day 1 of the rest of your life.",
- coachOpen: (name) => `${name}, welcome to Phase 1. This week is about one thing — building the system. Don't focus on perfection. Focus on showing up. Let's go.`,
- coachClose: (name) => `${name}, Week 1 is DONE. You showed up every single day. That's what separates the ones who make it. Rest up — Week 2 is where we turn the heat up.`,
- intensity: "Foundation", repRange: "12-15 reps", sets: "3 sets", load: "Light to moderate — focus on form"
+ coachOpen: (name) => `${name}, welcome to Phase 1. This week is about one thing -- building the system. Don't focus on perfection. Focus on showing up. Let's go.`,
+ coachClose: (name) => `${name}, Week 1 is DONE. You showed up every single day. That's what separates the ones who make it. Rest up -- Week 2 is where we turn the heat up.`,
+ intensity: "Foundation", repRange: "12-15 reps", sets: "3 sets", load: "Light to moderate -- focus on form"
 },
 2: {
- label: "WEEK 2 — THE PROGRESSION",
+ label: "WEEK 2 -- THE PROGRESSION",
  theme: "Intensity increases. Habits solidify. Halfway there.",
  mantra: "You've already done what most people won't. Now let's do what most people can't.",
- coachOpen: (name) => `${name}, you made it to Week 2. That already puts you ahead of 80% of people who start. This week we push harder — more weight, more intensity. Show up.`,
+ coachOpen: (name) => `${name}, you made it to Week 2. That already puts you ahead of 80% of people who start. This week we push harder -- more weight, more intensity. Show up.`,
  coachClose: (name) => `${name}, TWO WEEKS DOWN. Halfway through Phase 1 and you're already not the same person who started. One more week. The final push. The Separation.`,
  intensity: "Progressive", repRange: "8-12 reps", sets: "4 sets", load: "Increase weight 10-15% from Week 1"
 },
 3: {
- label: "WEEK 3 — THE SEPARATION",
+ label: "WEEK 3 -- THE SEPARATION",
  theme: "This is where champions are made. Most quit. You won't.",
  mantra: "Week 3 is where your identity changes forever. You are no longer who you were.",
  coachOpen: (name) => `${name}, this is THE week. The separation happens right here. Everyone starts. Almost nobody finishes. You're going to finish. Let's make history.`,
- coachClose: (name) => `${name}, PHASE 1 COMPLETE. You did what most people only talk about. You are Prime Level now. Phase 2 is waiting — are you ready to go elite?`,
+ coachClose: (name) => `${name}, PHASE 1 COMPLETE. You did what most people only talk about. You are Prime Level now. Phase 2 is waiting -- are you ready to go elite?`,
  intensity: "Peak", repRange: "6-10 reps", sets: "4-5 sets", load: "Maximum sustainable load"
 }
 };
@@ -96,7 +96,7 @@ return null;
 // --- PILLARS CONFIG ---
 const PILLARS = {
 TRAIN: {
-color: B, icon: "⚡", label: "TRAIN",
+color: B, icon: "fuel", label: "TRAIN",
 subtitle: "WORKOUT BLUEPRINT GENERATOR",
 prompt: (answers, name, week, gender, ageRange) => {
   const w = WEEKS[week];
@@ -147,7 +147,7 @@ Return ONLY valid JSON in this exact format:
 }
 },
 FUEL: {
-color: O, icon: "🔥", label: "FUEL",
+color: O, icon: "[F]", label: "FUEL",
 subtitle: "SUPPLEMENT & NUTRITION STACK",
 prompt: (answers, name, week, gender, ageRange) => {
   const w = WEEKS[week];
@@ -201,11 +201,11 @@ Return ONLY valid JSON in this exact format:
 }
 },
 FOCUS: {
-color: P, icon: "🧠", label: "FOCUS",
+color: P, icon: "focus", label: "FOCUS",
 subtitle: "MINDSET & MENTAL PERFORMANCE",
 prompt: (answers, name, week, gender, ageRange) => {
   const w = WEEKS[week];
-  const ageNote = ageRange === "18-24" ? "High neuroplasticity window. Build strong mental habits and sleep discipline now — they compound for decades." :
+  const ageNote = ageRange === "18-24" ? "High neuroplasticity window. Build strong mental habits and sleep discipline now -- they compound for decades." :
     ageRange === "25-34" ? "Stress resilience and peak output focus. Build systems that perform under pressure." :
     ageRange === "35-44" ? "Stress management is as important as performance. Recovery mindset and work-life integration." :
     ageRange === "45-54" ? "Cognitive clarity and emotional regulation. Purpose-driven motivation practices." :
@@ -285,22 +285,22 @@ FOCUS: [
 const STORE_URL = "https://zs0r6d-2x.myshopify.com";
 const STORE_COLLECTIONS = {
  TRAIN: {
-   handle: "train", color: B, icon: "🏋️",
+   handle: "train", color: B, icon: "lifting",
    headline: (name, week) => `${name}, your Week ${week} TRAIN stack is ready.`,
-   subline: "The right gear and supplements matched to your training profile — delivered.",
-   cta: "Get Your TRAIN Stack →",
+   subline: "The right gear and supplements matched to your training profile -- delivered.",
+   cta: "Get Your TRAIN Stack ->",
  },
  FUEL: {
-   handle: "fuel", color: O, icon: "⚡",
+   handle: "fuel", color: O, icon: "fuel",
    headline: (name, week) => `${name}, your Week ${week} FUEL stack is ready.`,
-   subline: "Supplements and nutrition tools matched to your goals — ready to order.",
-   cta: "Get Your FUEL Stack →",
+   subline: "Supplements and nutrition tools matched to your goals -- ready to order.",
+   cta: "Get Your FUEL Stack ->",
  },
  FOCUS: {
-   handle: "focus", color: P, icon: "🧠",
+   handle: "focus", color: P, icon: "focus",
    headline: (name, week) => `${name}, your Week ${week} FOCUS stack is ready.`,
-   subline: "Mindset tools and recovery products dialed to your program — shop now.",
-   cta: "Get Your FOCUS Stack →",
+   subline: "Mindset tools and recovery products dialed to your program -- shop now.",
+   cta: "Get Your FOCUS Stack ->",
  },
 };
 
@@ -331,7 +331,7 @@ function StoreBridge({ pillar, pillarStates, profile, week, dismissed, onDismiss
        position: "absolute", top: "12px", right: "14px", background: "none",
        border: "none", cursor: "pointer", color: "#94A3B8", fontSize: "18px",
        lineHeight: 1, padding: "2px 6px",
-     }}>×</button>
+     }}>x</button>
      <div style={{
        display: "inline-flex", alignItems: "center", gap: "6px",
        background: config.color, color: "#fff", fontSize: "10px", fontWeight: "800",
@@ -356,10 +356,10 @@ function StoreBridge({ pillar, pillarStates, profile, week, dismissed, onDismiss
        onMouseEnter={e => (e.target.style.opacity = "0.88")}
        onMouseLeave={e => (e.target.style.opacity = "1")}
 
-       {clicked ? "✓ Opening Store..." : config.cta}
+       {clicked ? "done Opening Store..." : config.cta}
      </button>
      <div style={{ textAlign: "center", fontSize: "11px", color: "#94A3B8", marginTop: "10px" }}>
-       Prime Level Living · Ships direct · Cancel anytime
+       Prime Level Living  Ships direct  Cancel anytime
      </div>
    </div>
  );
@@ -492,7 +492,7 @@ return (
      background: `linear-gradient(135deg, ${B}15, ${B}05)`,
      borderRadius: "16px", padding: "24px", marginBottom: "24px", border: `1px solid ${B}20`
    }}>
-     <div style={{ fontSize: "11px", fontWeight: "700", color: B, letterSpacing: "2px", marginBottom: "8px" }}>TRAIN — WEEK {week}/3 · {w.intensity.toUpperCase()}</div>
+     <div style={{ fontSize: "11px", fontWeight: "700", color: B, letterSpacing: "2px", marginBottom: "8px" }}>TRAIN -- WEEK {week}/3 {w.intensity.toUpperCase()}</div>
      <h2 style={{ fontSize: "28px", fontWeight: "800", color: TEXT_PRIMARY, margin: "0 0 8px", letterSpacing: "-0.5px" }}>{data.title}</h2>
      <p style={{ fontSize: "15px", color: TEXT_SECONDARY, margin: "0 0 12px" }}>{data.subtitle}</p>
      <div style={{ background: `${B}10`, borderLeft: `3px solid ${B}`, padding: "12px 16px", borderRadius: "0 8px 8px 0" }}>
@@ -517,8 +517,8 @@ return (
          background: CARD_BG, borderRadius: "16px", padding: "20px",
          marginBottom: "20px", boxShadow: "0 2px 8px rgba(0,0,0,0.06)", border: `1px solid ${BR}`
        }}>
-         <h3 style={{ fontSize: "18px", fontWeight: "800", color: TEXT_PRIMARY, margin: "0 0 4px", textTransform: "uppercase" }}>DAY {day.day} — {day.title}</h3>
-         <p style={{ fontSize: "13px", color: TEXT_LIGHT, margin: "0 0 16px" }}>{day.duration} · {day.sets} · {day.reps}</p>
+         <h3 style={{ fontSize: "18px", fontWeight: "800", color: TEXT_PRIMARY, margin: "0 0 4px", textTransform: "uppercase" }}>DAY {day.day} -- {day.title}</h3>
+         <p style={{ fontSize: "13px", color: TEXT_LIGHT, margin: "0 0 16px" }}>{day.duration}  {day.sets}  {day.reps}</p>
          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "16px" }}>
            {day.exercises?.map((ex, i) => (
              <div key={i} style={{ background: BG, borderRadius: "12px", padding: "16px", border: `1px solid ${BR}` }}>
@@ -560,7 +560,7 @@ return (
      background: `linear-gradient(135deg, ${B}, ${B}CC)`,
      color: "white", fontWeight: "800", fontSize: "15px", cursor: "pointer",
      letterSpacing: "1px", boxShadow: `0 6px 20px ${B}40`
-   }}>↓ DOWNLOAD WEEK {week} TRAIN BLUEPRINT PDF</button>
+   }}>DOWNLOAD WEEK {week} TRAIN BLUEPRINT PDF</button>
  </div>
 );
 }
@@ -575,7 +575,7 @@ return (
     background: `linear-gradient(135deg, ${O}15, ${O}05)`,
     borderRadius: "16px", padding: "24px", marginBottom: "24px", border: `1px solid ${O}20`
   }}>
-    <div style={{ fontSize: "11px", fontWeight: "700", color: O, letterSpacing: "2px", marginBottom: "8px" }}>FUEL — WEEK {week}/3 · {w.intensity.toUpperCase()}</div>
+    <div style={{ fontSize: "11px", fontWeight: "700", color: O, letterSpacing: "2px", marginBottom: "8px" }}>FUEL -- WEEK {week}/3 {w.intensity.toUpperCase()}</div>
     <h2 style={{ fontSize: "28px", fontWeight: "800", color: TEXT_PRIMARY, margin: "0 0 8px", letterSpacing: "-0.5px" }}>{data.title}</h2>
     <p style={{ fontSize: "15px", color: TEXT_SECONDARY, margin: 0 }}>{data.subtitle}</p>
   </div>
@@ -635,7 +635,7 @@ return (
             <div style={{ fontWeight: "800", fontSize: "14px", color: TEXT_PRIMARY, marginBottom: "4px" }}>{meal.meal}</div>
             <div style={{ fontSize: "12px", color: O, marginBottom: "10px" }}>{meal.timing}</div>
             {meal.foods?.map((f, j) => (
-              <div key={j} style={{ fontSize: "13px", color: TEXT_SECONDARY, padding: "4px 0", borderBottom: `1px solid ${BR}` }}>• {f}</div>
+              <div key={j} style={{ fontSize: "13px", color: TEXT_SECONDARY, padding: "4px 0", borderBottom: `1px solid ${BR}` }}>* {f}</div>
             ))}
             {meal.macros && <div style={{ fontSize: "11px", color: TEXT_LIGHT, marginTop: "8px" }}>{meal.macros}</div>}
           </div>
@@ -648,7 +648,7 @@ return (
     background: `linear-gradient(135deg, ${O}, ${O}CC)`,
     color: "white", fontWeight: "800", fontSize: "15px", cursor: "pointer",
     letterSpacing: "1px", boxShadow: `0 6px 20px ${O}40`
-  }}>↓ DOWNLOAD WEEK {week} FUEL BLUEPRINT PDF</button>
+  }}>DOWNLOAD WEEK {week} FUEL BLUEPRINT PDF</button>
 </div>
 );
 }
@@ -663,7 +663,7 @@ return (
      background: `linear-gradient(135deg, ${P}15, ${P}05)`,
      borderRadius: "16px", padding: "24px", marginBottom: "24px", border: `1px solid ${P}20`
    }}>
-     <div style={{ fontSize: "11px", fontWeight: "700", color: P, letterSpacing: "2px", marginBottom: "8px" }}>FOCUS — WEEK {week}/3 · {w.intensity.toUpperCase()}</div>
+     <div style={{ fontSize: "11px", fontWeight: "700", color: P, letterSpacing: "2px", marginBottom: "8px" }}>FOCUS -- WEEK {week}/3 {w.intensity.toUpperCase()}</div>
      <h2 style={{ fontSize: "28px", fontWeight: "800", color: TEXT_PRIMARY, margin: "0 0 8px", letterSpacing: "-0.5px" }}>{data.title}</h2>
      <p style={{ fontSize: "15px", color: TEXT_SECONDARY, margin: 0 }}>{data.subtitle}</p>
    </div>
@@ -708,7 +708,7 @@ return (
        <div style={{ marginBottom: "28px" }}>
          {data.affirmations.map((aff, i) => (
            <div key={i} style={{ background: CARD_BG, borderRadius: "10px", padding: "14px 18px", marginBottom: "10px", border: `1px solid ${BR}`, display: "flex", alignItems: "center", gap: "12px" }}>
-             <span style={{ fontSize: "18px" }}>💎</span>
+             <span style={{ fontSize: "18px" }}></span>
              <p style={{ margin: 0, fontSize: "14px", color: TEXT_PRIMARY, fontStyle: "italic", fontWeight: "600" }}>"{aff}"</p>
            </div>
          ))}
@@ -729,7 +729,7 @@ return (
          </div>
          {data.sleepProtocol.practices?.map((practice, i) => (
            <div key={i} style={{ display: "flex", gap: "10px", alignItems: "center", padding: "8px 0", borderBottom: `1px solid ${BR}` }}>
-             <span style={{ color: P, fontSize: "16px" }}>🌙</span>
+             <span style={{ color: P, fontSize: "16px" }}></span>
              <span style={{ fontSize: "14px", color: TEXT_SECONDARY }}>{practice}</span>
            </div>
          ))}
@@ -741,7 +741,7 @@ return (
      background: `linear-gradient(135deg, ${P}, ${P}CC)`,
      color: "white", fontWeight: "800", fontSize: "15px", cursor: "pointer",
      letterSpacing: "1px", boxShadow: `0 6px 20px ${P}40`
-   }}>↓ DOWNLOAD WEEK {week} FOCUS BLUEPRINT PDF</button>
+   }}>DOWNLOAD WEEK {week} FOCUS BLUEPRINT PDF</button>
  </div>
 );
 }
@@ -759,7 +759,7 @@ return (
   <CoachAvatar size={80} pillar={pillar} />
   <div style={{ marginTop: "24px", marginBottom: "8px" }}><span style={{ fontSize: "32px" }}>{p.icon}</span></div>
   <div style={{ fontSize: "18px", fontWeight: "800", color: TEXT_PRIMARY, marginBottom: "8px" }}>Building your {pillar} Blueprint{dots}</div>
-  <div style={{ fontSize: "14px", color: TEXT_SECONDARY }}>Personalizing for {name} — Week {week}</div>
+  <div style={{ fontSize: "14px", color: TEXT_SECONDARY }}>Personalizing for {name} -- Week {week}</div>
   <div style={{ width: "200px", height: "4px", background: BR, borderRadius: "2px", margin: "24px auto 0", overflow: "hidden" }}>
     <div style={{ height: "100%", background: p.color, borderRadius: "2px", animation: "loadingBar 2s ease-in-out infinite" }} />
   </div>
@@ -782,7 +782,7 @@ return (
   }}>
     <CoachAvatar size={56} pillar={pillar} />
     <div>
-      <div style={{ fontSize: "11px", fontWeight: "700", color: p.color, letterSpacing: "2px", marginBottom: "4px" }}>{pillar} — INTAKE</div>
+      <div style={{ fontSize: "11px", fontWeight: "700", color: p.color, letterSpacing: "2px", marginBottom: "4px" }}>{pillar} -- INTAKE</div>
       <div style={{ fontSize: "15px", color: TEXT_SECONDARY }}>Your previous answers are loaded. Update if needed.</div>
     </div>
   </div>
@@ -807,7 +807,7 @@ return (
     background: `linear-gradient(135deg, ${p.color}, ${p.color}CC)`,
     color: "white", fontWeight: "800", fontSize: "15px", cursor: "pointer",
     letterSpacing: "1px", marginTop: "8px", boxShadow: `0 6px 20px ${p.color}40`
-  }}>GENERATE MY WEEK {profile?.week || 1} {pillar} BLUEPRINT →</button>
+  }}>GENERATE MY WEEK {profile?.week || 1} {pillar} BLUEPRINT -></button>
 </div>
 );
 }
@@ -815,15 +815,15 @@ return (
 // --- PDF DOWNLOAD ---
 function downloadPDF(data, pillar, name, week) {
 const w = window.open("", "_blank");
-w.document.write(`<html><head><title>PLL ${pillar} Week ${week} — ${name}</title>
+w.document.write(`<html><head><title>PLL ${pillar} Week ${week} -- ${name}</title>
 <style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:800px;margin:0 auto;padding:40px;color:#0F172A;background:white;}h1{font-size:28px;font-weight:800;margin-bottom:4px;}h2{font-size:20px;font-weight:700;margin-top:28px;margin-bottom:12px;border-bottom:2px solid #E2E8F0;padding-bottom:8px;}.tag{display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:16px;}.card{border:1px solid #E2E8F0;border-radius:10px;padding:16px;margin-bottom:14px;}.footer{margin-top:40px;text-align:center;font-size:12px;color:#94A3B8;border-top:1px solid #E2E8F0;padding-top:20px;}@media print{body{padding:20px;}}</style>
 </head><body>
 <h1>${data.title||`${pillar} Week ${week} Blueprint`}</h1>
-<span class="tag" style="background:#EFF6FF;color:#0EA5E9;">PRIME LEVEL LIVING · ${name} · WEEK ${week}</span>
+<span class="tag" style="background:#EFF6FF;color:#0EA5E9;">PRIME LEVEL LIVING  ${name}  WEEK ${week}</span>
 <p>${data.subtitle||""}</p>
 ${data.coachMessage?`<div class="card" style="border-left:4px solid #0EA5E9;"><strong>Coach:</strong> "${data.coachMessage}"</div>`:""}
 <pre style="white-space:pre-wrap;font-family:inherit;font-size:13px;line-height:1.6;">${JSON.stringify(data,null,2)}</pre>
-<div class="footer">PRIME LEVEL LIVING · NURU VISION MEDIA · PHASE 1 · WEEK ${week} OF 3</div>
+<div class="footer">PRIME LEVEL LIVING  NURU VISION MEDIA  PHASE 1  WEEK ${week} OF 3</div>
 </body></html>`);
 w.document.close();
 setTimeout(() => w.print(), 500);
@@ -939,7 +939,7 @@ return (
       <div style={{ textAlign: "center", marginBottom: "32px" }}>
         <CoachAvatar size={72} pillar="TRAIN" />
         <h1 style={{ fontSize: "28px", fontWeight: "900", color: TEXT_PRIMARY, margin: "16px 0 4px", letterSpacing: "-1px" }}>LEVEL UP</h1>
-        <p style={{ fontSize: "13px", color: TEXT_LIGHT, letterSpacing: "3px", textTransform: "uppercase", margin: 0 }}>THE PLL SYSTEM · PHASE 1</p>
+        <p style={{ fontSize: "13px", color: TEXT_LIGHT, letterSpacing: "3px", textTransform: "uppercase", margin: 0 }}>THE PLL SYSTEM  PHASE 1</p>
       </div>
 
       <div style={{ display: "flex", marginBottom: "24px", background: BG, borderRadius: "10px", padding: "4px" }}>
@@ -1009,7 +1009,7 @@ return (
                   color: createForm.gender === g ? "#FFFFFF" : TEXT_SECONDARY,
                   border: createForm.gender === g ? `2px solid ${TEXT_PRIMARY}` : `2px solid ${BR}`,
                 }}>
-                  {g === "Male" ? "♂ Male" : "♀ Female"}
+                  {g === "Male" ? " Male" : " Female"}
                 </button>
               ))}
             </div>
@@ -1038,12 +1038,12 @@ return (
             background: `linear-gradient(135deg, ${O}, ${O}CC)`,
             color: "white", fontWeight: "800", fontSize: "15px", cursor: "pointer",
             letterSpacing: "1px", boxShadow: `0 6px 20px ${O}40`
-          }}>START MY TRANSFORMATION →</button>
+          }}>START MY TRANSFORMATION</button>
         </>
       )}
 
       <p style={{ textAlign: "center", fontSize: "12px", color: TEXT_LIGHT, margin: "20px 0 0" }}>
-        21 DAYS · 3 PILLARS · ONE TRANSFORMATION<br/>PRIME LEVEL LIVING · NURU VISION MEDIA
+        21 DAYS  3 PILLARS  ONE TRANSFORMATION<br/>PRIME LEVEL LIVING  NURU VISION MEDIA
       </p>
     </div>
   </div>
@@ -1057,7 +1057,7 @@ return (
     display: "flex", alignItems: "center", justifyContent: "center", padding: "20px"
   }}>
     <div style={{ textAlign: "center", maxWidth: "500px" }}>
-      <div style={{ fontSize: "60px", marginBottom: "16px" }}>🔥</div>
+      <div style={{ fontSize: "60px", marginBottom: "16px" }}></div>
       <h1 style={{ fontSize: "36px", fontWeight: "900", color: "white", margin: "0 0 16px", letterSpacing: "-1px" }}>WEEK {week} DONE, {name.toUpperCase()}!</h1>
       <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.7)", lineHeight: "1.6", marginBottom: "32px" }}>
         {WEEKS[week]?.coachClose(name) || `${name}, you completed all 3 pillars this week. That's elite.`}
@@ -1073,7 +1073,7 @@ return (
           background: `linear-gradient(135deg, ${B}, ${ACCENT})`,
           color: "white", fontWeight: "800", fontSize: "16px", cursor: "pointer",
           letterSpacing: "1px", boxShadow: `0 8px 24px ${B}50`
-        }}>START WEEK {week + 1} →</button>
+        }}>START WEEK {week + 1} -></button>
       ) : (
         <div>
           <div style={{ background: `linear-gradient(135deg, ${O}20, ${O}05)`, border: `1px solid ${O}30`, borderRadius: "16px", padding: "24px", marginBottom: "24px" }}>
@@ -1084,7 +1084,7 @@ return (
             padding: "18px 40px", borderRadius: "12px", border: "none",
             background: `linear-gradient(135deg, ${O}, ${O}AA)`,
             color: "white", fontWeight: "800", fontSize: "16px", cursor: "pointer", letterSpacing: "1px"
-          }}>UNLOCK PHASE 2 →</button>
+          }}>UNLOCK PHASE 2 -></button>
         </div>
       )}
     </div>
@@ -1107,7 +1107,7 @@ return (
         <CoachAvatar size={36} pillar={activePillar} />
         <div>
           <div style={{ fontSize: "16px", fontWeight: "900", color: TEXT_PRIMARY, letterSpacing: "-0.5px", lineHeight: "1" }}>LEVEL UP</div>
-          <div style={{ fontSize: "10px", color: TEXT_LIGHT, letterSpacing: "2px" }}>THE PLL SYSTEM · {name.toUpperCase()}</div>
+          <div style={{ fontSize: "10px", color: TEXT_LIGHT, letterSpacing: "2px" }}>THE PLL SYSTEM  {name.toUpperCase()}</div>
         </div>
       </div>
       <div style={{ display: "flex", gap: "8px" }}>
@@ -1123,7 +1123,7 @@ return (
               fontWeight: "800", fontSize: "13px", cursor: "pointer",
               letterSpacing: "1px", transition: "all 0.2s",
               boxShadow: active ? `0 4px 12px ${pl.color}40` : "none"
-            }}>{pl.icon} {p} {done ? "✓" : ""}</button>
+            }}>{pl.icon} {p} {done ? "done" : ""}</button>
           );
         })}
       </div>
@@ -1141,7 +1141,7 @@ return (
         <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
           {["TRAIN", "FUEL", "FOCUS"].map(p => (
             <span key={p} style={{ fontSize: "11px", fontWeight: "700", color: completedPillars.includes(p) ? PILLARS[p].color : TEXT_LIGHT }}>
-              W{week} {completedPillars.includes(p) ? "●" : "○"}
+              W{week} {completedPillars.includes(p) ? "" : ""}
             </span>
           ))}
           <span style={{ fontSize: "12px", fontWeight: "800", color: progressPct === 100 ? G : TEXT_PRIMARY }}>{progressPct}%</span>
@@ -1156,7 +1156,7 @@ return (
   <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "24px" }}>
     <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}>
       <span style={{ fontSize: "13px", fontWeight: "800", color: PILLARS[activePillar].color, letterSpacing: "2px" }}>{activePillar}</span>
-      <span style={{ fontSize: "13px", color: TEXT_LIGHT }}>—</span>
+      <span style={{ fontSize: "13px", color: TEXT_LIGHT }}>--</span>
       <span style={{ fontSize: "13px", color: TEXT_SECONDARY }}>{PILLARS[activePillar].subtitle}</span>
       <div style={{ marginLeft: "auto", padding: "6px 14px", borderRadius: "20px", background: `${PILLARS[activePillar].color}15`, color: PILLARS[activePillar].color, fontSize: "12px", fontWeight: "700" }}>
         {WEEKS[week]?.label || `WEEK ${week}`}
@@ -1192,7 +1192,7 @@ return (
 
     {st.phase === "error" && (
       <div style={{ textAlign: "center", padding: "60px 20px" }}>
-        <div style={{ fontSize: "40px", marginBottom: "16px" }}>⚠️</div>
+        <div style={{ fontSize: "40px", marginBottom: "16px" }}></div>
         <div style={{ fontWeight: "800", fontSize: "20px", color: "#FF4444", marginBottom: "8px" }}>SYSTEM ERROR</div>
         <div style={{ fontSize: "14px", color: TEXT_SECONDARY, marginBottom: "24px" }}>Something went wrong. Let's try again.</div>
         <button onClick={() => upd(activePillar, { phase: "intake" })} style={{
@@ -1205,7 +1205,7 @@ return (
 
   <div style={{ borderTop: `1px solid ${BR}`, padding: "16px 24px", textAlign: "center", background: "white", marginTop: "40px" }}>
     <div style={{ fontSize: "11px", color: TEXT_LIGHT, letterSpacing: "2px", fontWeight: "600" }}>
-      PRIME LEVEL LIVING · NURU VISION MEDIA · PHASE 1 · WEEK {week} OF 3
+      PRIME LEVEL LIVING  NURU VISION MEDIA  PHASE 1  WEEK {week} OF 3
     </div>
   </div>
 </div>
