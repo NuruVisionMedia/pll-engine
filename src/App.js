@@ -283,6 +283,61 @@ function StoreBridge({ pillar, pillarStates, profile, week, dismissed, onDismiss
 // shoulder tattoo, intense upward-gazing expression
 function CoachAvatar({ size = 80, pillar = "TRAIN", showRing = true }) {
   const color = pillar === "TRAIN" ? B : pillar === "FUEL" ? O : P;
+  const [imgError, setImgError] = useState(false);
+
+  if (imgError) {
+    return (
+      <div
+        style={{
+          width: size,
+          height: size,
+          borderRadius: "50%",
+          background: NAVY,
+          color: "#fff",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontWeight: 900,
+          fontSize: size * 0.22,
+          border: showRing ? `3px solid ${color}` : `2px solid ${BORDER}`,
+          boxSizing: "border-box",
+          flexShrink: 0
+        }}
+      >
+        PLL
+      </div>
+    );
+  }
+
+  return (
+    <div
+      style={{
+        width: size,
+        height: size,
+        borderRadius: "50%",
+        overflow: "hidden",
+        border: showRing ? `3px solid ${color}` : `2px solid ${BORDER}`,
+        boxShadow: showRing ? `0 0 0 4px ${color}22` : "none",
+        background: SURFACE2,
+        flexShrink: 0
+      }}
+    >
+      <img
+        src="/coach.jpg"
+        alt="PLL Coach"
+        onError={() => setImgError(true)}
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          objectPosition: "center top",
+          display: "block"
+        }}
+      />
+    </div>
+  );
+}
+  const color = pillar === "TRAIN" ? B : pillar === "FUEL" ? O : P;
   const id = `ca_${size}_${pillar}`;
   return (
     <svg width={size} height={size} viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
