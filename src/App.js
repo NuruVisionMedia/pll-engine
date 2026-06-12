@@ -15,28 +15,28 @@ del: (key) => { try { localStorage.removeItem("pll_"+key); } catch(e){} }
 // --- WEEK CONFIG ---
 const WEEKS = {
 1: {
- label: "WEEK 1 -- THE NEW SYSTEM",
- theme: "Foundation. New habits. New identity begins.",
- mantra: "Every champion was once a beginner who refused to quit. This is Day 1 of the rest of your life.",
- coachOpen: (name) => `${name}, welcome to Phase 1. This week is about one thing -- building the system. Don't focus on perfection. Focus on showing up. Let's go.`,
- coachClose: (name) => `${name}, Week 1 is DONE. You showed up every single day. That's what separates the ones who make it. Rest up -- Week 2 is where we turn the heat up.`,
- intensity: "Foundation", repRange: "12-15 reps", sets: "3 sets", load: "Light to moderate -- focus on form"
+  label: "WEEK 1 -- THE NEW SYSTEM",
+  theme: "Foundation. New habits. New identity begins.",
+  mantra: "Every champion was once a beginner who refused to quit. This is Day 1 of the rest of your life.",
+  coachOpen: (name) => `${name}, welcome to Phase 1. This week is about one thing -- building the system. Don't focus on perfection. Focus on showing up. Let's go.`,
+  coachClose: (name) => `${name}, Week 1 is DONE. You showed up every single day. That's what separates the ones who make it. Rest up -- Week 2 is where we turn the heat up.`,
+  intensity: "Foundation", repRange: "12-15 reps", sets: "3 sets", load: "Light to moderate -- focus on form"
 },
 2: {
- label: "WEEK 2 -- THE PROGRESSION",
- theme: "Intensity increases. Habits solidify. Halfway there.",
- mantra: "You've already done what most people won't. Now let's do what most people can't.",
- coachOpen: (name) => `${name}, you made it to Week 2. That already puts you ahead of 80% of people who start. This week we push harder -- more weight, more intensity. Show up.`,
- coachClose: (name) => `${name}, TWO WEEKS DOWN. Halfway through Phase 1 and you're already not the same person who started. One more week. The final push. The Separation.`,
- intensity: "Progressive", repRange: "8-12 reps", sets: "4 sets", load: "Increase weight 10-15% from Week 1"
+  label: "WEEK 2 -- THE PROGRESSION",
+  theme: "Intensity increases. Habits solidify. Halfway there.",
+  mantra: "You've already done what most people won't. Now let's do what most people can't.",
+  coachOpen: (name) => `${name}, you made it to Week 2. That already puts you ahead of 80% of people who start. This week we push harder -- more weight, more intensity. Show up.`,
+  coachClose: (name) => `${name}, TWO WEEKS DOWN. Halfway through Phase 1 and you're already not the same person who started. One more week. The final push. The Separation.`,
+  intensity: "Progressive", repRange: "8-12 reps", sets: "4 sets", load: "Increase weight 10-15% from Week 1"
 },
 3: {
- label: "WEEK 3 -- THE SEPARATION",
- theme: "This is where champions are made. Most quit. You won't.",
- mantra: "Week 3 is where your identity changes forever. You are no longer who you were.",
- coachOpen: (name) => `${name}, this is THE week. The separation happens right here. Everyone starts. Almost nobody finishes. You're going to finish. Let's make history.`,
- coachClose: (name) => `${name}, PHASE 1 COMPLETE. You did what most people only talk about. You are Prime Level now. Phase 2 is waiting -- are you ready to go elite?`,
- intensity: "Peak", repRange: "6-10 reps", sets: "4-5 sets", load: "Maximum sustainable load"
+  label: "WEEK 3 -- THE SEPARATION",
+  theme: "This is where champions are made. Most quit. You won't.",
+  mantra: "Week 3 is where your identity changes forever. You are no longer who you were.",
+  coachOpen: (name) => `${name}, this is THE week. The separation happens right here. Everyone starts. Almost nobody finishes. You're going to finish. Let's make history.`,
+  coachClose: (name) => `${name}, PHASE 1 COMPLETE. You did what most people only talk about. You are Prime Level now. Phase 2 is waiting -- are you ready to go elite?`,
+  intensity: "Peak", repRange: "6-10 reps", sets: "4-5 sets", load: "Maximum sustainable load"
 }
 };
 
@@ -88,7 +88,7 @@ function getExerciseVideo(exerciseName) {
 if (!exerciseName) return null;
 const lower = exerciseName.toLowerCase();
 for (const [key, url] of Object.entries(EXERCISE_VIDEOS)) {
- if (lower.includes(key)) return url;
+  if (lower.includes(key)) return url;
 }
 return null;
 }
@@ -96,19 +96,19 @@ return null;
 // --- PILLARS CONFIG ---
 const PILLARS = {
 TRAIN: {
-color: B, icon: "fuel", label: "TRAIN",
-subtitle: "WORKOUT BLUEPRINT GENERATOR",
-prompt: (answers, name, week, gender, ageRange) => {
-  const w = WEEKS[week];
-  const ageNote = ageRange === "18-24" ? "Foundation building phase. High volume is appropriate. Prioritize motor pattern development." :
-    ageRange === "25-34" ? "Peak performance window. Push intensity while building sustainable long-term habits." :
-    ageRange === "35-44" ? "Prioritize joint health and warm-ups. Progressive overload with smart recovery." :
-    ageRange === "45-54" ? "Hormone-supportive training. Manage fatigue carefully. Emphasize compound movements." :
-    ageRange === "55-64" ? "Focus on functional strength, balance, and bone density. Lower impact alternatives where needed." :
-    ageRange === "65+" ? "Safety first. Prioritize mobility, balance, and maintaining muscle mass. Full recovery between sessions." : "";
-  const genderNote = gender === "Female" ? "Tailor to female physiology: consider hormonal cycle, bone health, and joint laxity factors." :
-    gender === "Male" ? "Tailor to male physiology: testosterone-supportive training intensity and recovery strategies." : "";
-  return `You are an elite fitness coach for Prime Level Living. Generate a complete Week ${week} TRAIN blueprint for ${name}.
+ color: B, icon: "fuel", label: "TRAIN",
+ subtitle: "WORKOUT BLUEPRINT GENERATOR",
+ prompt: (answers, name, week, gender, ageRange) => {
+   const w = WEEKS[week];
+   const ageNote = ageRange === "18-24" ? "Foundation building phase. High volume is appropriate. Prioritize motor pattern development." :
+     ageRange === "25-34" ? "Peak performance window. Push intensity while building sustainable long-term habits." :
+     ageRange === "35-44" ? "Prioritize joint health and warm-ups. Progressive overload with smart recovery." :
+     ageRange === "45-54" ? "Hormone-supportive training. Manage fatigue carefully. Emphasize compound movements." :
+     ageRange === "55-64" ? "Focus on functional strength, balance, and bone density. Lower impact alternatives where needed." :
+     ageRange === "65+" ? "Safety first. Prioritize mobility, balance, and maintaining muscle mass. Full recovery between sessions." : "";
+   const genderNote = gender === "Female" ? "Tailor to female physiology: consider hormonal cycle, bone health, and joint laxity factors." :
+     gender === "Male" ? "Tailor to male physiology: testosterone-supportive training intensity and recovery strategies." : "";
+   return `You are an elite fitness coach for Prime Level Living. Generate a complete Week ${week} TRAIN blueprint for ${name}.
 
 User Profile: Gender=${gender||"Not specified"}, Age Range=${ageRange||"Not specified"}, Goal=${answers.goal||"Build Muscle"}, Training Days=${answers.days||"4"} days/week, Equipment=${answers.equipment||"Full Gym"}, Experience=${answers.experience||"Intermediate"}, Focus=${answers.focus||"Full Body"}
 
@@ -123,43 +123,43 @@ Return ONLY valid JSON in this exact format:
 "subtitle": "Brief description",
 "coachMessage": "Personalized motivational message from coach to ${name} for week ${week}",
 "days": [
-{
-  "day": 1,
-  "title": "Day Title",
-  "duration": "45 min",
-  "sets": "3 sets",
-  "reps": "12-15 reps",
-  "exercises": [
-    {
-      "name": "Exercise Name",
-      "sets": "3",
-      "reps": "12-15",
-      "tempo": "2-1-2",
-      "rest": "60s",
-      "formCue": "Key form tip",
-      "muscle": "Target muscle"
-    }
-  ],
-  "tips": ["Tip 1", "Tip 2", "Tip 3"]
-}
+ {
+   "day": 1,
+   "title": "Day Title",
+   "duration": "45 min",
+   "sets": "3 sets",
+   "reps": "12-15 reps",
+   "exercises": [
+     {
+       "name": "Exercise Name",
+       "sets": "3",
+       "reps": "12-15",
+       "tempo": "2-1-2",
+       "rest": "60s",
+       "formCue": "Key form tip",
+       "muscle": "Target muscle"
+     }
+   ],
+   "tips": ["Tip 1", "Tip 2", "Tip 3"]
+ }
 ]
 }`
-}
+ }
 },
 FUEL: {
-color: O, icon: "[F]", label: "FUEL",
-subtitle: "SUPPLEMENT & NUTRITION STACK",
-prompt: (answers, name, week, gender, ageRange) => {
-  const w = WEEKS[week];
-  const ageNote = ageRange === "18-24" ? "Higher caloric needs. Prioritize protein synthesis and muscle building nutrition." :
-    ageRange === "25-34" ? "Performance nutrition focus. Optimize macros for body composition and energy." :
-    ageRange === "35-44" ? "Anti-inflammatory foods and hormone-balancing nutrients. Support metabolism." :
-    ageRange === "45-54" ? "Hormone-supportive nutrition. Manage cortisol. Zinc and magnesium emphasis." :
-    ageRange === "55-64" ? "Micronutrient density. Bone health support (calcium, D3). Protein to prevent muscle loss." :
-    ageRange === "65+" ? "Digestive-friendly foods. Maximum micronutrient focus. Lean protein every meal." : "";
-  const genderNote = gender === "Female" ? "Consider iron, folate, calcium needs. Hormonal cycle nutrition awareness where relevant." :
-    gender === "Male" ? "Zinc, magnesium, healthy fats for testosterone support. High protein prioritization." : "";
-  return `You are an elite nutrition coach for Prime Level Living. Generate a complete Week ${week} FUEL blueprint for ${name}.
+ color: O, icon: "[F]", label: "FUEL",
+ subtitle: "SUPPLEMENT & NUTRITION STACK",
+ prompt: (answers, name, week, gender, ageRange) => {
+   const w = WEEKS[week];
+   const ageNote = ageRange === "18-24" ? "Higher caloric needs. Prioritize protein synthesis and muscle building nutrition." :
+     ageRange === "25-34" ? "Performance nutrition focus. Optimize macros for body composition and energy." :
+     ageRange === "35-44" ? "Anti-inflammatory foods and hormone-balancing nutrients. Support metabolism." :
+     ageRange === "45-54" ? "Hormone-supportive nutrition. Manage cortisol. Zinc and magnesium emphasis." :
+     ageRange === "55-64" ? "Micronutrient density. Bone health support (calcium, D3). Protein to prevent muscle loss." :
+     ageRange === "65+" ? "Digestive-friendly foods. Maximum micronutrient focus. Lean protein every meal." : "";
+   const genderNote = gender === "Female" ? "Consider iron, folate, calcium needs. Hormonal cycle nutrition awareness where relevant." :
+     gender === "Male" ? "Zinc, magnesium, healthy fats for testosterone support. High protein prioritization." : "";
+   return `You are an elite nutrition coach for Prime Level Living. Generate a complete Week ${week} FUEL blueprint for ${name}.
 
 User Profile: Gender=${gender||"Not specified"}, Age Range=${ageRange||"Not specified"}, Goal=${answers.goal||"Build Muscle"}, Diet=${answers.diet||"Flexible"}, Supplements=${answers.supplements||"Open to all"}, Budget=${answers.budget||"Moderate"}
 
@@ -173,47 +173,47 @@ Return ONLY valid JSON in this exact format:
 "subtitle": "Brief description",
 "coachMessage": "Personalized nutrition message from coach to ${name} for week ${week}",
 "supplements": [
-{
-  "name": "Supplement Name",
-  "category": "Category",
-  "dose": "Amount",
-  "timing": "When to take",
-  "benefit": "Why it works",
-  "priority": "Essential/Recommended/Optional"
-}
+ {
+   "name": "Supplement Name",
+   "category": "Category",
+   "dose": "Amount",
+   "timing": "When to take",
+   "benefit": "Why it works",
+   "priority": "Essential/Recommended/Optional"
+ }
 ],
 "nutrition": {
-"calories": "Target calories",
-"protein": "Protein target",
-"carbs": "Carbs target",
-"fats": "Fats target",
-"mealTiming": "Meal timing strategy"
+ "calories": "Target calories",
+ "protein": "Protein target",
+ "carbs": "Carbs target",
+ "fats": "Fats target",
+ "mealTiming": "Meal timing strategy"
 },
 "mealPlan": [
-{
-  "meal": "Meal name",
-  "timing": "When",
-  "foods": ["Food 1", "Food 2"],
-  "macros": "Approximate macros"
-}
+ {
+   "meal": "Meal name",
+   "timing": "When",
+   "foods": ["Food 1", "Food 2"],
+   "macros": "Approximate macros"
+ }
 ]
 }`
-}
+ }
 },
 FOCUS: {
-color: P, icon: "focus", label: "FOCUS",
-subtitle: "MINDSET & MENTAL PERFORMANCE",
-prompt: (answers, name, week, gender, ageRange) => {
-  const w = WEEKS[week];
-  const ageNote = ageRange === "18-24" ? "High neuroplasticity window. Build strong mental habits and sleep discipline now -- they compound for decades." :
-    ageRange === "25-34" ? "Stress resilience and peak output focus. Build systems that perform under pressure." :
-    ageRange === "35-44" ? "Stress management is as important as performance. Recovery mindset and work-life integration." :
-    ageRange === "45-54" ? "Cognitive clarity and emotional regulation. Purpose-driven motivation practices." :
-    ageRange === "55-64" ? "Cognitive longevity practices. Gratitude, meaning, and social connection matter deeply." :
-    ageRange === "65+" ? "Joy-based motivation. Legacy mindset. Daily practices that energize rather than drain." : "";
-  const genderNote = gender === "Female" ? "Acknowledge hormonal influences on mood and motivation cycles. Self-compassion practices." :
-    gender === "Male" ? "Identity and purpose-driven motivation. Brotherhood and accountability frameworks." : "";
-  return `You are an elite mindset coach for Prime Level Living. Generate a complete Week ${week} FOCUS blueprint for ${name}.
+ color: P, icon: "focus", label: "FOCUS",
+ subtitle: "MINDSET & MENTAL PERFORMANCE",
+ prompt: (answers, name, week, gender, ageRange) => {
+   const w = WEEKS[week];
+   const ageNote = ageRange === "18-24" ? "High neuroplasticity window. Build strong mental habits and sleep discipline now -- they compound for decades." :
+     ageRange === "25-34" ? "Stress resilience and peak output focus. Build systems that perform under pressure." :
+     ageRange === "35-44" ? "Stress management is as important as performance. Recovery mindset and work-life integration." :
+     ageRange === "45-54" ? "Cognitive clarity and emotional regulation. Purpose-driven motivation practices." :
+     ageRange === "55-64" ? "Cognitive longevity practices. Gratitude, meaning, and social connection matter deeply." :
+     ageRange === "65+" ? "Joy-based motivation. Legacy mindset. Daily practices that energize rather than drain." : "";
+   const genderNote = gender === "Female" ? "Acknowledge hormonal influences on mood and motivation cycles. Self-compassion practices." :
+     gender === "Male" ? "Identity and purpose-driven motivation. Brotherhood and accountability frameworks." : "";
+   return `You are an elite mindset coach for Prime Level Living. Generate a complete Week ${week} FOCUS blueprint for ${name}.
 
 User Profile: Gender=${gender||"Not specified"}, Age Range=${ageRange||"Not specified"}, Goal=${answers.mindsetGoal||"Build discipline"}, Challenges=${answers.challenges||"Consistency"}, Morning routine=${answers.morning||"None yet"}, Stress level=${answers.stress||"Moderate"}
 
@@ -228,207 +228,206 @@ Return ONLY valid JSON in this exact format:
 "subtitle": "Brief description",
 "coachMessage": "Personalized mindset message from coach to ${name} for week ${week}",
 "dailyPractices": [
-{
-  "name": "Practice Name",
-  "duration": "X minutes",
-  "timing": "Morning/Evening/Anytime",
-  "description": "How to do it",
-  "benefit": "Why it works"
-}
+ {
+   "name": "Practice Name",
+   "duration": "X minutes",
+   "timing": "Morning/Evening/Anytime",
+   "description": "How to do it",
+   "benefit": "Why it works"
+ }
 ],
 "weeklyChallenge": {
-"title": "Challenge Title",
-"description": "Full description",
-"dailyActions": ["Action 1", "Action 2", "Action 3", "Action 4", "Action 5"]
+ "title": "Challenge Title",
+ "description": "Full description",
+ "dailyActions": ["Action 1", "Action 2", "Action 3", "Action 4", "Action 5"]
 },
 "affirmations": ["Affirmation 1", "Affirmation 2", "Affirmation 3", "Affirmation 4", "Affirmation 5"],
 "journalPrompts": [
-{
-  "day": 1,
-  "prompt": "Journal question for day 1"
-}
+ {
+   "day": 1,
+   "prompt": "Journal question for day 1"
+ }
 ],
 "sleepProtocol": {
-"bedtime": "Target bedtime",
-"wakeTime": "Target wake time",
-"practices": ["Practice 1", "Practice 2"]
+ "bedtime": "Target bedtime",
+ "wakeTime": "Target wake time",
+ "practices": ["Practice 1", "Practice 2"]
 }
 }`
-}
+ }
 }
 };
 
 // --- INTAKE QUESTIONS ---
 const INTAKE = {
 TRAIN: [
-{ id: "goal", label: "PRIMARY GOAL", options: ["Build Muscle", "Lose Fat", "Athletic Performance", "Aesthetic Frame"] },
-{ id: "days", label: "TRAINING DAYS / WEEK", options: ["3 Days", "4 Days", "5 Days", "6 Days"] },
-{ id: "equipment", label: "EQUIPMENT ACCESS", options: ["Full Gym", "Home + Dumbbells", "Bodyweight Only"] },
-{ id: "experience", label: "EXPERIENCE LEVEL", options: ["Beginner", "Intermediate", "Advanced"] },
-{ id: "focus", label: "FOCUS AREA", options: ["Upper Body", "Lower Body", "Full Body", "Core + Functional"] }
+ { id: "goal", label: "PRIMARY GOAL", options: ["Build Muscle", "Lose Fat", "Athletic Performance", "Aesthetic Frame"] },
+ { id: "days", label: "TRAINING DAYS / WEEK", options: ["3 Days", "4 Days", "5 Days", "6 Days"] },
+ { id: "equipment", label: "EQUIPMENT ACCESS", options: ["Full Gym", "Home + Dumbbells", "Bodyweight Only"] },
+ { id: "experience", label: "EXPERIENCE LEVEL", options: ["Beginner", "Intermediate", "Advanced"] },
+ { id: "focus", label: "FOCUS AREA", options: ["Upper Body", "Lower Body", "Full Body", "Core + Functional"] }
 ],
 FUEL: [
-{ id: "goal", label: "NUTRITION GOAL", options: ["Build Muscle", "Lose Fat", "Maintain & Perform", "Body Recomposition"] },
-{ id: "diet", label: "DIETARY PREFERENCE", options: ["Flexible/No restrictions", "High Protein", "Plant-Based", "Low Carb"] },
-{ id: "supplements", label: "SUPPLEMENT EXPERIENCE", options: ["New to supplements", "Some experience", "Advanced user"] },
-{ id: "budget", label: "SUPPLEMENT BUDGET", options: ["Minimal ($0-30/mo)", "Moderate ($30-75/mo)", "Premium ($75+/mo)"] }
+ { id: "goal", label: "NUTRITION GOAL", options: ["Build Muscle", "Lose Fat", "Maintain & Perform", "Body Recomposition"] },
+ { id: "diet", label: "DIETARY PREFERENCE", options: ["Flexible/No restrictions", "High Protein", "Plant-Based", "Low Carb"] },
+ { id: "supplements", label: "SUPPLEMENT EXPERIENCE", options: ["New to supplements", "Some experience", "Advanced user"] },
+ { id: "budget", label: "SUPPLEMENT BUDGET", options: ["Minimal ($0-30/mo)", "Moderate ($30-75/mo)", "Premium ($75+/mo)"] }
 ],
 FOCUS: [
-{ id: "mindsetGoal", label: "MINDSET GOAL", options: ["Build discipline", "Reduce stress", "Increase confidence", "Sharpen focus"] },
-{ id: "challenges", label: "BIGGEST CHALLENGE", options: ["Staying consistent", "Negative self-talk", "Lack of motivation", "Anxiety/stress"] },
-{ id: "morning", label: "CURRENT MORNING ROUTINE", options: ["None yet", "Basic routine", "Solid routine", "Elite routine"] },
-{ id: "stress", label: "CURRENT STRESS LEVEL", options: ["Low", "Moderate", "High", "Very High"] }
+ { id: "mindsetGoal", label: "MINDSET GOAL", options: ["Build discipline", "Reduce stress", "Increase confidence", "Sharpen focus"] },
+ { id: "challenges", label: "BIGGEST CHALLENGE", options: ["Staying consistent", "Negative self-talk", "Lack of motivation", "Anxiety/stress"] },
+ { id: "morning", label: "CURRENT MORNING ROUTINE", options: ["None yet", "Basic routine", "Solid routine", "Elite routine"] },
+ { id: "stress", label: "CURRENT STRESS LEVEL", options: ["Low", "Moderate", "High", "Very High"] }
 ]
 };
 
 // --- STORE BRIDGE ---
 const STORE_URL = "https://zs0r6d-2x.myshopify.com";
 const STORE_COLLECTIONS = {
- TRAIN: {
-   handle: "train", color: B, icon: "lifting",
-   headline: (name, week) => `${name}, your Week ${week} TRAIN stack is ready.`,
-   subline: "The right gear and supplements matched to your training profile -- delivered.",
-   cta: "Get Your TRAIN Stack ->",
- },
- FUEL: {
-   handle: "fuel", color: O, icon: "fuel",
-   headline: (name, week) => `${name}, your Week ${week} FUEL stack is ready.`,
-   subline: "Supplements and nutrition tools matched to your goals -- ready to order.",
-   cta: "Get Your FUEL Stack ->",
- },
- FOCUS: {
-   handle: "focus", color: P, icon: "focus",
-   headline: (name, week) => `${name}, your Week ${week} FOCUS stack is ready.`,
-   subline: "Mindset tools and recovery products dialed to your program -- shop now.",
-   cta: "Get Your FOCUS Stack ->",
- },
+  TRAIN: {
+    handle: "train", color: B, icon: "lifting",
+    headline: (name, week) => `${name}, your Week ${week} TRAIN stack is ready.`,
+    subline: "The right gear and supplements matched to your training profile -- delivered.",
+    cta: "Get Your TRAIN Stack ->",
+  },
+  FUEL: {
+    handle: "fuel", color: O, icon: "fuel",
+    headline: (name, week) => `${name}, your Week ${week} FUEL stack is ready.`,
+    subline: "Supplements and nutrition tools matched to your goals -- ready to order.",
+    cta: "Get Your FUEL Stack ->",
+  },
+  FOCUS: {
+    handle: "focus", color: P, icon: "focus",
+    headline: (name, week) => `${name}, your Week ${week} FOCUS stack is ready.`,
+    subline: "Mindset tools and recovery products dialed to your program -- shop now.",
+    cta: "Get Your FOCUS Stack ->",
+  },
 };
 
 function StoreBridge({ pillar, pillarStates, profile, week, dismissed, onDismiss }) {
- const [clicked, setClicked] = useState(false);
- const activeState = pillarStates?.[pillar];
- if (!activeState || activeState.phase !== "result") return null;
- if (dismissed?.[pillar]) return null;
- const config = STORE_COLLECTIONS[pillar];
- if (!config) return null;
- const name = profile?.firstName || profile?.username || "Athlete";
- const shopUrl = `${STORE_URL}/collections/${config.handle}?utm_source=pll-engine&utm_medium=blueprint&utm_campaign=week${week}-${pillar.toLowerCase()}&utm_content=storebridge`;
- const handleShopClick = () => {
-   setClicked(true);
-   const events = JSON.parse(localStorage.getItem("pll_bridge_clicks") || "[]");
-   events.push({ pillar, week, timestamp: new Date().toISOString(), url: shopUrl });
-   localStorage.setItem("pll_bridge_clicks", JSON.stringify(events));
-   window.open(shopUrl, "_blank");
- };
- return (
-   <div style={{
-     margin: "24px 0 8px 0", borderRadius: "16px",
-     background: `linear-gradient(135deg, ${config.color}18 0%, ${config.color}08 100%)`,
-     border: `1.5px solid ${config.color}40`, padding: "20px",
-     position: "relative", boxShadow: `0 4px 24px ${config.color}15`,
-   }}>
-     <button onClick={() => onDismiss(pillar)} style={{
-       position: "absolute", top: "12px", right: "14px", background: "none",
-       border: "none", cursor: "pointer", color: "#94A3B8", fontSize: "18px",
-       lineHeight: 1, padding: "2px 6px",
-     }}>x</button>
-     <div style={{
-       display: "inline-flex", alignItems: "center", gap: "6px",
-       background: config.color, color: "#fff", fontSize: "10px", fontWeight: "800",
-       letterSpacing: "0.12em", padding: "3px 10px", borderRadius: "20px",
-       marginBottom: "12px", textTransform: "uppercase",
-     }}>
-       {config.icon} YOUR STACK IS READY
-     </div>
-     <div style={{ fontSize: "17px", fontWeight: "700", color: TEXT_PRIMARY, marginBottom: "6px", lineHeight: 1.3, paddingRight: "24px" }}>
-       {config.headline(name, week)}
-     </div>
-     <div style={{ fontSize: "13px", color: TEXT_SECONDARY, marginBottom: "16px", lineHeight: 1.5 }}>
-       {config.subline}
-     </div>
-     <button
-       onClick={handleShopClick}
-       onMouseEnter={e => (e.target.style.opacity = "0.88")}
-       onMouseLeave={e => (e.target.style.opacity = "1")}
-       style={{
-         width: "100%", padding: "14px 20px",
-         background: clicked ? "#10B981" : config.color,
-         color: "#fff", border: "none", borderRadius: "10px", fontSize: "14px",
-         fontWeight: "800", letterSpacing: "0.06em", cursor: "pointer",
-         textTransform: "uppercase", transition: "opacity 0.15s ease",
-       }}
-
-       {clicked ? "Done! Opening Store..." : config.cta}
-     </button>
-     <div style={{ textAlign: "center", fontSize: "11px", color: "#94A3B8", marginTop: "10px" }}>
-       Prime Level Living  Ships direct  Cancel anytime
-     </div>
-   </div>
- );
+  const [clicked, setClicked] = useState(false);
+  const activeState = pillarStates?.[pillar];
+  if (!activeState || activeState.phase !== "result") return null;
+  if (dismissed?.[pillar]) return null;
+  const config = STORE_COLLECTIONS[pillar];
+  if (!config) return null;
+  const name = profile?.firstName || profile?.username || "Athlete";
+  const shopUrl = `${STORE_URL}/collections/${config.handle}?utm_source=pll-engine&utm_medium=blueprint&utm_campaign=week${week}-${pillar.toLowerCase()}&utm_content=storebridge`;
+  const handleShopClick = () => {
+    setClicked(true);
+    const events = JSON.parse(localStorage.getItem("pll_bridge_clicks") || "[]");
+    events.push({ pillar, week, timestamp: new Date().toISOString(), url: shopUrl });
+    localStorage.setItem("pll_bridge_clicks", JSON.stringify(events));
+    window.open(shopUrl, "_blank");
+  };
+  return (
+    <div style={{
+      margin: "24px 0 8px 0", borderRadius: "16px",
+      background: `linear-gradient(135deg, ${config.color}18 0%, ${config.color}08 100%)`,
+      border: `1.5px solid ${config.color}40`, padding: "20px",
+      position: "relative", boxShadow: `0 4px 24px ${config.color}15`,
+    }}>
+      <button onClick={() => onDismiss(pillar)} style={{
+        position: "absolute", top: "12px", right: "14px", background: "none",
+        border: "none", cursor: "pointer", color: "#94A3B8", fontSize: "18px",
+        lineHeight: 1, padding: "2px 6px",
+      }}>x</button>
+      <div style={{
+        display: "inline-flex", alignItems: "center", gap: "6px",
+        background: config.color, color: "#fff", fontSize: "10px", fontWeight: "800",
+        letterSpacing: "0.12em", padding: "3px 10px", borderRadius: "20px",
+        marginBottom: "12px", textTransform: "uppercase",
+      }}>
+        {config.icon} YOUR STACK IS READY
+      </div>
+      <div style={{ fontSize: "17px", fontWeight: "700", color: TEXT_PRIMARY, marginBottom: "6px", lineHeight: 1.3, paddingRight: "24px" }}>
+        {config.headline(name, week)}
+      </div>
+      <div style={{ fontSize: "13px", color: TEXT_SECONDARY, marginBottom: "16px", lineHeight: 1.5 }}>
+        {config.subline}
+      </div>
+      <button
+        onClick={handleShopClick}
+        onMouseEnter={e => (e.target.style.opacity = "0.88")}
+        onMouseLeave={e => (e.target.style.opacity = "1")}
+        style={{
+          width: "100%", padding: "14px 20px",
+          background: clicked ? "#10B981" : config.color,
+          color: "#fff", border: "none", borderRadius: "10px", fontSize: "14px",
+          fontWeight: "800", letterSpacing: "0.06em", cursor: "pointer",
+          textTransform: "uppercase", transition: "opacity 0.15s ease",
+        }}
+      >
+        {clicked ? "Opening Store Now" : config.cta}
+      </button>
+      <div style={{ textAlign: "center", fontSize: "11px", color: "#94A3B8", marginTop: "10px" }}>
+        Prime Level Living  Ships direct  Cancel anytime
+      </div>
+    </div>
+  );
 }
 
 // --- COACH AVATAR --- Realistic athletic male
 function CoachAvatar({ size = 80, pillar = "TRAIN" }) {
 const color = pillar === "TRAIN" ? B : pillar === "FUEL" ? O : P;
-const scale = size / 80;
 return (
- <svg width={size} height={size} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-   {/* Glow ring */}
-   <circle cx="40" cy="40" r="38" fill={`${color}12`} stroke={`${color}30`} strokeWidth="1"/>
-   {/* Neck */}
-   <rect x="36" y="28" width="8" height="8" rx="2" fill="#8B5E3C"/>
-   {/* Head - strong jaw, defined features */}
-   <ellipse cx="40" cy="20" rx="11" ry="12" fill="#8B5E3C"/>
-   {/* Fade haircut - tight sides */}
-   <ellipse cx="40" cy="10" rx="11" ry="6" fill="#1A0F00"/>
-   <ellipse cx="40" cy="13" rx="9" ry="5" fill="#2D1800"/>
-   {/* Strong brow ridge */}
-   <path d="M31 17 Q35 15 40 16 Q45 15 49 17" stroke="#1A0F00" strokeWidth="2" strokeLinecap="round" fill="none"/>
-   {/* Eyes - focused, intense */}
-   <ellipse cx="36" cy="19" rx="2.5" ry="2" fill="#1A0F00"/>
-   <ellipse cx="44" cy="19" rx="2.5" ry="2" fill="#1A0F00"/>
-   <circle cx="36.5" cy="18.5" r="0.8" fill="white" opacity="0.6"/>
-   <circle cx="44.5" cy="18.5" r="0.8" fill="white" opacity="0.6"/>
-   {/* Beard - short, defined */}
-   <path d="M30 22 Q32 28 40 29 Q48 28 50 22 Q47 26 40 27 Q33 26 30 22Z" fill="#1A0F00" opacity="0.85"/>
-   {/* Jaw definition */}
-   <path d="M30 20 Q29 24 32 27 Q36 30 40 30 Q44 30 48 27 Q51 24 50 20" fill="#7A5230" opacity="0.4"/>
-   {/* Traps - wide, thick */}
-   <path d="M22 34 Q26 30 36 32 L36 36 Q28 34 24 38Z" fill="#7A5230"/>
-   <path d="M58 34 Q54 30 44 32 L44 36 Q52 34 56 38Z" fill="#7A5230"/>
-   {/* Torso - V-taper, athletic */}
-   <path d="M26 37 Q28 35 36 34 L40 36 L44 34 Q52 35 54 37 L52 62 Q48 65 40 65 Q32 65 28 62Z" fill="#8B5E3C"/>
-   {/* Chest definition - pec line */}
-   <path d="M30 40 Q36 38 40 40" stroke="#6B4423" strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.6"/>
-   <path d="M50 40 Q44 38 40 40" stroke="#6B4423" strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.6"/>
-   {/* Ab lines */}
-   <line x1="40" y1="44" x2="40" y2="62" stroke="#6B4423" strokeWidth="1" opacity="0.4"/>
-   <path d="M35 48 Q40 47 45 48" stroke="#6B4423" strokeWidth="1" opacity="0.35" fill="none"/>
-   <path d="M35 53 Q40 52 45 53" stroke="#6B4423" strokeWidth="1" opacity="0.35" fill="none"/>
-   <path d="M35 58 Q40 57 45 58" stroke="#6B4423" strokeWidth="1" opacity="0.3" fill="none"/>
-   {/* Left arm - bicep peak, defined */}
-   <path d="M26 37 Q18 40 16 48 Q15 54 18 58 Q20 62 22 60 Q20 56 21 50 Q23 43 28 42Z" fill="#8B5E3C"/>
-   <ellipse cx="18" cy="53" rx="4" ry="6" fill="#7A5230"/>
-   {/* Left forearm */}
-   <path d="M18 58 Q16 64 17 70" stroke="#8B5E3C" strokeWidth="6" strokeLinecap="round"/>
-   {/* Left hand - fist/ready */}
-   <ellipse cx="17" cy="72" rx="4" ry="3" fill="#7A5230"/>
-   {/* Right arm - bicep peak */}
-   <path d="M54 37 Q62 40 64 48 Q65 54 62 58 Q60 62 58 60 Q60 56 59 50 Q57 43 52 42Z" fill="#8B5E3C"/>
-   <ellipse cx="62" cy="53" rx="4" ry="6" fill="#7A5230"/>
-   {/* Right forearm */}
-   <path d="M62 58 Q64 64 63 70" stroke="#8B5E3C" strokeWidth="6" strokeLinecap="round"/>
-   {/* Right hand */}
-   <ellipse cx="63" cy="72" rx="4" ry="3" fill="#7A5230"/>
-   {/* Shorts/waistband */}
-   <rect x="28" y="62" width="24" height="3" rx="1.5" fill={color} opacity="0.9"/>
-   <rect x="28" y="65" width="24" height="13" rx="2" fill={`${color}CC`}/>
-   {/* Shorts center line */}
-   <line x1="40" y1="65" x2="40" y2="78" stroke={`${color}60`} strokeWidth="1"/>
-   {/* Pillar accent stripe on shorts */}
-   <rect x="28" y="65" width="4" height="13" rx="1" fill={color} opacity="0.5"/>
-   <rect x="48" y="65" width="4" height="13" rx="1" fill={color} opacity="0.5"/>
- </svg>
+  <svg width={size} height={size} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* Glow ring */}
+    <circle cx="40" cy="40" r="38" fill={`${color}12`} stroke={`${color}30`} strokeWidth="1"/>
+    {/* Neck */}
+    <rect x="36" y="28" width="8" height="8" rx="2" fill="#8B5E3C"/>
+    {/* Head - strong jaw, defined features */}
+    <ellipse cx="40" cy="20" rx="11" ry="12" fill="#8B5E3C"/>
+    {/* Fade haircut - tight sides */}
+    <ellipse cx="40" cy="10" rx="11" ry="6" fill="#1A0F00"/>
+    <ellipse cx="40" cy="13" rx="9" ry="5" fill="#2D1800"/>
+    {/* Strong brow ridge */}
+    <path d="M31 17 Q35 15 40 16 Q45 15 49 17" stroke="#1A0F00" strokeWidth="2" strokeLinecap="round" fill="none"/>
+    {/* Eyes - focused, intense */}
+    <ellipse cx="36" cy="19" rx="2.5" ry="2" fill="#1A0F00"/>
+    <ellipse cx="44" cy="19" rx="2.5" ry="2" fill="#1A0F00"/>
+    <circle cx="36.5" cy="18.5" r="0.8" fill="white" opacity="0.6"/>
+    <circle cx="44.5" cy="18.5" r="0.8" fill="white" opacity="0.6"/>
+    {/* Beard - short, defined */}
+    <path d="M30 22 Q32 28 40 29 Q48 28 50 22 Q47 26 40 27 Q33 26 30 22Z" fill="#1A0F00" opacity="0.85"/>
+    {/* Jaw definition */}
+    <path d="M30 20 Q29 24 32 27 Q36 30 40 30 Q44 30 48 27 Q51 24 50 20" fill="#7A5230" opacity="0.4"/>
+    {/* Traps - wide, thick */}
+    <path d="M22 34 Q26 30 36 32 L36 36 Q28 34 24 38Z" fill="#7A5230"/>
+    <path d="M58 34 Q54 30 44 32 L44 36 Q52 34 56 38Z" fill="#7A5230"/>
+    {/* Torso - V-taper, athletic */}
+    <path d="M26 37 Q28 35 36 34 L40 36 L44 34 Q52 35 54 37 L52 62 Q48 65 40 65 Q32 65 28 62Z" fill="#8B5E3C"/>
+    {/* Chest definition - pec line */}
+    <path d="M30 40 Q36 38 40 40" stroke="#6B4423" strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.6"/>
+    <path d="M50 40 Q44 38 40 40" stroke="#6B4423" strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.6"/>
+    {/* Ab lines */}
+    <line x1="40" y1="44" x2="40" y2="62" stroke="#6B4423" strokeWidth="1" opacity="0.4"/>
+    <path d="M35 48 Q40 47 45 48" stroke="#6B4423" strokeWidth="1" opacity="0.35" fill="none"/>
+    <path d="M35 53 Q40 52 45 53" stroke="#6B4423" strokeWidth="1" opacity="0.35" fill="none"/>
+    <path d="M35 58 Q40 57 45 58" stroke="#6B4423" strokeWidth="1" opacity="0.3" fill="none"/>
+    {/* Left arm - bicep peak, defined */}
+    <path d="M26 37 Q18 40 16 48 Q15 54 18 58 Q20 62 22 60 Q20 56 21 50 Q23 43 28 42Z" fill="#8B5E3C"/>
+    <ellipse cx="18" cy="53" rx="4" ry="6" fill="#7A5230"/>
+    {/* Left forearm */}
+    <path d="M18 58 Q16 64 17 70" stroke="#8B5E3C" strokeWidth="6" strokeLinecap="round"/>
+    {/* Left hand - fist/ready */}
+    <ellipse cx="17" cy="72" rx="4" ry="3" fill="#7A5230"/>
+    {/* Right arm - bicep peak */}
+    <path d="M54 37 Q62 40 64 48 Q65 54 62 58 Q60 62 58 60 Q60 56 59 50 Q57 43 52 42Z" fill="#8B5E3C"/>
+    <ellipse cx="62" cy="53" rx="4" ry="6" fill="#7A5230"/>
+    {/* Right forearm */}
+    <path d="M62 58 Q64 64 63 70" stroke="#8B5E3C" strokeWidth="6" strokeLinecap="round"/>
+    {/* Right hand */}
+    <ellipse cx="63" cy="72" rx="4" ry="3" fill="#7A5230"/>
+    {/* Shorts/waistband */}
+    <rect x="28" y="62" width="24" height="3" rx="1.5" fill={color} opacity="0.9"/>
+    <rect x="28" y="65" width="24" height="13" rx="2" fill={`${color}CC`}/>
+    {/* Shorts center line */}
+    <line x1="40" y1="65" x2="40" y2="78" stroke={`${color}60`} strokeWidth="1"/>
+    {/* Pillar accent stripe on shorts */}
+    <rect x="28" y="65" width="4" height="13" rx="1" fill={color} opacity="0.5"/>
+    <rect x="48" y="65" width="4" height="13" rx="1" fill={color} opacity="0.5"/>
+  </svg>
 );
 }
 
@@ -437,70 +436,70 @@ function ExerciseVideo({ exerciseName }) {
 const [expanded, setExpanded] = useState(false);
 const videoUrl = getExerciseVideo(exerciseName);
 if (!videoUrl) {
-return (
-  <div style={{
-    width: "100%", height: "120px", background: "#F1F5F9",
-    borderRadius: "8px", display: "flex", alignItems: "center",
-    justifyContent: "center", cursor: "pointer", border: `1px solid ${BR}`
-  }}>
-    <span style={{ fontSize: "12px", color: TEXT_LIGHT }}>No demo available</span>
-  </div>
-);
+ return (
+   <div style={{
+     width: "100%", height: "120px", background: "#F1F5F9",
+     borderRadius: "8px", display: "flex", alignItems: "center",
+     justifyContent: "center", cursor: "pointer", border: `1px solid ${BR}`
+   }}>
+     <span style={{ fontSize: "12px", color: TEXT_LIGHT }}>No demo available</span>
+   </div>
+ );
 }
 return (
-<>
-  <div
-    onClick={() => setExpanded(true)}
-    onMouseEnter={e => e.currentTarget.style.borderColor = B}
-    onMouseLeave={e => e.currentTarget.style.borderColor = BR}
-    style={{
-      width: "100%", height: "120px", borderRadius: "8px",
-      overflow: "hidden", cursor: "pointer", position: "relative",
-      border: `2px solid ${BR}`, transition: "border-color 0.2s"
-    }}
-
-    <iframe src={videoUrl} width="100%" height="100%"
-      style={{ border: "none", pointerEvents: "none" }}
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      title={exerciseName}
-    />
-    <div style={{
-      position: "absolute", inset: 0, display: "flex",
-      alignItems: "center", justifyContent: "center", background: "rgba(0,0,0,0.2)"
-    }}>
-      <div style={{
-        width: "40px", height: "40px", borderRadius: "50%",
-        background: "rgba(255,255,255,0.9)", display: "flex",
-        alignItems: "center", justifyContent: "center"
-      }}>
-        <span style={{ fontSize: "16px", marginLeft: "3px" }}>&#9654;</span>
-      </div>
-    </div>
-  </div>
-  {expanded && (
-    <div onClick={() => setExpanded(false)} style={{
-      position: "fixed", inset: 0, background: "rgba(0,0,0,0.85)",
-      display: "flex", alignItems: "center", justifyContent: "center",
-      zIndex: 9999, padding: "20px"
-    }}>
-      <div style={{ width: "100%", maxWidth: "800px", position: "relative" }}>
-        <button onClick={(e) => { e.stopPropagation(); setExpanded(false); }} style={{
-          position: "absolute", top: "-40px", right: "0",
-          background: "white", border: "none", borderRadius: "50%",
-          width: "32px", height: "32px", cursor: "pointer", fontSize: "16px", fontWeight: "bold"
-        }}>X</button>
-        <div style={{ borderRadius: "12px", overflow: "hidden", aspectRatio: "16/9" }}>
-          <iframe src={videoUrl + "?autoplay=1"} width="100%" height="100%"
-            style={{ border: "none", display: "block" }}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen title={exerciseName}
-          />
-        </div>
-        <p style={{ color: "white", textAlign: "center", marginTop: "12px", fontSize: "14px" }}>Tap anywhere to close</p>
-      </div>
-    </div>
-  )}
-</>
+ <>
+   <div
+     onClick={() => setExpanded(true)}
+     onMouseEnter={e => e.currentTarget.style.borderColor = B}
+     onMouseLeave={e => e.currentTarget.style.borderColor = BR}
+     style={{
+       width: "100%", height: "120px", borderRadius: "8px",
+       overflow: "hidden", cursor: "pointer", position: "relative",
+       border: `2px solid ${BR}`, transition: "border-color 0.2s"
+     }}
+   >
+     <iframe src={videoUrl} width="100%" height="100%"
+       style={{ border: "none", pointerEvents: "none" }}
+       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+       title={exerciseName}
+     />
+     <div style={{
+       position: "absolute", inset: 0, display: "flex",
+       alignItems: "center", justifyContent: "center", background: "rgba(0,0,0,0.2)"
+     }}>
+       <div style={{
+         width: "40px", height: "40px", borderRadius: "50%",
+         background: "rgba(255,255,255,0.9)", display: "flex",
+         alignItems: "center", justifyContent: "center"
+       }}>
+         <span style={{ fontSize: "16px", marginLeft: "3px" }}>&#9654;</span>
+       </div>
+     </div>
+   </div>
+   {expanded && (
+     <div onClick={() => setExpanded(false)} style={{
+       position: "fixed", inset: 0, background: "rgba(0,0,0,0.85)",
+       display: "flex", alignItems: "center", justifyContent: "center",
+       zIndex: 9999, padding: "20px"
+     }}>
+       <div style={{ width: "100%", maxWidth: "800px", position: "relative" }}>
+         <button onClick={(e) => { e.stopPropagation(); setExpanded(false); }} style={{
+           position: "absolute", top: "-40px", right: "0",
+           background: "white", border: "none", borderRadius: "50%",
+           width: "32px", height: "32px", cursor: "pointer", fontSize: "16px", fontWeight: "bold"
+         }}>X</button>
+         <div style={{ borderRadius: "12px", overflow: "hidden", aspectRatio: "16/9" }}>
+           <iframe src={videoUrl + "?autoplay=1"} width="100%" height="100%"
+             style={{ border: "none", display: "block" }}
+             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+             allowFullScreen title={exerciseName}
+           />
+         </div>
+         <p style={{ color: "white", textAlign: "center", marginTop: "12px", fontSize: "14px" }}>Tap anywhere to close</p>
+       </div>
+     </div>
+   )}
+ </>
 );
 }
 
@@ -508,18 +507,18 @@ return (
 function CoachMessage({ message, pillar, name }) {
 const color = pillar === "TRAIN" ? B : pillar === "FUEL" ? O : P;
 return (
-<div style={{
-  background: `linear-gradient(135deg, ${color}15, ${color}05)`,
-  border: `1px solid ${color}30`, borderLeft: `4px solid ${color}`,
-  borderRadius: "12px", padding: "20px",
-  display: "flex", gap: "16px", alignItems: "flex-start", marginBottom: "24px"
-}}>
-  <CoachAvatar size={56} pillar={pillar} />
-  <div>
-    <div style={{ fontSize: "11px", fontWeight: "700", color: color, letterSpacing: "2px", marginBottom: "6px" }}>COACH MESSAGE</div>
-    <p style={{ fontSize: "15px", color: TEXT_PRIMARY, lineHeight: "1.6", margin: 0, fontStyle: "italic" }}>"{message}"</p>
-  </div>
-</div>
+ <div style={{
+   background: `linear-gradient(135deg, ${color}15, ${color}05)`,
+   border: `1px solid ${color}30`, borderLeft: `4px solid ${color}`,
+   borderRadius: "12px", padding: "20px",
+   display: "flex", gap: "16px", alignItems: "flex-start", marginBottom: "24px"
+ }}>
+   <CoachAvatar size={56} pillar={pillar} />
+   <div>
+     <div style={{ fontSize: "11px", fontWeight: "700", color: color, letterSpacing: "2px", marginBottom: "6px" }}>COACH MESSAGE</div>
+     <p style={{ fontSize: "15px", color: TEXT_PRIMARY, lineHeight: "1.6", margin: 0, fontStyle: "italic" }}>"{message}"</p>
+   </div>
+ </div>
 );
 }
 
@@ -530,81 +529,81 @@ if (!data?.days) return null;
 const w = WEEKS[week] || WEEKS[1];
 const day = data.days[activeDay];
 return (
- <div style={{ padding: "0 0 40px" }}>
-   <div style={{
-     background: `linear-gradient(135deg, ${B}15, ${B}05)`,
-     borderRadius: "16px", padding: "24px", marginBottom: "24px", border: `1px solid ${B}20`
-   }}>
-     <div style={{ fontSize: "11px", fontWeight: "700", color: B, letterSpacing: "2px", marginBottom: "8px" }}>TRAIN -- WEEK {week}/3 {w.intensity.toUpperCase()}</div>
-     <h2 style={{ fontSize: "28px", fontWeight: "800", color: TEXT_PRIMARY, margin: "0 0 8px", letterSpacing: "-0.5px" }}>{data.title}</h2>
-     <p style={{ fontSize: "15px", color: TEXT_SECONDARY, margin: "0 0 12px" }}>{data.subtitle}</p>
-     <div style={{ background: `${B}10`, borderLeft: `3px solid ${B}`, padding: "12px 16px", borderRadius: "0 8px 8px 0" }}>
-       <p style={{ margin: 0, fontSize: "14px", color: TEXT_PRIMARY, fontStyle: "italic" }}>"{w.mantra}"</p>
-     </div>
-   </div>
-   {data.coachMessage && <CoachMessage message={data.coachMessage} pillar="TRAIN" name={name} />}
-   <div style={{ display: "flex", gap: "8px", marginBottom: "24px", flexWrap: "wrap" }}>
-     {data.days.map((d, i) => (
-       <button key={i} onClick={() => setActiveDay(i)} style={{
-         padding: "10px 18px", borderRadius: "8px", border: "none",
-         background: activeDay === i ? B : CARD_BG,
-         color: activeDay === i ? "white" : TEXT_SECONDARY,
-         fontWeight: "700", fontSize: "13px", cursor: "pointer",
-         boxShadow: activeDay === i ? `0 4px 12px ${B}40` : "0 1px 3px rgba(0,0,0,0.1)", transition: "all 0.2s"
-       }}>DAY {d.day}</button>
-     ))}
-   </div>
-   {day && (
-     <div>
-       <div style={{
-         background: CARD_BG, borderRadius: "16px", padding: "20px",
-         marginBottom: "20px", boxShadow: "0 2px 8px rgba(0,0,0,0.06)", border: `1px solid ${BR}`
-       }}>
-         <h3 style={{ fontSize: "18px", fontWeight: "800", color: TEXT_PRIMARY, margin: "0 0 4px", textTransform: "uppercase" }}>DAY {day.day} -- {day.title}</h3>
-         <p style={{ fontSize: "13px", color: TEXT_LIGHT, margin: "0 0 16px" }}>{day.duration}  {day.sets}  {day.reps}</p>
-         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "16px" }}>
-           {day.exercises?.map((ex, i) => (
-             <div key={i} style={{ background: BG, borderRadius: "12px", padding: "16px", border: `1px solid ${BR}` }}>
-               <ExerciseVideo exerciseName={ex.name} />
-               <div style={{ marginTop: "12px" }}>
-                 <div style={{ fontWeight: "800", fontSize: "15px", color: TEXT_PRIMARY, textTransform: "uppercase", marginBottom: "4px" }}>{ex.name}</div>
-                 <div style={{ fontSize: "12px", color: B, fontWeight: "600", marginBottom: "10px" }}>{ex.muscle}</div>
-                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", marginBottom: "10px" }}>
-                   {[["SETS", ex.sets], ["REPS", ex.reps], ["TEMPO", ex.tempo], ["REST", ex.rest]].map(([label, val]) => (
-                     <div key={label} style={{ background: CARD_BG, borderRadius: "6px", padding: "8px", border: `1px solid ${BR}`, textAlign: "center" }}>
-                       <div style={{ fontSize: "10px", color: TEXT_LIGHT, fontWeight: "700", letterSpacing: "1px" }}>{label}</div>
-                       <div style={{ fontSize: "13px", fontWeight: "800", color: TEXT_PRIMARY }}>{val}</div>
-                     </div>
-                   ))}
-                 </div>
-                 <div style={{ background: `${B}10`, borderRadius: "8px", padding: "10px 12px", border: `1px solid ${B}20` }}>
-                   <span style={{ fontSize: "11px", fontWeight: "700", color: B }}>FORM CUE: </span>
-                   <span style={{ fontSize: "12px", color: TEXT_SECONDARY }}>{ex.formCue}</span>
-                 </div>
-               </div>
-             </div>
-           ))}
-         </div>
-         {day.tips && (
-           <div style={{ marginTop: "20px", display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "12px" }}>
-             {day.tips.map((tip, i) => (
-               <div key={i} style={{ background: CARD_BG, borderRadius: "10px", padding: "14px", border: `1px solid ${BR}` }}>
-                 <div style={{ fontSize: "11px", fontWeight: "700", color: B, marginBottom: "6px" }}>TIP {i+1}</div>
-                 <p style={{ fontSize: "13px", color: TEXT_SECONDARY, margin: 0, lineHeight: "1.5" }}>{tip}</p>
-               </div>
-             ))}
-           </div>
-         )}
-       </div>
-     </div>
-   )}
-   <button onClick={onDownload} style={{
-     width: "100%", padding: "16px", borderRadius: "12px", border: "none",
-     background: `linear-gradient(135deg, ${B}, ${B}CC)`,
-     color: "white", fontWeight: "800", fontSize: "15px", cursor: "pointer",
-     letterSpacing: "1px", boxShadow: `0 6px 20px ${B}40`
-   }}>DOWNLOAD WEEK {week} TRAIN BLUEPRINT PDF</button>
- </div>
+  <div style={{ padding: "0 0 40px" }}>
+    <div style={{
+      background: `linear-gradient(135deg, ${B}15, ${B}05)`,
+      borderRadius: "16px", padding: "24px", marginBottom: "24px", border: `1px solid ${B}20`
+    }}>
+      <div style={{ fontSize: "11px", fontWeight: "700", color: B, letterSpacing: "2px", marginBottom: "8px" }}>TRAIN -- WEEK {week}/3  {w.intensity.toUpperCase()}</div>
+      <h2 style={{ fontSize: "28px", fontWeight: "800", color: TEXT_PRIMARY, margin: "0 0 8px", letterSpacing: "-0.5px" }}>{data.title}</h2>
+      <p style={{ fontSize: "15px", color: TEXT_SECONDARY, margin: "0 0 12px" }}>{data.subtitle}</p>
+      <div style={{ background: `${B}10`, borderLeft: `3px solid ${B}`, padding: "12px 16px", borderRadius: "0 8px 8px 0" }}>
+        <p style={{ margin: 0, fontSize: "14px", color: TEXT_PRIMARY, fontStyle: "italic" }}>"{w.mantra}"</p>
+      </div>
+    </div>
+    {data.coachMessage && <CoachMessage message={data.coachMessage} pillar="TRAIN" name={name} />}
+    <div style={{ display: "flex", gap: "8px", marginBottom: "24px", flexWrap: "wrap" }}>
+      {data.days.map((d, i) => (
+        <button key={i} onClick={() => setActiveDay(i)} style={{
+          padding: "10px 18px", borderRadius: "8px", border: "none",
+          background: activeDay === i ? B : CARD_BG,
+          color: activeDay === i ? "white" : TEXT_SECONDARY,
+          fontWeight: "700", fontSize: "13px", cursor: "pointer",
+          boxShadow: activeDay === i ? `0 4px 12px ${B}40` : "0 1px 3px rgba(0,0,0,0.1)", transition: "all 0.2s"
+        }}>DAY {d.day}</button>
+      ))}
+    </div>
+    {day && (
+      <div>
+        <div style={{
+          background: CARD_BG, borderRadius: "16px", padding: "20px",
+          marginBottom: "20px", boxShadow: "0 2px 8px rgba(0,0,0,0.06)", border: `1px solid ${BR}`
+        }}>
+          <h3 style={{ fontSize: "18px", fontWeight: "800", color: TEXT_PRIMARY, margin: "0 0 4px", textTransform: "uppercase" }}>DAY {day.day} -- {day.title}</h3>
+          <p style={{ fontSize: "13px", color: TEXT_LIGHT, margin: "0 0 16px" }}>{day.duration}  {day.sets}  {day.reps}</p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "16px" }}>
+            {day.exercises?.map((ex, i) => (
+              <div key={i} style={{ background: BG, borderRadius: "12px", padding: "16px", border: `1px solid ${BR}` }}>
+                <ExerciseVideo exerciseName={ex.name} />
+                <div style={{ marginTop: "12px" }}>
+                  <div style={{ fontWeight: "800", fontSize: "15px", color: TEXT_PRIMARY, textTransform: "uppercase", marginBottom: "4px" }}>{ex.name}</div>
+                  <div style={{ fontSize: "12px", color: B, fontWeight: "600", marginBottom: "10px" }}>{ex.muscle}</div>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", marginBottom: "10px" }}>
+                    {[["SETS", ex.sets], ["REPS", ex.reps], ["TEMPO", ex.tempo], ["REST", ex.rest]].map(([label, val]) => (
+                      <div key={label} style={{ background: CARD_BG, borderRadius: "6px", padding: "8px", border: `1px solid ${BR}`, textAlign: "center" }}>
+                        <div style={{ fontSize: "10px", color: TEXT_LIGHT, fontWeight: "700", letterSpacing: "1px" }}>{label}</div>
+                        <div style={{ fontSize: "13px", fontWeight: "800", color: TEXT_PRIMARY }}>{val}</div>
+                      </div>
+                    ))}
+                  </div>
+                  <div style={{ background: `${B}10`, borderRadius: "8px", padding: "10px 12px", border: `1px solid ${B}20` }}>
+                    <span style={{ fontSize: "11px", fontWeight: "700", color: B }}>FORM CUE: </span>
+                    <span style={{ fontSize: "12px", color: TEXT_SECONDARY }}>{ex.formCue}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          {day.tips && (
+            <div style={{ marginTop: "20px", display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "12px" }}>
+              {day.tips.map((tip, i) => (
+                <div key={i} style={{ background: CARD_BG, borderRadius: "10px", padding: "14px", border: `1px solid ${BR}` }}>
+                  <div style={{ fontSize: "11px", fontWeight: "700", color: B, marginBottom: "6px" }}>TIP {i+1}</div>
+                  <p style={{ fontSize: "13px", color: TEXT_SECONDARY, margin: 0, lineHeight: "1.5" }}>{tip}</p>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    )}
+    <button onClick={onDownload} style={{
+      width: "100%", padding: "16px", borderRadius: "12px", border: "none",
+      background: `linear-gradient(135deg, ${B}, ${B}CC)`,
+      color: "white", fontWeight: "800", fontSize: "15px", cursor: "pointer",
+      letterSpacing: "1px", boxShadow: `0 6px 20px ${B}40`
+    }}>DOWNLOAD WEEK {week} TRAIN BLUEPRINT PDF</button>
+  </div>
 );
 }
 
@@ -613,86 +612,86 @@ function FuelResult({ data, name, week, onDownload }) {
 if (!data?.supplements) return null;
 const w = WEEKS[week] || WEEKS[1];
 return (
-<div style={{ padding: "0 0 40px" }}>
-  <div style={{
-    background: `linear-gradient(135deg, ${O}15, ${O}05)`,
-    borderRadius: "16px", padding: "24px", marginBottom: "24px", border: `1px solid ${O}20`
-  }}>
-    <div style={{ fontSize: "11px", fontWeight: "700", color: O, letterSpacing: "2px", marginBottom: "8px" }}>FUEL -- WEEK {week}/3 {w.intensity.toUpperCase()}</div>
-    <h2 style={{ fontSize: "28px", fontWeight: "800", color: TEXT_PRIMARY, margin: "0 0 8px", letterSpacing: "-0.5px" }}>{data.title}</h2>
-    <p style={{ fontSize: "15px", color: TEXT_SECONDARY, margin: 0 }}>{data.subtitle}</p>
-  </div>
-  {data.coachMessage && <CoachMessage message={data.coachMessage} pillar="FUEL" name={name} />}
-  <h3 style={{ fontSize: "14px", fontWeight: "800", color: TEXT_PRIMARY, letterSpacing: "2px", marginBottom: "16px" }}>SUPPLEMENT STACK</h3>
-  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "16px", marginBottom: "28px" }}>
-    {data.supplements?.map((s, i) => (
-      <div key={i} style={{ background: CARD_BG, borderRadius: "12px", padding: "18px", border: `1px solid ${BR}`, boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "10px" }}>
-          <div>
-            <div style={{ fontWeight: "800", fontSize: "15px", color: TEXT_PRIMARY, textTransform: "uppercase" }}>{s.name}</div>
-            <div style={{ fontSize: "12px", color: O, fontWeight: "600" }}>{s.category}</div>
-          </div>
-          <span style={{
-            background: s.priority === "Essential" ? `${O}20` : s.priority === "Recommended" ? `${B}20` : `${G}20`,
-            color: s.priority === "Essential" ? O : s.priority === "Recommended" ? B : G,
-            fontSize: "10px", fontWeight: "700", padding: "4px 8px", borderRadius: "20px"
-          }}>{s.priority}</span>
-        </div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", marginBottom: "10px" }}>
-          {[["DOSE", s.dose], ["TIMING", s.timing]].map(([label, val]) => (
-            <div key={label} style={{ background: BG, borderRadius: "6px", padding: "8px", border: `1px solid ${BR}` }}>
-              <div style={{ fontSize: "10px", color: TEXT_LIGHT, fontWeight: "700", letterSpacing: "1px" }}>{label}</div>
-              <div style={{ fontSize: "12px", fontWeight: "700", color: TEXT_PRIMARY }}>{val}</div>
-            </div>
-          ))}
-        </div>
-        <p style={{ fontSize: "13px", color: TEXT_SECONDARY, margin: 0, lineHeight: "1.5" }}>{s.benefit}</p>
-      </div>
-    ))}
-  </div>
-  {data.nutrition && (
-    <>
-      <h3 style={{ fontSize: "14px", fontWeight: "800", color: TEXT_PRIMARY, letterSpacing: "2px", marginBottom: "16px" }}>NUTRITION TARGETS</h3>
-      <div style={{ background: CARD_BG, borderRadius: "16px", padding: "20px", border: `1px solid ${BR}`, marginBottom: "28px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "12px", marginBottom: "16px" }}>
-          {[["CALORIES", data.nutrition.calories, O], ["PROTEIN", data.nutrition.protein, B], ["CARBS", data.nutrition.carbs, G], ["FATS", data.nutrition.fats, P]].map(([label, val, color]) => (
-            <div key={label} style={{ textAlign: "center", background: `${color}10`, borderRadius: "10px", padding: "14px", border: `1px solid ${color}20` }}>
-              <div style={{ fontSize: "10px", fontWeight: "700", color, letterSpacing: "1px", marginBottom: "6px" }}>{label}</div>
-              <div style={{ fontSize: "16px", fontWeight: "800", color: TEXT_PRIMARY }}>{val}</div>
-            </div>
-          ))}
-        </div>
-        <div style={{ background: BG, borderRadius: "8px", padding: "12px", border: `1px solid ${BR}` }}>
-          <span style={{ fontSize: "11px", fontWeight: "700", color: O }}>MEAL TIMING: </span>
-          <span style={{ fontSize: "13px", color: TEXT_SECONDARY }}>{data.nutrition.mealTiming}</span>
-        </div>
-      </div>
-    </>
-  )}
-  {data.mealPlan && (
-    <>
-      <h3 style={{ fontSize: "14px", fontWeight: "800", color: TEXT_PRIMARY, letterSpacing: "2px", marginBottom: "16px" }}>MEAL PLAN</h3>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: "12px", marginBottom: "28px" }}>
-        {data.mealPlan.map((meal, i) => (
-          <div key={i} style={{ background: CARD_BG, borderRadius: "12px", padding: "16px", border: `1px solid ${BR}` }}>
-            <div style={{ fontWeight: "800", fontSize: "14px", color: TEXT_PRIMARY, marginBottom: "4px" }}>{meal.meal}</div>
-            <div style={{ fontSize: "12px", color: O, marginBottom: "10px" }}>{meal.timing}</div>
-            {meal.foods?.map((f, j) => (
-              <div key={j} style={{ fontSize: "13px", color: TEXT_SECONDARY, padding: "4px 0", borderBottom: `1px solid ${BR}` }}>* {f}</div>
-            ))}
-            {meal.macros && <div style={{ fontSize: "11px", color: TEXT_LIGHT, marginTop: "8px" }}>{meal.macros}</div>}
-          </div>
-        ))}
-      </div>
-    </>
-  )}
-  <button onClick={onDownload} style={{
-    width: "100%", padding: "16px", borderRadius: "12px", border: "none",
-    background: `linear-gradient(135deg, ${O}, ${O}CC)`,
-    color: "white", fontWeight: "800", fontSize: "15px", cursor: "pointer",
-    letterSpacing: "1px", boxShadow: `0 6px 20px ${O}40`
-  }}>DOWNLOAD WEEK {week} FUEL BLUEPRINT PDF</button>
-</div>
+ <div style={{ padding: "0 0 40px" }}>
+   <div style={{
+     background: `linear-gradient(135deg, ${O}15, ${O}05)`,
+     borderRadius: "16px", padding: "24px", marginBottom: "24px", border: `1px solid ${O}20`
+   }}>
+     <div style={{ fontSize: "11px", fontWeight: "700", color: O, letterSpacing: "2px", marginBottom: "8px" }}>FUEL -- WEEK {week}/3  {w.intensity.toUpperCase()}</div>
+     <h2 style={{ fontSize: "28px", fontWeight: "800", color: TEXT_PRIMARY, margin: "0 0 8px", letterSpacing: "-0.5px" }}>{data.title}</h2>
+     <p style={{ fontSize: "15px", color: TEXT_SECONDARY, margin: 0 }}>{data.subtitle}</p>
+   </div>
+   {data.coachMessage && <CoachMessage message={data.coachMessage} pillar="FUEL" name={name} />}
+   <h3 style={{ fontSize: "14px", fontWeight: "800", color: TEXT_PRIMARY, letterSpacing: "2px", marginBottom: "16px" }}>SUPPLEMENT STACK</h3>
+   <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "16px", marginBottom: "28px" }}>
+     {data.supplements?.map((s, i) => (
+       <div key={i} style={{ background: CARD_BG, borderRadius: "12px", padding: "18px", border: `1px solid ${BR}`, boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
+         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "10px" }}>
+           <div>
+             <div style={{ fontWeight: "800", fontSize: "15px", color: TEXT_PRIMARY, textTransform: "uppercase" }}>{s.name}</div>
+             <div style={{ fontSize: "12px", color: O, fontWeight: "600" }}>{s.category}</div>
+           </div>
+           <span style={{
+             background: s.priority === "Essential" ? `${O}20` : s.priority === "Recommended" ? `${B}20` : `${G}20`,
+             color: s.priority === "Essential" ? O : s.priority === "Recommended" ? B : G,
+             fontSize: "10px", fontWeight: "700", padding: "4px 8px", borderRadius: "20px"
+           }}>{s.priority}</span>
+         </div>
+         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", marginBottom: "10px" }}>
+           {[["DOSE", s.dose], ["TIMING", s.timing]].map(([label, val]) => (
+             <div key={label} style={{ background: BG, borderRadius: "6px", padding: "8px", border: `1px solid ${BR}` }}>
+               <div style={{ fontSize: "10px", color: TEXT_LIGHT, fontWeight: "700", letterSpacing: "1px" }}>{label}</div>
+               <div style={{ fontSize: "12px", fontWeight: "700", color: TEXT_PRIMARY }}>{val}</div>
+             </div>
+           ))}
+         </div>
+         <p style={{ fontSize: "13px", color: TEXT_SECONDARY, margin: 0, lineHeight: "1.5" }}>{s.benefit}</p>
+       </div>
+     ))}
+   </div>
+   {data.nutrition && (
+     <>
+       <h3 style={{ fontSize: "14px", fontWeight: "800", color: TEXT_PRIMARY, letterSpacing: "2px", marginBottom: "16px" }}>NUTRITION TARGETS</h3>
+       <div style={{ background: CARD_BG, borderRadius: "16px", padding: "20px", border: `1px solid ${BR}`, marginBottom: "28px" }}>
+         <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "12px", marginBottom: "16px" }}>
+           {[["CALORIES", data.nutrition.calories, O], ["PROTEIN", data.nutrition.protein, B], ["CARBS", data.nutrition.carbs, G], ["FATS", data.nutrition.fats, P]].map(([label, val, color]) => (
+             <div key={label} style={{ textAlign: "center", background: `${color}10`, borderRadius: "10px", padding: "14px", border: `1px solid ${color}20` }}>
+               <div style={{ fontSize: "10px", fontWeight: "700", color, letterSpacing: "1px", marginBottom: "6px" }}>{label}</div>
+               <div style={{ fontSize: "16px", fontWeight: "800", color: TEXT_PRIMARY }}>{val}</div>
+             </div>
+           ))}
+         </div>
+         <div style={{ background: BG, borderRadius: "8px", padding: "12px", border: `1px solid ${BR}` }}>
+           <span style={{ fontSize: "11px", fontWeight: "700", color: O }}>MEAL TIMING: </span>
+           <span style={{ fontSize: "13px", color: TEXT_SECONDARY }}>{data.nutrition.mealTiming}</span>
+         </div>
+       </div>
+     </>
+   )}
+   {data.mealPlan && (
+     <>
+       <h3 style={{ fontSize: "14px", fontWeight: "800", color: TEXT_PRIMARY, letterSpacing: "2px", marginBottom: "16px" }}>MEAL PLAN</h3>
+       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: "12px", marginBottom: "28px" }}>
+         {data.mealPlan.map((meal, i) => (
+           <div key={i} style={{ background: CARD_BG, borderRadius: "12px", padding: "16px", border: `1px solid ${BR}` }}>
+             <div style={{ fontWeight: "800", fontSize: "14px", color: TEXT_PRIMARY, marginBottom: "4px" }}>{meal.meal}</div>
+             <div style={{ fontSize: "12px", color: O, marginBottom: "10px" }}>{meal.timing}</div>
+             {meal.foods?.map((f, j) => (
+               <div key={j} style={{ fontSize: "13px", color: TEXT_SECONDARY, padding: "4px 0", borderBottom: `1px solid ${BR}` }}>* {f}</div>
+             ))}
+             {meal.macros && <div style={{ fontSize: "11px", color: TEXT_LIGHT, marginTop: "8px" }}>{meal.macros}</div>}
+           </div>
+         ))}
+       </div>
+     </>
+   )}
+   <button onClick={onDownload} style={{
+     width: "100%", padding: "16px", borderRadius: "12px", border: "none",
+     background: `linear-gradient(135deg, ${O}, ${O}CC)`,
+     color: "white", fontWeight: "800", fontSize: "15px", cursor: "pointer",
+     letterSpacing: "1px", boxShadow: `0 6px 20px ${O}40`
+   }}>DOWNLOAD WEEK {week} FUEL BLUEPRINT PDF</button>
+ </div>
 );
 }
 
@@ -701,91 +700,91 @@ function FocusResult({ data, name, week, onDownload }) {
 if (!data?.dailyPractices) return null;
 const w = WEEKS[week] || WEEKS[1];
 return (
- <div style={{ padding: "0 0 40px" }}>
-   <div style={{
-     background: `linear-gradient(135deg, ${P}15, ${P}05)`,
-     borderRadius: "16px", padding: "24px", marginBottom: "24px", border: `1px solid ${P}20`
-   }}>
-     <div style={{ fontSize: "11px", fontWeight: "700", color: P, letterSpacing: "2px", marginBottom: "8px" }}>FOCUS -- WEEK {week}/3 {w.intensity.toUpperCase()}</div>
-     <h2 style={{ fontSize: "28px", fontWeight: "800", color: TEXT_PRIMARY, margin: "0 0 8px", letterSpacing: "-0.5px" }}>{data.title}</h2>
-     <p style={{ fontSize: "15px", color: TEXT_SECONDARY, margin: 0 }}>{data.subtitle}</p>
-   </div>
-   {data.coachMessage && <CoachMessage message={data.coachMessage} pillar="FOCUS" name={name} />}
-   <h3 style={{ fontSize: "14px", fontWeight: "800", color: TEXT_PRIMARY, letterSpacing: "2px", marginBottom: "16px" }}>DAILY PRACTICES</h3>
-   <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "16px", marginBottom: "28px" }}>
-     {data.dailyPractices?.map((p, i) => (
-       <div key={i} style={{ background: CARD_BG, borderRadius: "12px", padding: "18px", border: `1px solid ${BR}`, boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
-         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "10px" }}>
-           <div style={{ fontWeight: "800", fontSize: "15px", color: TEXT_PRIMARY }}>{p.name}</div>
-           <span style={{ background: `${P}15`, color: P, fontSize: "11px", fontWeight: "700", padding: "4px 8px", borderRadius: "20px", whiteSpace: "nowrap" }}>{p.duration}</span>
-         </div>
-         <div style={{ fontSize: "12px", color: P, fontWeight: "600", marginBottom: "8px" }}>{p.timing}</div>
-         <p style={{ fontSize: "13px", color: TEXT_SECONDARY, margin: "0 0 10px", lineHeight: "1.5" }}>{p.description}</p>
-         <div style={{ background: `${P}10`, borderRadius: "6px", padding: "8px 10px" }}>
-           <span style={{ fontSize: "11px", fontWeight: "700", color: P }}>WHY: </span>
-           <span style={{ fontSize: "12px", color: TEXT_SECONDARY }}>{p.benefit}</span>
-         </div>
-       </div>
-     ))}
-   </div>
-   {data.weeklyChallenge && (
-     <>
-       <h3 style={{ fontSize: "14px", fontWeight: "800", color: TEXT_PRIMARY, letterSpacing: "2px", marginBottom: "16px" }}>WEEKLY CHALLENGE</h3>
-       <div style={{ background: `linear-gradient(135deg, ${P}15, ${P}05)`, borderRadius: "16px", padding: "20px", marginBottom: "28px", border: `1px solid ${P}25` }}>
-         <h4 style={{ fontSize: "18px", fontWeight: "800", color: TEXT_PRIMARY, margin: "0 0 8px" }}>{data.weeklyChallenge.title}</h4>
-         <p style={{ fontSize: "14px", color: TEXT_SECONDARY, margin: "0 0 16px", lineHeight: "1.6" }}>{data.weeklyChallenge.description}</p>
-         {data.weeklyChallenge.dailyActions?.map((action, i) => (
-           <div key={i} style={{ display: "flex", alignItems: "center", gap: "12px", padding: "10px 0", borderBottom: `1px solid ${BR}` }}>
-             <div style={{ width: "28px", height: "28px", borderRadius: "50%", background: `${P}20`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-               <span style={{ fontSize: "12px", fontWeight: "800", color: P }}>D{i+1}</span>
-             </div>
-             <span style={{ fontSize: "14px", color: TEXT_PRIMARY }}>{action}</span>
-           </div>
-         ))}
-       </div>
-     </>
-   )}
-   {data.affirmations && (
-     <>
-       <h3 style={{ fontSize: "14px", fontWeight: "800", color: TEXT_PRIMARY, letterSpacing: "2px", marginBottom: "16px" }}>DAILY AFFIRMATIONS</h3>
-       <div style={{ marginBottom: "28px" }}>
-         {data.affirmations.map((aff, i) => (
-           <div key={i} style={{ background: CARD_BG, borderRadius: "10px", padding: "14px 18px", marginBottom: "10px", border: `1px solid ${BR}`, display: "flex", alignItems: "center", gap: "12px" }}>
-             <span style={{ fontSize: "18px" }}>*</span>
-             <p style={{ margin: 0, fontSize: "14px", color: TEXT_PRIMARY, fontStyle: "italic", fontWeight: "600" }}>"{aff}"</p>
-           </div>
-         ))}
-       </div>
-     </>
-   )}
-   {data.sleepProtocol && (
-     <>
-       <h3 style={{ fontSize: "14px", fontWeight: "800", color: TEXT_PRIMARY, letterSpacing: "2px", marginBottom: "16px" }}>SLEEP PROTOCOL</h3>
-       <div style={{ background: CARD_BG, borderRadius: "16px", padding: "20px", border: `1px solid ${BR}`, marginBottom: "28px" }}>
-         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginBottom: "16px" }}>
-           {[["BEDTIME", data.sleepProtocol.bedtime], ["WAKE TIME", data.sleepProtocol.wakeTime]].map(([label, val]) => (
-             <div key={label} style={{ background: `${P}10`, borderRadius: "10px", padding: "14px", textAlign: "center", border: `1px solid ${P}20` }}>
-               <div style={{ fontSize: "11px", fontWeight: "700", color: P, letterSpacing: "1px", marginBottom: "6px" }}>{label}</div>
-               <div style={{ fontSize: "18px", fontWeight: "800", color: TEXT_PRIMARY }}>{val}</div>
-             </div>
-           ))}
-         </div>
-         {data.sleepProtocol.practices?.map((practice, i) => (
-           <div key={i} style={{ display: "flex", gap: "10px", alignItems: "center", padding: "8px 0", borderBottom: `1px solid ${BR}` }}>
-             <span style={{ color: P, fontSize: "16px" }}>~</span>
-             <span style={{ fontSize: "14px", color: TEXT_SECONDARY }}>{practice}</span>
-           </div>
-         ))}
-       </div>
-     </>
-   )}
-   <button onClick={onDownload} style={{
-     width: "100%", padding: "16px", borderRadius: "12px", border: "none",
-     background: `linear-gradient(135deg, ${P}, ${P}CC)`,
-     color: "white", fontWeight: "800", fontSize: "15px", cursor: "pointer",
-     letterSpacing: "1px", boxShadow: `0 6px 20px ${P}40`
-   }}>DOWNLOAD WEEK {week} FOCUS BLUEPRINT PDF</button>
- </div>
+  <div style={{ padding: "0 0 40px" }}>
+    <div style={{
+      background: `linear-gradient(135deg, ${P}15, ${P}05)`,
+      borderRadius: "16px", padding: "24px", marginBottom: "24px", border: `1px solid ${P}20`
+    }}>
+      <div style={{ fontSize: "11px", fontWeight: "700", color: P, letterSpacing: "2px", marginBottom: "8px" }}>FOCUS -- WEEK {week}/3  {w.intensity.toUpperCase()}</div>
+      <h2 style={{ fontSize: "28px", fontWeight: "800", color: TEXT_PRIMARY, margin: "0 0 8px", letterSpacing: "-0.5px" }}>{data.title}</h2>
+      <p style={{ fontSize: "15px", color: TEXT_SECONDARY, margin: 0 }}>{data.subtitle}</p>
+    </div>
+    {data.coachMessage && <CoachMessage message={data.coachMessage} pillar="FOCUS" name={name} />}
+    <h3 style={{ fontSize: "14px", fontWeight: "800", color: TEXT_PRIMARY, letterSpacing: "2px", marginBottom: "16px" }}>DAILY PRACTICES</h3>
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "16px", marginBottom: "28px" }}>
+      {data.dailyPractices?.map((p, i) => (
+        <div key={i} style={{ background: CARD_BG, borderRadius: "12px", padding: "18px", border: `1px solid ${BR}`, boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "10px" }}>
+            <div style={{ fontWeight: "800", fontSize: "15px", color: TEXT_PRIMARY }}>{p.name}</div>
+            <span style={{ background: `${P}15`, color: P, fontSize: "11px", fontWeight: "700", padding: "4px 8px", borderRadius: "20px", whiteSpace: "nowrap" }}>{p.duration}</span>
+          </div>
+          <div style={{ fontSize: "12px", color: P, fontWeight: "600", marginBottom: "8px" }}>{p.timing}</div>
+          <p style={{ fontSize: "13px", color: TEXT_SECONDARY, margin: "0 0 10px", lineHeight: "1.5" }}>{p.description}</p>
+          <div style={{ background: `${P}10`, borderRadius: "6px", padding: "8px 10px" }}>
+            <span style={{ fontSize: "11px", fontWeight: "700", color: P }}>WHY: </span>
+            <span style={{ fontSize: "12px", color: TEXT_SECONDARY }}>{p.benefit}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+    {data.weeklyChallenge && (
+      <>
+        <h3 style={{ fontSize: "14px", fontWeight: "800", color: TEXT_PRIMARY, letterSpacing: "2px", marginBottom: "16px" }}>WEEKLY CHALLENGE</h3>
+        <div style={{ background: `linear-gradient(135deg, ${P}15, ${P}05)`, borderRadius: "16px", padding: "20px", marginBottom: "28px", border: `1px solid ${P}25` }}>
+          <h4 style={{ fontSize: "18px", fontWeight: "800", color: TEXT_PRIMARY, margin: "0 0 8px" }}>{data.weeklyChallenge.title}</h4>
+          <p style={{ fontSize: "14px", color: TEXT_SECONDARY, margin: "0 0 16px", lineHeight: "1.6" }}>{data.weeklyChallenge.description}</p>
+          {data.weeklyChallenge.dailyActions?.map((action, i) => (
+            <div key={i} style={{ display: "flex", alignItems: "center", gap: "12px", padding: "10px 0", borderBottom: `1px solid ${BR}` }}>
+              <div style={{ width: "28px", height: "28px", borderRadius: "50%", background: `${P}20`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <span style={{ fontSize: "12px", fontWeight: "800", color: P }}>D{i+1}</span>
+              </div>
+              <span style={{ fontSize: "14px", color: TEXT_PRIMARY }}>{action}</span>
+            </div>
+          ))}
+        </div>
+      </>
+    )}
+    {data.affirmations && (
+      <>
+        <h3 style={{ fontSize: "14px", fontWeight: "800", color: TEXT_PRIMARY, letterSpacing: "2px", marginBottom: "16px" }}>DAILY AFFIRMATIONS</h3>
+        <div style={{ marginBottom: "28px" }}>
+          {data.affirmations.map((aff, i) => (
+            <div key={i} style={{ background: CARD_BG, borderRadius: "10px", padding: "14px 18px", marginBottom: "10px", border: `1px solid ${BR}`, display: "flex", alignItems: "center", gap: "12px" }}>
+              <span style={{ fontSize: "18px" }}>*</span>
+              <p style={{ margin: 0, fontSize: "14px", color: TEXT_PRIMARY, fontStyle: "italic", fontWeight: "600" }}>"{aff}"</p>
+            </div>
+          ))}
+        </div>
+      </>
+    )}
+    {data.sleepProtocol && (
+      <>
+        <h3 style={{ fontSize: "14px", fontWeight: "800", color: TEXT_PRIMARY, letterSpacing: "2px", marginBottom: "16px" }}>SLEEP PROTOCOL</h3>
+        <div style={{ background: CARD_BG, borderRadius: "16px", padding: "20px", border: `1px solid ${BR}`, marginBottom: "28px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginBottom: "16px" }}>
+            {[["BEDTIME", data.sleepProtocol.bedtime], ["WAKE TIME", data.sleepProtocol.wakeTime]].map(([label, val]) => (
+              <div key={label} style={{ background: `${P}10`, borderRadius: "10px", padding: "14px", textAlign: "center", border: `1px solid ${P}20` }}>
+                <div style={{ fontSize: "11px", fontWeight: "700", color: P, letterSpacing: "1px", marginBottom: "6px" }}>{label}</div>
+                <div style={{ fontSize: "18px", fontWeight: "800", color: TEXT_PRIMARY }}>{val}</div>
+              </div>
+            ))}
+          </div>
+          {data.sleepProtocol.practices?.map((practice, i) => (
+            <div key={i} style={{ display: "flex", gap: "10px", alignItems: "center", padding: "8px 0", borderBottom: `1px solid ${BR}` }}>
+              <span style={{ color: P, fontSize: "16px" }}>~</span>
+              <span style={{ fontSize: "14px", color: TEXT_SECONDARY }}>{practice}</span>
+            </div>
+          ))}
+        </div>
+      </>
+    )}
+    <button onClick={onDownload} style={{
+      width: "100%", padding: "16px", borderRadius: "12px", border: "none",
+      background: `linear-gradient(135deg, ${P}, ${P}CC)`,
+      color: "white", fontWeight: "800", fontSize: "15px", cursor: "pointer",
+      letterSpacing: "1px", boxShadow: `0 6px 20px ${P}40`
+    }}>DOWNLOAD WEEK {week} FOCUS BLUEPRINT PDF</button>
+  </div>
 );
 }
 
@@ -794,20 +793,20 @@ function Loading({ pillar, name, week }) {
 const p = PILLARS[pillar];
 const [dots, setDots] = useState(".");
 useEffect(() => {
-const t = setInterval(() => setDots(d => d.length >= 3 ? "." : d + "."), 500);
-return () => clearInterval(t);
+ const t = setInterval(() => setDots(d => d.length >= 3 ? "." : d + "."), 500);
+ return () => clearInterval(t);
 }, []);
 return (
-<div style={{ textAlign: "center", padding: "60px 20px" }}>
-  <CoachAvatar size={80} pillar={pillar} />
-  <div style={{ marginTop: "24px", marginBottom: "8px" }}><span style={{ fontSize: "32px" }}>{p.icon}</span></div>
-  <div style={{ fontSize: "18px", fontWeight: "800", color: TEXT_PRIMARY, marginBottom: "8px" }}>Building your {pillar} Blueprint{dots}</div>
-  <div style={{ fontSize: "14px", color: TEXT_SECONDARY }}>Personalizing for {name} -- Week {week}</div>
-  <div style={{ width: "200px", height: "4px", background: BR, borderRadius: "2px", margin: "24px auto 0", overflow: "hidden" }}>
-    <div style={{ height: "100%", background: p.color, borderRadius: "2px", animation: "loadingBar 2s ease-in-out infinite" }} />
-  </div>
-  <style>{`@keyframes loadingBar { 0%{width:0%} 50%{width:80%} 100%{width:100%} }`}</style>
-</div>
+ <div style={{ textAlign: "center", padding: "60px 20px" }}>
+   <CoachAvatar size={80} pillar={pillar} />
+   <div style={{ marginTop: "24px", marginBottom: "8px" }}><span style={{ fontSize: "32px" }}>{p.icon}</span></div>
+   <div style={{ fontSize: "18px", fontWeight: "800", color: TEXT_PRIMARY, marginBottom: "8px" }}>Building your {pillar} Blueprint{dots}</div>
+   <div style={{ fontSize: "14px", color: TEXT_SECONDARY }}>Personalizing for {name} -- Week {week}</div>
+   <div style={{ width: "200px", height: "4px", background: BR, borderRadius: "2px", margin: "24px auto 0", overflow: "hidden" }}>
+     <div style={{ height: "100%", background: p.color, borderRadius: "2px", animation: "loadingBar 2s ease-in-out infinite" }} />
+   </div>
+   <style>{`@keyframes loadingBar { 0%{width:0%} 50%{width:80%} 100%{width:100%} }`}</style>
+ </div>
 );
 }
 
@@ -817,41 +816,41 @@ const p = PILLARS[pillar];
 const questions = INTAKE[pillar];
 const [answers, setAnswers] = useState(profile?.answers?.[pillar] || {});
 return (
-<div style={{ padding: "8px 0 40px" }}>
-  <div style={{
-    display: "flex", alignItems: "center", gap: "16px", marginBottom: "24px", padding: "20px",
-    background: `linear-gradient(135deg, ${p.color}12, ${p.color}04)`,
-    borderRadius: "16px", border: `1px solid ${p.color}20`
-  }}>
-    <CoachAvatar size={56} pillar={pillar} />
-    <div>
-      <div style={{ fontSize: "11px", fontWeight: "700", color: p.color, letterSpacing: "2px", marginBottom: "4px" }}>{pillar} -- INTAKE</div>
-      <div style={{ fontSize: "15px", color: TEXT_SECONDARY }}>Your previous answers are loaded. Update if needed.</div>
-    </div>
-  </div>
-  {questions.map(q => (
-    <div key={q.id} style={{ marginBottom: "20px" }}>
-      <div style={{ fontSize: "11px", fontWeight: "700", color: TEXT_LIGHT, letterSpacing: "2px", marginBottom: "10px" }}>{q.label}</div>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
-        {q.options.map(opt => (
-          <button key={opt} onClick={() => setAnswers(a => ({...a, [q.id]: opt}))} style={{
-            padding: "10px 16px", borderRadius: "8px",
-            border: answers[q.id] === opt ? `2px solid ${p.color}` : `2px solid ${BR}`,
-            background: answers[q.id] === opt ? `${p.color}15` : CARD_BG,
-            color: answers[q.id] === opt ? p.color : TEXT_SECONDARY,
-            fontWeight: "700", fontSize: "13px", cursor: "pointer", transition: "all 0.15s"
-          }}>{opt}</button>
-        ))}
-      </div>
-    </div>
-  ))}
-  <button onClick={() => onGenerate(answers)} style={{
-    width: "100%", padding: "16px", borderRadius: "12px", border: "none",
-    background: `linear-gradient(135deg, ${p.color}, ${p.color}CC)`,
-    color: "white", fontWeight: "800", fontSize: "15px", cursor: "pointer",
-    letterSpacing: "1px", marginTop: "8px", boxShadow: `0 6px 20px ${p.color}40`
-  }}>GENERATE MY WEEK {profile?.week || 1} {pillar} BLUEPRINT -></button>
-</div>
+ <div style={{ padding: "8px 0 40px" }}>
+   <div style={{
+     display: "flex", alignItems: "center", gap: "16px", marginBottom: "24px", padding: "20px",
+     background: `linear-gradient(135deg, ${p.color}12, ${p.color}04)`,
+     borderRadius: "16px", border: `1px solid ${p.color}20`
+   }}>
+     <CoachAvatar size={56} pillar={pillar} />
+     <div>
+       <div style={{ fontSize: "11px", fontWeight: "700", color: p.color, letterSpacing: "2px", marginBottom: "4px" }}>{pillar} -- INTAKE</div>
+       <div style={{ fontSize: "15px", color: TEXT_SECONDARY }}>Your previous answers are loaded. Update if needed.</div>
+     </div>
+   </div>
+   {questions.map(q => (
+     <div key={q.id} style={{ marginBottom: "20px" }}>
+       <div style={{ fontSize: "11px", fontWeight: "700", color: TEXT_LIGHT, letterSpacing: "2px", marginBottom: "10px" }}>{q.label}</div>
+       <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+         {q.options.map(opt => (
+           <button key={opt} onClick={() => setAnswers(a => ({...a, [q.id]: opt}))} style={{
+             padding: "10px 16px", borderRadius: "8px",
+             border: answers[q.id] === opt ? `2px solid ${p.color}` : `2px solid ${BR}`,
+             background: answers[q.id] === opt ? `${p.color}15` : CARD_BG,
+             color: answers[q.id] === opt ? p.color : TEXT_SECONDARY,
+             fontWeight: "700", fontSize: "13px", cursor: "pointer", transition: "all 0.15s"
+           }}>{opt}</button>
+         ))}
+       </div>
+     </div>
+   ))}
+   <button onClick={() => onGenerate(answers)} style={{
+     width: "100%", padding: "16px", borderRadius: "12px", border: "none",
+     background: `linear-gradient(135deg, ${p.color}, ${p.color}CC)`,
+     color: "white", fontWeight: "800", fontSize: "15px", cursor: "pointer",
+     letterSpacing: "1px", marginTop: "8px", boxShadow: `0 6px 20px ${p.color}40`
+   }}>GENERATE MY WEEK {profile?.week || 1} {pillar} BLUEPRINT -></button>
+ </div>
 );
 }
 
@@ -892,405 +891,405 @@ const week = profile?.week || 1;
 const name = profile?.firstName || profile?.username || "Athlete";
 
 useEffect(() => {
-const saved = Store.load("profile_" + (loginForm.username || ""));
-if (saved) setProfile(saved);
+ const saved = Store.load("profile_" + (loginForm.username || ""));
+ if (saved) setProfile(saved);
 }, []);
 
 const saveProfile = (updates) => {
-const updated = { ...profile, ...updates };
-setProfile(updated);
-if (updated.username) Store.save("profile_" + updated.username.toLowerCase(), updated);
+ const updated = { ...profile, ...updates };
+ setProfile(updated);
+ if (updated.username) Store.save("profile_" + updated.username.toLowerCase(), updated);
 };
 
 const login = (prof) => {
-Store.save("user_" + prof.username.toLowerCase(), prof);
-setProfile(prof);
-setScreen("app");
+ Store.save("user_" + prof.username.toLowerCase(), prof);
+ setProfile(prof);
+ setScreen("app");
 };
 
 const logout = () => { setScreen("login"); setProfile(null); };
 
 const handleSignIn = () => {
-if (!loginForm.username || !loginForm.password) { setLoginError("Please fill in all fields."); return; }
-const saved = Store.load("user_" + loginForm.username.toLowerCase());
-if (!saved) { setLoginError("Account not found."); return; }
-if (saved.password !== loginForm.password) { setLoginError("Incorrect password."); return; }
-login(saved);
+ if (!loginForm.username || !loginForm.password) { setLoginError("Please fill in all fields."); return; }
+ const saved = Store.load("user_" + loginForm.username.toLowerCase());
+ if (!saved) { setLoginError("Account not found."); return; }
+ if (saved.password !== loginForm.password) { setLoginError("Incorrect password."); return; }
+ login(saved);
 };
 
 const handleCreateAccount = () => {
-if (!createForm.firstName || !createForm.username || !createForm.email || !createForm.password) {
-  setLoginError("Please fill in all fields."); return;
-}
-if (!createForm.gender) { setLoginError("Please select Male or Female."); return; }
-if (!createForm.ageRange) { setLoginError("Please select your age range."); return; }
-const exists = Store.load("user_" + createForm.username.toLowerCase());
-if (exists) { setLoginError("Username already taken."); return; }
-const newProfile = {
-  firstName: createForm.firstName,
-  username: createForm.username,
-  email: createForm.email,
-  password: createForm.password,
-  gender: createForm.gender,
-  ageRange: createForm.ageRange,
-  week: 1, answers: {}, createdAt: new Date().toISOString()
-};
-login(newProfile);
+ if (!createForm.firstName || !createForm.username || !createForm.email || !createForm.password) {
+   setLoginError("Please fill in all fields."); return;
+ }
+ if (!createForm.gender) { setLoginError("Please select Male or Female."); return; }
+ if (!createForm.ageRange) { setLoginError("Please select your age range."); return; }
+ const exists = Store.load("user_" + createForm.username.toLowerCase());
+ if (exists) { setLoginError("Username already taken."); return; }
+ const newProfile = {
+   firstName: createForm.firstName,
+   username: createForm.username,
+   email: createForm.email,
+   password: createForm.password,
+   gender: createForm.gender,
+   ageRange: createForm.ageRange,
+   week: 1, answers: {}, createdAt: new Date().toISOString()
+ };
+ login(newProfile);
 };
 
 const generate = async (pillar, answers) => {
-upd(pillar, { phase: "loading", answers });
-const newAnswers = { ...(profile?.answers || {}), [pillar]: answers };
-saveProfile({ answers: newAnswers });
-try {
-  const n = profile?.firstName || profile?.username || "Athlete";
-  const gender = profile?.gender || "";
-  const ageRange = profile?.ageRange || "";
-  const prompt = PILLARS[pillar].prompt(answers, n, week, gender, ageRange);
-  const res = await fetch("/api/generate", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", "anthropic-version": "2023-06-01" },
-    body: JSON.stringify({ model: "claude-haiku-4-5", max_tokens: 4000, messages: [{ role: "user", content: prompt }] })
-  });
-  const data = await res.json();
-  if (data.error) throw new Error(data.error.message);
-  const text = (data.content || []).filter(c => c.type === "text").map(c => c.text).join("");
-  const clean = text.replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/i, "").trim();
-  const result = JSON.parse(clean);
-  upd(pillar, { phase: "result", result });
-  if (!completedPillars.includes(pillar)) {
-    const newCompleted = [...completedPillars, pillar];
-    setCompletedPillars(newCompleted);
-    // Celebration is triggered manually by user clicking "Complete Week" button
-    // NOT auto-fired here so the 3rd blueprint always displays first
-  }
-} catch (err) {
-  console.log("PLL Engine error:", err.message);
-  upd(pillar, { phase: "error" });
-}
+ upd(pillar, { phase: "loading", answers });
+ const newAnswers = { ...(profile?.answers || {}), [pillar]: answers };
+ saveProfile({ answers: newAnswers });
+ try {
+   const n = profile?.firstName || profile?.username || "Athlete";
+   const gender = profile?.gender || "";
+   const ageRange = profile?.ageRange || "";
+   const prompt = PILLARS[pillar].prompt(answers, n, week, gender, ageRange);
+   const res = await fetch("/api/generate", {
+     method: "POST",
+     headers: { "Content-Type": "application/json", "anthropic-version": "2023-06-01" },
+     body: JSON.stringify({ model: "claude-haiku-4-5", max_tokens: 4000, messages: [{ role: "user", content: prompt }] })
+   });
+   const data = await res.json();
+   if (data.error) throw new Error(data.error.message);
+   const text = (data.content || []).filter(c => c.type === "text").map(c => c.text).join("");
+   const clean = text.replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/i, "").trim();
+   const result = JSON.parse(clean);
+   upd(pillar, { phase: "result", result });
+   if (!completedPillars.includes(pillar)) {
+     const newCompleted = [...completedPillars, pillar];
+     setCompletedPillars(newCompleted);
+     // Celebration is triggered manually by user clicking "Complete Week" button
+     // NOT auto-fired here so the 3rd blueprint always displays first
+   }
+ } catch (err) {
+   console.log("PLL Engine error:", err.message);
+   upd(pillar, { phase: "error" });
+ }
 };
 
 if (screen === "login") {
-return (
-  <div style={{
-    minHeight: "100vh", background: `linear-gradient(135deg, ${CD} 0%, #0F172A 50%, ${CD} 100%)`,
-    display: "flex", alignItems: "center", justifyContent: "center", padding: "20px"
-  }}>
-    <div style={{
-      background: "white", borderRadius: "24px", padding: "40px",
-      width: "100%", maxWidth: "400px", boxShadow: "0 25px 60px rgba(0,0,0,0.4)"
-    }}>
-      <div style={{ textAlign: "center", marginBottom: "32px" }}>
-        <CoachAvatar size={72} pillar="TRAIN" />
-        <h1 style={{ fontSize: "28px", fontWeight: "900", color: TEXT_PRIMARY, margin: "16px 0 4px", letterSpacing: "-1px" }}>LEVEL UP</h1>
-        <p style={{ fontSize: "13px", color: TEXT_LIGHT, letterSpacing: "3px", textTransform: "uppercase", margin: 0 }}>THE PLL SYSTEM  PHASE 1</p>
-      </div>
+ return (
+   <div style={{
+     minHeight: "100vh", background: `linear-gradient(135deg, ${CD} 0%, #0F172A 50%, ${CD} 100%)`,
+     display: "flex", alignItems: "center", justifyContent: "center", padding: "20px"
+   }}>
+     <div style={{
+       background: "white", borderRadius: "24px", padding: "40px",
+       width: "100%", maxWidth: "400px", boxShadow: "0 25px 60px rgba(0,0,0,0.4)"
+     }}>
+       <div style={{ textAlign: "center", marginBottom: "32px" }}>
+         <CoachAvatar size={72} pillar="TRAIN" />
+         <h1 style={{ fontSize: "28px", fontWeight: "900", color: TEXT_PRIMARY, margin: "16px 0 4px", letterSpacing: "-1px" }}>LEVEL UP</h1>
+         <p style={{ fontSize: "13px", color: TEXT_LIGHT, letterSpacing: "3px", textTransform: "uppercase", margin: 0 }}>THE PLL SYSTEM  PHASE 1</p>
+       </div>
 
-      <div style={{ display: "flex", marginBottom: "24px", background: BG, borderRadius: "10px", padding: "4px" }}>
-        {["signin", "create"].map(mode => (
-          <button key={mode} onClick={() => { setLoginMode(mode); setLoginError(""); }} style={{
-            flex: 1, padding: "10px", borderRadius: "8px", border: "none",
-            background: loginMode === mode ? "white" : "transparent",
-            color: loginMode === mode ? TEXT_PRIMARY : TEXT_LIGHT,
-            fontWeight: "700", fontSize: "13px", cursor: "pointer",
-            boxShadow: loginMode === mode ? "0 2px 6px rgba(0,0,0,0.1)" : "none",
-            textTransform: "uppercase", letterSpacing: "1px"
-          }}>{mode === "signin" ? "Sign In" : "Create Account"}</button>
-        ))}
-      </div>
+       <div style={{ display: "flex", marginBottom: "24px", background: BG, borderRadius: "10px", padding: "4px" }}>
+         {["signin", "create"].map(mode => (
+           <button key={mode} onClick={() => { setLoginMode(mode); setLoginError(""); }} style={{
+             flex: 1, padding: "10px", borderRadius: "8px", border: "none",
+             background: loginMode === mode ? "white" : "transparent",
+             color: loginMode === mode ? TEXT_PRIMARY : TEXT_LIGHT,
+             fontWeight: "700", fontSize: "13px", cursor: "pointer",
+             boxShadow: loginMode === mode ? "0 2px 6px rgba(0,0,0,0.1)" : "none",
+             textTransform: "uppercase", letterSpacing: "1px"
+           }}>{mode === "signin" ? "Sign In" : "Create Account"}</button>
+         ))}
+       </div>
 
-      {loginError && (
-        <div style={{ background: "#FEF2F2", border: "1px solid #FECACA", borderRadius: "8px", padding: "10px 14px", marginBottom: "16px" }}>
-          <p style={{ margin: 0, fontSize: "13px", color: "#DC2626" }}>{loginError}</p>
-        </div>
-      )}
+       {loginError && (
+         <div style={{ background: "#FEF2F2", border: "1px solid #FECACA", borderRadius: "8px", padding: "10px 14px", marginBottom: "16px" }}>
+           <p style={{ margin: 0, fontSize: "13px", color: "#DC2626" }}>{loginError}</p>
+         </div>
+       )}
 
-      {loginMode === "signin" ? (
-        <>
-          {[{ label: "Username", key: "username", type: "text" }, { label: "Password", key: "password", type: "password" }].map(f => (
-            <div key={f.key} style={{ marginBottom: "14px" }}>
-              <label style={{ fontSize: "11px", fontWeight: "700", color: TEXT_LIGHT, letterSpacing: "1px", display: "block", marginBottom: "6px" }}>{f.label.toUpperCase()}</label>
-              <input type={f.type} value={loginForm[f.key]}
-                onChange={e => setLoginForm(p => ({...p, [f.key]: e.target.value}))}
-                onKeyDown={e => e.key === "Enter" && handleSignIn()}
-                style={{ width: "100%", padding: "12px 14px", borderRadius: "8px", border: `1px solid ${BR}`, fontSize: "15px", color: TEXT_PRIMARY, background: BG, boxSizing: "border-box", outline: "none" }}
-              />
-            </div>
-          ))}
-          <button onClick={handleSignIn} style={{
-            width: "100%", padding: "14px", borderRadius: "10px", border: "none",
-            background: `linear-gradient(135deg, ${B}, ${ACCENT})`,
-            color: "white", fontWeight: "800", fontSize: "15px", cursor: "pointer",
-            letterSpacing: "1px", marginTop: "8px", boxShadow: `0 6px 20px ${B}40`
-          }}>SIGN IN TO MY PROGRAM</button>
-        </>
-      ) : (
-        <>
-          {[
-            { label: "First Name", key: "firstName", type: "text" },
-            { label: "Username", key: "username", type: "text" },
-            { label: "Email Address", key: "email", type: "email" },
-            { label: "Password", key: "password", type: "password" }
-          ].map(f => (
-            <div key={f.key} style={{ marginBottom: "14px" }}>
-              <label style={{ fontSize: "11px", fontWeight: "700", color: TEXT_LIGHT, letterSpacing: "1px", display: "block", marginBottom: "6px" }}>{f.label.toUpperCase()}</label>
-              <input type={f.type} value={createForm[f.key]}
-                onChange={e => setCreateForm(p => ({...p, [f.key]: e.target.value}))}
-                style={{ width: "100%", padding: "12px 14px", borderRadius: "8px", border: `1px solid ${BR}`, fontSize: "15px", color: TEXT_PRIMARY, background: BG, boxSizing: "border-box", outline: "none" }}
-              />
-            </div>
-          ))}
+       {loginMode === "signin" ? (
+         <>
+           {[{ label: "Username", key: "username", type: "text" }, { label: "Password", key: "password", type: "password" }].map(f => (
+             <div key={f.key} style={{ marginBottom: "14px" }}>
+               <label style={{ fontSize: "11px", fontWeight: "700", color: TEXT_LIGHT, letterSpacing: "1px", display: "block", marginBottom: "6px" }}>{f.label.toUpperCase()}</label>
+               <input type={f.type} value={loginForm[f.key]}
+                 onChange={e => setLoginForm(p => ({...p, [f.key]: e.target.value}))}
+                 onKeyDown={e => e.key === "Enter" && handleSignIn()}
+                 style={{ width: "100%", padding: "12px 14px", borderRadius: "8px", border: `1px solid ${BR}`, fontSize: "15px", color: TEXT_PRIMARY, background: BG, boxSizing: "border-box", outline: "none" }}
+               />
+             </div>
+           ))}
+           <button onClick={handleSignIn} style={{
+             width: "100%", padding: "14px", borderRadius: "10px", border: "none",
+             background: `linear-gradient(135deg, ${B}, ${ACCENT})`,
+             color: "white", fontWeight: "800", fontSize: "15px", cursor: "pointer",
+             letterSpacing: "1px", marginTop: "8px", boxShadow: `0 6px 20px ${B}40`
+           }}>SIGN IN TO MY PROGRAM</button>
+         </>
+       ) : (
+         <>
+           {[
+             { label: "First Name", key: "firstName", type: "text" },
+             { label: "Username", key: "username", type: "text" },
+             { label: "Email Address", key: "email", type: "email" },
+             { label: "Password", key: "password", type: "password" }
+           ].map(f => (
+             <div key={f.key} style={{ marginBottom: "14px" }}>
+               <label style={{ fontSize: "11px", fontWeight: "700", color: TEXT_LIGHT, letterSpacing: "1px", display: "block", marginBottom: "6px" }}>{f.label.toUpperCase()}</label>
+               <input type={f.type} value={createForm[f.key]}
+                 onChange={e => setCreateForm(p => ({...p, [f.key]: e.target.value}))}
+                 style={{ width: "100%", padding: "12px 14px", borderRadius: "8px", border: `1px solid ${BR}`, fontSize: "15px", color: TEXT_PRIMARY, background: BG, boxSizing: "border-box", outline: "none" }}
+               />
+             </div>
+           ))}
 
-          <div style={{ marginBottom: "16px" }}>
-            <div style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", color: TEXT_LIGHT, marginBottom: "8px", textTransform: "uppercase" }}>I AM</div>
-            <div style={{ display: "flex", gap: "10px" }}>
-              {["Male", "Female"].map(g => (
-                <button key={g} type="button" onClick={() => setCreateForm(p => ({ ...p, gender: g }))} style={{
-                  flex: 1, padding: "12px", borderRadius: "10px", cursor: "pointer",
-                  fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em",
-                  textTransform: "uppercase", transition: "all 0.15s ease",
-                  background: createForm.gender === g ? TEXT_PRIMARY : BG,
-                  color: createForm.gender === g ? "#FFFFFF" : TEXT_SECONDARY,
-                  border: createForm.gender === g ? `2px solid ${TEXT_PRIMARY}` : `2px solid ${BR}`,
-                }}>
-                  {g === "Male" ? " Male" : " Female"}
-                </button>
-              ))}
-            </div>
-          </div>
+           <div style={{ marginBottom: "16px" }}>
+             <div style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", color: TEXT_LIGHT, marginBottom: "8px", textTransform: "uppercase" }}>I AM</div>
+             <div style={{ display: "flex", gap: "10px" }}>
+               {["Male", "Female"].map(g => (
+                 <button key={g} type="button" onClick={() => setCreateForm(p => ({ ...p, gender: g }))} style={{
+                   flex: 1, padding: "12px", borderRadius: "10px", cursor: "pointer",
+                   fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em",
+                   textTransform: "uppercase", transition: "all 0.15s ease",
+                   background: createForm.gender === g ? TEXT_PRIMARY : BG,
+                   color: createForm.gender === g ? "#FFFFFF" : TEXT_SECONDARY,
+                   border: createForm.gender === g ? `2px solid ${TEXT_PRIMARY}` : `2px solid ${BR}`,
+                 }}>
+                   {g === "Male" ? " Male" : " Female"}
+                 </button>
+               ))}
+             </div>
+           </div>
 
-          <div style={{ marginBottom: "16px" }}>
-            <div style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", color: TEXT_LIGHT, marginBottom: "8px", textTransform: "uppercase" }}>MY AGE RANGE</div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "8px" }}>
-              {["18-24", "25-34", "35-44", "45-54", "55-64", "65+"].map(range => (
-                <button key={range} type="button" onClick={() => setCreateForm(p => ({ ...p, ageRange: range }))} style={{
-                  padding: "11px 6px", borderRadius: "10px", cursor: "pointer",
-                  fontSize: "13px", fontWeight: "700", transition: "all 0.15s ease",
-                  background: createForm.ageRange === range ? O : BG,
-                  color: createForm.ageRange === range ? "#FFFFFF" : TEXT_SECONDARY,
-                  border: createForm.ageRange === range ? `2px solid ${O}` : `2px solid ${BR}`,
-                }}>{range}</button>
-              ))}
-            </div>
-          </div>
+           <div style={{ marginBottom: "16px" }}>
+             <div style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", color: TEXT_LIGHT, marginBottom: "8px", textTransform: "uppercase" }}>MY AGE RANGE</div>
+             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "8px" }}>
+               {["18-24", "25-34", "35-44", "45-54", "55-64", "65+"].map(range => (
+                 <button key={range} type="button" onClick={() => setCreateForm(p => ({ ...p, ageRange: range }))} style={{
+                   padding: "11px 6px", borderRadius: "10px", cursor: "pointer",
+                   fontSize: "13px", fontWeight: "700", transition: "all 0.15s ease",
+                   background: createForm.ageRange === range ? O : BG,
+                   color: createForm.ageRange === range ? "#FFFFFF" : TEXT_SECONDARY,
+                   border: createForm.ageRange === range ? `2px solid ${O}` : `2px solid ${BR}`,
+                 }}>{range}</button>
+               ))}
+             </div>
+           </div>
 
-          <p style={{ fontSize: "11px", color: TEXT_LIGHT, textAlign: "center", margin: "8px 0 12px" }}>
-            By creating an account you agree to receive program updates and coaching tips from Prime Level Living.
-          </p>
-          <button onClick={handleCreateAccount} style={{
-            width: "100%", padding: "14px", borderRadius: "10px", border: "none",
-            background: `linear-gradient(135deg, ${O}, ${O}CC)`,
-            color: "white", fontWeight: "800", fontSize: "15px", cursor: "pointer",
-            letterSpacing: "1px", boxShadow: `0 6px 20px ${O}40`
-          }}>START MY TRANSFORMATION</button>
-        </>
-      )}
+           <p style={{ fontSize: "11px", color: TEXT_LIGHT, textAlign: "center", margin: "8px 0 12px" }}>
+             By creating an account you agree to receive program updates and coaching tips from Prime Level Living.
+           </p>
+           <button onClick={handleCreateAccount} style={{
+             width: "100%", padding: "14px", borderRadius: "10px", border: "none",
+             background: `linear-gradient(135deg, ${O}, ${O}CC)`,
+             color: "white", fontWeight: "800", fontSize: "15px", cursor: "pointer",
+             letterSpacing: "1px", boxShadow: `0 6px 20px ${O}40`
+           }}>START MY TRANSFORMATION</button>
+         </>
+       )}
 
-      <p style={{ textAlign: "center", fontSize: "12px", color: TEXT_LIGHT, margin: "20px 0 0" }}>
-        21 DAYS  3 PILLARS  ONE TRANSFORMATION<br/>PRIME LEVEL LIVING  NURU VISION MEDIA
-      </p>
-    </div>
-  </div>
-);
+       <p style={{ textAlign: "center", fontSize: "12px", color: TEXT_LIGHT, margin: "20px 0 0" }}>
+         21 DAYS  3 PILLARS  ONE TRANSFORMATION<br/>PRIME LEVEL LIVING  NURU VISION MEDIA
+       </p>
+     </div>
+   </div>
+ );
 }
 
 if (showCelebration) {
-return (
-  <div style={{
-    minHeight: "100vh", background: `linear-gradient(135deg, ${CD}, #0F172A)`,
-    display: "flex", alignItems: "center", justifyContent: "center", padding: "20px"
-  }}>
-    <div style={{ textAlign: "center", maxWidth: "500px" }}>
-      <div style={{ fontSize: "60px", marginBottom: "16px" }}>**</div>
-      <h1 style={{ fontSize: "36px", fontWeight: "900", color: "white", margin: "0 0 16px", letterSpacing: "-1px" }}>WEEK {week} DONE, {name.toUpperCase()}!</h1>
-      <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.7)", lineHeight: "1.6", marginBottom: "32px" }}>
-        {WEEKS[week]?.coachClose(name) || `${name}, you completed all 3 pillars this week. That's elite.`}
-      </p>
-      {week < 3 ? (
-        <button onClick={() => {
-          saveProfile({ week: week + 1 });
-          setCompletedPillars([]);
-          setShowCelebration(false);
-          setPillarStates({ TRAIN: {phase:"intake"}, FUEL: {phase:"intake"}, FOCUS: {phase:"intake"} });
-        }} style={{
-          padding: "18px 40px", borderRadius: "12px", border: "none",
-          background: `linear-gradient(135deg, ${B}, ${ACCENT})`,
-          color: "white", fontWeight: "800", fontSize: "16px", cursor: "pointer",
-          letterSpacing: "1px", boxShadow: `0 8px 24px ${B}50`
-        }}>START WEEK {week + 1} -></button>
-      ) : (
-        <div>
-          <div style={{ background: `linear-gradient(135deg, ${O}20, ${O}05)`, border: `1px solid ${O}30`, borderRadius: "16px", padding: "24px", marginBottom: "24px" }}>
-            <div style={{ fontSize: "14px", fontWeight: "700", color: O, letterSpacing: "2px", marginBottom: "8px" }}>PHASE 1 COMPLETE</div>
-            <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "15px", margin: 0 }}>You've completed all 3 weeks of Phase 1. Phase 2 unlocks elite-level programming. Ready to go further?</p>
-          </div>
-          <button style={{
-            padding: "18px 40px", borderRadius: "12px", border: "none",
-            background: `linear-gradient(135deg, ${O}, ${O}AA)`,
-            color: "white", fontWeight: "800", fontSize: "16px", cursor: "pointer", letterSpacing: "1px"
-          }}>UNLOCK PHASE 2 -></button>
-        </div>
-      )}
-    </div>
-  </div>
-);
+ return (
+   <div style={{
+     minHeight: "100vh", background: `linear-gradient(135deg, ${CD}, #0F172A)`,
+     display: "flex", alignItems: "center", justifyContent: "center", padding: "20px"
+   }}>
+     <div style={{ textAlign: "center", maxWidth: "500px" }}>
+       <div style={{ fontSize: "60px", marginBottom: "16px" }}>**</div>
+       <h1 style={{ fontSize: "36px", fontWeight: "900", color: "white", margin: "0 0 16px", letterSpacing: "-1px" }}>WEEK {week} DONE, {name.toUpperCase()}!</h1>
+       <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.7)", lineHeight: "1.6", marginBottom: "32px" }}>
+         {WEEKS[week]?.coachClose(name) || `${name}, you completed all 3 pillars this week. That's elite.`}
+       </p>
+       {week < 3 ? (
+         <button onClick={() => {
+           saveProfile({ week: week + 1 });
+           setCompletedPillars([]);
+           setShowCelebration(false);
+           setPillarStates({ TRAIN: {phase:"intake"}, FUEL: {phase:"intake"}, FOCUS: {phase:"intake"} });
+         }} style={{
+           padding: "18px 40px", borderRadius: "12px", border: "none",
+           background: `linear-gradient(135deg, ${B}, ${ACCENT})`,
+           color: "white", fontWeight: "800", fontSize: "16px", cursor: "pointer",
+           letterSpacing: "1px", boxShadow: `0 8px 24px ${B}50`
+         }}>START WEEK {week + 1} -></button>
+       ) : (
+         <div>
+           <div style={{ background: `linear-gradient(135deg, ${O}20, ${O}05)`, border: `1px solid ${O}30`, borderRadius: "16px", padding: "24px", marginBottom: "24px" }}>
+             <div style={{ fontSize: "14px", fontWeight: "700", color: O, letterSpacing: "2px", marginBottom: "8px" }}>PHASE 1 COMPLETE</div>
+             <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "15px", margin: 0 }}>You've completed all 3 weeks of Phase 1. Phase 2 unlocks elite-level programming. Ready to go further?</p>
+           </div>
+           <button style={{
+             padding: "18px 40px", borderRadius: "12px", border: "none",
+             background: `linear-gradient(135deg, ${O}, ${O}AA)`,
+             color: "white", fontWeight: "800", fontSize: "16px", cursor: "pointer", letterSpacing: "1px"
+           }}>UNLOCK PHASE 2 -></button>
+         </div>
+       )}
+     </div>
+   </div>
+ );
 }
 
 const totalPillars = 3;
 const progressPct = Math.round((completedPillars.length / totalPillars) * 100);
 
 return (
-<div style={{ minHeight: "100vh", background: BG, fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
-  <div style={{
-    background: "white", borderBottom: `1px solid ${BR}`,
-    padding: "0 24px", position: "sticky", top: 0, zIndex: 100,
-    boxShadow: "0 1px 8px rgba(0,0,0,0.06)"
-  }}>
-    <div style={{ maxWidth: "1100px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: "64px" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-        <CoachAvatar size={36} pillar={activePillar} />
-        <div>
-          <div style={{ fontSize: "16px", fontWeight: "900", color: TEXT_PRIMARY, letterSpacing: "-0.5px", lineHeight: "1" }}>LEVEL UP</div>
-          <div style={{ fontSize: "10px", color: TEXT_LIGHT, letterSpacing: "2px" }}>THE PLL SYSTEM  {name.toUpperCase()}</div>
-        </div>
-      </div>
-      <div style={{ display: "flex", gap: "6px" }}>
-        {["TRAIN", "FUEL", "FOCUS"].map(p => {
-          const pl = PILLARS[p];
-          const done = completedPillars.includes(p);
-          const active = activePillar === p;
-          return (
-            <button key={p} onClick={() => setActivePillar(p)} style={{
-              padding: "10px 18px", borderRadius: "12px",
-              border: active ? "none" : done ? `1.5px solid ${pl.color}40` : `1.5px solid ${BR}`,
-              background: active
-                ? `linear-gradient(135deg, ${pl.color}, ${pl.color}CC)`
-                : done ? `${pl.color}12` : "white",
-              color: active ? "white" : done ? pl.color : TEXT_LIGHT,
-              fontWeight: "800", fontSize: "12px", cursor: "pointer",
-              letterSpacing: "1.5px", transition: "all 0.2s",
-              boxShadow: active ? `0 4px 16px ${pl.color}50` : done ? `0 2px 8px ${pl.color}20` : "none",
-              display: "flex", flexDirection: "column", alignItems: "center", gap: "2px",
-              minWidth: "64px"
-            }}>
-              <span style={{ fontSize: "16px", lineHeight: 1 }}>{pl.icon}</span>
-              <span style={{ fontSize: "10px", letterSpacing: "2px" }}>{p}</span>
-              {done && <span style={{ fontSize: "9px", opacity: 0.8 }}>DONE</span>}
-            </button>
-          );
-        })}
-      </div>
-      <button onClick={logout} style={{
-        padding: "8px 14px", borderRadius: "8px", border: `1px solid ${BR}`,
-        background: "transparent", color: TEXT_LIGHT, fontSize: "13px", fontWeight: "600", cursor: "pointer"
-      }}>OUT</button>
-    </div>
-  </div>
+ <div style={{ minHeight: "100vh", background: BG, fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
+   <div style={{
+     background: "white", borderBottom: `1px solid ${BR}`,
+     padding: "0 24px", position: "sticky", top: 0, zIndex: 100,
+     boxShadow: "0 1px 8px rgba(0,0,0,0.06)"
+   }}>
+     <div style={{ maxWidth: "1100px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: "64px" }}>
+       <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+         <CoachAvatar size={36} pillar={activePillar} />
+         <div>
+           <div style={{ fontSize: "16px", fontWeight: "900", color: TEXT_PRIMARY, letterSpacing: "-0.5px", lineHeight: "1" }}>LEVEL UP</div>
+           <div style={{ fontSize: "10px", color: TEXT_LIGHT, letterSpacing: "2px" }}>THE PLL SYSTEM  {name.toUpperCase()}</div>
+         </div>
+       </div>
+       <div style={{ display: "flex", gap: "6px" }}>
+         {["TRAIN", "FUEL", "FOCUS"].map(p => {
+           const pl = PILLARS[p];
+           const done = completedPillars.includes(p);
+           const active = activePillar === p;
+           return (
+             <button key={p} onClick={() => setActivePillar(p)} style={{
+               padding: "10px 18px", borderRadius: "12px",
+               border: active ? "none" : done ? `1.5px solid ${pl.color}40` : `1.5px solid ${BR}`,
+               background: active
+                 ? `linear-gradient(135deg, ${pl.color}, ${pl.color}CC)`
+                 : done ? `${pl.color}12` : "white",
+               color: active ? "white" : done ? pl.color : TEXT_LIGHT,
+               fontWeight: "800", fontSize: "12px", cursor: "pointer",
+               letterSpacing: "1.5px", transition: "all 0.2s",
+               boxShadow: active ? `0 4px 16px ${pl.color}50` : done ? `0 2px 8px ${pl.color}20` : "none",
+               display: "flex", flexDirection: "column", alignItems: "center", gap: "2px",
+               minWidth: "64px"
+             }}>
+               <span style={{ fontSize: "16px", lineHeight: 1 }}>{pl.icon}</span>
+               <span style={{ fontSize: "10px", letterSpacing: "2px" }}>{p}</span>
+               {done && <span style={{ fontSize: "9px", opacity: "0.8" }}>DONE</span>}
+             </button>
+           );
+         })}
+       </div>
+       <button onClick={logout} style={{
+         padding: "8px 14px", borderRadius: "8px", border: `1px solid ${BR}`,
+         background: "transparent", color: TEXT_LIGHT, fontSize: "13px", fontWeight: "600", cursor: "pointer"
+       }}>OUT</button>
+     </div>
+   </div>
 
-  <div style={{ background: "white", borderBottom: `1px solid ${BR}`, padding: "12px 24px" }}>
-    <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "8px" }}>
-        <span style={{ fontSize: "11px", fontWeight: "700", color: TEXT_LIGHT, letterSpacing: "2px" }}>PHASE 1 PROGRESS</span>
-        <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
-          {["TRAIN", "FUEL", "FOCUS"].map(p => (
-            <span key={p} style={{ fontSize: "11px", fontWeight: "700", color: completedPillars.includes(p) ? PILLARS[p].color : TEXT_LIGHT }}>
-              W{week} {completedPillars.includes(p) ? "[x]" : "[ ]"}
-            </span>
-          ))}
-          <span style={{ fontSize: "12px", fontWeight: "800", color: progressPct === 100 ? G : TEXT_PRIMARY }}>{progressPct}%</span>
-        </div>
-      </div>
-      <div style={{ height: "4px", background: BR, borderRadius: "2px", overflow: "hidden" }}>
-        <div style={{ height: "100%", width: `${progressPct}%`, background: `linear-gradient(90deg, ${B}, ${O}, ${P})`, borderRadius: "2px", transition: "width 0.5s ease" }} />
-      </div>
-    </div>
-  </div>
+   <div style={{ background: "white", borderBottom: `1px solid ${BR}`, padding: "12px 24px" }}>
+     <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "8px" }}>
+         <span style={{ fontSize: "11px", fontWeight: "700", color: TEXT_LIGHT, letterSpacing: "2px" }}>PHASE 1 PROGRESS</span>
+         <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+           {["TRAIN", "FUEL", "FOCUS"].map(p => (
+             <span key={p} style={{ fontSize: "11px", fontWeight: "700", color: completedPillars.includes(p) ? PILLARS[p].color : TEXT_LIGHT }}>
+               W{week} {completedPillars.includes(p) ? "[x]" : "[ ]"}
+             </span>
+           ))}
+           <span style={{ fontSize: "12px", fontWeight: "800", color: progressPct === 100 ? G : TEXT_PRIMARY }}>{progressPct}%</span>
+         </div>
+       </div>
+       <div style={{ height: "4px", background: BR, borderRadius: "2px", overflow: "hidden" }}>
+         <div style={{ height: "100%", width: `${progressPct}%`, background: `linear-gradient(90deg, ${B}, ${O}, ${P})`, borderRadius: "2px", transition: "width 0.5s ease" }} />
+       </div>
+     </div>
+   </div>
 
-  <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "24px" }}>
-    <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}>
-      <span style={{ fontSize: "13px", fontWeight: "800", color: PILLARS[activePillar].color, letterSpacing: "2px" }}>{activePillar}</span>
-      <span style={{ fontSize: "13px", color: TEXT_LIGHT }}>--</span>
-      <span style={{ fontSize: "13px", color: TEXT_SECONDARY }}>{PILLARS[activePillar].subtitle}</span>
-      <div style={{ marginLeft: "auto", padding: "6px 14px", borderRadius: "20px", background: `${PILLARS[activePillar].color}15`, color: PILLARS[activePillar].color, fontSize: "12px", fontWeight: "700" }}>
-        {WEEKS[week]?.label || `WEEK ${week}`}
-      </div>
-    </div>
+   <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "24px" }}>
+     <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}>
+       <span style={{ fontSize: "13px", fontWeight: "800", color: PILLARS[activePillar].color, letterSpacing: "2px" }}>{activePillar}</span>
+       <span style={{ fontSize: "13px", color: TEXT_LIGHT }}>--</span>
+       <span style={{ fontSize: "13px", color: TEXT_SECONDARY }}>{PILLARS[activePillar].subtitle}</span>
+       <div style={{ marginLeft: "auto", padding: "6px 14px", borderRadius: "20px", background: `${PILLARS[activePillar].color}15`, color: PILLARS[activePillar].color, fontSize: "12px", fontWeight: "700" }}>
+         {WEEKS[week]?.label || `WEEK ${week}`}
+       </div>
+     </div>
 
-    {st.phase === "loading" && <Loading pillar={activePillar} name={name} week={week} />}
+     {st.phase === "loading" && <Loading pillar={activePillar} name={name} week={week} />}
 
-    {st.phase === "intake" && (
-      <IntakeForm pillar={activePillar} profile={{ ...profile, week }} onGenerate={(answers) => generate(activePillar, answers)} />
-    )}
+     {st.phase === "intake" && (
+       <IntakeForm pillar={activePillar} profile={{ ...profile, week }} onGenerate={(answers) => generate(activePillar, answers)} />
+     )}
 
-    {st.phase === "result" && st.result && activePillar === "TRAIN" && (
-      <TrainResult data={st.result} name={name} week={week} onDownload={() => downloadPDF(st.result, "TRAIN", name, week)} />
-    )}
+     {st.phase === "result" && st.result && activePillar === "TRAIN" && (
+       <TrainResult data={st.result} name={name} week={week} onDownload={() => downloadPDF(st.result, "TRAIN", name, week)} />
+     )}
 
-    {st.phase === "result" && st.result && activePillar === "FUEL" && (
-      <FuelResult data={st.result} name={name} week={week} onDownload={() => downloadPDF(st.result, "FUEL", name, week)} />
-    )}
+     {st.phase === "result" && st.result && activePillar === "FUEL" && (
+       <FuelResult data={st.result} name={name} week={week} onDownload={() => downloadPDF(st.result, "FUEL", name, week)} />
+     )}
 
-    {st.phase === "result" && st.result && activePillar === "FOCUS" && (
-      <FocusResult data={st.result} name={name} week={week} onDownload={() => downloadPDF(st.result, "FOCUS", name, week)} />
-    )}
+     {st.phase === "result" && st.result && activePillar === "FOCUS" && (
+       <FocusResult data={st.result} name={name} week={week} onDownload={() => downloadPDF(st.result, "FOCUS", name, week)} />
+     )}
 
-    {completedPillars.length === 3 && !showCelebration && (
-      <div style={{
-        margin: "32px 0 8px 0", borderRadius: "16px",
-        background: `linear-gradient(135deg, ${CD} 0%, #0F172A 100%)`,
-        padding: "28px 24px", textAlign: "center",
-        boxShadow: "0 8px 32px rgba(0,0,0,0.2)"
-      }}>
-        <div style={{ fontSize: "11px", fontWeight: "800", color: G, letterSpacing: "3px", marginBottom: "8px" }}>
-          ALL 3 PILLARS COMPLETE
-        </div>
-        <div style={{ fontSize: "20px", fontWeight: "900", color: "white", marginBottom: "8px", letterSpacing: "-0.5px" }}>
-          Week {week} Blueprint Done, {name}.
-        </div>
-        <div style={{ fontSize: "13px", color: "rgba(255,255,255,0.6)", marginBottom: "24px" }}>
-          You showed up for all three pillars. That is what separates the ones who make it.
-        </div>
-        <button
-          onClick={() => setShowCelebration(true)}
-          style={{
-            padding: "16px 40px", borderRadius: "12px", border: "none",
-            background: `linear-gradient(135deg, ${O}, ${O}CC)`,
-            color: "white", fontWeight: "900", fontSize: "15px", cursor: "pointer",
-            letterSpacing: "1.5px", boxShadow: `0 6px 24px ${O}50`,
-            textTransform: "uppercase"
-          }}>
-          Complete Week {week}
-        </button>
-      </div>
-    )}
+     {completedPillars.length === 3 && !showCelebration && (
+       <div style={{
+         margin: "32px 0 8px 0", borderRadius: "16px",
+         background: `linear-gradient(135deg, ${CD} 0%, #0F172A 100%)`,
+         padding: "28px 24px", textAlign: "center",
+         boxShadow: "0 8px 32px rgba(0,0,0,0.2)"
+       }}>
+         <div style={{ fontSize: "11px", fontWeight: "800", color: G, letterSpacing: "3px", marginBottom: "8px" }}>
+           ALL 3 PILLARS COMPLETE
+         </div>
+         <div style={{ fontSize: "20px", fontWeight: "900", color: "white", marginBottom: "8px", letterSpacing: "-0.5px" }}>
+           Week {week} Blueprint Done, {name}.
+         </div>
+         <div style={{ fontSize: "13px", color: "rgba(255,255,255,0.6)", marginBottom: "24px" }}>
+           You showed up for all three pillars. That is what separates the ones who make it.
+         </div>
+         <button
+           onClick={() => setShowCelebration(true)}
+           style={{
+             padding: "16px 40px", borderRadius: "12px", border: "none",
+             background: `linear-gradient(135deg, ${O}, ${O}CC)`,
+             color: "white", fontWeight: "900", fontSize: "15px", cursor: "pointer",
+             letterSpacing: "1.5px", boxShadow: `0 6px 24px ${O}50`,
+             textTransform: "uppercase"
+           }}>
+           Complete Week {week}
+         </button>
+       </div>
+     )}
 
-    <StoreBridge
-      pillar={activePillar}
-      pillarStates={pillarStates}
-      profile={profile}
-      week={week}
-      dismissed={bridgeDismissed}
-      onDismiss={(p) => setBridgeDismissed(prev => ({...prev, [p]: true}))}
-    />
+     <StoreBridge
+       pillar={activePillar}
+       pillarStates={pillarStates}
+       profile={profile}
+       week={week}
+       dismissed={bridgeDismissed}
+       onDismiss={(p) => setBridgeDismissed(prev => ({...prev, [p]: true}))}
+     />
 
-    {st.phase === "error" && (
-      <div style={{ textAlign: "center", padding: "60px 20px" }}>
-        <div style={{ fontSize: "40px", marginBottom: "16px" }}>(!)</div>
-        <div style={{ fontWeight: "800", fontSize: "20px", color: "#FF4444", marginBottom: "8px" }}>SYSTEM ERROR</div>
-        <div style={{ fontSize: "14px", color: TEXT_SECONDARY, marginBottom: "24px" }}>Something went wrong. Let's try again.</div>
-        <button onClick={() => upd(activePillar, { phase: "intake" })} style={{
-          padding: "12px 28px", borderRadius: "10px", border: "none",
-          background: PILLARS[activePillar].color, color: "white", fontWeight: "800", fontSize: "14px", cursor: "pointer"
-        }}>RETRY</button>
-      </div>
-    )}
-  </div>
+     {st.phase === "error" && (
+       <div style={{ textAlign: "center", padding: "60px 20px" }}>
+         <div style={{ fontSize: "40px", marginBottom: "16px" }}>(!)</div>
+         <div style={{ fontWeight: "800", fontSize: "20px", color: "#FF4444", marginBottom: "8px" }}>SYSTEM ERROR</div>
+         <div style={{ fontSize: "14px", color: TEXT_SECONDARY, marginBottom: "24px" }}>Something went wrong. Let's try again.</div>
+         <button onClick={() => upd(activePillar, { phase: "intake" })} style={{
+           padding: "12px 28px", borderRadius: "10px", border: "none",
+           background: PILLARS[activePillar].color, color: "white", fontWeight: "800", fontSize: "14px", cursor: "pointer"
+         }}>RETRY</button>
+       </div>
+     )}
+   </div>
 
-  <div style={{ borderTop: `1px solid ${BR}`, padding: "16px 24px", textAlign: "center", background: "white", marginTop: "40px" }}>
-    <div style={{ fontSize: "11px", color: TEXT_LIGHT, letterSpacing: "2px", fontWeight: "600" }}>
-      PRIME LEVEL LIVING  NURU VISION MEDIA  PHASE 1  WEEK {week} OF 3
-    </div>
-  </div>
-</div>
+   <div style={{ borderTop: `1px solid ${BR}`, padding: "16px 24px", textAlign: "center", background: "white", marginTop: "40px" }}>
+     <div style={{ fontSize: "11px", color: TEXT_LIGHT, letterSpacing: "2px", fontWeight: "600" }}>
+       PRIME LEVEL LIVING  NURU VISION MEDIA  PHASE 1  WEEK {week} OF 3
+     </div>
+   </div>
+ </div>
 );
 }
