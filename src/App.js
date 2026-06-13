@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// Recovery point: stable after React import fix
 // Stable build after component setupimport React, { useState, useEffect } from "react";
 
 // import CoachAvatar from "./components/CoachAvatar";
