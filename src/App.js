@@ -357,7 +357,7 @@ function ExerciseVideo({ exerciseName }) {
         style={{ width:"100%",height:"110px",borderRadius:"8px",overflow:"hidden",cursor:"pointer",position:"relative",border:`1.5px solid ${BORDER}`,transition:"border-color 0.2s" }}
         onMouseEnter={e=>e.currentTarget.style.borderColor=B}
         onMouseLeave={e=>e.currentTarget.style.borderColor=BORDER}>
-        <iframe src={videoUrl} width="100%" height="100%" style={{border:"none",pointerEvents:"none"}} title={exerciseName}/>
+        <iframe ExerciseVideo width="100%" height="100%" style={{border:"none",pointerEvents:"none"}} title={exerciseName}/>
         <div style={{ position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",background:"rgba(15,28,46,0.3)" }}>
           <div style={{ width:"38px",height:"38px",borderRadius:"50%",background:"rgba(255,255,255,0.92)",display:"flex",alignItems:"center",justifyContent:"center" }}>
             <span style={{ fontSize:"14px",marginLeft:"3px" }}>â–¶</span>
@@ -369,7 +369,7 @@ function ExerciseVideo({ exerciseName }) {
           <div style={{ width:"100%",maxWidth:"800px",position:"relative" }}>
             <button onClick={e=>{e.stopPropagation();setExpanded(false);}} style={{ position:"absolute",top:"-42px",right:0,background:"white",border:"none",borderRadius:"50%",width:"32px",height:"32px",cursor:"pointer",fontSize:"16px",fontWeight:"700" }}>Ã—</button>
             <div style={{ borderRadius:"12px",overflow:"hidden",aspectRatio:"16/9" }}>
-              <iframe src={videoUrl+"?autoplay=1"} width="100%" height="100%" style={{border:"none",display:"block"}} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title={exerciseName}/>
+              <iframe ExerciseVideo width="100%" height="100%" style={{border:"none",display:"block"}} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title={exerciseName}/>
             </div>
           </div>
         </div>
