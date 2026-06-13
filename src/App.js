@@ -2,19 +2,19 @@ import React, { useState, useEffect } from "react";
 
 // â”€â”€â”€ DESIGN SYSTEM â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // Light premium: white base, slate-navy accents, pillar colors as precise hits
-const B  = "#1D6FD8";   // TRAIN blue
-const O  = "#D4500F";   // FUEL orange  
-const P  = "#7C3AED";   // FOCUS purple
-const G  = "#059669";   // success green
+const B  = "#2F80ED";
+const O  = "#FF4D1D";
+const P  = "#9B5CFF";
+const G  = "#22C55E";
 
-const BG          = "#F7F8FA";   // page background - cool light gray
-const SURFACE     = "#FFFFFF";   // cards
-const SURFACE2    = "#F0F2F5";   // inset / secondary surface
-const NAVY        = "#0F1C2E";   // primary dark text / headers
-const SLATE       = "#3D4F63";   // secondary text
-const MUTED       = "#8496A9";   // tertiary / labels
-const BORDER      = "#E1E7EE";   // subtle borders
-const BORDER_MID  = "#C8D3DE";   // medium border
+const BG          = "#101827";
+const SURFACE     = "#182235";
+const SURFACE2    = "#222F46";
+const NAVY        = "#F8FAFC";
+const SLATE       = "#CBD5E1";
+const MUTED       = "#94A3B8";
+const BORDER      = "#334155";
+const BORDER_MID  = "#475569";
 
 // â”€â”€â”€ STORAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const Store = {
