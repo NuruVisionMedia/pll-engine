@@ -112,15 +112,6 @@ function getSafeVideoUrl(url) {
   return `${url}${separator}start=3&end=55&rel=0&modestbranding=1&playsinline=1`;
 }
 
-  if (!name) return null;
-  const l = name.toLowerCase();
-  for (const [key, url] of Object.entries(EXERCISE_VIDEOS)) {
-    if (l.includes(key)) return url;
-  }
-  return null;
-}
-
-// â”€â”€â”€ PILLARS CONFIG â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const PILLARS = {
   TRAIN: {
     color: B, label: "TRAIN", subtitle: "WORKOUT BLUEPRINT",
