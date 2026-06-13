@@ -98,20 +98,13 @@ const EXERCISE_VIDEOS = {
 function getExerciseVideo(name) {
   if (!name) return null;
   const l = name.toLowerCase();
-
   for (const [key, url] of Object.entries(EXERCISE_VIDEOS)) {
     if (l.includes(key)) return url;
   }
-
   return null;
 }
 
-function getSafeVideoUrl(url) {
-  if (!url) return null;
-  const separator = url.includes("?") ? "&" : "?";
-  return `${url}${separator}start=3&end=55&rel=0&modestbranding=1&playsinline=1`;
-}
-
+// â”€â”€â”€ PILLARS CONFIG â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const PILLARS = {
   TRAIN: {
     color: B, label: "TRAIN", subtitle: "WORKOUT BLUEPRINT",
@@ -358,7 +351,7 @@ function ExerciseVideo({ exerciseName }) {
         style={{ width:"100%",height:"110px",borderRadius:"8px",overflow:"hidden",cursor:"pointer",position:"relative",border:`1.5px solid ${BORDER}`,transition:"border-color 0.2s" }}
         onMouseEnter={e=>e.currentTarget.style.borderColor=B}
         onMouseLeave={e=>e.currentTarget.style.borderColor=BORDER}>
-        <iframe ExerciseVideo width="100%" height="100%" style={{border:"none",pointerEvents:"none"}} title={exerciseName}/>
+        <iframe src={videoUrl} width="100%" height="100%" style={{border:"none",pointerEvents:"none"}} title={exerciseName}/>
         <div style={{ position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",background:"rgba(15,28,46,0.3)" }}>
           <div style={{ width:"38px",height:"38px",borderRadius:"50%",background:"rgba(255,255,255,0.92)",display:"flex",alignItems:"center",justifyContent:"center" }}>
             <span style={{ fontSize:"14px",marginLeft:"3px" }}>â–¶</span>
@@ -370,7 +363,7 @@ function ExerciseVideo({ exerciseName }) {
           <div style={{ width:"100%",maxWidth:"800px",position:"relative" }}>
             <button onClick={e=>{e.stopPropagation();setExpanded(false);}} style={{ position:"absolute",top:"-42px",right:0,background:"white",border:"none",borderRadius:"50%",width:"32px",height:"32px",cursor:"pointer",fontSize:"16px",fontWeight:"700" }}>Ã—</button>
             <div style={{ borderRadius:"12px",overflow:"hidden",aspectRatio:"16/9" }}>
-              <iframe ExerciseVideo width="100%" height="100%" style={{border:"none",display:"block"}} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title={exerciseName}/>
+              <iframe src={videoUrl+"?autoplay=1"} width="100%" height="100%" style={{border:"none",display:"block"}} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title={exerciseName}/>
             </div>
           </div>
         </div>
@@ -379,8 +372,8 @@ function ExerciseVideo({ exerciseName }) {
   );
 }
 
-function WorkoutMode({ day, pillar = "TRAIN", onFinish }) {
-  function CoachMessage({ message, pillar, name }) {
+// â”€â”€â”€ COACH MESSAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function CoachMessage({ message, pillar, name }) {
   const color = PILLARS[pillar].color;
   return (
     <div style={{
@@ -418,8 +411,6 @@ function SectionLabel({ text, color }) {
 // â”€â”€â”€ TRAIN RESULT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function TrainResult({ data, name, week, onDownload }) {
   const [activeDay, setActiveDay] = useState(0);
-  const [workoutMode, setWorkoutMode] = useState(false);
-const [sessionDone, setSessionDone] = useState(false);
   if (!data?.days) return null;
   const day = data.days[activeDay];
   return (
@@ -453,7 +444,7 @@ const [sessionDone, setSessionDone] = useState(false);
           <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:"20px" }}>
             <h3 style={{ fontSize:"18px",fontWeight:"800",color:NAVY,margin:0 }}>{day.title}</h3>
             <span style={{ fontSize:"12px",color:MUTED,background:SURFACE2,padding:"4px 12px",borderRadius:"20px",border:`1px solid ${BORDER}` }}>{day.duration}</span>
-          </div>START LIVE WORKOUT
+          </div>
           <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(280px,1fr))",gap:"16px" }}>
             {day.exercises?.map((ex,i) => (
               <div key={i} style={{ background:BG,borderRadius:"12px",padding:"16px",border:`1px solid ${BORDER}` }}>
@@ -493,30 +484,17 @@ const [sessionDone, setSessionDone] = useState(false);
         </div>
       )}
 
-<button
-  onClick={onDownload}
-  style={{
-    width:"100%",
-    padding:"16px",
-    borderRadius:"12px",
-    border:`1.5px solid ${B}`,
-    background:NAVY,
-    color:"white",
-    fontWeight:"800",
-    fontSize:"14px",
-    cursor:"pointer",
-    letterSpacing:"1.5px",
-    marginTop:"24px",
-    boxShadow:"0 4px 18px rgba(15,28,46,0.2)"
-  }}
->
-  DOWNLOAD WEEK {week} TRAIN BLUEPRINT
-</button>
-</div>
-);
+      <button onClick={onDownload} style={{
+        width:"100%",padding:"16px",borderRadius:"12px",border:`1.5px solid ${B}`,
+        background:NAVY,color:"white",fontWeight:"800",fontSize:"14px",
+        cursor:"pointer",letterSpacing:"1.5px",marginTop:"24px",
+        boxShadow:`0 4px 18px rgba(15,28,46,0.2)`
+      }}>DOWNLOAD WEEK {week} TRAIN BLUEPRINT</button>
+    </div>
+  );
 }
 
-// FUEL RESULT 
+// â”€â”€â”€ FUEL RESULT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function FuelResult({ data, name, week, onDownload }) {
   if (!data?.supplements) return null;
   return (
