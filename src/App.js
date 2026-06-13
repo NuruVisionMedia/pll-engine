@@ -379,7 +379,7 @@ function ExerciseVideo({ exerciseName }) {
   );
 }
 
-WorkoutMode
+function WorkoutMode({ day, pillar = "TRAIN", onFinish }) {
   function CoachMessage({ message, pillar, name }) {
   const color = PILLARS[pillar].color;
   return (
