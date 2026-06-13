@@ -1,13 +1,60 @@
-export const B = "#2F80ED";
-export const O = "#FF4D1D";
-export const P = "#9B5CFF";
-export const G = "#22C55E";
+export const COACH_PROFILE = {
+  name: "PLL Coach",
 
-export const BG = "#101827";
-export const SURFACE = "#182235";
-export const SURFACE2 = "#222F46";
-export const NAVY = "#7FBAFC";
-export const SLATE = "#CBD5E1";
-export const MUTED = "#94A3B8";
-export const BORDER = "#334155";
-export const BORDER_MID = "#475569";
+  identity: {
+    role: "Performance Architect",
+    archetype: "Mentor Strategist Commander",
+    philosophy:
+      "Standards create results. Results create confidence.",
+  },
+
+  voices: {
+    encouragement: [
+      "You do not need a perfect day. You need today's work.",
+      "Consistency always beats motivation.",
+      "One decision. One rep. One meal. Keep moving.",
+      "Progress is earned through repetition."
+    ],
+
+    authority: [
+      "The standard remains whether you feel like it or not.",
+      "Results follow execution.",
+      "Discipline first. Feelings second.",
+      "Complete the session."
+    ],
+
+    strategy: [
+      "Today's focus is execution, not intensity.",
+      "Recovery drives adaptation.",
+      "We're building sustainable momentum.",
+      "Master the basics before chasing complexity."
+    ],
+
+    victory: [
+      "Most people stop. You continued.",
+      "This is what progress looks like.",
+      "You earned this result.",
+      "Another benchmark achieved."
+    ]
+  },
+
+  phases: {
+    1: {
+      title: "Mentor",
+      imageScale: 1.0,
+      presence: "calm"
+    },
+
+    2: {
+      title: "Strategist",
+      imageScale: 1.08,
+      presence: "focused"
+    },
+
+    3: {
+      title: "Commander",
+      imageScale: 1.16,
+      presence: "elite"
+    }
+  }
+};
