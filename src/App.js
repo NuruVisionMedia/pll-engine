@@ -493,7 +493,7 @@ const [sessionDone, setSessionDone] = useState(false);
         </div>
       )}
 
-    <button
+<button
   onClick={onDownload}
   style={{
     width:"100%",
@@ -516,7 +516,7 @@ const [sessionDone, setSessionDone] = useState(false);
 );
 }
 
-// â”€â”€â”€ FUEL RESULT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// FUEL RESULT 
 function FuelResult({ data, name, week, onDownload }) {
   if (!data?.supplements) return null;
   return (
