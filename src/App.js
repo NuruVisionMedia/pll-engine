@@ -493,14 +493,25 @@ const [sessionDone, setSessionDone] = useState(false);
         </div>
       )}
 
-      <button onClick={onDownload} style={{
-        width:"100%",padding:"16px",borderRadius:"12px",border:`1.5px solid ${B}`,
-        background:NAVY,color:"white",fontWeight:"800",fontSize:"14px",
-        cursor:"pointer",letterSpacing:"1.5px",marginTop:"24px",
-        boxShadow:`0 4px 18px rgba(15,28,46,0.2)`
-
-    </div>
-  );
+      <button
+  onClick={onDownload}
+  style={{
+    width:"100%",
+    padding:"16px",
+    borderRadius:"12px",
+    border:`1.5px solid ${B}`,
+    background:NAVY,
+    color:"white",
+    fontWeight:"800",
+    fontSize:"14px",
+    cursor:"pointer",
+    letterSpacing:"1.5px",
+    marginTop:"24px",
+    boxShadow:"0 4px 18px rgba(15,28,46,0.2)"
+  }}
+>
+  DOWNLOAD WEEK {week} TRAIN BLUEPRINT
+</button>
 }
 
 // â”€â”€â”€ FUEL RESULT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
