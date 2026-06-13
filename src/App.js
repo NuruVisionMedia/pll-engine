@@ -7,7 +7,7 @@ const O  = "#D4500F";   // FUEL orange
 const P  = "#7C3AED";   // FOCUS purple
 const G  = "#059669";   // success green
 
-const BG          = "#F7F8FA";   // page background â€” cool light gray
+const BG          = "#F7F8FA";   // page background - cool light gray
 const SURFACE     = "#FFFFFF";   // cards
 const SURFACE2    = "#F0F2F5";   // inset / secondary surface
 const NAVY        = "#0F1C2E";   // primary dark text / headers
