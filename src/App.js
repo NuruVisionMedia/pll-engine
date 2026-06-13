@@ -498,7 +498,6 @@ const [sessionDone, setSessionDone] = useState(false);
         background:NAVY,color:"white",fontWeight:"800",fontSize:"14px",
         cursor:"pointer",letterSpacing:"1.5px",marginTop:"24px",
         boxShadow:`0 4px 18px rgba(15,28,46,0.2)`
-      }}>{sessionDone && (...recovery store card...)}
 
 <button onClick={onDownload}>
   DOWNLOAD WEEK {week} TRAIN BLUEPRINT
