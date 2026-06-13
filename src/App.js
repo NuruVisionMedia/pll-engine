@@ -493,7 +493,7 @@ const [sessionDone, setSessionDone] = useState(false);
         </div>
       )}
 
-      <button
+    <button
   onClick={onDownload}
   style={{
     width:"100%",
@@ -512,6 +512,8 @@ const [sessionDone, setSessionDone] = useState(false);
 >
   DOWNLOAD WEEK {week} TRAIN BLUEPRINT
 </button>
+</div>
+);
 }
 
 // â”€â”€â”€ FUEL RESULT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
