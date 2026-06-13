@@ -96,10 +96,20 @@ const EXERCISE_VIDEOS = {
 };
 
 function getExerciseVideo(name) {
+  if (!name) return null;
+  const l = name.toLowerCase();
+
+  for (const [key, url] of Object.entries(EXERCISE_VIDEOS)) {
+    if (l.includes(key)) return url;
   }
 
+  return null;
+}
+
 function getSafeVideoUrl(url) {
-  
+  if (!url) return null;
+  const separator = url.includes("?") ? "&" : "?";
+  return `${url}${separator}start=3&end=55&rel=0&modestbranding=1&playsinline=1`;
 }
 
   if (!name) return null;
