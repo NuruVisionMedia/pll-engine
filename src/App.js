@@ -96,6 +96,12 @@ const EXERCISE_VIDEOS = {
 };
 
 function getExerciseVideo(name) {
+  }
+
+function getSafeVideoUrl(url) {
+  
+}
+
   if (!name) return null;
   const l = name.toLowerCase();
   for (const [key, url] of Object.entries(EXERCISE_VIDEOS)) {
