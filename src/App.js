@@ -452,7 +452,7 @@ const [sessionDone, setSessionDone] = useState(false);
           <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:"20px" }}>
             <h3 style={{ fontSize:"18px",fontWeight:"800",color:NAVY,margin:0 }}>{day.title}</h3>
             <span style={{ fontSize:"12px",color:MUTED,background:SURFACE2,padding:"4px 12px",borderRadius:"20px",border:`1px solid ${BORDER}` }}>{day.duration}</span>
-          </div>
+          </div>START LIVE WORKOUT
           <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(280px,1fr))",gap:"16px" }}>
             {day.exercises?.map((ex,i) => (
               <div key={i} style={{ background:BG,borderRadius:"12px",padding:"16px",border:`1px solid ${BORDER}` }}>
