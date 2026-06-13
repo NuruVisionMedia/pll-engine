@@ -378,8 +378,8 @@ function ExerciseVideo({ exerciseName }) {
   );
 }
 
-// â”€â”€â”€ COACH MESSAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-function CoachMessage({ message, pillar, name }) {
+WorkoutMode
+  function CoachMessage({ message, pillar, name }) {
   const color = PILLARS[pillar].color;
   return (
     <div style={{
