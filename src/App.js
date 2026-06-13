@@ -417,6 +417,8 @@ function SectionLabel({ text, color }) {
 // â”€â”€â”€ TRAIN RESULT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function TrainResult({ data, name, week, onDownload }) {
   const [activeDay, setActiveDay] = useState(0);
+  const [workoutMode, setWorkoutMode] = useState(false);
+const [sessionDone, setSessionDone] = useState(false);
   if (!data?.days) return null;
   const day = data.days[activeDay];
   return (
