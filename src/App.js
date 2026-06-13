@@ -404,7 +404,24 @@ function CoachMessage({ message, pillar, name }) {
       boxShadow:"0 1px 6px rgba(15,28,46,0.05)"
     }}>
       <div style={{ flexShrink:0 }}>
-        <CoachAvatar size={56} pillar={pillar} showRing={false}/>
+        <CoachAvatar
+  phase={week}
+  size={56}
+  title={
+    week === 1
+      ? "Coach"
+      : week === 2
+      ? "Senior Coach"
+      : "Master Coach"
+  }
+  subtitle={
+    week === 1
+      ? "Foundation Mentor"
+      : week === 2
+      ? "Progress Strategist"
+      : "Prime Level Commander"
+  }
+/>
       </div>
       <div>
         <div style={{ fontSize:"10px",fontWeight:"800",color:color,letterSpacing:"2px",marginBottom:"8px" }}>
