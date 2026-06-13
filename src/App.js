@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 // Stable build after component setupimport React, { useState, useEffect } from "react";
 
 // import CoachAvatar from "./components/CoachAvatar";
