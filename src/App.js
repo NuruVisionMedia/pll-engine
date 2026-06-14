@@ -404,23 +404,11 @@ function CoachMessage({ message, pillar, name }) {
       boxShadow:"0 1px 6px rgba(15,28,46,0.05)"
     }}>
       <div style={{ flexShrink:0 }}>
-        <CoachAvatar
+       <CoachAvatar
   phase={1}
   size={56}
-  title={
-    week === 1
-      ? "Coach"
-      : week === 2
-      ? "Senior Coach"
-      : "Master Coach"
-  }
-  subtitle={
-    week === 1
-      ? "Foundation Mentor"
-      : week === 2
-      ? "Progress Strategist"
-      : "Prime Level Commander"
-  }
+  title="Coach"
+  subtitle="Foundation Mentor"
 />
       </div>
       <div>
@@ -434,7 +422,6 @@ function CoachMessage({ message, pillar, name }) {
     </div>
   );
 }
-
 // â”€â”€â”€ SECTION HEADER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function SectionLabel({ text, color }) {
   return (
