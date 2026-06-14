@@ -405,7 +405,7 @@ function CoachMessage({ message, pillar, name }) {
     }}>
       <div style={{ flexShrink:0 }}>
         <CoachAvatar
-  phase={week}
+  phase={1}
   size={56}
   title={
     week === 1
