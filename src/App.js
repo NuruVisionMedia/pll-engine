@@ -1053,6 +1053,12 @@ saveProgressEntry({
   completedPillars: updatedCompletedPillars,
   progressPct: Math.round((updatedCompletedPillars.length / 3) * 100)
 });
+
+} catch(err) {
+  console.error("PLL Engine error:", err.message);
+  upd(pillar,{phase:"error"});
+}
+};
     };
 
   // â”€â”€ LOGIN SCREEN â”€â”€
