@@ -988,6 +988,20 @@ const progressHistory = loadProgressHistory();
 
 const currentStreak = getCurrentStreak(progressHistory);
 
+  const completedCount = completedPillars.length;
+const bridgeKey = `${week}-${activePillar}`;
+const showBridgeMessage =
+  completedCount > 0 &&
+  completedCount < 3 &&
+  !bridgeDismissed[bridgeKey];
+
+const dismissBridgeMessage = () => {
+  setBridgeDismissed(prev => ({
+    ...prev,
+    [bridgeKey]: true
+  }));
+};
+
   const saveProfile = (updates) => {
     const updated = {...profile,...updates};
     setProfile(updated);
