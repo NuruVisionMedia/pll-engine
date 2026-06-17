@@ -1036,6 +1036,23 @@ const currentStreak = getCurrentStreak(progressHistory);
       if (!completedPillars.includes(pillar)) {
         setCompletedPillars(prev=>[...prev,pillar]);
       }
+
+      saveProgressEntry({
+  week,
+  phase,
+  coachMode: coachMode.phaseName,
+  coachTitle: coachMode.coachTitle,
+  pillar,
+  completedPillars: completedPillars.includes(pillar)
+    ? completedPillars
+    : [...completedPillars, pillar],
+  progressPct: Math.round(
+    ((completedPillars.includes(pillar)
+      ? completedPillars.length
+      : completedPillars.length + 1) / 3) * 100
+  )
+});
+
     } catch(err) {
       console.error("PLL Engine error:",err.message);
       upd(pillar,{phase:"error"});
