@@ -853,7 +853,109 @@ function PillarButton({ pillar, active, done, onClick }) {
   );
 }
 
-// â”€â”€â”€ MAIN APP â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── SPRINT 1: PLL COACH + PHASE ENGINE ────────────────────────────────
+
+const PLL_PROGRESS_KEY = "progress_history";
+
+const getPhaseFromWeek = (week) => {
+  const w = Number(week) || 1;
+
+  if (w >= 1 && w <= 3) return 1;
+  if (w >= 4 && w <= 6) return 2;
+  return 3;
+};
+
+const getCoachMode = (phase) => {
+  if (phase === 1) {
+    return {
+      phaseName: "Mentor",
+      coachTitle: "The Performance Architect",
+      accent: "#1D6FD8",
+      tone: "Calm. Grounded. Foundation-focused.",
+      badge: "PHASE 1 · MENTOR"
+    };
+  }
+
+  if (phase === 2) {
+    return {
+      phaseName: "Strategist",
+      coachTitle: "The Performance Architect",
+      accent: "#D4AF37",
+      tone: "Precise. Analytical. Execution-focused.",
+      badge: "PHASE 2 · STRATEGIST"
+    };
+  }
+
+  return {
+    phaseName: "Commander",
+    coachTitle: "The Performance Architect",
+    accent: "#111827",
+    tone: "Direct. Decisive. Standards-focused.",
+    badge: "PHASE 3 · COMMANDER"
+  };
+};
+
+const getCoachVoiceLine = ({ phase, week, pillar }) => {
+  const PILLAR = String(pillar || "").toUpperCase();
+
+  if (phase === 1) {
+    return `Week ${week}. ${PILLAR} begins with standards, not motivation. Build the foundation.`;
+  }
+
+  if (phase === 2) {
+    return `Week ${week}. You are past introduction. ${PILLAR} now requires sharper execution.`;
+  }
+
+  return `Week ${week}. No hype. No shortcuts. ${PILLAR} is now part of your identity.`;
+};
+
+const loadProgressHistory = () => {
+  try {
+    return JSON.parse(localStorage.getItem("pll_" + PLL_PROGRESS_KEY)) || [];
+  } catch {
+    return [];
+  }
+};
+
+const saveProgressEntry = (entry) => {
+  try {
+    const history = loadProgressHistory();
+
+    const updated = [
+      ...history,
+      {
+        ...entry,
+        id: Date.now(),
+        date: new Date().toISOString()
+      }
+    ];
+
+    localStorage.setItem("pll_" + PLL_PROGRESS_KEY, JSON.stringify(updated));
+    return updated;
+  } catch {
+    return [];
+  }
+};
+
+const getCurrentStreak = (history = []) => {
+  if (!history.length) return 0;
+
+  const dates = [
+    ...new Set(history.map(item => new Date(item.date).toDateString()))
+  ];
+
+  return dates.length;
+};
+
+// ── SPRINT 2 RESERVED MODULES — DO NOT ACTIVATE IN SPRINT 1 ───────────
+
+const CoachKnowledgeLibrary = {};
+const ExerciseLibrary = {};
+const ProgressTracker = {};
+const VideoLessonLibrary = {};
+const CommunityModule = {};
+const StoreRecommendationEngine = {};
+
 export default function App() {
   const [screen, setScreen] = useState("login");
   const [profile, setProfile] = useState(null);
@@ -871,6 +973,20 @@ export default function App() {
   const st = pillarStates[activePillar];
   const week = profile?.week || 1;
   const name = profile?.firstName || profile?.username || "Athlete";
+
+  const phase = getPhaseFromWeek(week);
+
+const coachMode = getCoachMode(phase);
+
+const coachMessage = getCoachVoiceLine({
+  phase,
+  week,
+  pillar: activePillar
+});
+
+const progressHistory = loadProgressHistory();
+
+const currentStreak = getCurrentStreak(progressHistory);
 
   const saveProfile = (updates) => {
     const updated = {...profile,...updates};
@@ -1110,6 +1226,10 @@ export default function App() {
 
   const progressPct = Math.round((completedPillars.length/3)*100);
 
+const phaseProgressLabel = `PHASE ${phase} · ${coachMode.phaseName}`;
+const coachHeaderLine = `${coachMode.coachTitle} · ${coachMode.tone}`;
+const athleteIdentityLine = `${name} · Week ${week} · ${completedPillars.length}/3 Pillars Complete`;
+
   // â”€â”€ MAIN APP SCREEN â”€â”€
   return (
     <div style={{ minHeight:"100vh",background:BG,fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,sans-serif" }}>
@@ -1123,9 +1243,29 @@ export default function App() {
           {/* Brand */}
           <div style={{ display:"flex",alignItems:"center",gap:"12px",marginRight:"auto" }}>
             <CoachAvatar size={38} pillar={activePillar} showRing={false}/>
-            <div>
-              <div style={{ fontSize:"15px",fontWeight:"900",color:NAVY,letterSpacing:"1px" }}>PLL ENGINE</div>
+                <div>
+                  <div style={{ fontSize:"15px",fontWeight:"900",color:NAVY,letterSpacing:"1px" }}>PLL ENGINE</div>
               <div style={{ fontSize:"9px",color:MUTED,letterSpacing:"2.5px" }}>PRIME LEVEL LIVING</div>
+
+            <div style={{
+  marginTop: "5px",
+  fontSize: "9px",
+  color: coachMode.accent,
+  letterSpacing: "1.6px",
+  fontWeight: "800"
+}}>
+  {phaseProgressLabel}
+</div>
+
+<div style={{
+  marginTop: "3px",
+  fontSize: "9px",
+  color: SLATE,
+  letterSpacing: "1px",
+  fontWeight: "700"
+}}>
+  {athleteIdentityLine}
+</div>
             </div>
           </div>
 
@@ -1141,6 +1281,53 @@ export default function App() {
               />
             ))}
           </div>
+
+{/* Sprint 1 Coach Status */}
+<div style={{
+  marginTop: "14px",
+  padding: "14px 16px",
+  borderRadius: "14px",
+  border: `1px solid ${coachMode.accent}`,
+  background: SURFACE,
+  boxShadow: `0 0 18px ${coachMode.accent}22`,
+}}>
+  <div style={{
+    fontSize: "10px",
+    fontWeight: "800",
+    letterSpacing: "1.4px",
+    color: coachMode.accent,
+    marginBottom: "6px"
+  }}>
+    {coachMode.badge}
+  </div>
+
+  <div style={{
+    fontSize: "13px",
+    fontWeight: "900",
+    color: NAVY,
+    marginBottom: "4px"
+  }}>
+    {coachMode.coachTitle}
+  </div>
+
+  <div style={{
+    fontSize: "12px",
+    color: SLATE,
+    lineHeight: "1.5"
+  }}>
+    {coachMessage}
+  </div>
+
+  <div style={{
+    marginTop: "8px",
+    fontSize: "10px",
+    color: MUTED,
+    letterSpacing: "1px",
+    fontWeight: "700"
+  }}>
+    STREAK: {currentStreak} DAY{currentStreak === 1 ? "" : "S"}
+  </div>
+</div>
 
           {/* User + logout */}
           <div style={{ display:"flex",alignItems:"center",gap:"10px",marginLeft:"8px" }}>
