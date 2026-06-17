@@ -1344,6 +1344,37 @@ const athleteIdentityLine = `${name} · Week ${week} · ${completedPillars.lengt
   </div>
 </div>
 
+{/* Sprint 1 Progress History Preview */}
+{progressHistory.length > 0 && (
+  <div style={{
+    marginTop:"10px",
+    padding:"12px 14px",
+    borderRadius:"14px",
+    border:`1px solid ${BORDER}`,
+    background:SURFACE
+  }}>
+    <div style={{
+      fontSize:"10px",
+      fontWeight:"900",
+      color:NAVY,
+      letterSpacing:"1.5px",
+      marginBottom:"8px"
+    }}>
+      RECENT PROGRESS
+    </div>
+
+    {progressHistory.slice(0,3).map((entry,i)=>(
+      <div key={entry.id || i} style={{
+        fontSize:"11px",
+        color:MUTED,
+        marginBottom:i===2 ? "0" : "6px"
+      }}>
+        Week {entry.week} · Phase {entry.phase} · {entry.pillar} · {entry.progressPct}% Complete
+      </div>
+    ))}
+  </div>
+)}
+
           {/* User + logout */}
           <div style={{ display:"flex",alignItems:"center",gap:"10px",marginLeft:"8px" }}>
             <div style={{ textAlign:"right" }}>
