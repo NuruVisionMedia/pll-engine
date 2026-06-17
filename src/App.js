@@ -1059,7 +1059,6 @@ saveProgressEntry({
   upd(pillar,{phase:"error"});
 }
 };
-    };
 
   // â”€â”€ LOGIN SCREEN â”€â”€
   if (screen==="login") {
