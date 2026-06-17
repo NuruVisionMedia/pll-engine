@@ -1031,33 +1031,16 @@ const currentStreak = getCurrentStreak(progressHistory);
       if (data.error) throw new Error(data.error.message);
       const text = (data.content||[]).filter(c=>c.type==="text").map(c=>c.text).join("");
       const clean = text.replace(/^```(?:json)?\s*/i,"").replace(/\s*```$/i,"").trim();
-      
       const result = JSON.parse(clean);
-
-upd(pillar,{phase:"result",result});
-
-const updatedCompletedPillars = completedPillars.includes(pillar)
-  ? completedPillars
-  : [...completedPillars, pillar];
-
-if (!completedPillars.includes(pillar)) {
-  setCompletedPillars(updatedCompletedPillars);
-}
-
-saveProgressEntry({
-  week,
-  phase,
-  coachMode: coachMode.phaseName,
-  coachTitle: coachMode.coachTitle,
-  pillar,
-  completedPillars: updatedCompletedPillars,
-  progressPct: Math.round((updatedCompletedPillars.length / 3) * 100)
-});
-
-} catch(err) {
-  console.error("PLL Engine error:", err.message);
-  upd(pillar,{phase:"error"});
-}
+      upd(pillar,{phase:"result",result});
+      if (!completedPillars.includes(pillar)) {
+        setCompletedPillars(prev=>[...prev,pillar]);
+      }
+    } catch(err) {
+      console.error("PLL Engine error:",err.message);
+      upd(pillar,{phase:"error"});
+    }
+  };
 
   // â”€â”€ LOGIN SCREEN â”€â”€
   if (screen==="login") {
