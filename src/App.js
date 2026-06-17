@@ -1041,11 +1041,34 @@ const dismissBridgeMessage = () => {
         headers:{"Content-Type":"application/json","anthropic-version":"2023-06-01"},
         body:JSON.stringify({model:"claude-haiku-4-5",max_tokens:4000,messages:[{role:"user",content:prompt}]})
       });
+      
       const data = await res.json();
-      if (data.error) throw new Error(data.error.message);
-      const text = (data.content||[]).filter(c=>c.type==="text").map(c=>c.text).join("");
-      const clean = text.replace(/^```(?:json)?\s*/i,"").replace(/\s*```$/i,"").trim();
-      const result = JSON.parse(clean);
+if (!res.ok || data.error) {
+  throw new Error(data?.error?.message || "Blueprint generation failed.");
+}
+
+const text = (data.content || [])
+  .filter(c => c.type === "text")
+  .map(c => c.text)
+  .join("")
+  .trim();
+
+let clean = text
+  .replace(/^```(?:json)?\s*/i, "")
+  .replace(/\s*```$/i, "")
+  .trim();
+
+const firstBrace = clean.indexOf("{");
+const lastBrace = clean.lastIndexOf("}");
+
+if (firstBrace === -1 || lastBrace === -1) {
+  throw new Error("AI response did not contain valid JSON.");
+}
+
+clean = clean.slice(firstBrace, lastBrace + 1);
+
+const result = JSON.parse(clean);
+      
       upd(pillar,{phase:"result",result});
       const updatedCompletedPillars = completedPillars.includes(pillar)
   ? completedPillars
