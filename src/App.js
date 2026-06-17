@@ -143,18 +143,46 @@ const PILLARS = {
         ageRange === "65+" ? "Safety first. Mobility and maintaining muscle." : "";
       const genderNote = gender === "Female" ? "Tailor to female physiology: hormonal cycles, glute emphasis." :
         gender === "Male" ? "Testosterone-supportive training intensity. Compound lifts priority." : "";
-      return `You are an elite fitness coach for Prime Level Living. Generate a complete Week ${week} training plan.
-User Profile: Gender=${gender||"Not specified"}, Age Range=${ageRange||"Not specified"}, Goal=${answers.goal}, Days=${answers.days}, Equipment=${answers.equipment}, Experience=${answers.experience}, Focus=${answers.focus}
-Week Theme: ${w.theme}
-Intensity: ${w.intensity}, Sets: ${w.sets}, Reps: ${w.repRange}, Load: ${w.load}
-${ageNote ? `Age Note: ${ageNote}` : ""}
-${genderNote ? `Gender Note: ${genderNote}` : ""}
+      return `You are a Prime Level Living TRAIN coach. Generate Week ${week} TRAIN blueprint.
+
+User:
+Name=${name}
+Gender=${gender || "Not specified"}
+AgeRange=${ageRange || "Not specified"}
+Goal=${answers.goal}
+Days=${answers.days}
+Equipment=${answers.equipment}
+Experience=${answers.experience}
+Focus=${answers.focus}
+Theme=${w.theme}
+Intensity=${w.intensity}
+
 Return ONLY valid JSON:
 {
   "title": "Week ${week} Training Title",
-  "subtitle": "Brief description",
-  "coachMessage": "Personalized motivational message from coach to ${name} for week ${week}",
-  "days": [{"day":1,"title":"Day Title","duration":"45 min","sets":"3 sets","reps":"12-15 reps","exercises":[{"name":"Exercise Name","sets":"3","reps":"12-15","tempo":"2-1-2","rest":"60s","formCue":"Key form tip","muscle":"Target muscle"}],"tips":["Tip 1","Tip 2","Tip 3"]}]
+  "subtitle": "Brief training focus",
+  "coachMessage": "Short coach message to ${name}",
+  "days": [
+    {
+      "day": 1,
+      "title": "Workout Day",
+      "duration": "45 min",
+      "sets": "3 sets",
+      "reps": "8-12 reps",
+      "exercises": [
+        {
+          "name": "Exercise Name",
+          "target": "Main muscle",
+          "why": "Why it matters"
+        }
+      ]
+    }
+  ],
+  "coachTips": [
+    "Training tip 1",
+    "Training tip 2",
+    "Training tip 3"
+  ]
 }`;
     }
   },
@@ -1049,7 +1077,7 @@ for (let attempt = 1; attempt <= 3; attempt++) {
       },
       body: JSON.stringify({
         model: "claude-haiku-4-5",
-        max_tokens: 3200,
+        max_tokens: 4200,
         messages: [{ role: "user", content: prompt }]
       })
     });
