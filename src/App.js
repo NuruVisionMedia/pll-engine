@@ -1033,24 +1033,22 @@ const currentStreak = getCurrentStreak(progressHistory);
       const clean = text.replace(/^```(?:json)?\s*/i,"").replace(/\s*```$/i,"").trim();
       const result = JSON.parse(clean);
       upd(pillar,{phase:"result",result});
-      if (!completedPillars.includes(pillar)) {
-        setCompletedPillars(prev=>[...prev,pillar]);
-      }
+      const updatedCompletedPillars = completedPillars.includes(pillar)
+  ? completedPillars
+  : [...completedPillars, pillar];
 
-      saveProgressEntry({
+if (!completedPillars.includes(pillar)) {
+  setCompletedPillars(updatedCompletedPillars);
+}
+
+saveProgressEntry({
   week,
   phase,
   coachMode: coachMode.phaseName,
   coachTitle: coachMode.coachTitle,
   pillar,
-  completedPillars: completedPillars.includes(pillar)
-    ? completedPillars
-    : [...completedPillars, pillar],
-  progressPct: Math.round(
-    ((completedPillars.includes(pillar)
-      ? completedPillars.length
-      : completedPillars.length + 1) / 3) * 100
-  )
+  completedPillars: updatedCompletedPillars,
+  progressPct: Math.round((updatedCompletedPillars.length / 3) * 100)
 });
 
     } catch(err) {
