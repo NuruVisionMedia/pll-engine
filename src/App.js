@@ -1036,15 +1036,37 @@ const dismissBridgeMessage = () => {
       const gender = profile?.gender||"";
       const ageRange = profile?.ageRange||"";
       const prompt = PILLARS[pillar].prompt(answers,n,week,gender,ageRange);
-      const res = await fetch("/api/generate",{
-        method:"POST",
-        headers:{"Content-Type":"application/json","anthropic-version":"2023-06-01"},
-        body:JSON.stringify({model:"claude-haiku-4-5",max_tokens:4000,messages:[{role:"user",content:prompt}]})
-      });
-      
-      const data = await res.json();
-if (!res.ok || data.error) {
-  throw new Error(data?.error?.message || "Blueprint generation failed.");
+      let data = null;
+let lastError = null;
+
+for (let attempt = 1; attempt <= 3; attempt++) {
+  try {
+    const res = await fetch("/api/generate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "anthropic-version": "2023-06-01"
+      },
+      body: JSON.stringify({
+        model: "claude-haiku-4-5",
+        max_tokens: 3200,
+        messages: [{ role: "user", content: prompt }]
+      })
+    });
+
+    data = await res.json();
+
+    if (!res.ok || data.error) {
+      throw new Error(data?.error?.message || data?.error || "Blueprint generation failed.");
+    }
+
+    break;
+  } catch (err) {
+    lastError = err;
+    console.error(`PLL generate attempt ${attempt} failed:`, err.message);
+    if (attempt === 3) throw err;
+    await new Promise(resolve => setTimeout(resolve, 900 * attempt));
+  }
 }
 
 const text = (data.content || [])
