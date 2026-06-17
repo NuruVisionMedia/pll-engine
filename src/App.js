@@ -1363,6 +1363,40 @@ const progressLabel =
   </div>
 </div>
 
+{showBridgeMessage && (
+  <div style={{
+    marginTop:"12px",
+    padding:"14px 16px",
+    borderRadius:"16px",
+    border:`1px solid ${coachMode.accent}`,
+    background:"rgba(255,255,255,0.07)",
+    boxShadow:`0 0 18px ${coachMode.accent}22`
+  }}>
+    <div style={{ fontSize:"10px", fontWeight:"900", letterSpacing:"1.4px", color:coachMode.accent, marginBottom:"6px" }}>
+      COACH CHECKPOINT
+    </div>
+    <div style={{ fontSize:"13px", color:SLATE, lineHeight:"1.5" }}>
+      {name}, you have completed {completedCount}/3 pillars this week. Keep moving — finish all three pillars to complete your weekly blueprint.
+    </div>
+    <button
+      onClick={dismissBridgeMessage}
+      style={{
+        marginTop:"10px",
+        padding:"8px 14px",
+        borderRadius:"999px",
+        border:"1px solid rgba(255,255,255,0.18)",
+        background:"rgba(255,255,255,0.08)",
+        color:SLATE,
+        fontSize:"11px",
+        fontWeight:"800",
+        cursor:"pointer"
+      }}
+    >
+      GOT IT
+    </button>
+  </div>
+)}
+
 {/* Sprint 1 Progress History Preview */}
 {progressHistory.length > 0 && (
   <div style={{
