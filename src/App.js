@@ -1245,6 +1245,11 @@ const phaseProgressLabel = `PHASE ${phase} · ${coachMode.phaseName}`;
 const coachHeaderLine = `${coachMode.coachTitle} · ${coachMode.tone}`;
 const athleteIdentityLine = `${name} · Week ${week} · ${completedPillars.length}/3 Pillars Complete`;
 
+const progressLabel =
+  progressPct === 100
+    ? "Sprint 1 Complete"
+    : `${completedPillars.length}/3 Pillars Complete`;
+
   // â”€â”€ MAIN APP SCREEN â”€â”€
   return (
     <div style={{ minHeight:"100vh",background:BG,fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,sans-serif" }}>
