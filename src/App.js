@@ -1058,7 +1058,6 @@ saveProgressEntry({
   console.error("PLL Engine error:", err.message);
   upd(pillar,{phase:"error"});
 }
-}
 
   // â”€â”€ LOGIN SCREEN â”€â”€
   if (screen==="login") {
