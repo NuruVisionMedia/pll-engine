@@ -1402,7 +1402,9 @@ const momentumScore =
     coachMemory
   });
   
-const momentumStatus = "Foundation Mode";
+const momentumStatus =
+  getMomentumStatus(momentumScore);
+  
 const recoveryStatus = "On Track";
 const momentumCoachLine = coachMessage;
 
