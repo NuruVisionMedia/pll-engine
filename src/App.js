@@ -1408,7 +1408,13 @@ const momentumStatus =
 const recoveryStatus =
   getRecoveryStatus(progressHistory);
   
-const momentumCoachLine = coachMessage;
+const momentumCoachLine =
+  getMomentumCoachLine({
+    score: momentumScore,
+    streak: currentStreak,
+    recoveryStatus,
+    name
+  });
 
   const completedCount = completedPillars.length;
 const bridgeKey = `${week}-${activePillar}`;
