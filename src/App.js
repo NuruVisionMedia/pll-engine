@@ -1070,9 +1070,10 @@ const coachMode = getCoachMode(phase);
 const coachMessage = getCoachVoiceLine({
   phase,
   week,
-  pillar: activePillar
+  pillar: activePillar,
+  memory: coachMemory
 });
-
+  
 const progressHistory = loadProgressHistory();
 
 const currentStreak = getCurrentStreak(progressHistory);
@@ -1181,6 +1182,9 @@ clean = clean.slice(firstBrace, lastBrace + 1);
 const result = JSON.parse(clean);
       
       upd(pillar,{phase:"result",result});
+
+      setCoachMemory(updateCoachMemory(pillar));
+      
       const updatedCompletedPillars = completedPillars.includes(pillar)
   ? completedPillars
   : [...completedPillars, pillar];
