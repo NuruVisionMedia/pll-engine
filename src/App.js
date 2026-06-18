@@ -1097,6 +1097,130 @@ const getCoachMemory = () => {
 const resetCoachMemory = () => {
   localStorage.removeItem(COACH_MEMORY_KEY);
 };
+
+// ====================================================
+// PLL BLUEPRINT INTELLIGENCE ENGINE — SPRINT 2.2
+// ====================================================
+
+const getBlueprintDifficulty = (memory = {}) => {
+  const level = memory?.coachLevel || "Foundation";
+
+  switch (level) {
+    case "Elite":
+      return "Elite Performance";
+    case "Advanced":
+      return "Advanced Progression";
+    case "Developing":
+      return "Progressive Development";
+    default:
+      return "Foundation Building";
+  }
+};
+
+const getPlateauStatus = (pillar, memory = {}) => {
+  const count = memory?.pillarCounts?.[pillar] || 0;
+
+  return {
+    plateau: count >= 8,
+    count
+  };
+};
+
+const getBalanceRecommendation = (pillar, memory = {}) => {
+  const strongest = memory?.strongestPillar;
+  const weakest = memory?.weakestPillar;
+
+  if (pillar === weakest) {
+    return "Extra attention should be given to this pillar because it is currently the user's weakest area.";
+  }
+
+  if (pillar === strongest) {
+    return "Increase challenge because this is currently the user's strongest pillar.";
+  }
+
+  return "Maintain balanced development across all pillars.";
+};
+
+const getBlueprintEvolution = (week) => {
+  if (week === 1) {
+    return "Focus on foundation, habit formation, and consistency.";
+  }
+
+  if (week === 2) {
+    return "Increase challenge and accountability from Week 1.";
+  }
+
+  if (week === 3) {
+    return "Create separation. Raise standards and intensity.";
+  }
+
+  return "Continue progressive advancement.";
+};
+
+const buildBlueprintIntelligence = ({
+  pillar,
+  week,
+  memory
+}) => {
+
+  const difficulty =
+    getBlueprintDifficulty(memory);
+
+  const plateau =
+    getPlateauStatus(pillar, memory);
+
+  const balance =
+    getBalanceRecommendation(
+      pillar,
+      memory
+    );
+
+  const evolution =
+    getBlueprintEvolution(week);
+
+  return `
+PLL COACH INTELLIGENCE
+
+Coach Level:
+${memory?.coachLevel || "Foundation"}
+
+Difficulty:
+${difficulty}
+
+Current Streak:
+${memory?.streak || 0}
+
+Generated Blueprints:
+${memory?.generatedBlueprints || 0}
+
+Strongest Pillar:
+${memory?.strongestPillar || "TRAIN"}
+
+Weakest Pillar:
+${memory?.weakestPillar || "FOCUS"}
+
+Preferred Pillar:
+${memory?.preferredPillar || pillar}
+
+Plateau Detected:
+${plateau.plateau ? "YES" : "NO"}
+
+Balance Recommendation:
+${balance}
+
+Blueprint Evolution:
+${evolution}
+
+Coaching Rules:
+
+- Avoid generic advice.
+- Progress from previous success.
+- Increase challenge based on coach level.
+- Reference strengths and weaknesses.
+- Adjust difficulty dynamically.
+`;
+};
+
 export default function App() {
   const [screen, setScreen] = useState("login");
   const [profile, setProfile] = useState(null);
