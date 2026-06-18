@@ -1237,8 +1237,6 @@ clean = clean.slice(firstBrace, lastBrace + 1);
 const result = JSON.parse(clean);
       
       upd(pillar,{phase:"result",result});
-
-      setCoachMemory(updateCoachMemory(pillar));
       
       const updatedCompletedPillars = completedPillars.includes(pillar)
   ? completedPillars
