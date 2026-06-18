@@ -1338,7 +1338,22 @@ const dismissBridgeMessage = () => {
       const n = profile?.firstName||profile?.username||"Athlete";
       const gender = profile?.gender||"";
       const ageRange = profile?.ageRange||"";
-      const prompt = PILLARS[pillar].prompt(answers,n,week,gender,ageRange);
+      
+      const intelligence = buildBlueprintIntelligence({
+  pillar,
+  week,
+  memory: coachMemory
+});
+
+const prompt = PILLARS[pillar].prompt(
+  answers,
+  n,
+  week,
+  gender,
+  ageRange,
+  intelligence
+);
+      
       let data = null;
 let lastError = null;
 
