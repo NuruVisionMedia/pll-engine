@@ -1405,7 +1405,9 @@ const momentumScore =
 const momentumStatus =
   getMomentumStatus(momentumScore);
   
-const recoveryStatus = "On Track";
+const recoveryStatus =
+  getRecoveryStatus(progressHistory);
+  
 const momentumCoachLine = coachMessage;
 
   const completedCount = completedPillars.length;
