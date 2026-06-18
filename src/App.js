@@ -1388,9 +1388,29 @@ const coachMessage = getCoachVoiceLine({
   memory: coachMemory
 });
   
-const progressHistory = loadProgressHistory();
+const currentStreak =
+  getTrueStreak(progressHistory);
 
-const currentStreak = getCurrentStreak(progressHistory);
+const momentumScore =
+  getMomentumScore({
+    streak: currentStreak,
+    completedPillars,
+    coachMemory
+  });
+
+const momentumStatus =
+  getMomentumStatus(momentumScore);
+
+const recoveryStatus =
+  getRecoveryStatus(progressHistory);
+
+const momentumCoachLine =
+  getMomentumCoachLine({
+    score: momentumScore,
+    streak: currentStreak,
+    recoveryStatus,
+    name
+  });
 
   const completedCount = completedPillars.length;
 const bridgeKey = `${week}-${activePillar}`;
