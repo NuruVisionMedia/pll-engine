@@ -1390,7 +1390,15 @@ const coachMessage = getCoachVoiceLine({
 
   const progressHistory = loadProgressHistory();
 
-const currentStreak = getCurrentStreak(progressHistory);
+const currentStreak =
+  typeof getTrueStreak === "function"
+    ? getTrueStreak(progressHistory)
+    : getCurrentStreak(progressHistory);
+
+const momentumScore = 0;
+const momentumStatus = "Foundation Mode";
+const recoveryStatus = "On Track";
+const momentumCoachLine = coachMessage;
 
   const completedCount = completedPillars.length;
 const bridgeKey = `${week}-${activePillar}`;
