@@ -1499,12 +1499,22 @@ const progressLabel =
   </div>
 
   <div style={{
-    fontSize: "12px",
-    color: SLATE,
-    lineHeight: "1.5"
-  }}>
-    {coachMessage}
-  </div>
+  fontSize: "12px",
+  color: SLATE,
+  lineHeight: "1.5"
+}}>
+  {coachMessage}
+</div>
+
+<div style={{
+  marginTop: "8px",
+  fontSize: "10px",
+  fontWeight: "900",
+  letterSpacing: "1px",
+  color: coachMode.accent
+}}>
+  COACH LEVEL: {coachMemory.coachLevel}
+</div>
 
   <div style={{
     marginTop: "8px",
