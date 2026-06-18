@@ -1387,30 +1387,10 @@ const coachMessage = getCoachVoiceLine({
   pillar: activePillar,
   memory: coachMemory
 });
-  
-const currentStreak =
-  getTrueStreak(progressHistory);
 
-const momentumScore =
-  getMomentumScore({
-    streak: currentStreak,
-    completedPillars,
-    coachMemory
-  });
+  const progressHistory = loadProgressHistory();
 
-const momentumStatus =
-  getMomentumStatus(momentumScore);
-
-const recoveryStatus =
-  getRecoveryStatus(progressHistory);
-
-const momentumCoachLine =
-  getMomentumCoachLine({
-    score: momentumScore,
-    streak: currentStreak,
-    recoveryStatus,
-    name
-  });
+const currentStreak = getCurrentStreak(progressHistory);
 
   const completedCount = completedPillars.length;
 const bridgeKey = `${week}-${activePillar}`;
@@ -1431,6 +1411,7 @@ const dismissBridgeMessage = () => {
     setProfile(updated);
     if (updated.username) Store.save("profile_"+updated.username.toLowerCase(), updated);
   };
+  
   const login = (prof) => { Store.save("user_"+prof.username.toLowerCase(), prof); setProfile(prof); setScreen("app"); };
   const logout = () => { setScreen("login"); setProfile(null); setPillarStates({TRAIN:{phase:"intake"},FUEL:{phase:"intake"},FOCUS:{phase:"intake"}}); setCompletedPillars([]); };
 
