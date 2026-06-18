@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function CoachAvatar({
-  image = "/coach.jpg",
+  image = "/coach-full.jpg",
   title = "PLL Coach",
   subtitle = "Mentor • Strategist • Commander",
   phase = 1,
