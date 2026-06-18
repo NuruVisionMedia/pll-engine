@@ -1650,14 +1650,26 @@ const progressLabel =
     </div>
 
     {progressHistory.slice(0,3).map((entry,i)=>(
-      <div key={entry.id || i} style={{
-        fontSize:"11px",
-        color:MUTED,
-        marginBottom:i===2 ? "0" : "6px"
-      }}>
-        Week {entry.week} · Phase {entry.phase} · {entry.pillar} · {entry.progressPct}% Complete
-      </div>
-    ))}
+  <div
+    key={entry.id || i}
+    style={{
+      fontSize:"11px",
+      color:MUTED,
+      marginBottom:i===2 ? "0" : "6px",
+      lineHeight:"1.4"
+    }}
+  >
+    {entry.date
+      ? new Date(entry.date).toLocaleDateString()
+      : "Recent Session"}
+    {" • "}
+    Week {entry.week}
+    {" • "}
+    {entry.pillar}
+    {" • "}
+    {entry.progressPct}% Complete
+  </div>
+))}
   </div>
 )}
 
