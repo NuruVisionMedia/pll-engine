@@ -1883,12 +1883,16 @@ const progressLabel =
     src="/coach-full.jpg"
     alt="PLL Coach"
     style={{
-      width: "100%",
-      maxWidth: "260px",
-      borderRadius: "18px",
-      boxShadow: "0 10px 24px rgba(0,0,0,0.25)"
-    }}
-  />
+  width: "100%",
+  maxWidth: "220px",
+  height: "240px",
+  objectFit: "cover",
+  objectPosition: "center top",
+  borderRadius: "18px",
+  boxShadow: "0 10px 24px rgba(0,0,0,0.25)"
+}}
+
+/>
 </div>
     
   <div style={{
