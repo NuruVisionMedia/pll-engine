@@ -1001,17 +1001,33 @@ const CoachMemory = {
         generatedBlueprints: 0,
         lastPillar: null,
         lastVisit: null,
-        coachLevel: "Foundation"
+        coachLevel: "Foundation",
+pillarCounts:{
+  TRAIN:0,
+  FUEL:0,
+  FOCUS:0
+},
+strongestPillar:"TRAIN",
+weakestPillar:"FOCUS",
+preferredPillar:"TRAIN"
       };
     } catch {
       return {
-        streak: 0,
-        completedWeeks: [],
-        generatedBlueprints: 0,
-        lastPillar: null,
-        lastVisit: null,
-        coachLevel: "Foundation"
-      };
+  streak: 0,
+  completedWeeks: [],
+  generatedBlueprints: 0,
+  lastPillar: null,
+  lastVisit: null,
+  coachLevel: "Foundation",
+  pillarCounts:{
+    TRAIN:0,
+    FUEL:0,
+    FOCUS:0
+  },
+  strongestPillar:"TRAIN",
+  weakestPillar:"FOCUS",
+  preferredPillar:"TRAIN"
+};
     }
   },
 
@@ -1032,6 +1048,23 @@ memory.generatedBlueprints += 1;
 memory.lastPillar = pillar;
 
 memory.lastVisit = new Date().toISOString();
+
+memory.pillarCounts = memory.pillarCounts || {
+  TRAIN: 0,
+  FUEL: 0,
+  FOCUS: 0
+};
+
+memory.pillarCounts[pillar] += 1;
+
+const entries = Object.entries(memory.pillarCounts);
+
+entries.sort((a,b)=>b[1]-a[1]);
+
+memory.strongestPillar = entries[0][0];
+memory.weakestPillar = entries[2][0];
+
+memory.preferredPillar = pillar;
 
 if (memory.generatedBlueprints >= 30) {
   memory.coachLevel = "Elite";
@@ -1514,6 +1547,33 @@ const progressLabel =
   color: coachMode.accent
 }}>
   COACH LEVEL: {coachMemory.coachLevel} · BLUEPRINTS: {coachMemory.generatedBlueprints}
+</div>
+
+  <div style={{
+  marginTop:"4px",
+  fontSize:"10px",
+  color:MUTED,
+  letterSpacing:"1px"
+}}>
+  PRIMARY FOCUS: {coachMemory.preferredPillar}
+</div>
+
+  <div style={{
+  marginTop:"4px",
+  fontSize:"10px",
+  color:MUTED,
+  letterSpacing:"1px"
+}}>
+  STRONGEST: {coachMemory.strongestPillar}
+</div>
+
+<div style={{
+  marginTop:"4px",
+  fontSize:"10px",
+  color:MUTED,
+  letterSpacing:"1px"
+}}>
+  WEAKEST: {coachMemory.weakestPillar}
 </div>
 
   <div style={{
