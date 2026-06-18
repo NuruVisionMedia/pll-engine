@@ -1864,6 +1864,52 @@ const progressLabel =
   PRIMARY FOCUS: {coachMemory.preferredPillar}
 </div>
 
+  {/* Sprint 2.3 Coach Momentum Card */}
+<div style={{
+  marginTop: "12px",
+  padding: "14px 16px",
+  borderRadius: "14px",
+  border: `1px solid ${BORDER}`,
+  background: SURFACE,
+  boxShadow: "0 0 14px rgba(0,0,0,0.12)"
+}}>
+  <div style={{
+    fontSize: "10px",
+    fontWeight: "900",
+    letterSpacing: "1.4px",
+    color: coachMode.accent,
+    marginBottom: "6px"
+  }}>
+    COACH MOMENTUM
+  </div>
+
+  <div style={{
+    fontSize: "13px",
+    fontWeight: "900",
+    color: NAVY,
+    marginBottom: "6px"
+  }}>
+    {momentumStatus} · {momentumScore}%
+  </div>
+
+  <div style={{
+    fontSize: "11px",
+    color: MUTED,
+    letterSpacing: "1px",
+    marginBottom: "6px"
+  }}>
+    RECOVERY: {recoveryStatus} · STREAK: {currentStreak} DAY{currentStreak === 1 ? "" : "S"}
+  </div>
+
+  <div style={{
+    fontSize: "12px",
+    color: SLATE,
+    lineHeight: "1.5"
+  }}>
+    {momentumCoachLine}
+  </div>
+</div>
+    
   <div style={{
   marginTop:"4px",
   fontSize:"10px",
