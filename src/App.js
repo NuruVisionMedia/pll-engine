@@ -1873,6 +1873,24 @@ const progressLabel =
   background: SURFACE,
   boxShadow: "0 0 14px rgba(0,0,0,0.12)"
 }}>
+
+  <div style={{
+  display: "flex",
+  justifyContent: "center",
+  marginBottom: "14px"
+}}>
+  <img
+    src="/coach-full.jpg"
+    alt="PLL Coach"
+    style={{
+      width: "100%",
+      maxWidth: "260px",
+      borderRadius: "18px",
+      boxShadow: "0 10px 24px rgba(0,0,0,0.25)"
+    }}
+  />
+</div>
+    
   <div style={{
     fontSize: "10px",
     fontWeight: "900",
