@@ -405,14 +405,16 @@ function CoachAvatar({ size = 80, pillar = "TRAIN", showRing = true }) {
       }}
     >
       <img
-        src="/coach.jpg"
+        src="/coach-full.jpg"
         alt="PLL Coach"
         onError={() => setImgError(true)}
         style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          objectPosition: "center top",
+          width: 70,
+height: 70,
+borderRadius: "50%",
+objectFit: "cover",
+objectPosition: "center top",
+          
           display: "block"
         }}
       />
