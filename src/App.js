@@ -133,7 +133,15 @@ const PILLARS = {
         <path d="M6 4v16M18 4v16M2 9h4M18 9h4M2 15h4M18 15h4M6 12h12"/>
       </svg>
     ),
-    prompt: (answers, name, week, gender, ageRange) => {
+    prompt: (
+  answers,
+  name,
+  week,
+  gender,
+  ageRange,
+  intelligence = ""
+) => {
+  
       const w = WEEKS[week];
       const ageNote = ageRange === "18-24" ? "Foundation building phase. High volume appropriate." :
         ageRange === "25-34" ? "Peak performance window. Push intensity." :
@@ -156,6 +164,8 @@ Experience=${answers.experience}
 Focus=${answers.focus}
 Theme=${w.theme}
 Intensity=${w.intensity}
+
+${intelligence}
 
 Return ONLY valid JSON:
 {
@@ -193,11 +203,24 @@ Return ONLY valid JSON:
         <path d="M18 8h1a4 4 0 0 1 0 8h-1M5 8h13v9a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V8zM12 8V3M8 3h8"/>
       </svg>
     ),
-    prompt: (answers, name, week, gender, ageRange) => {
-      const w = WEEKS[week];
+    
+    prompt: (
+  answers,
+  name,
+  week,
+  gender,
+  ageRange,
+  intelligence = ""
+) => {
+  
+  const w = WEEKS[week];
+  
       return `You are an elite nutrition coach for Prime Level Living. Generate a complete Week ${week} nutrition plan.
 User Profile: Gender=${gender||"Not specified"}, Age Range=${ageRange||"Not specified"}, Goal=${answers.goal}, Diet=${answers.diet}, Supplement Experience=${answers.supplements}, Budget=${answers.budget}
 Week Theme: ${w.theme}
+
+${intelligence}
+
 Return ONLY valid JSON:
 {
   "title": "Week ${week} Fuel Stack Title",
@@ -216,11 +239,22 @@ Return ONLY valid JSON:
         <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
       </svg>
     ),
-    prompt: (answers, name, week, gender, ageRange) => {
+    
+    prompt: (
+  answers,
+  name,
+  week,
+  gender,
+  ageRange,
+  intelligence = ""
+) => {
+  
       const w = WEEKS[week];
       return `You are an elite mindset coach for Prime Level Living. Generate a complete Week ${week} mental performance plan.
 User Profile: Gender=${gender||"Not specified"}, Age Range=${ageRange||"Not specified"}, Mindset Goal=${answers.mindsetGoal}, Challenge=${answers.challenges}, Morning Routine=${answers.morning}, Stress=${answers.stress}
 Week Theme: ${w.theme}, Mantra: ${w.mantra}
+${intelligence}
+
 Return ONLY valid JSON:
 {
   "title": "Week ${week} Mental Performance Title",
