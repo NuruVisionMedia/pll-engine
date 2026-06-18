@@ -124,92 +124,6 @@ function getExerciseVideo(name) {
   return null;
 }
 
-/* =====================================================
-   PLL COACH MEMORY ENGINE - SPRINT 2.1
-===================================================== */
-
-const COACH_MEMORY_KEY = "pll_coach_memory";
-
-const CoachMemory = {
-
-  load() {
-    try {
-      return JSON.parse(
-        localStorage.getItem(COACH_MEMORY_KEY)
-      ) || {
-        streak: 0,
-        completedWeeks: [],
-        generatedBlueprints: 0,
-        lastPillar: null,
-        lastVisit: null,
-        coachLevel: "Foundation"
-      };
-    } catch {
-      return {
-        streak: 0,
-        completedWeeks: [],
-        generatedBlueprints: 0,
-        lastPillar: null,
-        lastVisit: null,
-        coachLevel: "Foundation"
-      };
-    }
-  },
-
-  save(memory) {
-    localStorage.setItem(
-      COACH_MEMORY_KEY,
-      JSON.stringify(memory)
-    );
-  }
-
-};
-
-const getCoachLevel = (count) => {
-
-  if (count >= 20) return "Elite";
-  if (count >= 10) return "Advanced";
-  if (count >= 5) return "Committed";
-
-  return "Foundation";
-
-};
-
-const updateCoachMemory = (pillar) => {
-
-  const memory = CoachMemory.load();
-
-  memory.generatedBlueprints += 1;
-
-  memory.lastPillar = pillar;
-
-  memory.lastVisit = new Date().toISOString();
-
-  memory.coachLevel =
-    getCoachLevel(memory.generatedBlueprints);
-
-  CoachMemory.save(memory);
-
-  return memory;
-
-};
-
-const getCoachMemory = () => {
-
-  return CoachMemory.load();
-
-};
-
-const resetCoachMemory = () => {
-
-  localStorage.removeItem(
-    COACH_MEMORY_KEY
-  );
-
-};
-
-const PILLARS = {
-
 // â”€â”€â”€ PILLARS CONFIG â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const PILLARS = {
   TRAIN: {
@@ -1070,6 +984,64 @@ const VideoLessonLibrary = {};
 const CommunityModule = {};
 const StoreRecommendationEngine = {};
 
+// ====================================================
+// PLL COACH MEMORY ENGINE — SPRINT 2.1
+// ====================================================
+
+const COACH_MEMORY_KEY = "pll_coach_memory";
+
+const CoachMemory = {
+  load() {
+    try {
+      return JSON.parse(
+        localStorage.getItem(COACH_MEMORY_KEY)
+      ) || {
+        streak: 0,
+        completedWeeks: [],
+        generatedBlueprints: 0,
+        lastPillar: null,
+        lastVisit: null,
+        coachLevel: "Foundation"
+      };
+    } catch {
+      return {
+        streak: 0,
+        completedWeeks: [],
+        generatedBlueprints: 0,
+        lastPillar: null,
+        lastVisit: null,
+        coachLevel: "Foundation"
+      };
+    }
+  },
+
+  save(memory) {
+    localStorage.setItem(
+      COACH_MEMORY_KEY,
+      JSON.stringify(memory)
+    );
+  }
+};
+
+const updateCoachMemory = (pillar) => {
+  const memory = CoachMemory.load();
+
+  memory.generatedBlueprints += 1;
+  memory.lastPillar = pillar;
+  memory.lastVisit = new Date().toISOString();
+
+  CoachMemory.save(memory);
+
+  return memory;
+};
+
+const getCoachMemory = () => {
+  return CoachMemory.load();
+};
+
+const resetCoachMemory = () => {
+  localStorage.removeItem(COACH_MEMORY_KEY);
+};
 export default function App() {
   const [screen, setScreen] = useState("login");
   const [profile, setProfile] = useState(null);
