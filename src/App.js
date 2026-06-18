@@ -1395,7 +1395,13 @@ const currentStreak =
     ? getTrueStreak(progressHistory)
     : getCurrentStreak(progressHistory);
 
-const momentumScore = 0;
+const momentumScore =
+  getMomentumScore({
+    streak: currentStreak,
+    completedPillars,
+    coachMemory
+  });
+  
 const momentumStatus = "Foundation Mode";
 const recoveryStatus = "On Track";
 const momentumCoachLine = coachMessage;
