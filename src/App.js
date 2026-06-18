@@ -1513,7 +1513,7 @@ const progressLabel =
   letterSpacing: "1px",
   color: coachMode.accent
 }}>
-  COACH LEVEL: {coachMemory.coachLevel}
+  COACH LEVEL: {coachMemory.coachLevel} · BLUEPRINTS: {coachMemory.generatedBlueprints}
 </div>
 
   <div style={{
