@@ -1024,11 +1024,24 @@ const CoachMemory = {
 };
 
 const updateCoachMemory = (pillar) => {
+  
   const memory = CoachMemory.load();
+  
+memory.generatedBlueprints += 1;
 
-  memory.generatedBlueprints += 1;
-  memory.lastPillar = pillar;
-  memory.lastVisit = new Date().toISOString();
+memory.lastPillar = pillar;
+
+memory.lastVisit = new Date().toISOString();
+
+if (memory.generatedBlueprints >= 30) {
+  memory.coachLevel = "Elite";
+} else if (memory.generatedBlueprints >= 15) {
+  memory.coachLevel = "Advanced";
+} else if (memory.generatedBlueprints >= 5) {
+  memory.coachLevel = "Developing";
+} else {
+  memory.coachLevel = "Foundation";
+}
 
   CoachMemory.save(memory);
 
