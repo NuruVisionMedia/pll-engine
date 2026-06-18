@@ -923,18 +923,27 @@ const getCoachMode = (phase) => {
   };
 };
 
-const getCoachVoiceLine = ({ phase, week, pillar }) => {
-  const PILLAR = String(pillar || "").toUpperCase();
+const getCoachVoiceLine = ({ phase, week, pillar, memory }) => {
+  const PILLAR = String(pillar || "-").toUpperCase();
+  const level = memory?.coachLevel || "Foundation";
+  const generated = memory?.generatedBlueprints || 0;
+  const strongest = memory?.strongestPillar || "TRAIN";
+  const weakest = memory?.weakestPillar || "FOCUS";
+  const preferred = memory?.preferredPillar || PILLAR;
 
-  if (phase === 1) {
+  if (generated === 0) {
     return `Week ${week}. ${PILLAR} begins with standards, not motivation. Build the foundation.`;
   }
 
-  if (phase === 2) {
-    return `Week ${week}. You are past introduction. ${PILLAR} now requires sharper execution.`;
+  if (phase === 1) {
+    return `Week ${week}. Coach Level: ${level}. You have generated ${generated} blueprint${generated === 1 ? "" : "s"}. ${PILLAR} is your current focus.`;
   }
 
-  return `Week ${week}. No hype. No shortcuts. ${PILLAR} is now part of your identity.`;
+  if (phase === 2) {
+    return `Week ${week}. You are moving beyond introduction. Strongest pillar: ${strongest}. Weakest pillar: ${weakest}. Execute ${PILLAR} with sharper discipline.`;
+  }
+
+  return `Week ${week}. Preferred pillar: ${preferred}. Coach Level: ${level}. No hype. No shortcuts. ${PILLAR} is now part of your identity.`;
 };
 
 const loadProgressHistory = () => {
