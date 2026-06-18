@@ -1255,6 +1255,107 @@ Coaching Rules:
 `;
 };
 
+// ====================================================
+// PLL MOMENTUM INTELLIGENCE ENGINE — SPRINT 2.3
+// ====================================================
+
+const getTrueStreak = (history = []) => {
+  if (!history.length) return 0;
+
+  const dates = [
+    ...new Set(
+      history.map(item =>
+        new Date(item.date).toDateString()
+      )
+    )
+  ]
+    .map(date => new Date(date))
+    .sort((a, b) => b - a);
+
+  let streak = 1;
+
+  for (let i = 0; i < dates.length - 1; i++) {
+    const diff =
+      (dates[i] - dates[i + 1]) / (1000 * 60 * 60 * 24);
+
+    if (diff === 1) {
+      streak++;
+    } else {
+      break;
+    }
+  }
+
+  return streak;
+};
+
+const getMomentumScore = ({
+  streak = 0,
+  completedPillars = [],
+  coachMemory = {}
+}) => {
+  const streakScore = Math.min(streak * 10, 40);
+  const pillarScore = completedPillars.length * 20;
+  const memoryScore = Math.min(
+    (coachMemory.generatedBlueprints || 0) * 2,
+    20
+  );
+
+  return Math.min(
+    streakScore + pillarScore + memoryScore,
+    100
+  );
+};
+
+const getMomentumStatus = (score) => {
+  if (score >= 85) return "Elite Momentum";
+  if (score >= 65) return "Building Strong";
+  if (score >= 40) return "Gaining Rhythm";
+  return "Foundation Mode";
+};
+
+const getRecoveryStatus = (history = []) => {
+  if (!history.length) return "New Start";
+
+  const latest = history
+    .map(item => new Date(item.date))
+    .sort((a, b) => b - a)[0];
+
+  const today = new Date();
+  const diffDays = Math.floor(
+    (today - latest) / (1000 * 60 * 60 * 24)
+  );
+
+  if (diffDays === 0) return "On Track";
+  if (diffDays === 1) return "Still Close";
+  if (diffDays <= 3) return "Needs Reconnect";
+  return "Comeback Needed";
+};
+
+const getMomentumCoachLine = ({
+  score,
+  streak,
+  recoveryStatus,
+  name
+}) => {
+  if (recoveryStatus === "Comeback Needed") {
+    return `${name}, no guilt. Just restart. Momentum comes back when you show up again.`;
+  }
+
+  if (score >= 85) {
+    return `${name}, you're operating at a high level. Protect this rhythm.`;
+  }
+
+  if (score >= 65) {
+    return `${name}, you're building real consistency. Keep stacking wins.`;
+  }
+
+  if (streak >= 2) {
+    return `${name}, the rhythm is starting. Do not break the chain.`;
+  }
+
+  return `${name}, today is about showing up and rebuilding momentum.`;
+};
+
 export default function App() {
   const [screen, setScreen] = useState("login");
   const [profile, setProfile] = useState(null);
