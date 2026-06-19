@@ -413,11 +413,12 @@ function CoachAvatar({ size = 80, pillar = "TRAIN", showRing = true }) {
 height: 70,
 borderRadius: "50%",
 objectFit: "cover",
-objectPosition: "50% 18%",
-          
+objectPosition: "50% 35%",
+transform: "scale(1.55)",
           display: "block"
         }}
       />
+        
     </div>
   );
 }
@@ -518,11 +519,10 @@ function TrainResult({ data, name, week, onDownload }) {
           <button key={i} onClick={()=>setActiveDay(i)} style={{
             padding:"10px 18px",borderRadius:"10px",
             border: activeDay===i ? "none" : `1.5px solid ${BORDER}`,
-            background: activeDay===i ? B : SURFACE,
-            color: activeDay===i ? "white" : SLATE,
-            fontWeight:"700",fontSize:"13px",cursor:"pointer",
-            letterSpacing:"0.5px",transition:"all 0.15s",
-            boxShadow: activeDay===i ? `0 4px 14px ${B}35` : "none"
+            background: activeDay===i ? `${B}22` : SURFACE,
+color: activeDay===i ? B : SLATE,
+boxShadow: "none"
+          
           }}>DAY {d.day}</button>
         ))}
       </div>
@@ -827,9 +827,8 @@ function IntakeForm({ pillar, profile, onGenerate }) {
                   padding:"11px 18px",borderRadius:"10px",
                   border: active ? `1.5px solid ${p.color}` : `1.5px solid ${BORDER}`,
                   background: active ? `${p.color}12` : SURFACE,
-                  color: active ? p.color : SLATE,
-                  fontWeight:"700",fontSize:"13px",cursor:"pointer",transition:"all 0.15s",
-                  boxShadow: active ? `0 2px 10px ${p.color}20` : "none"
+color: active ? p.color : SLATE,
+boxShadow: active ? `0 2px 10px ${p.color}20` : "none"
                 }}>{opt}</button>
               );
             })}
@@ -841,11 +840,9 @@ function IntakeForm({ pillar, profile, onGenerate }) {
         onClick={()=>allAnswered && onGenerate(answers)}
         style={{
           width:"100%",padding:"17px",borderRadius:"12px",border:"none",
-          background: allAnswered ? NAVY : BORDER_MID,
-          color: allAnswered ? "white" : MUTED,
-          fontWeight:"800",fontSize:"14px",cursor:allAnswered?"pointer":"not-allowed",
-          letterSpacing:"1.5px",marginTop:"8px",
-          boxShadow: allAnswered ? "0 6px 22px rgba(15,28,46,0.25)" : "none",
+          background: allAnswered ? `${B}22` : BORDER_MID,
+color: allAnswered ? B : MUTED,
+boxShadow: "none",
           transition:"all 0.2s"
         }}>
         {allAnswered ? `GENERATE MY WEEK ${profile?.week||1} ${pillar} BLUEPRINT` : "COMPLETE ALL SELECTIONS ABOVE"}
@@ -889,21 +886,20 @@ function PillarButton({ pillar, active, done, onClick }) {
       border: active ? "none" :
               done   ? `1.5px solid ${color}35` :
                        `1.5px solid ${BORDER}`,
-      background: active ? NAVY :
-                  done   ? `${color}0D` :
-                           SURFACE,
-      boxShadow: active ? `0 4px 18px rgba(15,28,46,0.22)` :
-                 done   ? `0 2px 8px ${color}18` :
-                          "none",
+      background: active ? `${color}18` :
+  done ? `${color}0D` :
+  SURFACE,
+
+boxShadow: "none",
     }}>
       {/* Icon */}
       <div style={{ opacity: active||done ? 1 : 0.5 }}>
-        {p.icon(active ? "white" : done ? color : MUTED, 18)}
+        p.icon(active ? color : done ? color : MUTED, 18)}
       </div>
       {/* Label */}
       <span style={{
         fontSize:"10px",fontWeight:"800",letterSpacing:"1.5px",
-        color: active ? "white" : done ? color : MUTED
+        color: active ? color : done ? color : MUTED
       }}>{pillar}</span>
       {/* Status */}
       {done && !active && (
@@ -1765,9 +1761,11 @@ const progressLabel =
       {/* â”€â”€ HEADER â”€â”€ */}
       <div style={{
         background:SURFACE,borderBottom:`1px solid ${BORDER}`,
-        padding:"0 24px",position:"sticky",top:0,zIndex:100,
+        padding:"0 24px",position: "relative",
+        zIndex: 10,
         boxShadow:"0 1px 10px rgba(15,28,46,0.07)"
       }}>
+        
         <div style={{ maxWidth:"1100px",margin:"0 auto",display:"flex",alignItems:"center",gap:"16px",height:"64px" }}>
           {/* Brand */}
           <div style={{ display:"flex",alignItems:"center",gap:"12px",marginRight:"auto" }}>
