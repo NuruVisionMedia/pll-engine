@@ -413,7 +413,7 @@ function CoachAvatar({ size = 80, pillar = "TRAIN", showRing = true }) {
 height: 70,
 borderRadius: "50%",
 objectFit: "cover",
-objectPosition: "center top",
+objectPosition: "50% 18%",
           
           display: "block"
         }}
@@ -1887,9 +1887,9 @@ const progressLabel =
     style={{
   width: "100%",
   maxWidth: "220px",
-  height: "240px",
+  height: "220px",
   objectFit: "cover",
-  objectPosition: "center top",
+  objectPosition: "50% 28%",
   borderRadius: "18px",
   boxShadow: "0 10px 24px rgba(0,0,0,0.25)"
 }}
