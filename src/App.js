@@ -759,11 +759,25 @@ function FocusResult({ data, name, week, onDownload }) {
         </>
       )}
 
-      <button onClick={onDownload} style={{
-        width:"100%",padding:"16px",borderRadius:"12px",border:`1.5px solid ${P}30`,
-        background:P+"22",color:"P,fontWeight:"800",fontSize:"14px",
-        cursor:"pointer",letterSpacing:"1.5px",boxShadow:"none"
-      }}>DOWNLOAD WEEK {week} FOCUS BLUEPRINT</button>
+      <button
+  onClick={onDownload}
+  style={{
+    width: "100%",
+    padding: "16px",
+    borderRadius: "12px",
+    border: `1.5px solid ${P}30`,
+    background: `${P}22`,
+    color: P,
+    fontWeight: "800",
+    fontSize: "14px",
+    cursor: "pointer",
+    letterSpacing: "1.5px",
+    boxShadow: "none"
+  }}
+>
+  DOWNLOAD WEEK {week} FOCUS BLUEPRINT
+</button>
+    
     </div>
   );
 }
