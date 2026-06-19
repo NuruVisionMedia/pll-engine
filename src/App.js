@@ -1775,17 +1775,32 @@ boxShadow:"none"
           </p>
 
           {week < 3 ? (
-            <button onClick={()=>{
-              saveProfile({week:week+1});
-              setCompletedPillars([]);
-              setShowCelebration(false);
-              setPillarStates({TRAIN:{phase:"intake"},FUEL:{phase:"intake"},FOCUS:{phase:"intake"}});
-            }} style={{
-              padding:"18px 44px",borderRadius:"12px",border:"none",
-              background:`${B}22`,
-              color:"B,fontWeight:"800",fontSize:"15px",cursor:"pointer",
-              letterSpacing:"1.5px",boxShadow:"none"
-            }}>START WEEK {week+1}</button>
+            <button
+  onClick={() => {
+    saveProfile({ week: week + 1 });
+    setCompletedPillars([]);
+    setShowCelebration(false);
+    setPillarStates({
+      TRAIN: { phase: "intake" },
+      FUEL: { phase: "intake" },
+      FOCUS: { phase: "intake" }
+    });
+  }}
+  style={{
+    padding: "18px 44px",
+    borderRadius: "12px",
+    border: "none",
+    background: `${B}22`,
+    color: B,
+    fontWeight: "800",
+    fontSize: "15px",
+    cursor: "pointer",
+    letterSpacing: "1.5px",
+    boxShadow: "none"
+  }}
+>
+  START WEEK {week + 1}
+</button>
           ) : (
             <div>
               <div style={{ background:"rgba(255,255,255,0.07)",border:`1px solid rgba(255,255,255,0.12)`,borderRadius:"16px",padding:"24px",marginBottom:"24px" }}>
@@ -1795,11 +1810,20 @@ boxShadow:"none"
                 </p>
               </div>
               <button style={{
-                padding:"18px 44px",borderRadius:"12px",border:"none",
-                background:`${O}22',
-                color:O,fontWeight:"800",fontSize:"15px",cursor:"pointer",letterSpacing:"1.5px",
-                boxShadow:"none"
-              }}>UNLOCK PHASE 2</button>
+  padding: "18px 44px",
+  borderRadius: "12px",
+  border: "none",
+  background: `${O}22`,
+  color: O,
+  fontWeight: "800",
+  fontSize: "15px",
+  cursor: "pointer",
+  letterSpacing: "1.5px",
+  boxShadow: "none"
+}}>
+  UNLOCK PHASE 2
+</button>
+  
             </div>
           )}
         </div>
@@ -2248,10 +2272,21 @@ const progressLabel =
             <div style={{ fontSize:"36px",marginBottom:"16px" }}>âš </div>
             <div style={{ fontWeight:"800",fontSize:"20px",color:NAVY,marginBottom:"8px" }}>Generation Failed</div>
             <div style={{ fontSize:"14px",color:SLATE,marginBottom:"24px" }}>Something went wrong. Let's try again.</div>
-            <button onClick={()=>upd(activePillar,{phase:"intake"})} style={{
-              padding:"12px 28px",borderRadius:"10px",border:"none",
-              background:'${PILLARS[activePillar].color}'22,color:Pillars{activePillar}.color,fontWeight:"800",fontSize:"14px",cursor:"pointer"
-            }}>RETRY</button>
+            <button
+  onClick={() => upd(activePillar, { phase: "intake" })}
+  style={{
+    padding: "12px 28px",
+    borderRadius: "10px",
+    border: "none",
+    background: `${PILLARS[activePillar].color}22`,
+    color: PILLARS[activePillar].color,
+    fontWeight: "800",
+    fontSize: "14px",
+    cursor: "pointer"
+  }}
+>
+  RETRY
+</button>
           </div>
         )}
       </div>
