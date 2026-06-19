@@ -1875,27 +1875,6 @@ const progressLabel =
   background: SURFACE,
   boxShadow: "0 0 14px rgba(0,0,0,0.12)"
 }}>
-
-  <div style={{
-  display: "flex",
-  justifyContent: "center",
-  marginBottom: "14px"
-}}>
-  <img
-    src="/coach-full.jpg"
-    alt="PLL Coach"
-    style={{
-  width: "100%",
-  maxWidth: "220px",
-  height: "220px",
-  objectFit: "cover",
-  objectPosition: "50% 28%",
-  borderRadius: "18px",
-  boxShadow: "0 10px 24px rgba(0,0,0,0.25)"
-}}
-
-/>
-</div>
     
   <div style={{
     fontSize: "10px",
@@ -2094,6 +2073,60 @@ const progressLabel =
             {WEEKS[week]?.label||`WEEK ${week}`}
           </div>
         </div>
+
+{/* Sprint 2.4 Coach Presence Panel */}
+<div style={{
+  margin: "18px 0 24px",
+  padding: "18px",
+  borderRadius: "18px",
+  border: `1px solid ${BORDER}`,
+  background: SURFACE,
+  display: "flex",
+  gap: "18px",
+  alignItems: "center"
+}}>
+  <img
+    src="/coach-full.jpg"
+    alt="PLL Coach"
+    style={{
+      width: "160px",
+      height: "210px",
+      objectFit: "cover",
+      objectPosition: "50% 18%",
+      borderRadius: "16px",
+      boxShadow: "0 10px 24px rgba(0,0,0,0.25)"
+    }}
+  />
+
+  <div>
+    <div style={{
+      fontSize: "10px",
+      fontWeight: "900",
+      color: coachMode.accent,
+      letterSpacing: "1.5px",
+      marginBottom: "6px"
+    }}>
+      PLL COACH
+    </div>
+
+    <div style={{
+      fontSize: "20px",
+      fontWeight: "900",
+      color: NAVY,
+      marginBottom: "6px"
+    }}>
+      The Performance Architect
+    </div>
+
+    <div style={{
+      fontSize: "13px",
+      color: SLATE,
+      lineHeight: "1.5"
+    }}>
+      {momentumCoachLine}
+    </div>
+  </div>
+</div>
 
         {/* Pillar content */}
         {st.phase==="loading" && <Loading pillar={activePillar} name={name} week={week}/>}
