@@ -801,7 +801,7 @@ function Loading({ pillar, name, week }) {
       margin:"0 auto",
       padding:"60px 20px"
     }}
-<div style={{ textAlign:"center" }}>
+<div> style={{ textAlign:"center" }}>
 >      <CoachAvatar size={80} pillar={pillar}/>
       <div style={{ marginTop:"24px",marginBottom:"8px" }}>
         <span style={{ fontSize:"13px",fontWeight:"800",color:p.color,letterSpacing:"2px" }}>GENERATING{dots}</span>
