@@ -801,6 +801,7 @@ function Loading({ pillar, name, week }) {
       margin:"0 auto",
       padding:"60px 20px"
     }}
+>
 <div style={{ textAlign:"center" }}>
       <CoachAvatar size={80} pillar={pillar}/>
       <div style={{ marginTop:"24px",marginBottom:"8px" }}>
