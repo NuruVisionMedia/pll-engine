@@ -574,7 +574,7 @@ boxShadow: "none"
 
       <button onClick={onDownload} style={{
         width:"100%",padding:"16px",borderRadius:"12px",border:`1.5px solid ${B}`,
-        background:NAVY,color:"white",fontWeight:"800",fontSize:"14px",
+        background:'${B}22',color:B,fontWeight:"800",fontSize:"14px",
         cursor:"pointer",letterSpacing:"1.5px",marginTop:"24px",
         boxShadow:`0 4px 18px rgba(15,28,46,0.2)`
       }}>DOWNLOAD WEEK {week} TRAIN BLUEPRINT</button>
@@ -665,8 +665,8 @@ function FuelResult({ data, name, week, onDownload }) {
 
       <button onClick={onDownload} style={{
         width:"100%",padding:"16px",borderRadius:"12px",border:`1.5px solid ${O}30`,
-        background:NAVY,color:"white",fontWeight:"800",fontSize:"14px",
-        cursor:"pointer",letterSpacing:"1.5px",boxShadow:"0 4px 18px rgba(15,28,46,0.2)"
+        background:'${O}22',color:O,fontWeight:"800",fontSize:"14px",
+        cursor:"pointer",letterSpacing:"1.5px",boxShadow:"none"
       }}>DOWNLOAD WEEK {week} FUEL BLUEPRINT</button>
     </div>
   );
@@ -761,8 +761,8 @@ function FocusResult({ data, name, week, onDownload }) {
 
       <button onClick={onDownload} style={{
         width:"100%",padding:"16px",borderRadius:"12px",border:`1.5px solid ${P}30`,
-        background:NAVY,color:"white",fontWeight:"800",fontSize:"14px",
-        cursor:"pointer",letterSpacing:"1.5px",boxShadow:"0 4px 18px rgba(15,28,46,0.2)"
+        background:'${P}22',color:"P,fontWeight:"800",fontSize:"14px",
+        cursor:"pointer",letterSpacing:"1.5px",boxShadow:"none"
       }}>DOWNLOAD WEEK {week} FOCUS BLUEPRINT</button>
     </div>
   );
@@ -777,8 +777,18 @@ function Loading({ pillar, name, week }) {
     return ()=>clearInterval(t);
   },[]);
   return (
-    <div style={{ textAlign:"center",padding:"60px 20px" }}>
-      <CoachAvatar size={80} pillar={pillar}/>
+  <div
+    style={{
+      display:"grid",
+      gridTemplateColumns:"1fr 380px",
+      gap:"32px",
+      alignItems:"center",
+      maxWidth:"1100px",
+      margin:"0 auto",
+      padding:"60px 20px"
+    }}
+<div style={{ textAlign:"center" }}>
+>      <CoachAvatar size={80} pillar={pillar}/>
       <div style={{ marginTop:"24px",marginBottom:"8px" }}>
         <span style={{ fontSize:"13px",fontWeight:"800",color:p.color,letterSpacing:"2px" }}>GENERATING{dots}</span>
       </div>
@@ -789,6 +799,44 @@ function Loading({ pillar, name, week }) {
       </div>
       <style>{`@keyframes pllLoad{0%{width:0%}50%{width:80%}100%{width:100%}}`}</style>
     </div>
+    <div
+      style={{
+        background:SURFACE,
+        border:`1px solid ${BORDER}`,
+        borderRadius:"20px",
+        padding:"20px",
+        textAlign:"left"
+      }}
+    >
+      <div style={{ fontSize:"10px", fontWeight:"800", letterSpacing:"2px", color:O, marginBottom:"10px" }}>
+        PLL STORE FEATURED
+      </div>
+
+      <div
+        style={{
+          aspectRatio:"16 / 9",
+          background:"#111827",
+          borderRadius:"12px",
+          marginBottom:"14px",
+          display:"flex",
+          alignItems:"center",
+          justifyContent:"center",
+          color:MUTED,
+          fontSize:"13px"
+        }}
+      >
+        STORE PROMO VIDEO
+      </div>
+
+      <div style={{ fontSize:"18px", fontWeight:"800", color:NAVY, marginBottom:"8px" }}>
+        Upgrade Your Results Faster
+      </div>
+
+      <div style={{ fontSize:"13px", color:SLATE, lineHeight:"1.6" }}>
+        Recommended supplements, training gear and recovery tools selected for your PLL journey.
+      </div>
+    </div>
+</div>
   );
 }
 
@@ -1626,9 +1674,9 @@ setCoachMemory(updatedCoachMemory);
               ))}
               <button onClick={handleSignIn} style={{
                 width:"100%",padding:"15px",borderRadius:"12px",border:"none",
-                background:NAVY,color:"white",fontWeight:"800",fontSize:"14px",
-                cursor:"pointer",letterSpacing:"1.5px",marginTop:"8px",
-                boxShadow:"0 6px 22px rgba(15,28,46,0.3)"
+                background:`${B}22`,
+color:B,
+boxShadow:"none"
               }}>SIGN IN</button>
             </>
           ) : (
@@ -1676,9 +1724,9 @@ setCoachMemory(updatedCoachMemory);
 
               <button onClick={handleCreateAccount} style={{
                 width:"100%",padding:"15px",borderRadius:"12px",border:"none",
-                background:NAVY,color:"white",fontWeight:"800",fontSize:"14px",
-                cursor:"pointer",letterSpacing:"1.5px",
-                boxShadow:"0 6px 22px rgba(15,28,46,0.3)"
+                background:`${B}22`,
+color:B,
+boxShadow:"none"
               }}>START MY TRANSFORMATION</button>
             </>
           )}
@@ -1719,9 +1767,9 @@ setCoachMemory(updatedCoachMemory);
               setPillarStates({TRAIN:{phase:"intake"},FUEL:{phase:"intake"},FOCUS:{phase:"intake"}});
             }} style={{
               padding:"18px 44px",borderRadius:"12px",border:"none",
-              background:`linear-gradient(135deg, ${B}, #2A7FE8)`,
-              color:"white",fontWeight:"800",fontSize:"15px",cursor:"pointer",
-              letterSpacing:"1.5px",boxShadow:`0 8px 28px ${B}50`
+              background:`${B}22`,
+              color:"B,fontWeight:"800",fontSize:"15px",cursor:"pointer",
+              letterSpacing:"1.5px",boxShadow:"none"
             }}>START WEEK {week+1}</button>
           ) : (
             <div>
@@ -1733,9 +1781,9 @@ setCoachMemory(updatedCoachMemory);
               </div>
               <button style={{
                 padding:"18px 44px",borderRadius:"12px",border:"none",
-                background:`linear-gradient(135deg, ${O}, #E86020)`,
-                color:"white",fontWeight:"800",fontSize:"15px",cursor:"pointer",letterSpacing:"1.5px",
-                boxShadow:`0 8px 28px ${O}45`
+                background:`${O}22',
+                color:O,fontWeight:"800",fontSize:"15px",cursor:"pointer",letterSpacing:"1.5px",
+                boxShadow:"none"
               }}>UNLOCK PHASE 2</button>
             </div>
           )}
@@ -1766,7 +1814,7 @@ const progressLabel =
         boxShadow:"0 1px 10px rgba(15,28,46,0.07)"
       }}>
         
-        <div style={{ maxWidth:"1100px",margin:"0 auto",display:"flex",alignItems:"center",gap:"16px",height:"64px" }}>
+        <div style={{ maxWidth:"1100px",margin:"0 auto",display:"flex",alignItems:"center",gap:"16px",minHeight:"82px" }}>
           {/* Brand */}
           <div style={{ display:"flex",alignItems:"center",gap:"12px",marginRight:"auto" }}>
             <CoachAvatar size={38} pillar={activePillar} showRing={false}/>
@@ -2187,7 +2235,7 @@ const progressLabel =
             <div style={{ fontSize:"14px",color:SLATE,marginBottom:"24px" }}>Something went wrong. Let's try again.</div>
             <button onClick={()=>upd(activePillar,{phase:"intake"})} style={{
               padding:"12px 28px",borderRadius:"10px",border:"none",
-              background:PILLARS[activePillar].color,color:"white",fontWeight:"800",fontSize:"14px",cursor:"pointer"
+              background:'${PILLARS[activePillar].color}'22,color:Pillars{activePillar}.color,fontWeight:"800",fontSize:"14px",cursor:"pointer"
             }}>RETRY</button>
           </div>
         )}
