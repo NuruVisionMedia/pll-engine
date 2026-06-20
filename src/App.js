@@ -766,13 +766,14 @@ function FocusResult({ data, name, week, onDownload }) {
     padding: "16px",
     borderRadius: "12px",
     border: `1.5px solid ${P}30`,
-    background: `${P}22`,
+    background: `${P}12`,
     color: P,
     fontWeight: "800",
     fontSize: "14px",
     cursor: "pointer",
     letterSpacing: "1.5px",
-    boxShadow: "none"
+    marginTop: "24px",
+    boxShadow: "0 4px 18px rgba(124,58,237,0.15)"
   }}
 >
   DOWNLOAD WEEK {week} FOCUS BLUEPRINT
