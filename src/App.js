@@ -2186,15 +2186,18 @@ const progressLabel =
   border: `1px solid ${BORDER}`,
   background: SURFACE,
   display: "flex",
+  flexDirection: window.innerWidth < 768 ? "column" : "row",
   gap: "18px",
-  alignItems: "center"
+  alignItems: window.innerWidth < 768 ? "flex-start" : "center",
+  overflow: "hidden"
 }}>
   <img
     src="/coach-full.jpg"
     alt="PLL Coach"
     style={{
-      width: "160px",
-      height: "210px",
+      width: window.innerWidth < 768 ? "100%" : "160px",
+      maxWidth: window.innerWidth < 768 ? "220px" : "160px",
+      height: window.innerWidth < 768 ? "220px" : "210px",
       objectFit: "cover",
       objectPosition: "50% 18%",
       borderRadius: "16px",
