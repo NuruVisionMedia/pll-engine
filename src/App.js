@@ -941,41 +941,60 @@ ${data.coachMessage?`<div style="border-left:4px solid #1D6FD8;padding:16px 20px
 function PillarButton({ pillar, active, done, onClick }) {
   const p = PILLARS[pillar];
   const color = p.color;
+
   return (
     <button onClick={onClick} style={{
-      display:"flex",flexDirection:"column",alignItems:"center",gap:"5px",
-      padding:"10px 14px",minWidth:"72px",borderRadius:"12px",cursor:"pointer",
-      transition:"all 0.2s ease",
-      border: active ? "none" :
-              done   ? `1.5px solid ${color}35` :
-                       `1.5px solid ${BORDER}`,
-      background: active ? `${color}18` :
-  done ? `${color}0D` :
-  SURFACE,
-
-boxShadow: "none",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: "5px",
+      padding: "10px 14px",
+      minWidth: "72px",
+      borderRadius: "12px",
+      cursor: "pointer",
+      transition: "all 0.2s ease",
+      border: active
+        ? `1.5px solid ${color}35`
+        : done
+        ? `1.5px solid ${color}35`
+        : `1.5px solid ${BORDER}`,
+      background: active
+        ? `${color}18`
+        : done
+        ? `${color}0D`
+        : SURFACE,
+      boxShadow: "none"
     }}>
-      {/* Icon */}
-      <div style={{ opacity: active||done ? 1 : 0.5 }}>
-        p.icon(active ? color : done ? color : MUTED, 18)}
+      <div style={{ opacity: active || done ? 1 : 0.5 }}>
+        {p.icon}
       </div>
-      {/* Label */}
+
       <span style={{
-        fontSize:"10px",fontWeight:"800",letterSpacing:"1.5px",
+        fontSize: "10px",
+        fontWeight: "800",
+        letterSpacing: "1.5px",
         color: active ? color : done ? color : MUTED
-      }}>{pillar}</span>
-      {/* Status */}
+      }}>
+        {pillar}
+      </span>
+
       {done && !active && (
         <span style={{
-          fontSize:"9px",fontWeight:"800",color:color,
-          background:`${color}15`,padding:"1px 6px",borderRadius:"10px",
-          border:`1px solid ${color}25`,letterSpacing:"0.5px"
-        }}>âœ“ DONE</span>
+          fontSize: "9px",
+          fontWeight: "800",
+          color,
+          background: `${color}15`,
+          padding: "1px 6px",
+          borderRadius: "10px",
+          border: `1px solid ${color}25`,
+          letterSpacing: "0.5px"
+        }}>
+          DONE
+        </span>
       )}
     </button>
   );
 }
-
 // ── SPRINT 1: PLL COACH + PHASE ENGINE ────────────────────────────────
 
 const PLL_PROGRESS_KEY = "progress_history";
