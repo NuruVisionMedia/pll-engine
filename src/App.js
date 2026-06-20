@@ -573,11 +573,19 @@ boxShadow: "none"
       )}
 
       <button onClick={onDownload} style={{
-        width:"100%",padding:"16px",borderRadius:"12px",border:`1.5px solid ${B}`,
-        background:'${B}22',color:B,fontWeight:"800",fontSize:"14px",
-        cursor:"pointer",letterSpacing:"1.5px",marginTop:"24px",
-        boxShadow:`0 4px 18px rgba(15,28,46,0.2)`
-      }}>DOWNLOAD WEEK {week} TRAIN BLUEPRINT</button>
+  width:"100%",
+  padding:"16px",
+  borderRadius:"12px",
+  border:`1.5px solid ${O}30`,
+  background:`${O}12`,
+  color:O,
+  fontWeight:"800",
+  fontSize:"14px",
+  cursor:"pointer",
+  letterSpacing:"1.5px",
+  marginTop:"24px",
+  boxShadow:"0 4px 18px rgba(212,80,15,0.18)"
+}}>DOWNLOAD WEEK {week} FUEL BLUEPRINT</button>
     </div>
   );
 }
