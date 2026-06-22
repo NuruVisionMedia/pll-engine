@@ -1878,7 +1878,15 @@ const progressLabel =
 
   // â”€â”€ MAIN APP SCREEN â”€â”€
   return (
-    <div style={{ minHeight:"100vh",background:BG,fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,sans-serif" }}>
+    <div style={{
+  minHeight: "100vh",
+  width: "100%",
+  maxWidth: "100vw",
+  overflowX: "hidden",
+  background: BG,
+  fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,sans-serif"
+}}>
+
       {/* â”€â”€ HEADER â”€â”€ */}
       <div style={{
         background:SURFACE,borderBottom:`1px solid ${BORDER}`,
