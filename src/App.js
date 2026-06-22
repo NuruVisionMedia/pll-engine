@@ -1895,7 +1895,21 @@ const progressLabel =
         boxShadow:"0 1px 10px rgba(15,28,46,0.07)"
       }}>
         
-        <div style={{ maxWidth:"1100px",margin:"0 auto",display:"flex",alignItems:"center",gap:"16px",minHeight:"82px" }}>
+        <div style={{
+  maxWidth: "1100px",
+  width: "100%",
+  margin: "0 auto",
+  display: "flex",
+  flexDirection: window.innerWidth < 768 ? "column" : "row",
+  alignItems: window.innerWidth < 768 ? "stretch" : "center",
+  justifyContent: "space-between",
+  gap: window.innerWidth < 768 ? "14px" : "16px",
+  minHeight: window.innerWidth < 768 ? "auto" : "82px",
+  padding: window.innerWidth < 768 ? "14px 0" : "0",
+  boxSizing: "border-box",
+  overflow: "hidden"
+}}>
+
           {/* Brand */}
           <div style={{ display:"flex",alignItems:"center",gap:"12px",marginRight:"auto" }}>
             <CoachAvatar size={38} pillar={activePillar} showRing={false}/>
