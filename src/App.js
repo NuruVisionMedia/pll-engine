@@ -2195,14 +2195,14 @@ const progressLabel =
 
 {/* Sprint 2.4 Coach Presence Panel */}
 <div style={{
-  margin: "18px 0 24px",
-  padding: "18px",
+  margin: window.innerWidth < 768 ? "12px 0 18px" : "18px 0 24px",
+  padding: window.innerWidth < 768 ? "14px" : "18px",
   borderRadius: "18px",
   border: `1px solid ${BORDER}`,
   background: SURFACE,
   display: "flex",
   flexDirection: window.innerWidth < 768 ? "column" : "row",
-  gap: "18px",
+  gap: window.innerWidth < 768 ? "12px" : "18px",
   alignItems: window.innerWidth < 768 ? "flex-start" : "center",
   overflow: "hidden"
 }}>
@@ -2211,8 +2211,8 @@ const progressLabel =
     alt="PLL Coach"
     style={{
       width: window.innerWidth < 768 ? "100%" : "160px",
-      maxWidth: window.innerWidth < 768 ? "220px" : "160px",
-      height: window.innerWidth < 768 ? "220px" : "210px",
+      maxWidth: window.innerWidth < 768 ? "180px" : "160px",
+      height: window.innerWidth < 768 ? "180px" : "210px",
       objectFit: "cover",
       objectPosition: "50% 18%",
       borderRadius: "16px",
@@ -2232,16 +2232,17 @@ const progressLabel =
     </div>
 
     <div style={{
-      fontSize: "20px",
+      fontSize: window.innerWidth < 768 ? "17px" : "20px",
       fontWeight: "900",
       color: NAVY,
-      marginBottom: "6px"
+      marginBottom: "6px",
+      lineHeight: "1.15"
     }}>
       The Performance Architect
     </div>
 
     <div style={{
-      fontSize: "13px",
+      fontSize: window.innerWidth < 768 ? "12px" : "13px",
       color: SLATE,
       lineHeight: "1.5"
     }}>
