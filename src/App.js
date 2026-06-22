@@ -2207,8 +2207,11 @@ const progressLabel =
   overflow: "hidden"
 }}>
   <img
-    src="/coach-full.jpg"
-    alt="PLL Coach"
+  src={process.env.PUBLIC_URL + "/coach-full.jpg"}
+  onError={(e) => {
+    e.currentTarget.src = process.env.PUBLIC_URL + "/coach.jpg";
+  }}
+  alt="PLL Coach"
     style={{
       width: window.innerWidth < 768 ? "100%" : "160px",
       maxWidth: window.innerWidth < 768 ? "180px" : "160px",
