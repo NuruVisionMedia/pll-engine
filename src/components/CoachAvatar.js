@@ -28,7 +28,10 @@ export default function CoachAvatar({
         }}
       >
         <img
-          src={image}
+          src={process.env.PUBLIC_URL + image}
+onError={(e) => {
+  e.currentTarget.src = process.env.PUBLIC_URL + "/coach.jpg";
+}}
           alt={title}
           style={{
             width: "100%",
