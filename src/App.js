@@ -1917,7 +1917,14 @@ const progressLabel =
           </div>
 
           {/* Pillar nav */}
-          <div style={{ display:"flex",gap:"6px" }}>
+          <div style={{
+  display:"flex",
+  gap:"6px",
+  flexWrap:"wrap",
+  width:"100%",
+  maxWidth:"100%",
+  overflow:"hidden"
+}}>
             {["TRAIN","FUEL","FOCUS"].map(p=>(
               <PillarButton
                 key={p}
