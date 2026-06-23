@@ -2156,7 +2156,6 @@ const progressLabel =
             }}>Sign out</button>
           </div>
         </div>
-      </div>
 
       {/* â”€â”€ PROGRESS BAR â”€â”€ */}
       <div style={{ background:SURFACE,borderBottom:`1px solid ${BORDER}`,padding:"10px 24px" }}>
