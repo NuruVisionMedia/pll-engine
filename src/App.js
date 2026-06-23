@@ -1878,14 +1878,37 @@ const progressLabel =
 
   // â”€â”€ MAIN APP SCREEN â”€â”€
   return (
-  <div style={{
-    minHeight: "100vh",
-    width: "100%",
-    maxWidth: "100vw",
-    overflowX: "hidden",
-    background: BG,
-    fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,sans-serif"
-  }}>
+    <div style={{
+  minHeight: "100vh",
+  width: "100%",
+  maxWidth: "100vw",
+  overflowX: "hidden",
+  background: BG,
+  fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,sans-serif"
+}}>
+
+      {/* â”€â”€ HEADER â”€â”€ */}
+      <div style={{
+        background:SURFACE,borderBottom:`1px solid ${BORDER}`,
+        padding:"0 24px",position: "relative",
+        zIndex: 10,
+        boxShadow:"0 1px 10px rgba(15,28,46,0.07)"
+      }}>
+        
+        <div style={{
+  maxWidth: "1100px",
+  width: "100%",
+  margin: "0 auto",
+  display: "flex",
+  flexDirection: window.innerWidth < 768 ? "column" : "row",
+  alignItems: window.innerWidth < 768 ? "stretch" : "center",
+  justifyContent: "space-between",
+  gap: window.innerWidth < 768 ? "14px" : "16px",
+  minHeight: window.innerWidth < 768 ? "auto" : "82px",
+  padding: window.innerWidth < 768 ? "14px 0" : "0",
+  boxSizing: "border-box",
+  overflow: "hidden"
+}}>
 
           {/* Brand */}
           <div style={{ display:"flex",alignItems:"center",gap:"12px",marginRight:"auto" }}>
@@ -1917,14 +1940,7 @@ const progressLabel =
           </div>
 
           {/* Pillar nav */}
-          <div style={{
-  display:"flex",
-  gap:"6px",
-  flexWrap:"wrap",
-  width:"100%",
-  maxWidth:"100%",
-  overflow:"hidden"
-}}>
+          <div style={{ display:"flex",gap:"6px" }}>
             {["TRAIN","FUEL","FOCUS"].map(p=>(
               <PillarButton
                 key={p}
@@ -2156,6 +2172,7 @@ const progressLabel =
             }}>Sign out</button>
           </div>
         </div>
+      </div>
 
       {/* â”€â”€ PROGRESS BAR â”€â”€ */}
       <div style={{ background:SURFACE,borderBottom:`1px solid ${BORDER}`,padding:"10px 24px" }}>
