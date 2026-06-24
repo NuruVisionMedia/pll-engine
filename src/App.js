@@ -46,15 +46,15 @@ const Store = {
 // â”€â”€â”€ WEEK CONFIG â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const WEEKS = {
   1: {
-    label: "WEEK 1 â€” THE NEW SYSTEM",
+    label: "WEEK 1 — THE NEW SYSTEM",
     theme: "Foundation. New habits. New identity begins.",
     mantra: "Every champion was once a beginner who refused to quit. This is Day 1 of the rest of your life.",
-    coachOpen:  (name) => `${name}, welcome to Phase 1. This week is about one thing â€” building the foundation that everything else stands on. Show up every day.`,
+    coachOpen:  (name) => `${name}, welcome to Phase 1. This week is about one thing — building the foundation that everything else stands on. Show up every day.`,
     coachClose: (name) => `${name}, Week 1 is DONE. You showed up every single day. That's what separates you already.`,
-    intensity: "Foundation", repRange: "12-15 reps", sets: "3 sets", load: "Light to moderate â€” perfect form priority"
+    intensity: "Foundation", repRange: "12-15 reps", sets: "3 sets", load: "Light to moderate — perfect form priority"
   },
   2: {
-    label: "WEEK 2 â€” THE PROGRESSION",
+    label: "WEEK 2 — THE PROGRESSION",
     theme: "Intensity increases. Habits solidify. Halfway there.",
     mantra: "You've already done what most people won't. Now let's do what most people can't.",
     coachOpen:  (name) => `${name}, you made it to Week 2. That already puts you ahead of 80% of people who said they'd start.`,
@@ -62,7 +62,7 @@ const WEEKS = {
     intensity: "Progressive", repRange: "8-12 reps", sets: "4 sets", load: "Increase weight 10-15% from Week 1"
   },
   3: {
-    label: "WEEK 3 â€” THE SEPARATION",
+    label: "WEEK 3 — THE SEPARATION",
     theme: "This is where champions are made. Most quit. You won't.",
     mantra: "Week 3 is where your identity changes forever. You are no longer who you were.",
     coachOpen:  (name) => `${name}, this is THE week. The separation happens right here. Everyone starts. Almost nobody finishes. You will.`,
@@ -296,9 +296,9 @@ const INTAKE = {
 // â”€â”€â”€ STORE BRIDGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const STORE_URL = "https://zs0r6d-2x.myshopify.com";
 const STORE_COLLECTIONS = {
-  TRAIN: { handle:"train", color:B, headline:(n,w)=>`${n}, your Week ${w} TRAIN stack is ready.`, subline:"Gear and supplements matched to your training profile â€” delivered.", cta:"Shop Your TRAIN Stack" },
-  FUEL:  { handle:"fuel",  color:O, headline:(n,w)=>`${n}, your Week ${w} FUEL stack is ready.`, subline:"Supplements matched to your nutrition goals â€” ready to order.",    cta:"Shop Your FUEL Stack"  },
-  FOCUS: { handle:"focus", color:P, headline:(n,w)=>`${n}, your Week ${w} FOCUS stack is ready.`,subline:"Mindset tools dialed to your program â€” shop now.",                   cta:"Shop Your FOCUS Stack" },
+  TRAIN: { handle:"train", color:B, headline:(n,w)=>`${n}, your Week ${w} TRAIN stack is ready.`, subline:"Gear and supplements matched to your training profile — delivered.", cta:"Shop Your TRAIN Stack" },
+  FUEL:  { handle:"fuel",  color:O, headline:(n,w)=>`${n}, your Week ${w} FUEL stack is ready.`, subline:"Supplements matched to your nutrition goals — ready to order.",    cta:"Shop Your FUEL Stack"  },
+  FOCUS: { handle:"focus", color:P, headline:(n,w)=>`${n}, your Week ${w} FOCUS stack is ready.`,subline:"Mindset tools dialed to your program — shop now.",                   cta:"Shop Your FOCUS Stack" },
 };
 
 function StoreBridge({ pillar, pillarStates, profile, week, dismissed, onDismiss }) {
@@ -360,7 +360,7 @@ function StoreBridge({ pillar, pillarStates, profile, week, dismissed, onDismiss
   );
 }
 
-// â”€â”€â”€ COACH AVATAR â€” Realistic portrait based on actual likeness â”€â”€â”€
+// â”€â”€â”€ COACH AVATAR — Realistic portrait based on actual likeness â”€â”€â”€
 // Deep brown skin, salt-and-pepper beard, shaved head, massive build,
 // shoulder tattoo, intense upward-gazing expression
 function CoachAvatar({ size = 80, pillar = "TRAIN", showRing = true }) {
@@ -823,7 +823,7 @@ function Loading({ pillar, name, week }) {
         <span style={{ fontSize:"13px",fontWeight:"800",color:p.color,letterSpacing:"2px" }}>GENERATING{dots}</span>
       </div>
       <div style={{ fontSize:"22px",fontWeight:"800",color:NAVY,marginBottom:"6px" }}>Building Your {pillar} Blueprint</div>
-      <div style={{ fontSize:"14px",color:SLATE,marginBottom:"24px" }}>Personalizing for {name} â€” Week {week}</div>
+      <div style={{ fontSize:"14px",color:SLATE,marginBottom:"24px" }}>Personalizing for {name} — Week {week}</div>
       <div style={{ width:"200px",height:"3px",background:BORDER,borderRadius:"2px",margin:"0 auto",overflow:"hidden" }}>
         <div style={{ height:"100%",background:p.color,borderRadius:"2px",animation:"pllLoad 2s ease-in-out infinite" }}/>
       </div>
@@ -932,7 +932,7 @@ boxShadow: "none",
 // â”€â”€â”€ PDF DOWNLOAD â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function downloadPDF(data, pillar, name, week) {
   const w = window.open("","_blank");
-  w.document.write(`<html><head><title>PLL ${pillar} Week ${week} â€” ${name}</title>
+  w.document.write(`<html><head><title>PLL ${pillar} Week ${week} — ${name}</title>
 <style>
   body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:800px;margin:0 auto;padding:40px 32px;color:#0F1C2E;background:#fff;}
   h1{font-size:28px;font-weight:800;color:#0F1C2E;margin:0 0 8px;}
@@ -2291,7 +2291,7 @@ const progressLabel =
           <FocusResult data={st.result} name={name} week={week} onDownload={()=>downloadPDF(st.result,"FOCUS",name,week)}/>
         )}
 
-        {/* All 3 pillars complete â€” Complete Week CTA */}
+        {/* All 3 pillars complete — Complete Week CTA */}
         {completedPillars.length===3 && !showCelebration && (
           <div style={{
             margin:"32px 0 8px",borderRadius:"16px",
