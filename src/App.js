@@ -328,7 +328,7 @@ function StoreBridge({ pillar, pillarStates, profile, week, dismissed, onDismiss
         position:"absolute",top:"14px",right:"16px",
         background:"none",border:"none",cursor:"pointer",
         color:MUTED,fontSize:"18px",lineHeight:1,padding:"2px 6px"
-      }}>Ã—</button>
+      }}>×</button>
       <div style={{
         display:"inline-flex",alignItems:"center",gap:"6px",
         background:`${config.color}12`,color:config.color,
@@ -446,7 +446,7 @@ function ExerciseVideo({ exerciseName }) {
       {expanded && (
         <div onClick={()=>setExpanded(false)} style={{ position:"fixed",inset:0,background:"rgba(0,0,0,0.88)",display:"flex",alignItems:"center",justifyContent:"center",zIndex:9999,padding:"20px" }}>
           <div style={{ width:"100%",maxWidth:"800px",position:"relative" }}>
-            <button onClick={e=>{e.stopPropagation();setExpanded(false);}} style={{ position:"absolute",top:"-42px",right:0,background:"white",border:"none",borderRadius:"50%",width:"32px",height:"32px",cursor:"pointer",fontSize:"16px",fontWeight:"700" }}>Ã—</button>
+            <button onClick={e=>{e.stopPropagation();setExpanded(false);}} style={{ position:"absolute",top:"-42px",right:0,background:"white",border:"none",borderRadius:"50%",width:"32px",height:"32px",cursor:"pointer",fontSize:"16px",fontWeight:"700" }}>×</button>
             <div style={{ borderRadius:"12px",overflow:"hidden",aspectRatio:"16/9" }}>
               <iframe src={videoUrl+"?autoplay=1"} width="100%" height="100%" style={{border:"none",display:"block"}} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title={exerciseName}/>
             </div>
