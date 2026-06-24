@@ -20,7 +20,7 @@ import React, { useState, useEffect } from "react";
 //   BORDER,
 //   BORDER_MID
 // } from "./config";
-// â”€â”€â”€ DESIGN SYSTEM â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// - DESIGN SYSTEM -
 // Light premium: white base, slate-navy accents, pillar colors as precise hits
 const B  = "#2F80ED";
 const O  = "#FF4D1D";
@@ -36,14 +36,14 @@ const MUTED       = "#94A3B8";
 const BORDER      = "#334155";
 const BORDER_MID  = "#475569";
 
-// â”€â”€â”€ STORAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// - STORAGE -
 const Store = {
   save: (key, val) => { try { localStorage.setItem("pll_"+key, JSON.stringify(val)); } catch(e){} },
   load: (key) => { try { const v=localStorage.getItem("pll_"+key); return v?JSON.parse(v):null; } catch(e){ return null; } },
   del:  (key) => { try { localStorage.removeItem("pll_"+key); } catch(e){} }
 };
 
-// â”€â”€â”€ WEEK CONFIG â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// - WEEK CONFIG -
 const WEEKS = {
   1: {
     label: "WEEK 1 — THE NEW SYSTEM",
@@ -71,7 +71,7 @@ const WEEKS = {
   }
 };
 
-// â”€â”€â”€ EXERCISE VIDEOS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// - EXERCISE VIDEOS -
 const EXERCISE_VIDEOS = {
   "goblet squat":"https://www.youtube.com/embed/MeIiIdhvXT4",
   "squat":"https://www.youtube.com/embed/ultWZbUMPL8",
@@ -124,7 +124,7 @@ function getExerciseVideo(name) {
   return null;
 }
 
-// â”€â”€â”€ PILLARS CONFIG â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// - PILLARS CONFIG -
 const PILLARS = {
   TRAIN: {
     color: B, label: "TRAIN", subtitle: "WORKOUT BLUEPRINT",
@@ -270,7 +270,7 @@ Return ONLY valid JSON:
   }
 };
 
-// â”€â”€â”€ INTAKE QUESTIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// - INTAKE QUESTIONS -
 const INTAKE = {
   TRAIN: [
     { id:"goal",       label:"PRIMARY GOAL",         options:["Build Muscle","Lose Fat","Athletic Performance","General Fitness"] },
@@ -293,7 +293,7 @@ const INTAKE = {
   ]
 };
 
-// â”€â”€â”€ STORE BRIDGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// - STORE BRIDGE -
 const STORE_URL = "https://zs0r6d-2x.myshopify.com";
 const STORE_COLLECTIONS = {
   TRAIN: { handle:"train", color:B, headline:(n,w)=>`${n}, your Week ${w} TRAIN stack is ready.`, subline:"Gear and supplements matched to your training profile — delivered.", cta:"Shop Your TRAIN Stack" },
@@ -360,7 +360,7 @@ function StoreBridge({ pillar, pillarStates, profile, week, dismissed, onDismiss
   );
 }
 
-// â”€â”€â”€ COACH AVATAR — Realistic portrait based on actual likeness â”€â”€â”€
+// - COACH AVATAR — Realistic portrait based on actual likeness -
 // Deep brown skin, salt-and-pepper beard, shaved head, massive build,
 // shoulder tattoo, intense upward-gazing expression
 function CoachAvatar({ size = 80, pillar = "TRAIN", showRing = true }) {
@@ -457,7 +457,7 @@ function ExerciseVideo({ exerciseName }) {
   );
 }
 
-// â”€â”€â”€ COACH MESSAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// - COACH MESSAGE -
 function CoachMessage({ message, pillar, name }) {
   const color = PILLARS[pillar].color;
   return (
@@ -487,7 +487,7 @@ function CoachMessage({ message, pillar, name }) {
     </div>
   );
 }
-// â”€â”€â”€ SECTION HEADER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// - SECTION HEADER -
 function SectionLabel({ text, color }) {
   return (
     <div style={{ display:"flex",alignItems:"center",gap:"10px",margin:"28px 0 14px" }}>
@@ -497,7 +497,7 @@ function SectionLabel({ text, color }) {
   );
 }
 
-// â”€â”€â”€ TRAIN RESULT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// - TRAIN RESULT -
 function TrainResult({ data, name, week, onDownload }) {
   const [activeDay, setActiveDay] = useState(0);
   if (!data?.days) return null;
@@ -596,7 +596,7 @@ boxShadow: "none"
   );
 }
 
-// â”€â”€â”€ FUEL RESULT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// - FUEL RESULT -
 function FuelResult({ data, name, week, onDownload }) {
   if (!data?.supplements) return null;
   return (
@@ -686,7 +686,7 @@ function FuelResult({ data, name, week, onDownload }) {
   );
 }
 
-// â”€â”€â”€ FOCUS RESULT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// - FOCUS RESULT -
 function FocusResult({ data, name, week, onDownload }) {
   if (!data?.dailyPractices) return null;
   return (
@@ -797,7 +797,7 @@ function FocusResult({ data, name, week, onDownload }) {
   );
 }
 
-// â”€â”€â”€ LOADING â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// - LOADING -
 function Loading({ pillar, name, week }) {
   const p = PILLARS[pillar];
   const [dots, setDots] = useState(".");
@@ -870,7 +870,7 @@ function Loading({ pillar, name, week }) {
   );
 }
 
-// â”€â”€â”€ INTAKE FORM â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// - INTAKE FORM -
 function IntakeForm({ pillar, profile, onGenerate }) {
   const p = PILLARS[pillar];
   const questions = INTAKE[pillar];
@@ -929,7 +929,7 @@ boxShadow: "none",
   );
 }
 
-// â”€â”€â”€ PDF DOWNLOAD â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// - PDF DOWNLOAD -
 function downloadPDF(data, pillar, name, week) {
   const w = window.open("","_blank");
   w.document.write(`<html><head><title>PLL ${pillar} Week ${week} — ${name}</title>
@@ -952,7 +952,7 @@ ${data.coachMessage?`<div style="border-left:4px solid #1D6FD8;padding:16px 20px
   setTimeout(()=>w.print(),500);
 }
 
-// â”€â”€â”€ PILLAR NAV BUTTON â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// - PILLAR NAV BUTTON -
 function PillarButton({ pillar, active, done, onClick }) {
   const p = PILLARS[pillar];
   const color = p.color;
@@ -1659,7 +1659,7 @@ setCoachMemory(updatedCoachMemory);
     }
   };
 
-  // â”€â”€ LOGIN SCREEN â”€â”€
+  // - LOGIN SCREEN -
   if (screen==="login") {
     return (
       <div style={{
@@ -1788,7 +1788,7 @@ boxShadow:"none"
     );
   }
 
-  // â”€â”€ CELEBRATION SCREEN â”€â”€
+  // - CELEBRATION SCREEN -
   if (showCelebration) {
     return (
       <div style={{
@@ -1876,7 +1876,7 @@ const progressLabel =
     ? "Sprint 1 Complete"
     : `${completedPillars.length}/3 Pillars Complete`;
 
-  // â”€â”€ MAIN APP SCREEN â”€â”€
+  // - MAIN APP SCREEN -
   return (
     <div style={{
   minHeight: "100vh",
@@ -1887,7 +1887,7 @@ const progressLabel =
   fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,sans-serif"
 }}>
 
-      {/* â”€â”€ HEADER â”€â”€ */}
+      {/* - HEADER - */}
       <div style={{
         background:SURFACE,borderBottom:`1px solid ${BORDER}`,
         padding:"0 24px",position: "relative",
@@ -2174,7 +2174,7 @@ const progressLabel =
         </div>
       </div>
 
-      {/* â”€â”€ PROGRESS BAR â”€â”€ */}
+      {/* - PROGRESS BAR - */}
       <div style={{ background:SURFACE,borderBottom:`1px solid ${BORDER}`,padding:"10px 24px" }}>
         <div style={{ maxWidth:"1100px",margin:"0 auto" }}>
           <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:"7px" }}>
@@ -2200,7 +2200,7 @@ const progressLabel =
         </div>
       </div>
 
-      {/* â”€â”€ MAIN CONTENT â”€â”€ */}
+      {/* - MAIN CONTENT - */}
       <div style={{ maxWidth:"1100px",margin:"0 auto",padding:"28px 24px" }}>
 
         {/* Active pillar header */}
@@ -2354,7 +2354,7 @@ const progressLabel =
         )}
       </div>
 
-      {/* â”€â”€ FOOTER â”€â”€ */}
+      {/* - FOOTER - */}
       <div style={{ borderTop:`1px solid ${BORDER}`,padding:"16px 24px",textAlign:"center",background:SURFACE }}>
         <div style={{ fontSize:"10px",color:MUTED,letterSpacing:"2.5px",fontWeight:"600" }}>
           PRIME LEVEL LIVING · NURU VISION MEDIA · PHASE 1 · WEEK {week} OF 3
