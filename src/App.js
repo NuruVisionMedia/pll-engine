@@ -2296,7 +2296,7 @@ const progressLabel =
         {completedPillars.length===3 && !showCelebration && (
           <div style={{
             margin:"32px 0 8px",borderRadius:"16px",
-            background:NAVY,padding:"28px 24px",textAlign:"center",
+            background:SURFACE,padding:"28px 24px",textAlign:"center",
             boxShadow:"0 8px 32px rgba(15,28,46,0.2)"
           }}>
             <div style={{ display:"flex",justifyContent:"center",gap:"8px",marginBottom:"14px" }}>
@@ -2305,10 +2305,10 @@ const progressLabel =
             <div style={{ fontSize:"10px",fontWeight:"800",color:G,letterSpacing:"3px",marginBottom:"10px" }}>
               ALL 3 PILLARS COMPLETE
             </div>
-            <div style={{ fontSize:"22px",fontWeight:"900",color:"white",marginBottom:"8px" }}>
+            <div style={{ fontSize:"22px",fontWeight:"900",color:NAVY,marginBottom:"8px" }}>
               Week {week} Blueprint Done, {name}.
             </div>
-            <div style={{ fontSize:"13px",color:"rgba(255,255,255,0.6)",marginBottom:"24px",lineHeight:"1.6" }}>
+            <div style={{ fontSize:"13px",color:SLATE,marginBottom:"24px",lineHeight:"1.6" }}>
               You showed up for all three pillars. That is what separates the ones who make it.
             </div>
             <button onClick={()=>setShowCelebration(true)} style={{
