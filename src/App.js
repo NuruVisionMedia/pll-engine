@@ -354,7 +354,7 @@ function StoreBridge({ pillar, pillarStates, profile, week, dismissed, onDismiss
         {clicked ? "Opening Storeâ€¦" : config.cta}
       </button>
       <div style={{textAlign:"center",fontSize:"11px",color:MUTED,marginTop:"10px"}}>
-        Prime Level Living Â· Ships Direct
+        Prime Level Living · Ships Direct
       </div>
     </div>
   );
@@ -506,7 +506,7 @@ function TrainResult({ data, name, week, onDownload }) {
     <div style={{ paddingBottom:"40px" }}>
       {/* Header card */}
       <div style={{ background:SURFACE,borderRadius:"16px",padding:"24px",marginBottom:"24px",border:`1px solid ${BORDER}`,boxShadow:"0 2px 12px rgba(15,28,46,0.06)" }}>
-        <div style={{ fontSize:"10px",fontWeight:"800",color:B,letterSpacing:"2.5px",marginBottom:"8px" }}>WEEK {week} Â· TRAIN</div>
+        <div style={{ fontSize:"10px",fontWeight:"800",color:B,letterSpacing:"2.5px",marginBottom:"8px" }}>WEEK {week} · TRAIN</div>
         <h2 style={{ fontSize:"26px",fontWeight:"800",color:NAVY,margin:"0 0 8px",letterSpacing:"-0.3px" }}>{data.title}</h2>
         <p style={{ fontSize:"14px",color:SLATE,margin:0,lineHeight:"1.6" }}>{data.subtitle}</p>
       </div>
@@ -602,7 +602,7 @@ function FuelResult({ data, name, week, onDownload }) {
   return (
     <div style={{ paddingBottom:"40px" }}>
       <div style={{ background:SURFACE,borderRadius:"16px",padding:"24px",marginBottom:"24px",border:`1px solid ${BORDER}`,boxShadow:"0 2px 12px rgba(15,28,46,0.06)" }}>
-        <div style={{ fontSize:"10px",fontWeight:"800",color:O,letterSpacing:"2.5px",marginBottom:"8px" }}>WEEK {week} Â· FUEL</div>
+        <div style={{ fontSize:"10px",fontWeight:"800",color:O,letterSpacing:"2.5px",marginBottom:"8px" }}>WEEK {week} · FUEL</div>
         <h2 style={{ fontSize:"26px",fontWeight:"800",color:NAVY,margin:"0 0 8px" }}>{data.title}</h2>
         <p style={{ fontSize:"14px",color:SLATE,margin:0,lineHeight:"1.6" }}>{data.subtitle}</p>
       </div>
@@ -668,7 +668,7 @@ function FuelResult({ data, name, week, onDownload }) {
                 <div style={{ fontWeight:"800",fontSize:"14px",color:NAVY,marginBottom:"4px" }}>{meal.meal}</div>
                 <div style={{ fontSize:"11px",color:O,marginBottom:"10px",fontWeight:"600" }}>{meal.timing}</div>
                 {meal.foods?.map((f,j) => (
-                  <div key={j} style={{ fontSize:"13px",color:SLATE,padding:"3px 0",borderBottom:j<meal.foods.length-1?`1px solid ${BORDER}`:"none" }}>Â· {f}</div>
+                  <div key={j} style={{ fontSize:"13px",color:SLATE,padding:"3px 0",borderBottom:j<meal.foods.length-1?`1px solid ${BORDER}`:"none" }}>· {f}</div>
                 ))}
                 {meal.macros && <div style={{ fontSize:"11px",color:MUTED,marginTop:"8px",fontWeight:"600" }}>{meal.macros}</div>}
               </div>
@@ -692,7 +692,7 @@ function FocusResult({ data, name, week, onDownload }) {
   return (
     <div style={{ paddingBottom:"40px" }}>
       <div style={{ background:SURFACE,borderRadius:"16px",padding:"24px",marginBottom:"24px",border:`1px solid ${BORDER}`,boxShadow:"0 2px 12px rgba(15,28,46,0.06)" }}>
-        <div style={{ fontSize:"10px",fontWeight:"800",color:P,letterSpacing:"2.5px",marginBottom:"8px" }}>WEEK {week} Â· FOCUS</div>
+        <div style={{ fontSize:"10px",fontWeight:"800",color:P,letterSpacing:"2.5px",marginBottom:"8px" }}>WEEK {week} · FOCUS</div>
         <h2 style={{ fontSize:"26px",fontWeight:"800",color:NAVY,margin:"0 0 8px" }}>{data.title}</h2>
         <p style={{ fontSize:"14px",color:SLATE,margin:0,lineHeight:"1.6" }}>{data.subtitle}</p>
       </div>
@@ -890,7 +890,7 @@ function IntakeForm({ pillar, profile, onGenerate }) {
           <div style={{ fontSize:"15px",fontWeight:"700",color:NAVY,lineHeight:"1.5" }}>
             Tell me about yourself and I'll build your personalized {p.label} blueprint.
           </div>
-          <div style={{ fontSize:"12px",color:MUTED,marginTop:"4px" }}>Week {profile?.week||1} Â· {WEEKS[profile?.week||1]?.theme}</div>
+          <div style={{ fontSize:"12px",color:MUTED,marginTop:"4px" }}>Week {profile?.week||1} · {WEEKS[profile?.week||1]?.theme}</div>
         </div>
       </div>
 
@@ -942,11 +942,11 @@ function downloadPDF(data, pillar, name, week) {
 </style>
 </head><body>
 <h1>${data.title||`${pillar} Week ${week} Blueprint`}</h1>
-<span class="tag">PRIME LEVEL LIVING Â· ${name} Â· WEEK ${week}</span>
+<span class="tag">PRIME LEVEL LIVING · ${name} · WEEK ${week}</span>
 <p style="color:#3D4F63;font-size:15px;">${data.subtitle||""}</p>
 ${data.coachMessage?`<div style="border-left:4px solid #1D6FD8;padding:16px 20px;margin:20px 0;background:#F7F8FA;border-radius:0 8px 8px 0;"><strong>Coach Message:</strong><br/><em>${data.coachMessage}</em></div>`:""}
 <pre>${JSON.stringify(data,null,2)}</pre>
-<div class="footer">PRIME LEVEL LIVING Â· NURU VISION MEDIA Â· PHASE 1 Â· WEEK ${week} OF 3</div>
+<div class="footer">PRIME LEVEL LIVING · NURU VISION MEDIA · PHASE 1 · WEEK ${week} OF 3</div>
 </body></html>`);
   w.document.close();
   setTimeout(()=>w.print(),500);
@@ -1681,7 +1681,7 @@ setCoachMemory(updatedCoachMemory);
               PLL ENGINE
             </h1>
             <p style={{ fontSize:"11px",color:MUTED,letterSpacing:"3px",margin:0 }}>
-              TRAIN Â· FUEL Â· FOCUS
+              TRAIN · FUEL · FOCUS
             </p>
             <div style={{ display:"flex",justifyContent:"center",gap:"6px",marginTop:"10px" }}>
               {[B,O,P].map((c,i)=>(
@@ -1781,7 +1781,7 @@ boxShadow:"none"
           )}
 
           <p style={{ textAlign:"center",fontSize:"11px",color:MUTED,margin:"20px 0 0",letterSpacing:"1px" }}>
-            21 DAYS Â· 3 PILLARS Â· ONE TRANSFORMATION
+            21 DAYS · 3 PILLARS · ONE TRANSFORMATION
           </p>
         </div>
       </div>
@@ -2179,7 +2179,7 @@ const progressLabel =
         <div style={{ maxWidth:"1100px",margin:"0 auto" }}>
           <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:"7px" }}>
             <span style={{ fontSize:"10px",fontWeight:"700",color:MUTED,letterSpacing:"2px" }}>
-              WEEK {week} PROGRESS Â· {WEEKS[week]?.theme}
+              WEEK {week} PROGRESS · {WEEKS[week]?.theme}
             </span>
             <div style={{ display:"flex",gap:"14px",alignItems:"center" }}>
               {["TRAIN","FUEL","FOCUS"].map(p=>(
@@ -2208,7 +2208,7 @@ const progressLabel =
           {PILLARS[activePillar].icon(PILLARS[activePillar].color, 22)}
           <div>
             <span style={{ fontSize:"13px",fontWeight:"800",color:PILLARS[activePillar].color,letterSpacing:"2px" }}>{activePillar}</span>
-            <span style={{ fontSize:"13px",color:MUTED,marginLeft:"10px" }}>Â· {PILLARS[activePillar].subtitle}</span>
+            <span style={{ fontSize:"13px",color:MUTED,marginLeft:"10px" }}>· {PILLARS[activePillar].subtitle}</span>
           </div>
           <div style={{ marginLeft:"auto",padding:"5px 14px",borderRadius:"20px",background:SURFACE,border:`1px solid ${BORDER}`,fontSize:"11px",fontWeight:"700",color:SLATE }}>
             {WEEKS[week]?.label||`WEEK ${week}`}
@@ -2357,7 +2357,7 @@ const progressLabel =
       {/* â”€â”€ FOOTER â”€â”€ */}
       <div style={{ borderTop:`1px solid ${BORDER}`,padding:"16px 24px",textAlign:"center",background:SURFACE }}>
         <div style={{ fontSize:"10px",color:MUTED,letterSpacing:"2.5px",fontWeight:"600" }}>
-          PRIME LEVEL LIVING Â· NURU VISION MEDIA Â· PHASE 1 Â· WEEK {week} OF 3
+          PRIME LEVEL LIVING · NURU VISION MEDIA · PHASE 1 · WEEK {week} OF 3
         </div>
       </div>
     </div>
