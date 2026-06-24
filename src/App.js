@@ -1750,7 +1750,8 @@ boxShadow:"none"
                       background:createForm.gender===g?NAVY:SURFACE2,
                       color:createForm.gender===g?"#FFF":SLATE,
                       border:createForm.gender===g?`2px solid ${NAVY}`:`2px solid ${BORDER}`
-                    }}>{g==="Male"?"â™‚ Male":"â™€ Female"}</button>
+                    }}>{g}
+</button>
                   ))}
                 </div>
               </div>
