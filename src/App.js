@@ -2243,6 +2243,53 @@ const progressLabel =
     Muscle Groups Mapped: <strong>{Object.keys(MUSCLE_GROUPS).length}</strong>
   </div>
 
+  {selectedWorkout.length > 0 && (
+    <div style={{
+      marginBottom: "14px",
+      padding: "10px",
+      borderRadius: "12px",
+      border: `1px solid ${B}`,
+      background: `${B}22`
+    }}>
+      <div style={{ fontWeight: "900", color: NAVY, marginBottom: "8px", letterSpacing: ".8px" }}>
+        SELECTED WORKOUT
+      </div>
+
+      {selectedWorkout.map((exercise, index) => (
+        <div key={exercise.id} style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          gap: "8px",
+          padding: "7px 0",
+          borderBottom: index === selectedWorkout.length - 1 ? "none" : `1px solid ${BORDER}`
+        }}>
+          <strong>{index + 1}. {exercise.name}</strong>
+
+          <button
+            onClick={() => {
+              setSelectedWorkout((prev) =>
+                prev.filter((item) => item.id !== exercise.id)
+              );
+            }}
+            style={{
+              padding: "5px 8px",
+              borderRadius: "8px",
+              border: `1px solid ${BORDER}`,
+              background: "transparent",
+              color: MUTED,
+              fontSize: "10px",
+              fontWeight: "900",
+              cursor: "pointer"
+            }}
+          >
+            Remove
+          </button>
+        </div>
+      ))}
+    </div>
+  )}
+
   <input
     value={exerciseSearch}
     onChange={(e) => setExerciseSearch(e.target.value)}
@@ -2314,54 +2361,60 @@ const progressLabel =
 
         return matchesMuscle && matchesSearch;
       })
-      .map((exercise) => (
-        <div key={exercise.id} style={{
-          padding: "10px",
-          borderRadius: "12px",
-          border: `1px solid ${BORDER}`,
-          background: `${NAVY}10`
-        }}>
-          <div style={{ fontWeight: "900", color: NAVY, marginBottom: "4px" }}>
-            {exercise.name}
-          </div>
+      .map((exercise) => {
+        const alreadyAdded = selectedWorkout.some((item) => item.id === exercise.id);
 
-          <div style={{ fontSize: "11px", color: SLATE }}>
-            Difficulty: {exercise.difficulty}
-          </div>
+        return (
+          <div key={exercise.id} style={{
+            padding: "10px",
+            borderRadius: "12px",
+            border: `1px solid ${BORDER}`,
+            background: `${NAVY}10`
+          }}>
+            <div style={{ fontWeight: "900", color: NAVY, marginBottom: "4px" }}>
+              {exercise.name}
+            </div>
 
-          <div style={{ fontSize: "11px", color: SLATE }}>
-            Equipment: {exercise.equipment.join(", ")}
-          </div>
+            <div style={{ fontSize: "11px", color: SLATE }}>
+              Difficulty: {exercise.difficulty}
+            </div>
 
-          <div style={{ fontSize: "11px", color: MUTED, marginTop: "6px" }}>
-            {exercise.coachNote}
-          </div>
+            <div style={{ fontSize: "11px", color: SLATE }}>
+              Equipment: {exercise.equipment.join(", ")}
+            </div>
 
-          <button
-            onClick={() => {
-              setSelectedWorkout((prev) =>
-                prev.some((item) => item.id === exercise.id)
-                  ? prev
-                  : [...prev, exercise]
-              );
-            }}
-            style={{
-              marginTop: "8px",
-              width: "100%",
-              padding: "8px 10px",
-              borderRadius: "10px",
-              border: `1px solid ${B}`,
-              background: `${B}33`,
-              color: "#FFFFFF",
-              fontWeight: "900",
-              fontSize: "11px",
-              cursor: "pointer"
-            }}
-          >
-            Add to Workout
-          </button>
-        </div>
-      ))}
+            <div style={{ fontSize: "11px", color: MUTED, marginTop: "6px" }}>
+              {exercise.coachNote}
+            </div>
+
+            <button
+              disabled={alreadyAdded}
+              onClick={() => {
+                setSelectedWorkout((prev) =>
+                  prev.some((item) => item.id === exercise.id)
+                    ? prev
+                    : [...prev, exercise]
+                );
+              }}
+              style={{
+                marginTop: "8px",
+                width: "100%",
+                padding: "8px 10px",
+                borderRadius: "10px",
+                border: `1px solid ${alreadyAdded ? BORDER : B}`,
+                background: alreadyAdded ? `${NAVY}18` : `${B}33`,
+                color: "#FFFFFF",
+                fontWeight: "900",
+                fontSize: "11px",
+                cursor: alreadyAdded ? "default" : "pointer",
+                opacity: alreadyAdded ? 0.6 : 1
+              }}
+            >
+              {alreadyAdded ? "Added" : "Add to Workout"}
+            </button>
+          </div>
+        );
+      })}
   </div>
 </div>
 
