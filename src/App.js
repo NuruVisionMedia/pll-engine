@@ -1457,6 +1457,7 @@ const getMomentumCoachLine = ({
 export default function App() {
   const [selectedMuscles, setSelectedMuscles] = useState([]);
   const [exerciseSearch, setExerciseSearch] = useState("");
+  const [selectedWorkout, setSelectedWorkout] = useState([]);
   
   const [screen, setScreen] = useState("login");
   const [profile, setProfile] = useState(null);
@@ -2323,15 +2324,42 @@ const progressLabel =
           <div style={{ fontWeight: "900", color: NAVY, marginBottom: "4px" }}>
             {exercise.name}
           </div>
+
           <div style={{ fontSize: "11px", color: SLATE }}>
             Difficulty: {exercise.difficulty}
           </div>
+
           <div style={{ fontSize: "11px", color: SLATE }}>
             Equipment: {exercise.equipment.join(", ")}
           </div>
+
           <div style={{ fontSize: "11px", color: MUTED, marginTop: "6px" }}>
             {exercise.coachNote}
           </div>
+
+          <button
+            onClick={() => {
+              setSelectedWorkout((prev) =>
+                prev.some((item) => item.id === exercise.id)
+                  ? prev
+                  : [...prev, exercise]
+              );
+            }}
+            style={{
+              marginTop: "8px",
+              width: "100%",
+              padding: "8px 10px",
+              borderRadius: "10px",
+              border: `1px solid ${B}`,
+              background: `${B}33`,
+              color: "#FFFFFF",
+              fontWeight: "900",
+              fontSize: "11px",
+              cursor: "pointer"
+            }}
+          >
+            Add to Workout
+          </button>
         </div>
       ))}
   </div>
