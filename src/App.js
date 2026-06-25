@@ -1455,6 +1455,8 @@ const getMomentumCoachLine = ({
 };
 
 export default function App() {
+  const [selectedMuscles, setSelectedMuscles] = useState([]);
+  
   const [screen, setScreen] = useState("login");
   const [profile, setProfile] = useState(null);
   const [activePillar, setActivePillar] = useState("TRAIN");
@@ -2248,25 +2250,106 @@ const progressLabel =
   </div>
 
   <div style={{
+    fontWeight: "900",
+    color: NAVY,
+    marginBottom: "6px",
+    letterSpacing: ".8px"
+  }}>
+    TARGET MUSCLE GROUPS
+  </div>
+
+  <div style={{
     display: "flex",
     flexWrap: "wrap",
-    gap: "6px"
+    gap: "6px",
+    marginBottom: "12px"
   }}>
-    {Object.entries(MUSCLE_GROUPS).map(([key, muscle]) => (
-      <span key={key} style={{
-        padding: "6px 10px",
-        borderRadius: "999px",
-        border: `1px solid ${BORDER}`,
-        background: `${B}18`,
-        color: NAVY,
-        fontSize: "11px",
-        fontWeight: "800",
-        letterSpacing: ".5px"
-      }}>
-        {muscle.label}
-      </span>
-    ))}
+    {Object.entries(MUSCLE_GROUPS).map(([key, muscle]) => {
+      const active = selectedMuscles.includes(key);
+
+      return (
+        <button
+          key={key}
+          onClick={() => {
+            setSelectedMuscles((prev) =>
+              prev.includes(key)
+                ? prev.filter((item) => item !== key)
+                : [...prev, key]
+            );
+          }}
+          style={{
+            padding: "7px 11px",
+            borderRadius: "999px",
+            border: `1px solid ${active ? B : BORDER}`,
+            background: active ? `${B}55` : `${B}18`,
+            color: active ? "#FFFFFF" : NAVY,
+            fontSize: "11px",
+            fontWeight: "900",
+            letterSpacing: ".5px",
+            cursor: "pointer"
+          }}
+        >
+          {muscle.label}
+        </button>
+      );
+    })}
   </div>
+
+  <div style={{
+    fontWeight: "900",
+    color: NAVY,
+    marginBottom: "6px",
+    letterSpacing: ".8px"
+  }}>
+    COACH RECOMMENDED EXERCISES
+  </div>
+
+  {selectedMuscles.length === 0 ? (
+    <div style={{ color: MUTED }}>
+      Select one or more muscle groups to begin.
+    </div>
+  ) : (
+    <div style={{
+      display: "grid",
+      gridTemplateColumns: window.innerWidth < 768 ? "1fr" : "repeat(2, 1fr)",
+      gap: "8px"
+    }}>
+      {EXERCISE_LIBRARY
+        .filter((exercise) =>
+          exercise.primaryMuscles.some((muscle) =>
+            selectedMuscles.includes(muscle)
+          )
+        )
+        .map((exercise) => (
+          <div key={exercise.id} style={{
+            padding: "10px",
+            borderRadius: "12px",
+            border: `1px solid ${BORDER}`,
+            background: `${NAVY}10`
+          }}>
+            <div style={{
+              fontWeight: "900",
+              color: NAVY,
+              marginBottom: "4px"
+            }}>
+              {exercise.name}
+            </div>
+
+            <div style={{ fontSize: "11px", color: SLATE }}>
+              Difficulty: {exercise.difficulty}
+            </div>
+
+            <div style={{ fontSize: "11px", color: SLATE }}>
+              Equipment: {exercise.equipment.join(", ")}
+            </div>
+
+            <div style={{ fontSize: "11px", color: MUTED, marginTop: "6px" }}>
+              {exercise.coachNote}
+            </div>
+          </div>
+        ))}
+    </div>
+  )}
 </div>
 
 {/* Sprint 2.4 Coach Presence Panel */}
