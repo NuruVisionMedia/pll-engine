@@ -2259,7 +2259,7 @@ const progressLabel =
         marginBottom: "8px"
       }}>
         <div style={{ fontWeight: "900", color: NAVY, letterSpacing: ".8px" }}>
-          SELECTED WORKOUT
+          SELECTED WORKOUT ({selectedWorkout.length})
         </div>
 
         <button
@@ -2277,6 +2277,17 @@ const progressLabel =
         >
           Clear
         </button>
+      </div>
+
+      <div style={{
+        marginBottom: "8px",
+        fontSize: "11px",
+        color: MUTED,
+        fontWeight: "700"
+      }}>
+        {selectedWorkout.length < 4
+          ? "Coach note: Add at least 4 exercises for a stronger starter workout."
+          : "Coach note: Solid starter workout selected."}
       </div>
 
       {selectedWorkout.map((exercise, index) => (
