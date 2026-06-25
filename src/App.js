@@ -2243,8 +2243,29 @@ const progressLabel =
     Exercise Library Loaded: <strong>{EXERCISE_LIBRARY.length}</strong>
   </div>
 
-  <div>
+  <div style={{ marginBottom: "10px" }}>
     Muscle Groups Mapped: <strong>{Object.keys(MUSCLE_GROUPS).length}</strong>
+  </div>
+
+  <div style={{
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "6px"
+  }}>
+    {Object.entries(MUSCLE_GROUPS).map(([key, muscle]) => (
+      <span key={key} style={{
+        padding: "6px 10px",
+        borderRadius: "999px",
+        border: `1px solid ${BORDER}`,
+        background: `${B}18`,
+        color: NAVY,
+        fontSize: "11px",
+        fontWeight: "800",
+        letterSpacing: ".5px"
+      }}>
+        {muscle.label}
+      </span>
+    ))}
   </div>
 </div>
 
