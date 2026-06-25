@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+// Sprint 2 Final Stable Build — Mobile + Coach + Encoding Fixes
+// Checkpoint created before Sprint 3 development.
 // Recovery point: stable after React import fix
 // Stable build after component setupimport React, { useState, useEffect } from "react";
 
