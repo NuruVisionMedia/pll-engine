@@ -1456,6 +1456,7 @@ const getMomentumCoachLine = ({
 
 export default function App() {
   const [selectedMuscles, setSelectedMuscles] = useState([]);
+  const [exerciseSearch, setExerciseSearch] = useState("");
   
   const [screen, setScreen] = useState("login");
   const [profile, setProfile] = useState(null);
@@ -2232,38 +2233,36 @@ const progressLabel =
   fontSize: window.innerWidth < 768 ? "12px" : "13px",
   lineHeight: "1.5"
 }}>
-  <div style={{
-    fontWeight: "900",
-    color: NAVY,
-    letterSpacing: "1px",
-    marginBottom: "6px"
-  }}>
+  <div style={{ fontWeight: "900", color: NAVY, letterSpacing: "1px", marginBottom: "6px" }}>
     SPRINT 3 WORKOUT INTELLIGENCE
   </div>
 
-  <div>
-    Exercise Library Loaded: <strong>{EXERCISE_LIBRARY.length}</strong>
-  </div>
-
+  <div>Exercise Library Loaded: <strong>{EXERCISE_LIBRARY.length}</strong></div>
   <div style={{ marginBottom: "10px" }}>
     Muscle Groups Mapped: <strong>{Object.keys(MUSCLE_GROUPS).length}</strong>
   </div>
 
-  <div style={{
-    fontWeight: "900",
-    color: NAVY,
-    marginBottom: "6px",
-    letterSpacing: ".8px"
-  }}>
+  <input
+    value={exerciseSearch}
+    onChange={(e) => setExerciseSearch(e.target.value)}
+    placeholder="Search exercises..."
+    style={{
+      width: "100%",
+      padding: "10px 12px",
+      borderRadius: "12px",
+      border: `1px solid ${BORDER}`,
+      background: "#FFFFFF10",
+      color: "#FFFFFF",
+      marginBottom: "12px",
+      fontWeight: "700"
+    }}
+  />
+
+  <div style={{ fontWeight: "900", color: NAVY, marginBottom: "6px", letterSpacing: ".8px" }}>
     TARGET MUSCLE GROUPS
   </div>
 
-  <div style={{
-    display: "flex",
-    flexWrap: "wrap",
-    gap: "6px",
-    marginBottom: "12px"
-  }}>
+  <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginBottom: "12px" }}>
     {Object.entries(MUSCLE_GROUPS).map(([key, muscle]) => {
       const active = selectedMuscles.includes(key);
 
@@ -2272,9 +2271,7 @@ const progressLabel =
           key={key}
           onClick={() => {
             setSelectedMuscles((prev) =>
-              prev.includes(key)
-                ? prev.filter((item) => item !== key)
-                : [...prev, key]
+              prev.includes(key) ? prev.filter((item) => item !== key) : [...prev, key]
             );
           }}
           style={{
@@ -2295,61 +2292,49 @@ const progressLabel =
     })}
   </div>
 
-  <div style={{
-    fontWeight: "900",
-    color: NAVY,
-    marginBottom: "6px",
-    letterSpacing: ".8px"
-  }}>
+  <div style={{ fontWeight: "900", color: NAVY, marginBottom: "6px", letterSpacing: ".8px" }}>
     COACH RECOMMENDED EXERCISES
   </div>
 
-  {selectedMuscles.length === 0 ? (
-    <div style={{ color: MUTED }}>
-      Select one or more muscle groups to begin.
-    </div>
-  ) : (
-    <div style={{
-      display: "grid",
-      gridTemplateColumns: window.innerWidth < 768 ? "1fr" : "repeat(2, 1fr)",
-      gap: "8px"
-    }}>
-      {EXERCISE_LIBRARY
-        .filter((exercise) =>
-          exercise.primaryMuscles.some((muscle) =>
-            selectedMuscles.includes(muscle)
-          )
-        )
-        .map((exercise) => (
-          <div key={exercise.id} style={{
-            padding: "10px",
-            borderRadius: "12px",
-            border: `1px solid ${BORDER}`,
-            background: `${NAVY}10`
-          }}>
-            <div style={{
-              fontWeight: "900",
-              color: NAVY,
-              marginBottom: "4px"
-            }}>
-              {exercise.name}
-            </div>
+  <div style={{
+    display: "grid",
+    gridTemplateColumns: window.innerWidth < 768 ? "1fr" : "repeat(2, 1fr)",
+    gap: "8px"
+  }}>
+    {EXERCISE_LIBRARY
+      .filter((exercise) => {
+        const matchesMuscle =
+          selectedMuscles.length === 0 ||
+          exercise.primaryMuscles.some((muscle) => selectedMuscles.includes(muscle));
 
-            <div style={{ fontSize: "11px", color: SLATE }}>
-              Difficulty: {exercise.difficulty}
-            </div>
+        const matchesSearch =
+          !exerciseSearch.trim() ||
+          exercise.name.toLowerCase().includes(exerciseSearch.toLowerCase());
 
-            <div style={{ fontSize: "11px", color: SLATE }}>
-              Equipment: {exercise.equipment.join(", ")}
-            </div>
-
-            <div style={{ fontSize: "11px", color: MUTED, marginTop: "6px" }}>
-              {exercise.coachNote}
-            </div>
+        return matchesMuscle && matchesSearch;
+      })
+      .map((exercise) => (
+        <div key={exercise.id} style={{
+          padding: "10px",
+          borderRadius: "12px",
+          border: `1px solid ${BORDER}`,
+          background: `${NAVY}10`
+        }}>
+          <div style={{ fontWeight: "900", color: NAVY, marginBottom: "4px" }}>
+            {exercise.name}
           </div>
-        ))}
-    </div>
-  )}
+          <div style={{ fontSize: "11px", color: SLATE }}>
+            Difficulty: {exercise.difficulty}
+          </div>
+          <div style={{ fontSize: "11px", color: SLATE }}>
+            Equipment: {exercise.equipment.join(", ")}
+          </div>
+          <div style={{ fontSize: "11px", color: MUTED, marginTop: "6px" }}>
+            {exercise.coachNote}
+          </div>
+        </div>
+      ))}
+  </div>
 </div>
 
 {/* Sprint 2.4 Coach Presence Panel */}
