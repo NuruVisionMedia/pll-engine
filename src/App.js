@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { EXERCISE_LIBRARY, MUSCLE_GROUPS } from "./data/workoutIntelligence";
 // Sprint 2 Final Stable Build — Mobile + Coach + Encoding Fixes
 // Checkpoint created before Sprint 3 development.
 // Recovery point: stable after React import fix
@@ -2217,6 +2218,35 @@ const progressLabel =
             {WEEKS[week]?.label||`WEEK ${week}`}
           </div>
         </div>
+
+{/* Sprint 3 Workout Intelligence Status */}
+<div style={{
+  margin: window.innerWidth < 768 ? "12px 0" : "16px 0",
+  padding: window.innerWidth < 768 ? "12px" : "14px",
+  borderRadius: "14px",
+  border: `1px solid ${BORDER}`,
+  background: SURFACE,
+  color: SLATE,
+  fontSize: window.innerWidth < 768 ? "12px" : "13px",
+  lineHeight: "1.5"
+}}>
+  <div style={{
+    fontWeight: "900",
+    color: NAVY,
+    letterSpacing: "1px",
+    marginBottom: "6px"
+  }}>
+    SPRINT 3 WORKOUT INTELLIGENCE
+  </div>
+
+  <div>
+    Exercise Library Loaded: <strong>{EXERCISE_LIBRARY.length}</strong>
+  </div>
+
+  <div>
+    Muscle Groups Mapped: <strong>{Object.keys(MUSCLE_GROUPS).length}</strong>
+  </div>
+</div>
 
 {/* Sprint 2.4 Coach Presence Panel */}
 <div style={{
