@@ -2251,8 +2251,32 @@ const progressLabel =
       border: `1px solid ${B}`,
       background: `${B}22`
     }}>
-      <div style={{ fontWeight: "900", color: NAVY, marginBottom: "8px", letterSpacing: ".8px" }}>
-        SELECTED WORKOUT
+      <div style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        gap: "8px",
+        marginBottom: "8px"
+      }}>
+        <div style={{ fontWeight: "900", color: NAVY, letterSpacing: ".8px" }}>
+          SELECTED WORKOUT
+        </div>
+
+        <button
+          onClick={() => setSelectedWorkout([])}
+          style={{
+            padding: "5px 8px",
+            borderRadius: "8px",
+            border: `1px solid ${BORDER}`,
+            background: "transparent",
+            color: MUTED,
+            fontSize: "10px",
+            fontWeight: "900",
+            cursor: "pointer"
+          }}
+        >
+          Clear
+        </button>
       </div>
 
       {selectedWorkout.map((exercise, index) => (
