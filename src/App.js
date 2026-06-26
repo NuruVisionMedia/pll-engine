@@ -1292,9 +1292,10 @@ const getBlueprintEvolution = (week) => {
 const buildBlueprintIntelligence = ({
   pillar,
   week,
-  memory
+  memory,
+  weight
 }) => {
-
+  
   const difficulty =
     getBlueprintDifficulty(memory);
 
@@ -1324,6 +1325,9 @@ ${memory?.streak || 0}
 
 Generated Blueprints:
 ${memory?.generatedBlueprints || 0}
+
+Athlete Weight:
+${weight ? `${weight} lbs` : "Not provided."}
 
 Strongest Pillar:
 ${memory?.strongestPillar || "TRAIN"}
@@ -1643,7 +1647,9 @@ const intelligence = `
 ${buildBlueprintIntelligence({
   pillar,
   week,
-  memory: coachMemory
+  memory: coachMemory,
+weight
+  
 })}
 
 ${sprint3WorkoutContext}
