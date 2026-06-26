@@ -1458,6 +1458,11 @@ export default function App() {
   const [selectedMuscles, setSelectedMuscles] = useState([]);
   const [exerciseSearch, setExerciseSearch] = useState("");
   const [selectedWorkout, setSelectedWorkout] = useState([]);
+
+  const workoutMovementPatterns = selectedWorkout.reduce((acc, exercise) => {
+  acc[exercise.movementPattern] = (acc[exercise.movementPattern] || 0) + 1;
+  return acc;
+}, {});
   
   const [screen, setScreen] = useState("login");
   const [profile, setProfile] = useState(null);
@@ -2279,25 +2284,33 @@ const progressLabel =
         </button>
       </div>
 
-      <div style={{
-        marginBottom: "8px",
-        fontSize: "11px",
-        color: MUTED,
-        fontWeight: "700"
-      }}>
-        Balance Score:{" "}
-        <strong>
-          {Math.min(100, selectedWorkout.length * 20)}
-        </strong>
-        /100
+      <div style={{ marginBottom: "8px", fontSize: "11px", color: MUTED, fontWeight: "700" }}>
+        Balance Score: <strong>{Math.min(100, selectedWorkout.length * 20)}</strong>/100
       </div>
 
       <div style={{
-        marginBottom: "8px",
-        fontSize: "11px",
-        color: MUTED,
-        fontWeight: "700"
+        display: "flex",
+        flexWrap: "wrap",
+        gap: "6px",
+        marginBottom: "8px"
       }}>
+        {Object.entries(workoutMovementPatterns).map(([pattern, count]) => (
+          <span key={pattern} style={{
+            padding: "5px 8px",
+            borderRadius: "999px",
+            border: `1px solid ${BORDER}`,
+            background: `${NAVY}12`,
+            color: NAVY,
+            fontSize: "10px",
+            fontWeight: "900",
+            textTransform: "uppercase"
+          }}>
+            {pattern}: {count}
+          </span>
+        ))}
+      </div>
+
+      <div style={{ marginBottom: "8px", fontSize: "11px", color: MUTED, fontWeight: "700" }}>
         {selectedWorkout.length < 4
           ? "Coach note: Add at least 4 exercises for a stronger starter workout."
           : "Coach note: Solid starter workout selected."}
