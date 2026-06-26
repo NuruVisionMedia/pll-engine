@@ -2460,9 +2460,42 @@ const progressLabel =
   </div>
 
   <div>Exercise Library Loaded: <strong>{EXERCISE_LIBRARY.length}</strong></div>
-  <div style={{ marginBottom: "10px" }}>
-    Muscle Groups Mapped: <strong>{Object.keys(MUSCLE_GROUPS).length}</strong>
+<div>
+  Muscle Groups Mapped: <strong>{Object.keys(MUSCLE_GROUPS).length}</strong>
+</div>
+
+<div style={{
+  marginTop: "10px",
+  marginBottom: "10px",
+  padding: "10px",
+  borderRadius: "12px",
+  border: `1px solid ${BORDER}`,
+  background: `${NAVY}12`
+}}>
+  <div style={{
+    fontWeight: "900",
+    color: NAVY,
+    marginBottom: "6px",
+    letterSpacing: ".8px"
+  }}>
+    ATHLETE PROFILE
   </div>
+
+  <div>Current Weight: <strong>{profile?.weight || "Not provided"}</strong></div>
+  <div>Goal Weight: <strong>{profile?.goalWeight || "Not provided"}</strong></div>
+  <div>
+    Direction:{" "}
+    <strong>
+      {profile?.weight && profile?.goalWeight
+        ? Number(profile.goalWeight) > Number(profile.weight)
+          ? "Gain / Build"
+          : Number(profile.goalWeight) < Number(profile.weight)
+            ? "Lose / Cut"
+            : "Maintain / Recomp"
+        : "Not enough data"}
+    </strong>
+  </div>
+</div>
 
   {selectedWorkout.length > 0 && (
     <div style={{
