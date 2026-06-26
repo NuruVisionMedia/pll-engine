@@ -137,6 +137,17 @@ export const EXERCISE_LIBRARY = [
     demoUrl: "",
   },
   {
+  id: "hip-thrust",
+  name: "Hip Thrust",
+  primaryMuscles: ["glutes"],
+  secondaryMuscles: ["hamstrings", "core"],
+  equipment: ["barbell", "machine"],
+  difficulty: "intermediate",
+  movementPattern: "hinge",
+  coachNote: "Elite glute builder. Drive through the heels, keep ribs down, and lock out with control.",
+  demoUrl: "",
+},
+  {
     id: "lateral-raise",
     name: "Lateral Raise",
     primaryMuscles: ["shoulders"],
