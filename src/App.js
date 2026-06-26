@@ -1647,6 +1647,9 @@ Coach Instruction:
 If target muscles or selected exercises are provided, build the TRAIN blueprint around them.
 Prioritize the selected muscles.
 Include selected exercises when appropriate.
+Use athlete weight and goal weight to personalize volume, progression, recovery, and nutrition guidance.
+If goal weight is higher than current weight, bias toward muscle gain, calorie surplus, progressive overload, and recovery.
+If goal weight is lower than current weight, bias toward fat loss, controlled conditioning, strength preservation, and sustainable deficit.
 Do not ignore user-selected exercises unless they create poor balance.
 If balance is poor, explain the correction and add better supporting exercises.
 `
