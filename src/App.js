@@ -1676,6 +1676,9 @@ When including them:
 - Place them naturally into the workout.
 - Keep proper exercise order.
 - Respect recovery and muscle balance.
+- Balance push, pull, legs, core, and recovery across the week.
+- Do not overload one muscle group unless the user specifically selected it as a priority.
+- If a target muscle is selected, include supporting muscles to protect joints and improve performance.
 
 If one or more selected exercises are intentionally omitted, explain why and recommend the closest alternative.
 Use athlete weight and goal weight to personalize volume, progression, recovery, and nutrition guidance.
