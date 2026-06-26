@@ -2435,12 +2435,53 @@ const progressLabel =
 
       {savedWorkouts.map((workout) => (
         <div key={workout.id} style={{
-          padding: "7px 0",
+          padding: "8px 0",
           borderTop: `1px solid ${BORDER}`
         }}>
           <strong>{workout.name}</strong>
-          <div style={{ fontSize: "11px", color: MUTED }}>
+
+          <div style={{ fontSize: "11px", color: MUTED, marginBottom: "7px" }}>
             {workout.exercises.length} exercises
+          </div>
+
+          <div style={{ display: "flex", gap: "6px" }}>
+            <button
+              onClick={() => setSelectedWorkout(workout.exercises)}
+              style={{
+                flex: 1,
+                padding: "7px 8px",
+                borderRadius: "8px",
+                border: `1px solid ${B}`,
+                background: `${B}33`,
+                color: "#FFFFFF",
+                fontSize: "10px",
+                fontWeight: "900",
+                cursor: "pointer"
+              }}
+            >
+              Load
+            </button>
+
+            <button
+              onClick={() => {
+                setSavedWorkouts((prev) =>
+                  prev.filter((item) => item.id !== workout.id)
+                );
+              }}
+              style={{
+                flex: 1,
+                padding: "7px 8px",
+                borderRadius: "8px",
+                border: `1px solid ${BORDER}`,
+                background: "transparent",
+                color: MUTED,
+                fontSize: "10px",
+                fontWeight: "900",
+                cursor: "pointer"
+              }}
+            >
+              Delete
+            </button>
           </div>
         </div>
       ))}
