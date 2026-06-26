@@ -1680,6 +1680,23 @@ When including them:
 - Do not overload one muscle group unless the user specifically selected it as a priority.
 - If a target muscle is selected, include supporting muscles to protect joints and improve performance.
 
+Workout Difficulty Rules:
+
+If this is Week 1:
+Build confidence.
+Use moderate volume.
+Prioritize technique and consistency.
+
+If this is Week 2:
+Increase intensity slightly.
+Introduce progression where appropriate.
+
+If this is Week 3:
+Increase challenge while maintaining excellent exercise quality.
+Encourage personal best performance without sacrificing recovery.
+
+Always prioritize long-term consistency over maximum intensity.
+
 If one or more selected exercises are intentionally omitted, explain why and recommend the closest alternative.
 Use athlete weight and goal weight to personalize volume, progression, recovery, and nutrition guidance.
 If goal weight is higher than current weight, bias toward muscle gain, calorie surplus, progressive overload, and recovery.
