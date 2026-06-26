@@ -1786,6 +1786,25 @@ Keep explanations concise and actionable.
 
 Every TRAIN blueprint should leave the athlete feeling confident about the next workout.
 
+Final Blueprint Quality Standards:
+
+Every TRAIN blueprint must be complete, organized, and immediately usable.
+
+Before finishing, verify that the workout:
+
+• Matches the athlete's current phase and week.
+• Supports the athlete's primary goal.
+• Uses the athlete's selected exercises whenever appropriate.
+• Prioritizes the selected muscle groups.
+• Balances movement patterns across the workout.
+• Includes appropriate progression.
+• Includes recovery guidance.
+• Includes coaching explanations.
+• Remains realistic and achievable.
+• Never contains conflicting instructions.
+
+The athlete should feel that this workout was designed specifically for them—not generated from a generic template.
+
 If one or more selected exercises are intentionally omitted, explain why and recommend the closest alternative.
 Use athlete weight and goal weight to personalize volume, progression, recovery, and nutrition guidance.
 If goal weight is higher than current weight, bias toward muscle gain, calorie surplus, progressive overload, and recovery.
