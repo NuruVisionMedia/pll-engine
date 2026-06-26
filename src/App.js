@@ -1725,6 +1725,25 @@ In 3–5 concise bullet points explain:
 • Why the weekly difficulty matches the athlete's current phase.
 • What the athlete should focus on this week.
 
+Recovery Rules:
+
+Always include recovery guidance that matches workout difficulty.
+
+Week 1:
+Emphasize learning movement quality, hydration, sleep, and consistency.
+
+Week 2:
+Recommend active recovery, mobility work, and nutrition that supports progression.
+
+Week 3:
+Increase emphasis on recovery, quality sleep, hydration, mobility, and preparation for the next phase.
+
+If the athlete's goal is muscle gain:
+Encourage recovery strategies that maximize growth.
+
+If the athlete's goal is fat loss:
+Encourage recovery strategies that preserve strength while maintaining training frequency.
+
 If one or more selected exercises are intentionally omitted, explain why and recommend the closest alternative.
 Use athlete weight and goal weight to personalize volume, progression, recovery, and nutrition guidance.
 If goal weight is higher than current weight, bias toward muscle gain, calorie surplus, progressive overload, and recovery.
