@@ -2481,8 +2481,47 @@ const progressLabel =
     ATHLETE PROFILE
   </div>
 
-  <div>Current Weight: <strong>{profile?.weight || "Not provided"}</strong></div>
-  <div>Goal Weight: <strong>{profile?.goalWeight || "Not provided"}</strong></div>
+  <div>Current Weight: <strong>{profile?.weight ? `${profile.weight} lbs` : "Not provided"}</strong></div>
+<div>Goal Weight: <strong>{profile?.goalWeight ? `${profile.goalWeight} lbs` : "Not provided"}</strong></div>
+
+<div style={{
+  display: "grid",
+  gridTemplateColumns: window.innerWidth < 768 ? "1fr" : "1fr 1fr",
+  gap: "8px",
+  marginTop: "10px"
+}}>
+  <input
+    type="number"
+    value={profile?.weight || ""}
+    onChange={(e)=>saveProfile({ weight:e.target.value })}
+    placeholder="Update current weight"
+    style={{
+      width:"100%",
+      padding:"10px",
+      borderRadius:"10px",
+      border:`1px solid ${BORDER}`,
+      background:SURFACE2,
+      color:"#FFF",
+      fontWeight:"700"
+    }}
+  />
+
+  <input
+    type="number"
+    value={profile?.goalWeight || ""}
+    onChange={(e)=>saveProfile({ goalWeight:e.target.value })}
+    placeholder="Update goal weight"
+    style={{
+      width:"100%",
+      padding:"10px",
+      borderRadius:"10px",
+      border:`1px solid ${BORDER}`,
+      background:SURFACE2,
+      color:"#FFF",
+      fontWeight:"700"
+    }}
+  />
+</div>
   <div>
     Direction:{" "}
     <strong>
