@@ -1711,6 +1711,20 @@ When designing the workout:
 
 • Explain substitutions briefly so the athlete understands why they were made.
 
+Workout Design Explanation:
+
+After generating the TRAIN blueprint, include a brief section titled:
+
+"Why Your Coach Built This Workout"
+
+In 3–5 concise bullet points explain:
+
+• Why these exercises were selected.
+• How they support the athlete's selected muscle priorities.
+• How they align with the athlete's current weight and goal weight.
+• Why the weekly difficulty matches the athlete's current phase.
+• What the athlete should focus on this week.
+
 If one or more selected exercises are intentionally omitted, explain why and recommend the closest alternative.
 Use athlete weight and goal weight to personalize volume, progression, recovery, and nutrition guidance.
 If goal weight is higher than current weight, bias toward muscle gain, calorie surplus, progressive overload, and recovery.
