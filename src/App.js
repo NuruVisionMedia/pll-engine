@@ -1605,12 +1605,16 @@ const dismissBridgeMessage = () => {
     try {
       const n = profile?.firstName||profile?.username||"Athlete";
       const gender = profile?.gender||"";
-      const ageRange = profile?.ageRange||"";
+      const ageRange = profile?.ageRange || "";
+const weight = profile?.weight || "";
       
       const sprint3WorkoutContext =
   pillar === "TRAIN"
     ? `
 SPRINT 3 WORKOUT DESIGN CONTEXT:
+
+Athlete Weight:
+${weight ? `${weight} lbs` : "Not provided."}
 
 Target Muscle Groups:
 ${
