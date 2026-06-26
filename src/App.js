@@ -1293,7 +1293,8 @@ const buildBlueprintIntelligence = ({
   pillar,
   week,
   memory,
-  weight
+  weight,
+  goalWeight
 }) => {
   
   const difficulty =
@@ -1328,6 +1329,9 @@ ${memory?.generatedBlueprints || 0}
 
 Athlete Weight:
 ${weight ? `${weight} lbs` : "Not provided."}
+
+Goal Weight:
+${goalWeight ? `${goalWeight} lbs` : "Not provided."}
 
 Strongest Pillar:
 ${memory?.strongestPillar || "TRAIN"}
@@ -1650,7 +1654,8 @@ ${buildBlueprintIntelligence({
   pillar,
   week,
   memory: coachMemory,
-weight
+weight,
+goalWeight: profile?.goalWeight || ""
   
 })}
 
