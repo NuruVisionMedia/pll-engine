@@ -1333,6 +1333,17 @@ ${weight ? `${weight} lbs` : "Not provided."}
 Goal Weight:
 ${goalWeight ? `${goalWeight} lbs` : "Not provided."}
 
+Weight Goal Direction:
+${
+  weight && goalWeight
+    ? Number(goalWeight) > Number(weight)
+      ? "Gain weight / build muscle emphasis."
+      : Number(goalWeight) < Number(weight)
+        ? "Lose weight / fat loss emphasis."
+        : "Maintain weight / recomposition emphasis."
+    : "Not enough data."
+}
+
 Strongest Pillar:
 ${memory?.strongestPillar || "TRAIN"}
 
