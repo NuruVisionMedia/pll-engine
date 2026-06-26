@@ -1463,6 +1463,23 @@ export default function App() {
   acc[exercise.movementPattern] = (acc[exercise.movementPattern] || 0) + 1;
   return acc;
 }, {});
+
+  const workoutBalanceFeedback = (() => {
+  if (selectedWorkout.length === 0) return "Select exercises to begin workout evaluation.";
+
+  const hasPush = workoutMovementPatterns.push > 0;
+  const hasPull = workoutMovementPatterns.pull > 0;
+  const hasLower =
+    workoutMovementPatterns.squat > 0 ||
+    workoutMovementPatterns.hinge > 0;
+
+  if (!hasPush) return "Coach note: Add at least one push movement.";
+  if (!hasPull) return "Coach note: Add at least one pull movement.";
+  if (!hasLower) return "Coach note: Add at least one lower-body movement.";
+  if (selectedWorkout.length < 4) return "Coach note: Add at least 4 exercises for a stronger starter workout.";
+
+  return "Coach note: Balanced starter workout selected.";
+})();
   
   const [screen, setScreen] = useState("login");
   const [profile, setProfile] = useState(null);
@@ -2311,9 +2328,8 @@ const progressLabel =
       </div>
 
       <div style={{ marginBottom: "8px", fontSize: "11px", color: MUTED, fontWeight: "700" }}>
-        {selectedWorkout.length < 4
-          ? "Coach note: Add at least 4 exercises for a stronger starter workout."
-          : "Coach note: Solid starter workout selected."}
+        {workoutBalanceFeedback}
+
       </div>
 
       {selectedWorkout.map((exercise, index) => (
