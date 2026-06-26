@@ -2285,6 +2285,19 @@ const progressLabel =
         color: MUTED,
         fontWeight: "700"
       }}>
+        Balance Score:{" "}
+        <strong>
+          {Math.min(100, selectedWorkout.length * 20)}
+        </strong>
+        /100
+      </div>
+
+      <div style={{
+        marginBottom: "8px",
+        fontSize: "11px",
+        color: MUTED,
+        fontWeight: "700"
+      }}>
         {selectedWorkout.length < 4
           ? "Coach note: Add at least 4 exercises for a stronger starter workout."
           : "Coach note: Solid starter workout selected."}
