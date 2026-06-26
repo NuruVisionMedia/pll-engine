@@ -1859,6 +1859,70 @@ boxShadow:"none"
       marginBottom: "8px"
     }}
   >
+    WEIGHT PROFILE (lbs)
+  </div>
+
+  <div style={{
+    display: "grid",
+    gridTemplateColumns: window.innerWidth < 768 ? "1fr" : "1fr 1fr",
+    gap: "10px"
+  }}>
+    <input
+      type="number"
+      value={createForm.weight}
+      onChange={(e)=>
+        setCreateForm({
+          ...createForm,
+          weight:e.target.value
+        })
+      }
+      placeholder="Current Weight"
+      style={{
+        width:"100%",
+        padding:"12px",
+        borderRadius:"10px",
+        background:SURFACE2,
+        color:"#FFF",
+        border:`2px solid ${BORDER}`,
+        fontSize:"15px",
+        fontWeight:"700"
+      }}
+    />
+
+    <input
+      type="number"
+      value={createForm.goalWeight}
+      onChange={(e)=>
+        setCreateForm({
+          ...createForm,
+          goalWeight:e.target.value
+        })
+      }
+      placeholder="Goal Weight"
+      style={{
+        width:"100%",
+        padding:"12px",
+        borderRadius:"10px",
+        background:SURFACE2,
+        color:"#FFF",
+        border:`2px solid ${BORDER}`,
+        fontSize:"15px",
+        fontWeight:"700"
+      }}
+    />
+  </div>
+</div>
+
+<div style={{ marginBottom: "16px" }}>
+  <div
+    style={{
+      fontSize: "10px",
+      fontWeight: "800",
+      color: MUTED,
+      letterSpacing: "1.5px",
+      marginBottom: "8px"
+    }}
+  >
     CURRENT WEIGHT (lbs)
   </div>
 
