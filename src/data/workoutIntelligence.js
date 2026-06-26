@@ -208,3 +208,40 @@ export function getCoachRecommendedExercises({
     return matchesMuscle && matchesDifficulty && matchesEquipment;
   });
 }
+export const COACH_MEDIA = {
+  pushup: {
+    title: "Push-Up Demo",
+    type: "youtube",
+    videoId: "",
+    pllVideo: "",
+    coachTip:
+      "Keep your body in a straight line. Lower under control and press through the palms."
+  },
+
+  squat: {
+    title: "Squat Demo",
+    type: "youtube",
+    videoId: "",
+    pllVideo: "",
+    coachTip:
+      "Sit back first, keep your chest proud, and drive through the mid-foot."
+  },
+
+  hipthrust: {
+    title: "Hip Thrust Demo",
+    type: "youtube",
+    videoId: "",
+    pllVideo: "",
+    coachTip:
+      "Drive through the heels and squeeze the glutes hard at the top without overextending the lower back."
+  },
+
+  row: {
+    title: "Row Demo",
+    type: "youtube",
+    videoId: "",
+    pllVideo: "",
+    coachTip:
+      "Lead with the elbows and squeeze the shoulder blades together."
+  }
+};
