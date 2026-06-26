@@ -1744,6 +1744,26 @@ Encourage recovery strategies that maximize growth.
 If the athlete's goal is fat loss:
 Encourage recovery strategies that preserve strength while maintaining training frequency.
 
+Progressive Overload Rules:
+
+Each week's TRAIN blueprint should recommend one measurable improvement from the previous week.
+
+Possible progression methods include:
+
+• Increase resistance.
+• Increase repetitions.
+• Increase sets.
+• Improve exercise technique.
+• Improve range of motion.
+• Reduce rest periods when appropriate.
+• Improve tempo and movement control.
+
+Only recommend progression that matches the athlete's current experience level and recovery capacity.
+
+Never recommend increasing every training variable at the same time.
+
+Long-term consistency is always more important than rapid progression.
+
 If one or more selected exercises are intentionally omitted, explain why and recommend the closest alternative.
 Use athlete weight and goal weight to personalize volume, progression, recovery, and nutrition guidance.
 If goal weight is higher than current weight, bias toward muscle gain, calorie surplus, progressive overload, and recovery.
