@@ -2305,12 +2305,7 @@ const progressLabel =
         Balance Score: <strong>{Math.min(100, selectedWorkout.length * 20)}</strong>/100
       </div>
 
-      <div style={{
-        display: "flex",
-        flexWrap: "wrap",
-        gap: "6px",
-        marginBottom: "8px"
-      }}>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginBottom: "8px" }}>
         {Object.entries(workoutMovementPatterns).map(([pattern, count]) => (
           <span key={pattern} style={{
             padding: "5px 8px",
@@ -2329,8 +2324,40 @@ const progressLabel =
 
       <div style={{ marginBottom: "8px", fontSize: "11px", color: MUTED, fontWeight: "700" }}>
         {workoutBalanceFeedback}
-
       </div>
+
+      <button
+        onClick={() => {
+          const neededPatterns = [];
+
+          if (!workoutMovementPatterns.push) neededPatterns.push("push");
+          if (!workoutMovementPatterns.pull) neededPatterns.push("pull");
+          if (!workoutMovementPatterns.squat && !workoutMovementPatterns.hinge) {
+            neededPatterns.push("squat");
+          }
+
+          const additions = EXERCISE_LIBRARY.filter((exercise) =>
+            neededPatterns.includes(exercise.movementPattern) &&
+            !selectedWorkout.some((item) => item.id === exercise.id)
+          ).slice(0, 3);
+
+          setSelectedWorkout((prev) => [...prev, ...additions]);
+        }}
+        style={{
+          width: "100%",
+          marginBottom: "8px",
+          padding: "8px 10px",
+          borderRadius: "10px",
+          border: `1px solid ${B}`,
+          background: `${B}33`,
+          color: "#FFFFFF",
+          fontWeight: "900",
+          fontSize: "11px",
+          cursor: "pointer"
+        }}
+      >
+        Coach Auto-Fill Gaps
+      </button>
 
       {selectedWorkout.map((exercise, index) => (
         <div key={exercise.id} style={{
