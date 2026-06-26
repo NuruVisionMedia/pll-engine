@@ -132,6 +132,16 @@ function getExerciseVideo(name) {
   return null;
 }
 
+function getCoachMedia(name) {
+  if (!name) return null;
+
+  const key = name
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, "");
+
+  return COACH_MEDIA[key] || null;
+}
+
 // - PILLARS CONFIG -
 const PILLARS = {
   TRAIN: {
