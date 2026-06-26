@@ -1668,9 +1668,16 @@ ${
 Coach Instruction:
 If target muscles or selected exercises are provided, build the TRAIN blueprint around them.
 Prioritize the selected muscles.
-Selected exercises are user-priority exercises. Include them in the TRAIN blueprint unless unsafe, duplicate, or poorly balanced.
-If a selected exercise is included, place it inside the workout day where it best fits.
-If a selected exercise is not included, explain why and provide a better substitute.
+Selected exercises are athlete-priority movements.
+
+Include these exercises whenever they are appropriate for the workout split, unless they would create unsafe volume, duplicate another movement, or disrupt proper programming.
+
+When including them:
+- Place them naturally into the workout.
+- Keep proper exercise order.
+- Respect recovery and muscle balance.
+
+If one or more selected exercises are intentionally omitted, explain why and recommend the closest alternative.
 Use athlete weight and goal weight to personalize volume, progression, recovery, and nutrition guidance.
 If goal weight is higher than current weight, bias toward muscle gain, calorie surplus, progressive overload, and recovery.
 If goal weight is lower than current weight, bias toward fat loss, controlled conditioning, strength preservation, and sustainable deficit.
