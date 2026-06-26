@@ -1835,6 +1835,46 @@ boxShadow:"none"
                 </div>
               </div>
 
+{/* Weight */}
+
+<div style={{ marginBottom: "16px" }}>
+  <div
+    style={{
+      fontSize: "10px",
+      fontWeight: "800",
+      color: MUTED,
+      letterSpacing: "1.5px",
+      marginBottom: "8px"
+    }}
+  >
+    CURRENT WEIGHT (lbs)
+  </div>
+
+  <input
+    type="number"
+    value={createForm.weight}
+    onChange={(e)=>
+      setCreateForm({
+        ...createForm,
+        weight:e.target.value
+      })
+    }
+
+    placeholder="Example: 160"
+
+    style={{
+      width:"100%",
+      padding:"12px",
+      borderRadius:"10px",
+      background:SURFACE2,
+      color:"#FFF",
+      border:`2px solid ${BORDER}`,
+      fontSize:"15px",
+      fontWeight:"700"
+    }}
+  />
+</div>
+
               {/* Age range */}
               <div style={{ marginBottom:"16px" }}>
                 <div style={{ fontSize:"10px",fontWeight:"800",color:MUTED,letterSpacing:"1.5px",marginBottom:"8px" }}>AGE RANGE</div>
