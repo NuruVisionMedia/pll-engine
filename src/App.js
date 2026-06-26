@@ -1501,7 +1501,8 @@ export default function App() {
   password: "",
   gender: "",
   ageRange: "",
-  weight: ""
+  weight: "",
+goalWeight: ""
 });
   
   const [loginMode, setLoginMode] = useState("signin");
@@ -1597,7 +1598,8 @@ const dismissBridgeMessage = () => {
   password: createForm.password,
   gender: createForm.gender,
   ageRange: createForm.ageRange,
-  weight: createForm.weight
+  weight: createForm.weight,
+goalWeight: createForm.goalWeight
 };
     login(newProfile);
   };
