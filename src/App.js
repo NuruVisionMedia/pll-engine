@@ -1490,7 +1490,16 @@ export default function App() {
   const [showCelebration, setShowCelebration] = useState(false);
   const [bridgeDismissed, setBridgeDismissed] = useState({});
   const [loginForm, setLoginForm] = useState({ username:"", password:"" });
-  const [createForm, setCreateForm] = useState({ firstName:"", username:"", email:"", password:"", gender:"", ageRange:"" });
+  const [createForm, setCreateForm] = useState({
+  firstName: "",
+  username: "",
+  email: "",
+  password: "",
+  gender: "",
+  ageRange: "",
+  weight: ""
+});
+  
   const [loginMode, setLoginMode] = useState("signin");
   const [loginError, setLoginError] = useState("");
 
@@ -1577,7 +1586,15 @@ const dismissBridgeMessage = () => {
     if (!createForm.ageRange){setLoginError("Please select your age range.");return;}
     const exists = Store.load("user_"+createForm.username.toLowerCase());
     if (exists){setLoginError("Username already taken.");return;}
-    const newProfile = { firstName:createForm.firstName, username:createForm.username, email:createForm.email, password:createForm.password, gender:createForm.gender, ageRange:createForm.ageRange, week:1, answers:{}, createdAt:new Date().toISOString() };
+    const newProfile = {
+  firstName: createForm.firstName,
+  username: createForm.username,
+  email: createForm.email,
+  password: createForm.password,
+  gender: createForm.gender,
+  ageRange: createForm.ageRange,
+  weight: createForm.weight
+};
     login(newProfile);
   };
 
