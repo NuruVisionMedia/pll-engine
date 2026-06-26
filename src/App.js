@@ -1458,6 +1458,7 @@ export default function App() {
   const [selectedMuscles, setSelectedMuscles] = useState([]);
   const [exerciseSearch, setExerciseSearch] = useState("");
   const [selectedWorkout, setSelectedWorkout] = useState([]);
+  const [savedWorkouts, setSavedWorkouts] = useState([]);
 
   const workoutMovementPatterns = selectedWorkout.reduce((acc, exercise) => {
   acc[exercise.movementPattern] = (acc[exercise.movementPattern] || 0) + 1;
@@ -2359,6 +2360,32 @@ const progressLabel =
         Coach Auto-Fill Gaps
       </button>
 
+      <button
+        onClick={() => {
+          const savedWorkout = {
+            id: Date.now(),
+            name: `Workout ${savedWorkouts.length + 1}`,
+            exercises: selectedWorkout
+          };
+
+          setSavedWorkouts((prev) => [...prev, savedWorkout]);
+        }}
+        style={{
+          width: "100%",
+          marginBottom: "8px",
+          padding: "8px 10px",
+          borderRadius: "10px",
+          border: `1px solid ${BORDER}`,
+          background: `${NAVY}22`,
+          color: "#FFFFFF",
+          fontWeight: "900",
+          fontSize: "11px",
+          cursor: "pointer"
+        }}
+      >
+        Save Workout
+      </button>
+
       {selectedWorkout.map((exercise, index) => (
         <div key={exercise.id} style={{
           display: "flex",
@@ -2389,6 +2416,32 @@ const progressLabel =
           >
             Remove
           </button>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {savedWorkouts.length > 0 && (
+    <div style={{
+      marginBottom: "14px",
+      padding: "10px",
+      borderRadius: "12px",
+      border: `1px solid ${BORDER}`,
+      background: `${NAVY}12`
+    }}>
+      <div style={{ fontWeight: "900", color: NAVY, marginBottom: "8px", letterSpacing: ".8px" }}>
+        SAVED WORKOUTS ({savedWorkouts.length})
+      </div>
+
+      {savedWorkouts.map((workout) => (
+        <div key={workout.id} style={{
+          padding: "7px 0",
+          borderTop: `1px solid ${BORDER}`
+        }}>
+          <strong>{workout.name}</strong>
+          <div style={{ fontSize: "11px", color: MUTED }}>
+            {workout.exercises.length} exercises
+          </div>
         </div>
       ))}
     </div>
