@@ -1590,11 +1590,43 @@ const dismissBridgeMessage = () => {
       const gender = profile?.gender||"";
       const ageRange = profile?.ageRange||"";
       
-      const intelligence = buildBlueprintIntelligence({
+      const sprint3WorkoutContext =
+  pillar === "TRAIN"
+    ? `
+SPRINT 3 WORKOUT DESIGN CONTEXT:
+
+Target Muscle Groups:
+${
+  selectedMuscles.length > 0
+    ? selectedMuscles.map((key) => MUSCLE_GROUPS[key]?.label).join(", ")
+    : "No specific target muscles selected."
+}
+
+User-Selected Exercises:
+${
+  selectedWorkout.length > 0
+    ? selectedWorkout.map((exercise) => `- ${exercise.name}`).join("\n")
+    : "No custom exercises selected."
+}
+
+Coach Instruction:
+If target muscles or selected exercises are provided, build the TRAIN blueprint around them.
+Prioritize the selected muscles.
+Include selected exercises when appropriate.
+Do not ignore user-selected exercises unless they create poor balance.
+If balance is poor, explain the correction and add better supporting exercises.
+`
+    : "";
+
+const intelligence = `
+${buildBlueprintIntelligence({
   pillar,
   week,
   memory: coachMemory
-});
+})}
+
+${sprint3WorkoutContext}
+`;
 
 const prompt = PILLARS[pillar].prompt(
   answers,
