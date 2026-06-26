@@ -1629,6 +1629,17 @@ ${weight ? `${weight} lbs` : "Not provided."}
 Goal Weight:
 ${profile?.goalWeight ? `${profile.goalWeight} lbs` : "Not provided."}
 
+Weight Goal Direction:
+${
+  weight && profile?.goalWeight
+    ? Number(profile.goalWeight) > Number(weight)
+      ? "Gain weight / build muscle emphasis."
+      : Number(profile.goalWeight) < Number(weight)
+        ? "Lose weight / fat loss emphasis."
+        : "Maintain weight / recomposition emphasis."
+    : "Not enough data."
+}
+
 Target Muscle Groups:
 ${
   selectedMuscles.length > 0
