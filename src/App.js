@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { EXERCISE_LIBRARY, MUSCLE_GROUPS } from "./data/workoutIntelligence";
+import {
+  EXERCISE_LIBRARY,
+  MUSCLE_GROUPS,
+  COACH_MEDIA
+} from "./data/workoutIntelligence";
+
 // Sprint 2 Final Stable Build — Mobile + Coach + Encoding Fixes
 // Checkpoint created before Sprint 3 development.
 // Recovery point: stable after React import fix
