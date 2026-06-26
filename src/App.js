@@ -1626,6 +1626,9 @@ SPRINT 3 WORKOUT DESIGN CONTEXT:
 Athlete Weight:
 ${weight ? `${weight} lbs` : "Not provided."}
 
+Goal Weight:
+${profile?.goalWeight ? `${profile.goalWeight} lbs` : "Not provided."}
+
 Target Muscle Groups:
 ${
   selectedMuscles.length > 0
