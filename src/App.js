@@ -1714,7 +1714,10 @@ goalWeight: ""
   const [loginError, setLoginError] = useState("");
 
   const [coachMemory, setCoachMemory] =
-  useState(getCoachMemory());
+useState(getCoachMemory());
+
+// SPRINT 5.1 — COACH ANIMATION STATE
+const [coachBlink, setCoachBlink] = useState(false);
 
   const upd = (pillar, update) => setPillarStates(prev=>({...prev,[pillar]:{...prev[pillar],...update}}));
   const st = pillarStates[activePillar];
@@ -1759,6 +1762,19 @@ const momentumCoachLine =
     recoveryStatus,
     name
   });
+
+  // SPRINT 5.1 — COACH BLINK ENGINE
+useEffect(() => {
+  const blinkTimer = setInterval(() => {
+    setCoachBlink(true);
+
+    setTimeout(() => {
+      setCoachBlink(false);
+    }, 160);
+  }, 5200);
+
+  return () => clearInterval(blinkTimer);
+}, []);
 
   const completedCount = completedPillars.length;
 const bridgeKey = `${week}-${activePillar}`;
@@ -3226,23 +3242,35 @@ const progressLabel =
   alignItems: window.innerWidth < 768 ? "flex-start" : "center",
   overflow: "hidden"
 }}>
-  <img
-  src={process.env.PUBLIC_URL + "/coach-full.jpg"}
-  onError={(e) => {
-    e.currentTarget.src = process.env.PUBLIC_URL + "/coach.jpg";
+  <div
+  style={{
+    width: window.innerWidth < 768 ? "100%" : "160px",
+    maxWidth: window.innerWidth < 768 ? "180px" : "160px",
+    height: window.innerWidth < 768 ? "180px" : "210px",
+    borderRadius: "16px",
+    overflow: "hidden",
+    boxShadow: "0 10px 24px rgba(0,0,0,0.25)",
+    animation: "coachBreathing 4s ease-in-out infinite",
+    flexShrink: 0
   }}
-  alt="PLL Coach"
+>
+  <img
+    src={process.env.PUBLIC_URL + "/coach-full.jpg"}
+    onError={(e) => {
+      e.currentTarget.src = process.env.PUBLIC_URL + "/coach.jpg";
+    }}
+    alt="PLL Coach"
     style={{
-      width: window.innerWidth < 768 ? "100%" : "160px",
-      maxWidth: window.innerWidth < 768 ? "180px" : "160px",
-      height: window.innerWidth < 768 ? "180px" : "210px",
+      width: "100%",
+      height: "100%",
       objectFit: "cover",
       objectPosition: "50% 18%",
-      borderRadius: "16px",
-      boxShadow: "0 10px 24px rgba(0,0,0,0.25)"
+      display: "block",
+      transform: coachBlink ? "scaleY(0.96)" : "scaleY(1)",
+      transition: "transform 0.12s ease"
     }}
   />
-
+</div>
   <div>
     <div style={{
       fontSize: "10px",
@@ -3273,6 +3301,14 @@ const progressLabel =
     </div>
   </div>
 </div>
+
+<style>{`
+  @keyframes coachBreathing {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.018); }
+    100% { transform: scale(1); }
+  }
+`}</style>
 
         {/* Pillar content */}
         {st.phase==="loading" && <Loading pillar={activePillar} name={name} week={week}/>}
