@@ -5,6 +5,13 @@ import {
   COACH_MEDIA
 } from "./data/workoutIntelligence";
 
+// =====================================================
+// PLL ENGINE
+// Version: Sprint 5 Complete
+// Coach Presence & Voice System
+// Status: Production Stable
+// =====================================================
+
 // Sprint 2 Final Stable Build — Mobile + Coach + Encoding Fixes
 // Checkpoint created before Sprint 3 development.
 // Recovery point: stable after React import fix
