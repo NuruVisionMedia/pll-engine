@@ -2553,7 +2553,11 @@ const progressLabel =
   borderRadius: "14px",
   border: `1px solid ${coachMode.accent}`,
   background: SURFACE,
-  boxShadow: `0 0 18px ${coachMode.accent}22`,
+  boxShadow: st.phase === "loading"
+    ? `0 0 24px ${coachMode.accent}88`
+    : `0 0 18px ${coachMode.accent}22`,
+  transform: st.phase === "loading" ? "scale(1.01)" : "scale(1)",
+  transition: "all 0.3s ease"
 }}>
   <div style={{
     fontSize: "10px",
