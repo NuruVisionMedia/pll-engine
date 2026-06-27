@@ -1280,7 +1280,27 @@ return commanderLines[
   Math.floor(Math.random() * commanderLines.length)
 ];
   
-  return `Week ${week}. Preferred pillar: ${preferred}. Coach Level: ${level}. No hype. No shortcuts. ${PILLAR} is now part of your identity.`;
+  const commanderLines = [
+  `Week ${week}. You've earned consistency. Protect it.`,
+  `Week ${week}. Discipline has become identity.`,
+  `Week ${week}. Champions repeat winning habits.`,
+  `Week ${week}. Your standards are rising.`,
+  `Week ${week}. Stay dangerous. Stay disciplined.`,
+  `Week ${week}. Momentum belongs to those who refuse to quit.`,
+  `Week ${week}. Excellence is now your baseline.`,
+  `Week ${week}. Finish strong. Leaders finish what they start.`,
+  `Week ${week}. Quiet work creates loud results.`,
+  `Week ${week}. Every blueprint completed builds the next version of you.`,
+  `Week ${week}. Small victories become permanent habits.`,
+  `Week ${week}. Stay patient. Stay relentless.`,
+  `Week ${week}. Progress compounds when discipline never misses.`,
+  `Week ${week}. Today's work becomes tomorrow's confidence.`,
+  `Week ${week}. Elite performers never negotiate with excuses.`
+];
+
+return commanderLines[
+  Math.floor(Math.random() * commanderLines.length)
+];
 };
 
 const loadProgressHistory = () => {
