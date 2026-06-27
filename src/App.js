@@ -2565,21 +2565,22 @@ const progressLabel =
     {coachMode.badge}
   </div>
 
-    onClick={() => {
-  const line = coachMessage || `${name}, your coach is here. Stay locked in.`;
-  const speech = new SpeechSynthesisUtterance(line);
+    <button
+  onClick={() => {
+    const line = coachMessage || `${name}, your coach is here. Stay locked in.`;
+    const speech = new SpeechSynthesisUtterance(line);
 
-  speech.rate = 0.92;
-  speech.pitch = 0.85;
-  speech.volume = 1;
+    speech.rate = 0.92;
+    speech.pitch = 0.85;
+    speech.volume = 1;
 
-  speech.onstart = () => setCoachSpeaking(true);
-  speech.onend = () => setCoachSpeaking(false);
-  speech.onerror = () => setCoachSpeaking(false);
+    speech.onstart = () => setCoachSpeaking(true);
+    speech.onend = () => setCoachSpeaking(false);
+    speech.onerror = () => setCoachSpeaking(false);
 
-  window.speechSynthesis.cancel();
-  window.speechSynthesis.speak(speech);
-}}
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(speech);
+  }}
   style={{
     marginTop: "12px",
     padding: "10px 14px",
