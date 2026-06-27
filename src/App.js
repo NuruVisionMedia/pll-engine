@@ -2596,11 +2596,19 @@ const progressLabel =
   fontWeight: "900",
   letterSpacing: "1px",
   cursor: "pointer",
-  transform: coachSpeaking ? "scale(1.04)" : "scale(1)",
-  boxShadow: coachSpeaking
-    ? `0 0 18px ${coachMode.accent}88`
-    : "none",
-  transition: "all 0.25s ease"
+  transform: coachSpeaking
+  ? `scale(${coachBlink ? 1.07 : 1.02})`
+  : "scale(1)",
+
+opacity: coachSpeaking
+  ? (coachBlink ? 1 : 0.82)
+  : 1,
+
+boxShadow: coachSpeaking
+  ? `0 0 ${coachBlink ? 28 : 18}px ${coachMode.accent}`
+  : "none",
+
+transition: "all .18s ease"
 }}
 >
   {coachSpeaking ? "COACH SPEAKING..." : "HEAR COACH"}
