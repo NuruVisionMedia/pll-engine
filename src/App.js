@@ -2603,7 +2603,7 @@ const progressLabel =
   transition: "all 0.25s ease"
 }}
 >
-  HEAR COACH
+  {coachSpeaking ? "COACH SPEAKING..." : "HEAR COACH"}
 </button>
 
     {coachSpeaking && (
