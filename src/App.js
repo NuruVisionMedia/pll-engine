@@ -1295,6 +1295,39 @@ return commanderLines[
 ];
 };
 
+// — SPRINT 6.1: ATHLETE READINESS ENGINE —
+const getAthleteReadiness = ({ profile = {}, memory = {}, week = 1 }) => {
+  const age = Number(profile.age) || 0;
+  const weight = Number(profile.weight) || 0;
+  const goalWeight = Number(profile.goalWeight) || 0;
+  const streak = Number(memory.streak) || 0;
+  const generated = Number(memory.generatedBlueprints) || 0;
+
+  let score = 70;
+
+  if (streak >= 3) score += 10;
+  if (generated >= 6) score += 8;
+  if (age >= 55) score -= 6;
+  if (weight && goalWeight && goalWeight > weight) score -= 4;
+  if (week >= 3) score += 5;
+
+  score = Math.max(35, Math.min(100, score));
+
+  return {
+    score,
+    status:
+      score >= 85 ? "PRIMED" :
+      score >= 70 ? "READY" :
+      score >= 55 ? "CONTROLLED" :
+      "RECOVERY PRIORITY",
+    coachLine:
+      score >= 85 ? "You are primed. Push with control." :
+      score >= 70 ? "You are ready. Execute with discipline." :
+      score >= 55 ? "Control the pace. Quality first." :
+      "Recovery leads today. Protect the body."
+  };
+};
+
 const loadProgressHistory = () => {
   try {
     return JSON.parse(localStorage.getItem("pll_" + PLL_PROGRESS_KEY)) || [];
