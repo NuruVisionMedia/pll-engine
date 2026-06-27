@@ -1273,21 +1273,6 @@ const getCoachVoiceLine = ({ phase, week, pillar, memory }) => {
   `Week ${week}. Stay dangerous. Stay disciplined.`,
   `Week ${week}. Momentum belongs to those who refuse to quit.`,
   `Week ${week}. Excellence is now your baseline.`,
-  `Week ${week}. Finish strong. Leaders finish what they start.`
-];
-
-return commanderLines[
-  Math.floor(Math.random() * commanderLines.length)
-];
-  
-  const commanderLines = [
-  `Week ${week}. You've earned consistency. Protect it.`,
-  `Week ${week}. Discipline has become identity.`,
-  `Week ${week}. Champions repeat winning habits.`,
-  `Week ${week}. Your standards are rising.`,
-  `Week ${week}. Stay dangerous. Stay disciplined.`,
-  `Week ${week}. Momentum belongs to those who refuse to quit.`,
-  `Week ${week}. Excellence is now your baseline.`,
   `Week ${week}. Finish strong. Leaders finish what they start.`,
   `Week ${week}. Quiet work creates loud results.`,
   `Week ${week}. Every blueprint completed builds the next version of you.`,
