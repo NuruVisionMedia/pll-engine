@@ -515,6 +515,40 @@ function SectionLabel({ text, color }) {
   );
 }
 
+function CoachMediaNote({ exerciseName }) {
+  const media = COACH_MEDIA[exerciseName];
+  if (!media) return null;
+
+  return (
+    <div
+      style={{
+        marginTop: "10px",
+        padding: "10px 12px",
+        background: `${B}10`,
+        border: `1px solid ${B}30`,
+        borderRadius: "10px",
+        fontSize: "12px",
+        color: NAVY
+      }}
+    >
+      <div
+        style={{
+          fontWeight: "800",
+          marginBottom: "4px",
+          color: B
+        }}
+      >
+        🎥 Coach Demo Available
+      </div>
+
+      <div style={{ lineHeight: "1.5" }}>
+        Tap the exercise video after generating your workout to watch proper
+        form and coaching cues.
+      </div>
+    </div>
+  );
+}
+
 // - TRAIN RESULT -
 function TrainResult({ data, name, week, onDownload }) {
   const [activeDay, setActiveDay] = useState(0);
