@@ -123,6 +123,91 @@ const EXERCISE_VIDEOS = {
   "jumping jack":"https://www.youtube.com/embed/iSSAk4XCsRA",
 };
 
+function CoachExerciseReason({ exerciseName, muscle }) {
+
+  const reasons = {
+    "goblet squat":
+      "Builds squat mechanics, leg strength and core stability while reinforcing proper movement patterns.",
+
+    "squat":
+      "Develops total lower-body strength and improves movement efficiency.",
+
+    "romanian deadlift":
+      "Strengthens the posterior chain while improving hip hinge mechanics.",
+
+    "deadlift":
+      "Builds full-body power while strengthening the hips, back and grip.",
+
+    "bench press":
+      "Develops pressing strength through the chest, shoulders and triceps.",
+
+    "push up":
+      "Improves upper-body endurance and pressing control using bodyweight.",
+
+    "overhead press":
+      "Builds shoulder strength while improving overhead stability.",
+
+    "row":
+      "Improves posture and upper-back strength while balancing pressing movements.",
+
+    "lat pulldown":
+      "Develops back width and pulling strength for better posture.",
+
+    "pull up":
+      "Builds upper-body pulling strength and total-body control.",
+
+    "walking lunge":
+      "Improves balance, stability and single-leg strength.",
+
+    "leg press":
+      "Safely overloads the legs while reinforcing lower-body strength.",
+
+    "hip thrust":
+      "Targets the glutes for improved power and hip extension.",
+
+    "calf raise":
+      "Strengthens the calves to improve ankle stability and lower-leg endurance."
+  };
+
+  const reason =
+    reasons[exerciseName?.toLowerCase()] ||
+    `Selected to improve your ${muscle || "overall"} strength while supporting this week's training objective.`;
+
+  return (
+    <div
+      style={{
+        marginTop: "12px",
+        padding: "12px",
+        borderRadius: "10px",
+        background: `${B}10`,
+        border: `1px solid ${B}25`
+      }}
+    >
+      <div
+        style={{
+          fontSize: "10px",
+          fontWeight: "800",
+          color: B,
+          letterSpacing: "1px",
+          marginBottom: "6px"
+        }}
+      >
+        COACH'S REASON
+      </div>
+
+      <div
+        style={{
+          fontSize: "13px",
+          lineHeight: "1.5",
+          color: NAVY
+        }}
+      >
+        {reason}
+      </div>
+    </div>
+  );
+}
+
 function getExerciseVideo(name) {
   if (!name) return null;
   const l = name.toLowerCase();
@@ -516,34 +601,54 @@ function SectionLabel({ text, color }) {
 }
 
 function CoachMediaNote({ exerciseName }) {
-  const media = COACH_MEDIA[exerciseName];
+  const media = getCoachMedia(exerciseName);
+
   if (!media) return null;
 
   return (
     <div
       style={{
         marginTop: "10px",
-        padding: "10px 12px",
-        background: `${B}10`,
-        border: `1px solid ${B}30`,
-        borderRadius: "10px",
+        padding: "12px",
+        background: `${B}12`,
+        border: `1px solid ${B}35`,
+        borderRadius: "12px",
         fontSize: "12px",
         color: NAVY
       }}
     >
       <div
         style={{
-          fontWeight: "800",
-          marginBottom: "4px",
-          color: B
+          fontSize: "10px",
+          fontWeight: "900",
+          color: B,
+          letterSpacing: "1.4px",
+          marginBottom: "6px"
         }}
       >
-        🎥 Coach Demo Available
+        PLL COACH DEMO
       </div>
 
-      <div style={{ lineHeight: "1.5" }}>
-        Tap the exercise video after generating your workout to watch proper
-        form and coaching cues.
+      <div
+        style={{
+          fontSize: "13px",
+          fontWeight: "900",
+          color: NAVY,
+          marginBottom: "6px"
+        }}
+      >
+        {media.title}
+      </div>
+
+      <div
+        style={{
+          fontSize: "12px",
+          lineHeight: "1.5",
+          color: SLATE,
+          fontWeight: "700"
+        }}
+      >
+        {media.coachTip}
       </div>
     </div>
   );
@@ -588,9 +693,14 @@ boxShadow: "none"
           <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(280px,1fr))",gap:"16px" }}>
             {day.exercises?.map((ex,i) => (
               <div key={i} style={{ background:BG,borderRadius:"12px",padding:"16px",border:`1px solid ${BORDER}` }}>
-                <ExerciseVideo exerciseName={ex.name}/>
-              <CoachMediaNote exerciseName={ex.name} />
-                <div style={{ marginTop:"12px" }}>
+                <ExerciseVideo exerciseName={ex.name} />
+<CoachMediaNote exerciseName={ex.name} />
+<CoachExerciseReason
+    exerciseName={ex.name}
+    muscle={ex.muscle}
+/>
+
+<div style={{ marginTop:"12px" }}>
                   <div style={{ fontWeight:"800",fontSize:"14px",color:NAVY,marginBottom:"4px",textTransform:"uppercase",letterSpacing:"0.3px" }}>{ex.name}</div>
                   <div style={{ fontSize:"11px",color:B,fontWeight:"700",marginBottom:"10px",letterSpacing:"0.5px" }}>{ex.muscle}</div>
                   <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:"6px",marginBottom:"10px" }}>
