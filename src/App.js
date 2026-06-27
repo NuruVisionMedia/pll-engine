@@ -668,9 +668,19 @@ function TrainResult({ data, name, week, onDownload }) {
         <p style={{ fontSize:"14px",color:SLATE,margin:0,lineHeight:"1.6" }}>{data.subtitle}</p>
       </div>
 
-      {data.coachMessage && <CoachMessage message={data.coachMessage} pillar="TRAIN" name={name}/>}
+      {data.coachMessage && (
+  <CoachMessage
+    message={data.coachMessage}
+    pillar="TRAIN"
+    name={name}
+  />
+)}
 
-      {/* Day tabs */}
+{day.exercises?.[0]?.name && (
+  <CoachMediaNote exerciseName={day.exercises[0].name} />
+)}
+
+{/* Day Tabs */}
       <div style={{ display:"flex",gap:"8px",marginBottom:"24px",flexWrap:"wrap" }}>
         {data.days.map((d,i) => (
           <button key={i} onClick={()=>setActiveDay(i)} style={{
@@ -770,9 +780,19 @@ function FuelResult({ data, name, week, onDownload }) {
         <p style={{ fontSize:"14px",color:SLATE,margin:0,lineHeight:"1.6" }}>{data.subtitle}</p>
       </div>
 
-      {data.coachMessage && <CoachMessage message={data.coachMessage} pillar="FUEL" name={name}/>}
+      {data.coachMessage && (
+  <CoachMessage
+    message={data.coachMessage}
+    pillar="FUEL"
+    name={name}
+  />
+)}
 
-      <SectionLabel text="SUPPLEMENT STACK" color={O}/>
+{data.supplements?.[0]?.name && (
+  <CoachMediaNote exerciseName={data.supplements[0].name} />
+)}
+
+<SectionLabel text="SUPPLEMENT STACK" color={O}/>
       <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(260px,1fr))",gap:"14px",marginBottom:"28px" }}>
         {data.supplements?.map((s,i) => (
           <div key={i} style={{ background:SURFACE,borderRadius:"12px",padding:"18px",border:`1px solid ${BORDER}`,boxShadow:"0 1px 6px rgba(15,28,46,0.05)" }}>
@@ -860,7 +880,17 @@ function FocusResult({ data, name, week, onDownload }) {
         <p style={{ fontSize:"14px",color:SLATE,margin:0,lineHeight:"1.6" }}>{data.subtitle}</p>
       </div>
 
-      {data.coachMessage && <CoachMessage message={data.coachMessage} pillar="FOCUS" name={name}/>}
+      {data.coachMessage && (
+  <CoachMessage
+    message={data.coachMessage}
+    pillar="FOCUS"
+    name={name}
+  />
+)}
+
+{data.dailyPractices?.[0]?.name && (
+  <CoachMediaNote exerciseName={data.dailyPractices[0].name} />
+)}
 
       <SectionLabel text="DAILY PRACTICES" color={P}/>
       <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(260px,1fr))",gap:"14px",marginBottom:"28px" }}>
