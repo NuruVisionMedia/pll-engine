@@ -1265,6 +1265,21 @@ const getCoachVoiceLine = ({ phase, week, pillar, memory }) => {
     return `Week ${week}. You are moving beyond introduction. Strongest pillar: ${strongest}. Weakest pillar: ${weakest}. Execute ${PILLAR} with sharper discipline.`;
   }
 
+  const commanderLines = [
+  `Week ${week}. You've earned consistency. Protect it.`,
+  `Week ${week}. Discipline has become identity.`,
+  `Week ${week}. Champions repeat winning habits.`,
+  `Week ${week}. Your standards are rising.`,
+  `Week ${week}. Stay dangerous. Stay disciplined.`,
+  `Week ${week}. Momentum belongs to those who refuse to quit.`,
+  `Week ${week}. Excellence is now your baseline.`,
+  `Week ${week}. Finish strong. Leaders finish what they start.`
+];
+
+return commanderLines[
+  Math.floor(Math.random() * commanderLines.length)
+];
+  
   return `Week ${week}. Preferred pillar: ${preferred}. Coach Level: ${level}. No hype. No shortcuts. ${PILLAR} is now part of your identity.`;
 };
 
