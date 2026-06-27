@@ -2582,17 +2582,22 @@ const progressLabel =
     window.speechSynthesis.speak(speech);
   }}
   style={{
-    marginTop: "12px",
-    padding: "10px 14px",
-    borderRadius: "10px",
-    border: `1px solid ${coachMode.accent}`,
-    background: `${coachMode.accent}22`,
-    color: coachMode.accent,
-    fontSize: "11px",
-    fontWeight: "900",
-    letterSpacing: "1px",
-    cursor: "pointer"
-  }}
+  marginTop: "12px",
+  padding: "10px 14px",
+  borderRadius: "10px",
+  border: `1px solid ${coachMode.accent}`,
+  background: coachSpeaking ? coachMode.accent : `${coachMode.accent}22`,
+  color: coachSpeaking ? "#FFFFFF" : coachMode.accent,
+  fontSize: "11px",
+  fontWeight: "900",
+  letterSpacing: "1px",
+  cursor: "pointer",
+  transform: coachSpeaking ? "scale(1.04)" : "scale(1)",
+  boxShadow: coachSpeaking
+    ? `0 0 18px ${coachMode.accent}88`
+    : "none",
+  transition: "all 0.25s ease"
+}}
 >
   HEAR COACH
 </button>
