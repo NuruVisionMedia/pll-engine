@@ -610,7 +610,7 @@ function CoachMediaNote({ exerciseName }) {
       style={{
         marginTop: "10px",
         padding: "12px",
-        background: `${B}12`,
+        background: `${B}10`,
         border: `1px solid ${B}35`,
         borderRadius: "12px",
         fontSize: "12px",
@@ -622,11 +622,11 @@ function CoachMediaNote({ exerciseName }) {
           fontSize: "10px",
           fontWeight: "900",
           color: B,
-          letterSpacing: "1.4px",
+          letterSpacing: "1px",
           marginBottom: "6px"
         }}
       >
-        PLL COACH DEMO
+        PLL COACH MEDIA
       </div>
 
       <div
