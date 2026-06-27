@@ -215,7 +215,7 @@ export const COACH_MEDIA = {
     videoId: "",
     pllVideo: "",
     coachTip:
-      "Keep your body in a straight line. Lower under control and press through the palms."
+      "Keep your body in a straight line. Lower under control and press through the palms.",
   },
 
   squat: {
@@ -224,7 +224,7 @@ export const COACH_MEDIA = {
     videoId: "",
     pllVideo: "",
     coachTip:
-      "Sit back first, keep your chest proud, and drive through the mid-foot."
+      "Sit back first, keep your chest proud, and drive through the mid-foot.",
   },
 
   hipthrust: {
@@ -233,7 +233,7 @@ export const COACH_MEDIA = {
     videoId: "",
     pllVideo: "",
     coachTip:
-      "Drive through the heels and squeeze the glutes hard at the top without overextending the lower back."
+      "Drive through the heels and squeeze the glutes hard at the top without overextending the lower back.",
   },
 
   row: {
@@ -242,6 +242,42 @@ export const COACH_MEDIA = {
     videoId: "",
     pllVideo: "",
     coachTip:
-      "Lead with the elbows and squeeze the shoulder blades together."
-  }
+      "Lead with the elbows and squeeze the shoulder blades together.",
+  },
+
+  benchpress: {
+    title: "Bench Press Demo",
+    type: "youtube",
+    videoId: "",
+    pllVideo: "",
+    coachTip:
+      "Plant your feet, control the lowering phase, and press with the chest leading the movement.",
+  },
+
+  deadlift: {
+    title: "Deadlift Demo",
+    type: "youtube",
+    videoId: "",
+    pllVideo: "",
+    coachTip:
+      "Brace first, push the floor away, and keep the bar close to your body.",
+  },
+
+  walkinglunge: {
+    title: "Walking Lunge Demo",
+    type: "youtube",
+    videoId: "",
+    pllVideo: "",
+    coachTip:
+      "Step long enough to stay balanced, lower with control, and drive through the front heel.",
+  },
+
+  plank: {
+    title: "Plank Demo",
+    type: "youtube",
+    videoId: "",
+    pllVideo: "",
+    coachTip:
+      "Keep ribs down, glutes tight, and hold a straight line from shoulders to heels.",
+  },
 };
