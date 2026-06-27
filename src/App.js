@@ -555,6 +555,7 @@ boxShadow: "none"
             {day.exercises?.map((ex,i) => (
               <div key={i} style={{ background:BG,borderRadius:"12px",padding:"16px",border:`1px solid ${BORDER}` }}>
                 <ExerciseVideo exerciseName={ex.name}/>
+              <CoachMediaNote exerciseName={ex.name} />
                 <div style={{ marginTop:"12px" }}>
                   <div style={{ fontWeight:"800",fontSize:"14px",color:NAVY,marginBottom:"4px",textTransform:"uppercase",letterSpacing:"0.3px" }}>{ex.name}</div>
                   <div style={{ fontSize:"11px",color:B,fontWeight:"700",marginBottom:"10px",letterSpacing:"0.5px" }}>{ex.muscle}</div>
