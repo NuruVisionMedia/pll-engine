@@ -1739,6 +1739,8 @@ useState(getCoachMemory());
 // SPRINT 5.1 — COACH ANIMATION STATE
 const [coachBlink, setCoachBlink] = useState(false);
 
+  const [coachSpeaking, setCoachSpeaking] = useState(false);
+
   const upd = (pillar, update) => setPillarStates(prev=>({...prev,[pillar]:{...prev[pillar],...update}}));
   const st = pillarStates[activePillar];
   const week = profile?.week || 1;
@@ -2563,16 +2565,21 @@ const progressLabel =
     {coachMode.badge}
   </div>
 
-    <button
-  onClick={() => {
-    const line = coachMessage || `${name}, your coach is here. Stay locked in.`;
-    const speech = new SpeechSynthesisUtterance(line);
-    speech.rate = 0.92;
-    speech.pitch = 0.85;
-    speech.volume = 1;
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(speech);
-  }}
+    onClick={() => {
+  const line = coachMessage || `${name}, your coach is here. Stay locked in.`;
+  const speech = new SpeechSynthesisUtterance(line);
+
+  speech.rate = 0.92;
+  speech.pitch = 0.85;
+  speech.volume = 1;
+
+  speech.onstart = () => setCoachSpeaking(true);
+  speech.onend = () => setCoachSpeaking(false);
+  speech.onerror = () => setCoachSpeaking(false);
+
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(speech);
+}}
   style={{
     marginTop: "12px",
     padding: "10px 14px",
@@ -2588,6 +2595,18 @@ const progressLabel =
 >
   HEAR COACH
 </button>
+
+    {coachSpeaking && (
+  <div style={{
+    marginTop: "6px",
+    fontSize: "10px",
+    fontWeight: "900",
+    letterSpacing: "1px",
+    color: coachMode.accent
+  }}>
+    COACH SPEAKING...
+  </div>
+)}
 
   <div style={{
     fontSize: "13px",
