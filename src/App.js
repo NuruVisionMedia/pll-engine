@@ -1797,6 +1797,18 @@ const coachMessage = getCoachVoiceLine({
   memory: coachMemory
 });
 
+  const readiness = getAthleteReadiness({
+  profile,
+  memory: coachMemory,
+  week
+});
+
+readiness.color =
+  readiness.status === "PRIMED" ? G :
+  readiness.status === "READY" ? B :
+  readiness.status === "CONTROLLED" ? O :
+  P;
+
   const progressHistory = loadProgressHistory();
 
 const currentStreak =
@@ -2700,6 +2712,25 @@ transition: "all .18s ease"
   letterSpacing:"1px"
 }}>
   PRIMARY FOCUS: {coachMemory.preferredPillar}
+</div>
+
+<div style={{
+  marginTop: "8px",
+  fontSize: "10px",
+  color: readiness.color,
+  letterSpacing: "1px",
+  fontWeight: "900"
+}}>
+  READINESS: {readiness.status} · {readiness.score}%
+</div>
+
+<div style={{
+  marginTop: "4px",
+  fontSize: "12px",
+  color: SLATE,
+  lineHeight: "1.5"
+}}>
+  {readiness.coachLine}
 </div>
 
   {/* Sprint 2.3 Coach Momentum Card */}
