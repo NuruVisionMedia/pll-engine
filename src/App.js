@@ -1790,6 +1790,13 @@ const [coachBlink, setCoachBlink] = useState(false);
 
 const coachMode = getCoachMode(phase);
 
+  const coachMessage = getCoachVoiceLine({
+  phase,
+  week,
+  pillar: activePillar,
+  memory: coachMemory
+});
+
   const progressHistory = loadProgressHistory();
 
 const currentStreak =
@@ -1817,18 +1824,6 @@ const momentumCoachLine =
     recoveryStatus,
     name
   });
-
-  const coachMessage = getCoachVoiceLine({
-  phase,
-  week,
-  pillar: activePillar,
-  memory: coachMemory,
-  readiness,
-  momentumScore,
-  momentumStatus,
-  recoveryStatus,
-  currentStreak
-});
 
   // SPRINT 5.1 — COACH BLINK ENGINE
 useEffect(() => {
