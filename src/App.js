@@ -2702,6 +2702,43 @@ transition: "all .18s ease"
   PRIMARY FOCUS: {coachMemory.preferredPillar}
 </div>
 
+{/* Sprint 6.2 Athlete Readiness */}
+
+<div
+  style={{
+    marginTop: "12px",
+    padding: "12px 16px",
+    borderRadius: "14px",
+    border: `1px solid ${BORDER}`,
+    background: SURFACE,
+    boxShadow: "0 0 14px rgba(0,0,0,.12)"
+  }}
+>
+
+  <div
+    style={{
+      fontSize: "10px",
+      fontWeight: "900",
+      letterSpacing: "1.4px",
+      color: coachMode.accent,
+      marginBottom: "6px"
+    }}
+  >
+    ATHLETE READINESS
+  </div>
+
+  <div
+    style={{
+      fontSize: "18px",
+      fontWeight: "900",
+      color: readiness.color
+    }}
+  >
+    {readiness.status}
+  </div>
+
+</div>
+
   {/* Sprint 2.3 Coach Momentum Card */}
 <div style={{
   marginTop: "12px",
