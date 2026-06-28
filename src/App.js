@@ -2764,7 +2764,8 @@ transition: "all .18s ease"
   }}
 >
   {readiness.coachLine}
-
+</div>
+  
 <div
   style={{
     marginTop: "8px",
