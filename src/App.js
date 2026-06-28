@@ -2728,6 +2728,13 @@ transition: "all .18s ease"
   </div>
 
   <div
+  style={{
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center"
+  }}
+>
+  <div
     style={{
       fontSize: "18px",
       fontWeight: "900",
@@ -2736,6 +2743,17 @@ transition: "all .18s ease"
   >
     {readiness.status}
   </div>
+
+  <div
+    style={{
+      fontSize: "16px",
+      fontWeight: "900",
+      color: readiness.color
+    }}
+  >
+    {readiness.score}%
+  </div>
+</div>
 
 </div>
 
