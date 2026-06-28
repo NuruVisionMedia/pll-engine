@@ -1797,6 +1797,12 @@ const coachMode = getCoachMode(phase);
   memory: coachMemory
 });
 
+  const readiness = getAthleteReadiness({
+  profile,
+  memory: coachMemory,
+  week
+});
+
   const progressHistory = loadProgressHistory();
 
 const currentStreak =
