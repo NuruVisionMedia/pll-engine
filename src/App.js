@@ -1797,11 +1797,12 @@ const coachMode = getCoachMode(phase);
   memory: coachMemory
 });
 
-  const readiness = getAthleteReadiness({
-  profile,
-  memory: coachMemory,
-  week
-});
+  const readiness = {
+  score: 70,
+  status: "READY",
+  coachLine: "You are ready. Execute with discipline.",
+  color: B
+};
 
   const progressHistory = loadProgressHistory();
 
