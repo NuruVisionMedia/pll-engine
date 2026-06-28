@@ -1803,7 +1803,7 @@ const coachMessage = getCoachVoiceLine({
   week
 });
 
-readiness.color =
+const readinessColor =
   readiness.status === "PRIMED" ? G :
   readiness.status === "READY" ? B :
   readiness.status === "CONTROLLED" ? O :
@@ -2717,7 +2717,7 @@ transition: "all .18s ease"
 <div style={{
   marginTop: "8px",
   fontSize: "10px",
-  color: readiness.color,
+  color: readinessColor,
   letterSpacing: "1px",
   fontWeight: "900"
 }}>
