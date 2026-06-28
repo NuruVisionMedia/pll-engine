@@ -2755,6 +2755,17 @@ transition: "all .18s ease"
   </div>
 </div>
 
+    <div
+  style={{
+    marginTop: "6px",
+    fontSize: "12px",
+    color: SLATE,
+    lineHeight: "1.5"
+  }}
+>
+  {readiness.coachLine}
+</div>
+
 </div>
 
   {/* Sprint 2.3 Coach Momentum Card */}
