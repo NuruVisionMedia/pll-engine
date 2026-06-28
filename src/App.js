@@ -2764,6 +2764,18 @@ transition: "all .18s ease"
   }}
 >
   {readiness.coachLine}
+
+<div
+  style={{
+    marginTop: "8px",
+    paddingTop: "8px",
+    borderTop: `1px solid ${BORDER}`,
+    fontSize: "11px",
+    color: MUTED,
+    lineHeight: "1.5"
+  }}
+>
+  RECOVERY: {recoveryStatus} • STREAK: {currentStreak} DAY{currentStreak === 1 ? "" : "S"}
 </div>
 
 </div>
