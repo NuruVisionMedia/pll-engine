@@ -2871,6 +2871,19 @@ transition: "all .18s ease"
   Coach Readiness: {readiness.status} · {readiness.score}%
 </div>
 
+        <div style={{
+  fontSize: "11px",
+  color: MUTED,
+  marginTop: "4px",
+  lineHeight: "1.5"
+}}>
+  Performance Trend: {momentumScore >= 80
+    ? "Rising"
+    : momentumScore >= 60
+      ? "Stable"
+      : "Needs Attention"}
+</div>
+
   <div style={{
     fontSize: "11px",
     color: SLATE,
