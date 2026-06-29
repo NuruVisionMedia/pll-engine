@@ -2891,6 +2891,20 @@ transition: "all .18s ease"
   }}>
     Recovery: {recoveryStatus} · Streak: {currentStreak} Day{currentStreak === 1 ? "" : "s"}
   </div>
+
+<div style={{
+  fontSize: "11px",
+  color: coachMode.accent,
+  marginTop: "6px",
+  lineHeight: "1.5",
+  fontWeight: "800"
+}}>
+  Coach Recommendation: {readiness.status === "PRIMED"
+    ? "Push with control."
+    : readiness.status === "READY"
+      ? "Execute the plan."
+      : "Protect recovery first."}
+</div>
 </div>
     </div>
     
