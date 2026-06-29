@@ -3721,6 +3721,7 @@ transition: "all .18s ease"
           </div>
         )}
       </div>
+)}
 
       {/* - FOOTER - */}
       <div style={{ borderTop:`1px solid ${BORDER}`,padding:"16px 24px",textAlign:"center",background:SURFACE }}>
