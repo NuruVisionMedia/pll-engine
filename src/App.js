@@ -2958,39 +2958,8 @@ transition: "all .18s ease"
       : "Protect recovery first."}
 </div>
 
-<div style={{
-  marginTop: "10px",
-  height: "6px",
-  width: "100%",
-  borderRadius: "999px",
-  background: BORDER,
-  overflow: "hidden"
-}}>
-  <div style={{
-    height: "100%",
-    width: `${momentumScore}%`,
-    borderRadius: "999px",
-    background: coachMode.accent,
-    transition: "width 0.4s ease"
-  }} />
-</div>
 
-  <div style={{
-  marginTop: "6px",
-  fontSize: "10px",
-  color: MUTED,
-  letterSpacing: "1px",
-  fontWeight: "800"
-}}>
-  PERFORMANCE LOAD: {momentumScore >= 80
-    ? "HIGH"
-    : momentumScore >= 60
-      ? "MODERATE"
-      : "LOW"}
-</div>
-
-</div>
-    
+      
   <div style={{
   marginTop:"4px",
   fontSize:"10px",
