@@ -2905,6 +2905,23 @@ transition: "all .18s ease"
       ? "Execute the plan."
       : "Protect recovery first."}
 </div>
+
+<div style={{
+  marginTop: "10px",
+  height: "6px",
+  width: "100%",
+  borderRadius: "999px",
+  background: BORDER,
+  overflow: "hidden"
+}}>
+  <div style={{
+    height: "100%",
+    width: `${momentumScore}%`,
+    borderRadius: "999px",
+    background: coachMode.accent,
+    transition: "width 0.4s ease"
+  }} />
+</div>
 </div>
     </div>
     
