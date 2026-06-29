@@ -2922,6 +2922,20 @@ transition: "all .18s ease"
     transition: "width 0.4s ease"
   }} />
 </div>
+
+  <div style={{
+  marginTop: "6px",
+  fontSize: "10px",
+  color: MUTED,
+  letterSpacing: "1px",
+  fontWeight: "800"
+}}>
+  PERFORMANCE LOAD: {momentumScore >= 80
+    ? "HIGH"
+    : momentumScore >= 60
+      ? "MODERATE"
+      : "LOW"}
+</div>
 </div>
     </div>
     
