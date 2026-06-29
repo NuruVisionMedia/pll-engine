@@ -2989,37 +2989,6 @@ transition: "all .18s ease"
       : "LOW"}
 </div>
 
-  <div style={{
-  marginTop: "10px",
-  paddingTop: "10px",
-  borderTop: `1px solid ${BORDER}`
-}}>
-  <div style={{
-    fontSize: "10px",
-    color: coachMode.accent,
-    letterSpacing: "1px",
-    fontWeight: "900",
-    marginBottom: "4px"
-  }}>
-    ADAPTIVE COACH RECOMMENDATION
-  </div>
-
-  <div style={{
-    fontSize: "12px",
-    color: NAVY,
-    fontWeight: "900",
-    marginBottom: "4px"
-  }}>
-    {adaptiveRecommendation.title}
-  </div>
-
-  <div style={{
-    fontSize: "11px",
-    color: SLATE,
-    lineHeight: "1.5"
-  }}>
-    {adaptiveRecommendation.message}
-  </div>
 </div>
     
   <div style={{
