@@ -2862,6 +2862,15 @@ transition: "all .18s ease"
     {momentumStatus} · {momentumScore}%
   </div>
 
+    <div style={{
+  fontSize: "11px",
+  color: SLATE,
+  lineHeight: "1.5",
+  marginTop: "4px"
+}}>
+  Coach Readiness: {readiness.status} · {readiness.score}%
+</div>
+
   <div style={{
     fontSize: "11px",
     color: SLATE,
