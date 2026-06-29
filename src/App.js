@@ -2833,6 +2833,42 @@ transition: "all .18s ease"
   }}>
     {momentumCoachLine}
   </div>
+
+    {/* Sprint 6.4 Coach Performance Dashboard */}
+<div style={{
+  marginTop: "12px",
+  padding: "14px 16px",
+  borderRadius: "14px",
+  border: `1px solid ${BORDER}`,
+  background: SURFACE,
+  boxShadow: "0 0 14px rgba(0,0,0,0.12)"
+}}>
+  <div style={{
+    fontSize: "10px",
+    fontWeight: "900",
+    letterSpacing: "1.4px",
+    color: coachMode.accent,
+    marginBottom: "6px"
+  }}>
+    COACH PERFORMANCE DASHBOARD
+  </div>
+
+  <div style={{
+    fontSize: "13px",
+    fontWeight: "900",
+    color: NAVY,
+    marginBottom: "6px"
+  }}>
+    {momentumStatus} · {momentumScore}%
+  </div>
+
+  <div style={{
+    fontSize: "11px",
+    color: SLATE,
+    lineHeight: "1.5"
+  }}>
+    Recovery: {recoveryStatus} · Streak: {currentStreak} Day{currentStreak === 1 ? "" : "s"}
+  </div>
 </div>
     
   <div style={{
