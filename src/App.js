@@ -1832,6 +1832,58 @@ const momentumCoachLine =
     name
   });
 
+  // Sprint 6.5 Adaptive Recommendation Engine
+
+  const adaptiveRecommendation = (() => {
+
+    if (readiness.score < 50) {
+      return {
+        title: "Recovery Priority",
+        message:
+          "Your readiness is low today. Reduce intensity, prioritize sleep, hydration, and mobility before your next hard session."
+      };
+    }
+
+    if (momentumScore >= 90) {
+      return {
+        title: "Push Performance",
+        message:
+          "Momentum is exceptional. Today is a great opportunity to increase training intensity or volume."
+      };
+    }
+
+    if (currentStreak >= 7) {
+      return {
+        title: "Protect Momentum",
+        message:
+          "Excellent consistency. Stay disciplined and avoid unnecessary missed training days."
+      };
+    }
+
+    if (coachMemory.weakestPillar === "FUEL") {
+      return {
+        title: "Nutrition Focus",
+        message:
+          "Nutrition remains your limiting factor. Improve recovery meals and hydration today."
+      };
+    }
+
+    if (coachMemory.weakestPillar === "FOCUS") {
+      return {
+        title: "Mental Performance",
+        message:
+          "Prioritize recovery, breathing work, and quality sleep to sharpen focus."
+      };
+    }
+
+    return {
+      title: "Balanced Progress",
+      message:
+        "Continue executing your current plan with consistency. Small improvements create long-term results."
+    };
+
+  })();
+
   // SPRINT 5.1 — COACH BLINK ENGINE
 useEffect(() => {
   const blinkTimer = setInterval(() => {
