@@ -3697,30 +3697,33 @@ transition: "all .18s ease"
           onDismiss={(p)=>setBridgeDismissed(prev=>({...prev,[p]:true}))}
         />
 
-        {/* Error state */}
-        {st.phase==="error" && (
-          <div style={{ textAlign:"center",padding:"60px 20px" }}>
-            <div style={{ fontSize:"36px",marginBottom:"16px" }}>âš </div>
-            <div style={{ fontWeight:"800",fontSize:"20px",color:NAVY,marginBottom:"8px" }}>Generation Failed</div>
-            <div style={{ fontSize:"14px",color:SLATE,marginBottom:"24px" }}>Something went wrong. Let's try again.</div>
-            <button
-  onClick={() => upd(activePillar, { phase: "intake" })}
-  style={{
-    padding: "12px 28px",
-    borderRadius: "10px",
-    border: "none",
-    background: `${PILLARS[activePillar].color}22`,
-    color: PILLARS[activePillar].color,
-    fontWeight: "800",
-    fontSize: "14px",
-    cursor: "pointer"
-  }}
->
-  RETRY
-</button>
-          </div>
-              </div>
-    )}
+       {st.phase === "error" && (
+  <div style={{ textAlign: "center", padding: "60px 20px" }}>
+    <div style={{ fontSize: "36px", marginBottom: "16px" }}>⚠️</div>
+    <div style={{ fontWeight: "800", fontSize: "20px", color: NAVY, marginBottom: "8px" }}>
+      Generation Failed
+    </div>
+    <div style={{ fontSize: "14px", color: SLATE, marginBottom: "24px" }}>
+      Something went wrong. Let’s try again.
+    </div>
+
+    <button
+      onClick={() => upd(activePillar, { phase: "intake" })}
+      style={{
+        padding: "12px 28px",
+        borderRadius: "10px",
+        border: "none",
+        background: `${PILLARS[activePillar].color}22`,
+        color: PILLARS[activePillar].color,
+        fontWeight: "800",
+        fontSize: "14px",
+        cursor: "pointer"
+      }}
+    >
+      RETRY
+    </button>
+  </div>
+)}
 
       {/* - FOOTER - */}
       <div style={{ borderTop:`1px solid ${BORDER}`,padding:"16px 24px",textAlign:"center",background:SURFACE }}>
