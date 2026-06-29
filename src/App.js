@@ -2870,6 +2870,7 @@ transition: "all .18s ease"
     Recovery: {recoveryStatus} · Streak: {currentStreak} Day{currentStreak === 1 ? "" : "s"}
   </div>
 </div>
+    </div>
     
   <div style={{
   marginTop:"4px",
