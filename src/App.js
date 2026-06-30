@@ -470,42 +470,33 @@ function StoreBridge({ pillar, pillarStates, profile, week, dismissed, onDismiss
   );
 }
 
-// - COACH AVATAR — Realistic portrait based on actual likeness -
-// Deep brown skin, salt-and-pepper beard, shaved head, massive build,
-// shoulder tattoo, intense upward-gazing expression
+// - COACH AVATAR - realistic male/female coach presence
 function CoachAvatar({
   size = 80,
-  pillar = "TRAIN",
-  showRing = true,
   gender = "Male",
-  mood = "mentor"
+  mood = "neutral",
+  showRing = true
 }) {
-  const color = pillar === "TRAIN" ? B : pillar === "FUEL" ? O : P;
-  const [imgError, setImgError] = useState(false);
+  const color = gender === "Female" ? P : B;
 
-  if (imgError) {
-    return (
-      <div
-        style={{
-          width: size,
-          height: size,
-          borderRadius: "50%",
-          background: NAVY,
-          color: "#fff",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontWeight: 900,
-          fontSize: size * 0.22,
-          border: showRing ? `3px solid ${color}` : `2px solid ${BORDER}`,
-          boxSizing: "border-box",
-          flexShrink: 0
-        }}
-      >
-        PLL
-      </div>
-    );
-  }
+  const coachImage =
+    gender === "Female"
+      ? `${process.env.PUBLIC_URL}/coach-female.png`
+      : `${process.env.PUBLIC_URL}/coach-male.png`;
+
+  const fallbackImage =
+    gender === "Female"
+      ? `${process.env.PUBLIC_URL}/coach-female.jpg`
+      : `${process.env.PUBLIC_URL}/coach-male.jpg`;
+
+  const position =
+    mood === "challenge"
+      ? "50% 20%"
+      : mood === "victory"
+      ? "50% 15%"
+      : mood === "thinking"
+      ? "50% 28%"
+      : "50% 35%";
 
   return (
     <div
@@ -515,41 +506,25 @@ function CoachAvatar({
         borderRadius: "50%",
         overflow: "hidden",
         border: showRing ? `3px solid ${color}` : `2px solid ${BORDER}`,
-        boxShadow: showRing ? `0 0 0 4px ${color}22` : "none",
+        boxShadow: showRing ? `0 0 24px ${color}55` : "none",
         background: SURFACE2,
         flexShrink: 0
       }}
     >
       <img
-  src={
-    gender === "Female"
-      ? `${process.env.PUBLIC_URL}/coach-female.png`
-      : `${process.env.PUBLIC_URL}/coach-male.png`
-  }
-  alt="PLL Coach"
-  onError={(e) => {
-    e.currentTarget.src =
-      gender === "Female"
-        ? `${process.env.PUBLIC_URL}/coach-female.jpg`
-        : `${process.env.PUBLIC_URL}/coach-male.jpg`;
-  }}
-  style={{
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-    objectPosition:
-      mood === "challenge"
-        ? "50% 20%"
-        : mood === "victory"
-        ? "50% 15%"
-        : mood === "thinking"
-        ? "50% 28%"
-        : "50% 35%",
-    transition: "all .6s ease",
-    display: "block"
-  }}
-/>
-        
+        src={coachImage}
+        alt="PLL Coach"
+        onError={(e) => {
+          e.currentTarget.src = fallbackImage;
+        }}
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          objectPosition: position,
+          display: "block"
+        }}
+      />
     </div>
   );
 }
