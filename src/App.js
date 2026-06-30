@@ -2905,6 +2905,38 @@ transition: "all .18s ease"
     COACH PERFORMANCE DASHBOARD
   </div>
 
+      <div
+  style={{
+    display: "flex",
+    alignItems: "center",
+    gap: "8px",
+    marginBottom: "10px"
+  }}
+>
+  <div
+    style={{
+      width: "10px",
+      height: "10px",
+      borderRadius: "50%",
+      background: coachMode.accent,
+      boxShadow: `0 0 12px ${coachMode.accent}`,
+      opacity: coachSpeaking ? 1 : 0.65,
+      transform: coachSpeaking ? "scale(1.35)" : "scale(1)",
+      transition: "all 0.25s ease"
+    }}
+  />
+
+  <div
+    style={{
+      fontSize: "11px",
+      color: SLATE,
+      fontWeight: "700"
+    }}
+  >
+    {coachSpeaking ? "Coach Speaking" : "Coach Active"}
+  </div>
+</div>
+
   <div style={{
     fontSize: "13px",
     fontWeight: "900",
