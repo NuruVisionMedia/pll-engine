@@ -3730,6 +3730,7 @@ transition: "all .18s ease"
         />
 
        {st.phase === "error" && (
+  <>
   <div style={{ textAlign: "center", padding: "60px 20px" }}>
     <div style={{ fontSize: "36px", marginBottom: "16px" }}>⚠️</div>
     <div style={{ fontWeight: "800", fontSize: "20px", color: NAVY, marginBottom: "8px" }}>
@@ -3755,6 +3756,7 @@ transition: "all .18s ease"
       RETRY
     </button>
   </div>
+</>
 )}
 
       {/* - FOOTER - */}
