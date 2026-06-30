@@ -473,7 +473,13 @@ function StoreBridge({ pillar, pillarStates, profile, week, dismissed, onDismiss
 // - COACH AVATAR — Realistic portrait based on actual likeness -
 // Deep brown skin, salt-and-pepper beard, shaved head, massive build,
 // shoulder tattoo, intense upward-gazing expression
-function CoachAvatar({ size = 80, pillar = "TRAIN", showRing = true }) {
+function CoachAvatar({
+  size = 80,
+  pillar = "TRAIN",
+  showRing = true,
+  gender = "Male",
+  mood = "mentor"
+}) {
   const color = pillar === "TRAIN" ? B : pillar === "FUEL" ? O : P;
   const [imgError, setImgError] = useState(false);
 
@@ -515,16 +521,31 @@ function CoachAvatar({ size = 80, pillar = "TRAIN", showRing = true }) {
       }}
     >
       <img
-  src={`${process.env.PUBLIC_URL}/coach-full.jpg`}
+  src={
+    gender === "Female"
+      ? `${process.env.PUBLIC_URL}/coach-female.png`
+      : `${process.env.PUBLIC_URL}/coach-male.png`
+  }
   alt="PLL Coach"
   onError={(e) => {
-    e.currentTarget.src = `${process.env.PUBLIC_URL}/coach.jpg`;
+    e.currentTarget.src =
+      gender === "Female"
+        ? `${process.env.PUBLIC_URL}/coach-female.jpg`
+        : `${process.env.PUBLIC_URL}/coach-male.jpg`;
   }}
   style={{
     width: "100%",
     height: "100%",
     objectFit: "cover",
-    objectPosition: "50% 35%",
+    objectPosition:
+      mood === "challenge"
+        ? "50% 20%"
+        : mood === "victory"
+        ? "50% 15%"
+        : mood === "thinking"
+        ? "50% 28%"
+        : "50% 35%",
+    transition: "all .6s ease",
     display: "block"
   }}
 />
