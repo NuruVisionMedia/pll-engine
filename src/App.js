@@ -3756,7 +3756,6 @@ transition: "all .18s ease"
       RETRY
     </button>
   </div>
-</>
 )}
 
       {/* - FOOTER - */}
