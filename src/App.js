@@ -470,33 +470,36 @@ function StoreBridge({ pillar, pillarStates, profile, week, dismissed, onDismiss
   );
 }
 
-// - COACH AVATAR - realistic male/female coach presence
-function CoachAvatar({
-  size = 80,
-  gender = "Male",
-  mood = "neutral",
-  showRing = true
-}) {
-  const color = gender === "Female" ? P : B;
+// - COACH AVATAR — Realistic portrait based on actual likeness -
+// Deep brown skin, salt-and-pepper beard, shaved head, massive build,
+// shoulder tattoo, intense upward-gazing expression
+function CoachAvatar({ size = 80, pillar = "TRAIN", showRing = true }) {
+  const color = pillar === "TRAIN" ? B : pillar === "FUEL" ? O : P;
+  const [imgError, setImgError] = useState(false);
 
-  const coachImage =
-    gender === "Female"
-      ? `${process.env.PUBLIC_URL}/coach-female.png`
-      : `${process.env.PUBLIC_URL}/coach-male.png`;
-
-  const fallbackImage =
-    gender === "Female"
-      ? `${process.env.PUBLIC_URL}/coach-female.jpg`
-      : `${process.env.PUBLIC_URL}/coach-male.jpg`;
-
-  const position =
-    mood === "challenge"
-      ? "50% 20%"
-      : mood === "victory"
-      ? "50% 15%"
-      : mood === "thinking"
-      ? "50% 28%"
-      : "50% 35%";
+  if (imgError) {
+    return (
+      <div
+        style={{
+          width: size,
+          height: size,
+          borderRadius: "50%",
+          background: NAVY,
+          color: "#fff",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontWeight: 900,
+          fontSize: size * 0.22,
+          border: showRing ? `3px solid ${color}` : `2px solid ${BORDER}`,
+          boxSizing: "border-box",
+          flexShrink: 0
+        }}
+      >
+        PLL
+      </div>
+    );
+  }
 
   return (
     <div
@@ -506,25 +509,26 @@ function CoachAvatar({
         borderRadius: "50%",
         overflow: "hidden",
         border: showRing ? `3px solid ${color}` : `2px solid ${BORDER}`,
-        boxShadow: showRing ? `0 0 24px ${color}55` : "none",
+        boxShadow: showRing ? `0 0 0 4px ${color}22` : "none",
         background: SURFACE2,
         flexShrink: 0
       }}
     >
       <img
-        src={coachImage}
-        alt="PLL Coach"
-        onError={(e) => {
-          e.currentTarget.src = fallbackImage;
-        }}
-        style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          objectPosition: position,
-          display: "block"
-        }}
-      />
+  src={`${process.env.PUBLIC_URL}/coach-full.jpg`}
+  alt="PLL Coach"
+  onError={(e) => {
+    e.currentTarget.src = `${process.env.PUBLIC_URL}/coach.jpg`;
+  }}
+  style={{
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    objectPosition: "50% 35%",
+    display: "block"
+  }}
+/>
+        
     </div>
   );
 }
@@ -575,11 +579,11 @@ function CoachMessage({ message, pillar, name }) {
       boxShadow:"0 1px 6px rgba(15,28,46,0.05)"
     }}>
       <div style={{ flexShrink:0 }}>
-      <CoachAvatar
-  size={72}
-  gender="Male"
-  mood="neutral"
-  showRing={true}
+       <CoachAvatar
+  phase={1}
+  size={56}
+  title="Coach"
+  subtitle="Foundation Mentor"
 />
       </div>
       <div>
@@ -1014,12 +1018,7 @@ function Loading({ pillar, name, week }) {
     }}
 >
 <div style={{ textAlign:"center" }}>
-      <CoachAvatar
-  size={120}
-  gender="Male"
-  mood="thinking"
-  showRing={true}
-/>
+      <CoachAvatar size={80} pillar={pillar}/>
       <div style={{ marginTop:"24px",marginBottom:"8px" }}>
         <span style={{ fontSize:"13px",fontWeight:"800",color:p.color,letterSpacing:"2px" }}>GENERATING{dots}</span>
       </div>
@@ -1085,12 +1084,7 @@ function IntakeForm({ pillar, profile, onGenerate }) {
         marginBottom:"28px",display:"flex",gap:"16px",alignItems:"center",
         border:`1px solid ${BORDER}`,boxShadow:"0 2px 10px rgba(15,28,46,0.05)"
       }}>
-        <CoachAvatar
-  size={96}
-  gender="Male"
-  mood="neutral"
-  showRing={true}
-/>
+        <CoachAvatar size={64} pillar={pillar}/>
         <div>
           <div style={{ fontSize:"10px",fontWeight:"800",color:p.color,letterSpacing:"2px",marginBottom:"6px" }}>YOUR COACH</div>
           <div style={{ fontSize:"15px",fontWeight:"700",color:NAVY,lineHeight:"1.5" }}>
@@ -2911,38 +2905,6 @@ transition: "all .18s ease"
     COACH PERFORMANCE DASHBOARD
   </div>
 
-      <div
-  style={{
-    display: "flex",
-    alignItems: "center",
-    gap: "8px",
-    marginBottom: "10px"
-  }}
->
-  <div
-    style={{
-      width: "10px",
-      height: "10px",
-      borderRadius: "50%",
-      background: coachMode.accent,
-      boxShadow: `0 0 12px ${coachMode.accent}`,
-      opacity: coachSpeaking ? 1 : 0.65,
-      transform: coachSpeaking ? "scale(1.35)" : "scale(1)",
-      transition: "all 0.25s ease"
-    }}
-  />
-
-  <div
-    style={{
-      fontSize: "11px",
-      color: SLATE,
-      fontWeight: "700"
-    }}
-  >
-    {coachSpeaking ? "Coach Speaking" : "Coach Active"}
-  </div>
-</div>
-
   <div style={{
     fontSize: "13px",
     fontWeight: "900",
@@ -2996,8 +2958,39 @@ transition: "all .18s ease"
       : "Protect recovery first."}
 </div>
 
+<div style={{
+  marginTop: "10px",
+  height: "6px",
+  width: "100%",
+  borderRadius: "999px",
+  background: BORDER,
+  overflow: "hidden"
+}}>
+  <div style={{
+    height: "100%",
+    width: `${momentumScore}%`,
+    borderRadius: "999px",
+    background: coachMode.accent,
+    transition: "width 0.4s ease"
+  }} />
+</div>
 
-      
+  <div style={{
+  marginTop: "6px",
+  fontSize: "10px",
+  color: MUTED,
+  letterSpacing: "1px",
+  fontWeight: "800"
+}}>
+  PERFORMANCE LOAD: {momentumScore >= 80
+    ? "HIGH"
+    : momentumScore >= 60
+      ? "MODERATE"
+      : "LOW"}
+</div>
+</div>
+    </div>
+    
   <div style={{
   marginTop:"4px",
   fontSize:"10px",
@@ -3735,34 +3728,30 @@ transition: "all .18s ease"
           onDismiss={(p)=>setBridgeDismissed(prev=>({...prev,[p]:true}))}
         />
 
-       {st.phase === "error" && (
-  <>
-  <div style={{ textAlign: "center", padding: "60px 20px" }}>
-    <div style={{ fontSize: "36px", marginBottom: "16px" }}>⚠️</div>
-    <div style={{ fontWeight: "800", fontSize: "20px", color: NAVY, marginBottom: "8px" }}>
-      Generation Failed
-    </div>
-    <div style={{ fontSize: "14px", color: SLATE, marginBottom: "24px" }}>
-      Something went wrong. Let’s try again.
-    </div>
-
-    <button
-      onClick={() => upd(activePillar, { phase: "intake" })}
-      style={{
-        padding: "12px 28px",
-        borderRadius: "10px",
-        border: "none",
-        background: `${PILLARS[activePillar].color}22`,
-        color: PILLARS[activePillar].color,
-        fontWeight: "800",
-        fontSize: "14px",
-        cursor: "pointer"
-      }}
-    >
-      RETRY
-    </button>
-  </div>
-)}
+        {/* Error state */}
+        {st.phase==="error" && (
+          <div style={{ textAlign:"center",padding:"60px 20px" }}>
+            <div style={{ fontSize:"36px",marginBottom:"16px" }}>âš </div>
+            <div style={{ fontWeight:"800",fontSize:"20px",color:NAVY,marginBottom:"8px" }}>Generation Failed</div>
+            <div style={{ fontSize:"14px",color:SLATE,marginBottom:"24px" }}>Something went wrong. Let's try again.</div>
+            <button
+  onClick={() => upd(activePillar, { phase: "intake" })}
+  style={{
+    padding: "12px 28px",
+    borderRadius: "10px",
+    border: "none",
+    background: `${PILLARS[activePillar].color}22`,
+    color: PILLARS[activePillar].color,
+    fontWeight: "800",
+    fontSize: "14px",
+    cursor: "pointer"
+  }}
+>
+  RETRY
+</button>
+          </div>
+        )}
+      </div>
 
       {/* - FOOTER - */}
       <div style={{ borderTop:`1px solid ${BORDER}`,padding:"16px 24px",textAlign:"center",background:SURFACE }}>
