@@ -575,11 +575,11 @@ function CoachMessage({ message, pillar, name }) {
       boxShadow:"0 1px 6px rgba(15,28,46,0.05)"
     }}>
       <div style={{ flexShrink:0 }}>
-       <CoachAvatar
-  phase={1}
-  size={56}
-  title="Coach"
-  subtitle="Foundation Mentor"
+      <CoachAvatar
+  size={72}
+  gender="Male"
+  mood="neutral"
+  showRing={true}
 />
       </div>
       <div>
@@ -1014,7 +1014,12 @@ function Loading({ pillar, name, week }) {
     }}
 >
 <div style={{ textAlign:"center" }}>
-      <CoachAvatar size={80} pillar={pillar}/>
+      <CoachAvatar
+  size={120}
+  gender="Male"
+  mood="thinking"
+  showRing={true}
+/>
       <div style={{ marginTop:"24px",marginBottom:"8px" }}>
         <span style={{ fontSize:"13px",fontWeight:"800",color:p.color,letterSpacing:"2px" }}>GENERATING{dots}</span>
       </div>
@@ -1080,7 +1085,12 @@ function IntakeForm({ pillar, profile, onGenerate }) {
         marginBottom:"28px",display:"flex",gap:"16px",alignItems:"center",
         border:`1px solid ${BORDER}`,boxShadow:"0 2px 10px rgba(15,28,46,0.05)"
       }}>
-        <CoachAvatar size={64} pillar={pillar}/>
+        <CoachAvatar
+  size={96}
+  gender="Male"
+  mood="neutral"
+  showRing={true}
+/>
         <div>
           <div style={{ fontSize:"10px",fontWeight:"800",color:p.color,letterSpacing:"2px",marginBottom:"6px" }}>YOUR COACH</div>
           <div style={{ fontSize:"15px",fontWeight:"700",color:NAVY,lineHeight:"1.5" }}>
