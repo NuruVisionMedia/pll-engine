@@ -4,6 +4,7 @@ import {
   MUSCLE_GROUPS,
   COACH_MEDIA
 } from "./data/workoutIntelligence";
+import PLLCoachVisual from "./components/PLLCoachVisual";
 
 // =====================================================
 // PLL ENGINE
@@ -1018,7 +1019,14 @@ function Loading({ pillar, name, week }) {
     }}
 >
 <div style={{ textAlign:"center" }}>
-      <CoachAvatar size={80} pillar={pillar}/>
+      <PLLCoachVisual
+  gender={profile?.gender || "Male"}
+  mode="idle"
+  size={180}
+  title="PLL COACH"
+  subtitle="The Performance Architect"
+  showControls={true}
+/>
       <div style={{ marginTop:"24px",marginBottom:"8px" }}>
         <span style={{ fontSize:"13px",fontWeight:"800",color:p.color,letterSpacing:"2px" }}>GENERATING{dots}</span>
       </div>
