@@ -1021,7 +1021,7 @@ function Loading({ pillar, name, week }) {
 <div style={{ textAlign:"center" }}>
       <PLLCoachVisual
   gender={profile?.gender || "Male"}
-  mode="idle"
+  mode="didYouKnow"
   size={180}
   title="PLL COACH"
   subtitle="The Performance Architect"
