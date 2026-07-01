@@ -1,16 +1,42 @@
 import React, { useState } from "react";
 
+const COACH_MODES = {
+  idle: {
+    label: "COACH READY",
+    title: "PLL COACH",
+    subtitle: "The Performance Architect",
+    button: "PLAY COACH"
+  },
+  didYouKnow: {
+    label: "DID YOU KNOW",
+    title: "PLL KNOWLEDGE DROP",
+    subtitle: "Performance education in motion",
+    button: "PLAY LESSON"
+  },
+  demo: {
+    label: "COACH DEMO",
+    title: "MOVEMENT BREAKDOWN",
+    subtitle: "Watch the form. Learn the standard.",
+    button: "PLAY DEMO"
+  },
+  victory: {
+    label: "BLUEPRINT COMPLETE",
+    title: "WORK COMPLETE",
+    subtitle: "Now execute the plan.",
+    button: "PLAY MESSAGE"
+  }
+};
+
 export default function PLLCoachVisual({
   gender = "Male",
   mode = "idle",
-  size = 140,
-  title = "PLL COACH",
-  subtitle = "The Performance Architect",
+  size = 180,
   showControls = true
 }) {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const isFemale = gender === "Female";
+  const coachMode = COACH_MODES[mode] || COACH_MODES.idle;
 
   const coachImage = isFemale
     ? `${process.env.PUBLIC_URL}/coach-female.png`
@@ -21,21 +47,21 @@ export default function PLLCoachVisual({
     : `${process.env.PUBLIC_URL}/coach-male.jpg`;
 
   const coachVideo = isFemale
-    ? `${process.env.PUBLIC_URL}/coach-female-idle.mp4`
-    : `${process.env.PUBLIC_URL}/coach-male-idle.mp4`;
+    ? `${process.env.PUBLIC_URL}/coach-female-${mode}.mp4`
+    : `${process.env.PUBLIC_URL}/coach-male-${mode}.mp4`;
 
-  const accent = isFemale ? "#9B5CFF" : "#2F80ED";
+  const accent = isFemale ? "#9B5CFF" : "#D4AF37";
 
   return (
     <div
       style={{
         width: size,
         maxWidth: "100%",
-        borderRadius: "18px",
+        borderRadius: "22px",
         overflow: "hidden",
-        background: "#101827",
-        border: `1px solid ${accent}55`,
-        boxShadow: `0 0 28px ${accent}33`
+        background: "#050816",
+        border: `1px solid ${accent}66`,
+        boxShadow: `0 0 34px ${accent}33`
       }}
     >
       <div
@@ -71,7 +97,7 @@ export default function PLLCoachVisual({
               width: "100%",
               height: "100%",
               objectFit: "cover",
-              objectPosition: "50% 18%",
+              objectPosition: "50% 16%",
               display: "block"
             }}
           />
@@ -80,12 +106,30 @@ export default function PLLCoachVisual({
         <div
           style={{
             position: "absolute",
+            top: "12px",
+            left: "12px",
+            padding: "5px 9px",
+            borderRadius: "999px",
+            background: "rgba(5,8,22,0.72)",
+            border: `1px solid ${accent}66`,
+            color: accent,
+            fontSize: "9px",
+            fontWeight: "900",
+            letterSpacing: "1.4px"
+          }}
+        >
+          {coachMode.label}
+        </div>
+
+        <div
+          style={{
+            position: "absolute",
             left: 0,
             right: 0,
             bottom: 0,
-            padding: "14px 12px",
+            padding: "18px 14px",
             background:
-              "linear-gradient(180deg, rgba(5,8,22,0), rgba(5,8,22,0.92))"
+              "linear-gradient(180deg, rgba(5,8,22,0), rgba(5,8,22,0.96))"
           }}
         >
           <div
@@ -94,21 +138,21 @@ export default function PLLCoachVisual({
               fontWeight: "900",
               letterSpacing: "2px",
               color: accent,
-              marginBottom: "4px"
+              marginBottom: "5px"
             }}
           >
-            {title}
+            {coachMode.title}
           </div>
 
           <div
             style={{
-              fontSize: "12px",
-              fontWeight: "700",
+              fontSize: "13px",
+              fontWeight: "800",
               color: "#F8FAFC",
-              lineHeight: "1.25"
+              lineHeight: "1.3"
             }}
           >
-            {subtitle}
+            {coachMode.subtitle}
           </div>
         </div>
       </div>
@@ -119,7 +163,7 @@ export default function PLLCoachVisual({
           onClick={() => setIsPlaying((prev) => !prev)}
           style={{
             width: "100%",
-            padding: "10px 12px",
+            padding: "11px 12px",
             border: "none",
             background: `${accent}22`,
             color: accent,
@@ -129,7 +173,7 @@ export default function PLLCoachVisual({
             cursor: "pointer"
           }}
         >
-          {isPlaying ? "PAUSE COACH" : "PLAY COACH"}
+          {isPlaying ? "PAUSE COACH" : coachMode.button}
         </button>
       )}
     </div>
